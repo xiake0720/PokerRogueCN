@@ -5,6 +5,7 @@ signal sell_requested(index: int)
 signal inspect_requested(joker: Dictionary)
 
 @onready var name_label: Label = $VBox/NameLabel
+@onready var art_frame: PanelContainer = $VBox/ArtFrame
 @onready var art_label: Label = $VBox/ArtFrame/ArtLabel
 @onready var rarity_label: Label = $VBox/RarityLabel
 @onready var sell_button: Button = $VBox/SellButton
@@ -14,7 +15,6 @@ var joker_data: Dictionary = {}
 var _base_scale: Vector2 = Vector2.ONE
 
 func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
 	add_theme_stylebox_override("panel", _panel_style())
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -31,29 +31,31 @@ func setup(joker: Dictionary, index: int, allow_sell: bool = true) -> void:
 	tooltip_text = "%s\n%s" % [name_label.text, str(joker.get("description_cn", ""))]
 	sell_button.visible = allow_sell
 	sell_button.text = "出售 $%d" % int(joker.get("sell_value", 1))
-	_apply_mouse_passthrough(allow_sell)
+	_apply_compact_mode(custom_minimum_size.x <= 80.0)
 
-func _apply_mouse_passthrough(allow_sell: bool) -> void:
-	_set_children_mouse_filter(self, allow_sell)
-	sell_button.mouse_filter = Control.MOUSE_FILTER_STOP if allow_sell else Control.MOUSE_FILTER_IGNORE
-
-func _set_children_mouse_filter(node: Node, allow_sell: bool) -> void:
-	for child in node.get_children():
-		if child is Control and child != sell_button:
-			var control: Control = child as Control
-			control.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_set_children_mouse_filter(child, allow_sell)
+func _apply_compact_mode(compact: bool) -> void:
+	if compact:
+		name_label.add_theme_font_size_override("font_size", 10)
+		art_label.add_theme_font_size_override("font_size", 10)
+		rarity_label.add_theme_font_size_override("font_size", 9)
+		art_frame.custom_minimum_size = Vector2(0, 32)
+		custom_minimum_size = Vector2(70, 70)
+	else:
+		name_label.add_theme_font_size_override("font_size", 18)
+		art_label.add_theme_font_size_override("font_size", 20)
+		rarity_label.add_theme_font_size_override("font_size", 16)
+		art_frame.custom_minimum_size = Vector2(0, 88)
 
 func _panel_style() -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.88, 0.9, 0.84, 0.98)
 	style.border_color = Color(0.08, 0.11, 0.13)
-	style.set_border_width_all(5)
-	style.set_corner_radius_all(12)
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
+	style.set_border_width_all(3)
+	style.set_corner_radius_all(8)
+	style.content_margin_left = 8
+	style.content_margin_top = 8
+	style.content_margin_right = 8
+	style.content_margin_bottom = 8
 	return style
 
 func _rarity_text(rarity: String) -> String:
@@ -68,7 +70,7 @@ func _rarity_text(rarity: String) -> String:
 			return "普通"
 
 func _on_mouse_entered() -> void:
-	z_index = 200
+	z_index = 20
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)

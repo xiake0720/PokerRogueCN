@@ -1,7 +1,6 @@
 class_name HandEvaluator
 extends RefCounted
 
-
 static func evaluate(played_cards: Array, rules: Dictionary = {}) -> Dictionary:
 	var cards: Array = played_cards.duplicate(true)
 	var stone_cards: Array = cards.filter(func(c: Dictionary) -> bool: return c.get("enhancement", "") == "stone")

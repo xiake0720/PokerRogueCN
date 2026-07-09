@@ -29,73 +29,73 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Dialog" type="PanelContainer" parent="Center"]
-custom_minimum_size = Vector2(1140.0, 915.0)
+custom_minimum_size = Vector2(1040, 760)
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="Center/Dialog"]
 layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 33
-theme_override_constants/margin_right = 36
-theme_override_constants/margin_bottom = 33
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 30
 
 [node name="VBox" type="VBoxContainer" parent="Center/Dialog/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 21
+theme_override_constants/separation = 14
 
 [node name="Tabs" type="HBoxContainer" parent="Center/Dialog/Margin/VBox"]
 layout_mode = 2
 alignment = 1
-theme_override_constants/separation = 18
+theme_override_constants/separation = 12
 
 [node name="NewRunButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs"]
-custom_minimum_size = Vector2(225.0, 84.0)
+custom_minimum_size = Vector2(150, 56)
 layout_mode = 2
 text = "新一局"
 
 [node name="ContinueButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs"]
-custom_minimum_size = Vector2(225.0, 84.0)
+custom_minimum_size = Vector2(150, 56)
 layout_mode = 2
 text = "继续"
 
 [node name="ChallengeButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs"]
-custom_minimum_size = Vector2(225.0, 84.0)
+custom_minimum_size = Vector2(150, 56)
 layout_mode = 2
 text = "挑战"
 
 [node name="DeckRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox"]
-custom_minimum_size = Vector2(0.0, 330.0)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 alignment = 1
-theme_override_constants/separation = 24
+theme_override_constants/separation = 16
 
 [node name="PrevDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow"]
-custom_minimum_size = Vector2(81.0, 285.0)
+custom_minimum_size = Vector2(70, 260)
 layout_mode = 2
 text = "<"
 
 [node name="DeckCard" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow"]
-custom_minimum_size = Vector2(840.0, 315.0)
+custom_minimum_size = Vector2(740, 280)
 layout_mode = 2
 
 [node name="DeckCardMargin" type="MarginContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard"]
 layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="DeckInfoRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin"]
 layout_mode = 2
-theme_override_constants/separation = 27
+theme_override_constants/separation = 18
 
 [node name="DeckBack" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow"]
-custom_minimum_size = Vector2(195.0, 264.0)
+custom_minimum_size = Vector2(168, 230)
 layout_mode = 2
 
 [node name="DeckBackLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckBack"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "牌背"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -103,18 +103,18 @@ vertical_alignment = 1
 [node name="DeckText" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 18
+theme_override_constants/separation = 12
 
 [node name="DeckNameLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 42
 text = "红色牌组"
 horizontal_alignment = 1
 
 [node name="DeckDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 28
 text = "说明"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -127,23 +127,23 @@ text = "回合 4  弃牌 3  资金 $4"
 horizontal_alignment = 1
 
 [node name="NextDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow"]
-custom_minimum_size = Vector2(81.0, 285.0)
+custom_minimum_size = Vector2(70, 260)
 layout_mode = 2
 text = ">"
 
 [node name="DifficultyRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox"]
-custom_minimum_size = Vector2(0.0, 144.0)
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 alignment = 1
-theme_override_constants/separation = 21
+theme_override_constants/separation = 14
 
 [node name="PrevStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow"]
-custom_minimum_size = Vector2(75.0, 123.0)
+custom_minimum_size = Vector2(50, 82)
 layout_mode = 2
 text = "<"
 
 [node name="DifficultyPanel" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow"]
-custom_minimum_size = Vector2(780.0, 129.0)
+custom_minimum_size = Vector2(700, 108)
 layout_mode = 2
 
 [node name="DifficultyVBox" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel"]
@@ -151,7 +151,7 @@ layout_mode = 2
 
 [node name="StakeLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 28
 text = "基础难度"
 horizontal_alignment = 1
 
@@ -162,16 +162,16 @@ text = "标准规则，适合测试完整流程。"
 horizontal_alignment = 1
 
 [node name="NextStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow"]
-custom_minimum_size = Vector2(75.0, 123.0)
+custom_minimum_size = Vector2(50, 82)
 layout_mode = 2
 text = ">"
 
 [node name="StartButton" type="Button" parent="Center/Dialog/Margin/VBox"]
-custom_minimum_size = Vector2(0.0, 105.0)
+custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
 text = "开始游戏"
 
 [node name="BackButton" type="Button" parent="Center/Dialog/Margin/VBox"]
-custom_minimum_size = Vector2(0.0, 81.0)
+custom_minimum_size = Vector2(0, 66)
 layout_mode = 2
 text = "返回"

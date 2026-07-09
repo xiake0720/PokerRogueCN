@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://settlement_screen"]
+[gd_scene load_steps=3 format=3 uid="uid://settlement_screen"]
 
 [ext_resource type="Script" path="res://scripts/game/settlement_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/settlement_reward_panel.png" id="2_reward"]
 
 [node name="SettlementScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +12,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
+[node name="RewardArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -570.0
+offset_top = -450.0
+offset_right = 570.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_reward")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -18,16 +36,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Panel" type="PanelContainer" parent="Center"]
-custom_minimum_size = Vector2(930.0, 645.0)
+custom_minimum_size = Vector2(760, 540)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="Center/Panel"]
 layout_mode = 2
-theme_override_constants/separation = 21
+theme_override_constants/separation = 18
 
 [node name="TitleLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 text = "关卡结算"
 
@@ -37,8 +55,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 12
 
 [node name="ClaimButton" type="Button" parent="Center/Panel/VBox"]
-custom_minimum_size = Vector2(0.0, 96.0)
+custom_minimum_size = Vector2(0, 78)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 30
 text = "领取奖励"
-

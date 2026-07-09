@@ -3,164 +3,134 @@
 [ext_resource type="Script" path="res://scripts/game/game_hud_panel.gd" id="1_script"]
 
 [node name="GameHudPanel" type="PanelContainer"]
-custom_minimum_size = Vector2(438.0, 0.0)
+custom_minimum_size = Vector2(380, 0)
 script = ExtResource("1_script")
 
-[node name="LeftVBox" type="VBoxContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
 
-[node name="ShopSign" type="PanelContainer" parent="LeftVBox"]
-visible = false
-custom_minimum_size = Vector2(0.0, 210.0)
+[node name="VBox" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
+theme_override_constants/separation = 14
 
-[node name="ShopSignVBox" type="VBoxContainer" parent="LeftVBox/ShopSign"]
+[node name="TitleLabel" type="Label" parent="Margin/VBox"]
 layout_mode = 2
-
-[node name="ShopTitleLabel" type="Label" parent="LeftVBox/ShopSign/ShopSignVBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.82, 0.36, 1)
-theme_override_font_sizes/font_size = 72
-text = "SHOP"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ShopSubLabel" type="Label" parent="LeftVBox/ShopSign/ShopSignVBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.96, 0.78, 0.32, 1)
-theme_override_font_sizes/font_size = 30
-text = "来变强吧！"
-horizontal_alignment = 1
-
-[node name="PromptLabel" type="Label" parent="LeftVBox"]
-visible = false
-custom_minimum_size = Vector2(0.0, 126.0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "选择你的\n下一关"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StageLabel" type="Label" parent="LeftVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 38
 text = "关卡"
 horizontal_alignment = 1
 
-[node name="StageDesc" type="Label" parent="LeftVBox"]
+[node name="DescLabel" type="Label" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.84, 0.88, 0.9, 1)
-theme_override_font_sizes/font_size = 18
-text = "至少得分 300"
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.86, 0.91, 0.86, 1)
+text = "基础规则"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ScoreBox" type="PanelContainer" parent="LeftVBox"]
-custom_minimum_size = Vector2(0.0, 123.0)
+[node name="ScoreBox" type="PanelContainer" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 104)
 layout_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="LeftVBox/ScoreBox"]
+[node name="ScoreLabel" type="Label" parent="Margin/VBox/ScoreBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 42
 text = "0 / 300"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SelectedHandBox" type="PanelContainer" parent="LeftVBox"]
-custom_minimum_size = Vector2(0.0, 204.0)
+[node name="HandBox" type="PanelContainer" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 154)
 layout_mode = 2
 
-[node name="SelectedHandVBox" type="VBoxContainer" parent="LeftVBox/SelectedHandBox"]
+[node name="HandVBox" type="VBoxContainer" parent="Margin/VBox/HandBox"]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
-[node name="CurrentHandLabel" type="Label" parent="LeftVBox/SelectedHandBox/SelectedHandVBox"]
+[node name="CurrentHandLabel" type="Label" parent="Margin/VBox/HandBox/HandVBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 30
 text = "选择手牌"
 horizontal_alignment = 1
 
-[node name="EquationLabel" type="Label" parent="LeftVBox/SelectedHandBox/SelectedHandVBox"]
+[node name="EquationLabel" type="Label" parent="Margin/VBox/HandBox/HandVBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 50
 text = "0 x 0"
 horizontal_alignment = 1
 
-[node name="PreviewScoreLabel" type="Label" parent="LeftVBox/SelectedHandBox/SelectedHandVBox"]
+[node name="PreviewScoreLabel" type="Label" parent="Margin/VBox/HandBox/HandVBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.72, 0.24, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(1, 0.79, 0.27, 1)
 text = "最多选择 5 张牌"
 horizontal_alignment = 1
-autowrap_mode = 3
 
-[node name="CountsGrid" type="GridContainer" parent="LeftVBox"]
+[node name="CountsGrid" type="GridContainer" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_constants/h_separation = 12
-theme_override_constants/v_separation = 9
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 8
 columns = 2
 
-[node name="HandsTitle" type="Label" parent="LeftVBox/CountsGrid"]
+[node name="HandsTitle" type="Label" parent="Margin/VBox/CountsGrid"]
 layout_mode = 2
 text = "出牌"
 horizontal_alignment = 1
 
-[node name="DiscardsTitle" type="Label" parent="LeftVBox/CountsGrid"]
+[node name="DiscardsTitle" type="Label" parent="Margin/VBox/CountsGrid"]
 layout_mode = 2
 text = "弃牌"
 horizontal_alignment = 1
 
-[node name="HandsLabel" type="Label" parent="LeftVBox/CountsGrid"]
+[node name="HandsLabel" type="Label" parent="Margin/VBox/CountsGrid"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.1, 0.6, 1, 1)
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 44
+theme_override_colors/font_color = Color(0.18, 0.62, 1, 1)
 text = "4"
 horizontal_alignment = 1
 
-[node name="DiscardsLabel" type="Label" parent="LeftVBox/CountsGrid"]
+[node name="DiscardsLabel" type="Label" parent="Margin/VBox/CountsGrid"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.25, 0.22, 1)
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 44
+theme_override_colors/font_color = Color(1, 0.24, 0.22, 1)
 text = "3"
 horizontal_alignment = 1
 
-[node name="MoneyLabel" type="Label" parent="LeftVBox"]
-custom_minimum_size = Vector2(0.0, 84.0)
+[node name="MoneyLabel" type="Label" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.96, 0.7, 0.23, 1)
-theme_override_font_sizes/font_size = 57
-text = "$0"
+theme_override_font_sizes/font_size = 44
+theme_override_colors/font_color = Color(1, 0.76, 0.25, 1)
+text = "$4"
 horizontal_alignment = 1
 
-[node name="DeckLabel" type="Label" parent="LeftVBox"]
+[node name="DeckLabel" type="Label" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 21
 text = "牌库 52 / 弃牌堆 0"
 horizontal_alignment = 1
 
-[node name="HandListToggle" type="Button" parent="LeftVBox"]
+[node name="HandListToggle" type="Button" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "牌型等级  +"
 
-[node name="HandInfoScroll" type="ScrollContainer" parent="LeftVBox"]
+[node name="HandInfoScroll" type="ScrollContainer" parent="Margin/VBox"]
 visible = false
-custom_minimum_size = Vector2(0.0, 210.0)
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="HandInfo" type="RichTextLabel" parent="LeftVBox/HandInfoScroll"]
+[node name="HandInfo" type="RichTextLabel" parent="Margin/VBox/HandInfoScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-fit_content = true
-scroll_active = false
-selection_enabled = true
 
-[node name="OptionsButton" type="Button" parent="LeftVBox"]
-custom_minimum_size = Vector2(0.0, 75.0)
+[node name="OptionsButton" type="Button" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "选项"

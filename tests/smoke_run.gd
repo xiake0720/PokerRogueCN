@@ -23,8 +23,7 @@ func _ready() -> void:
 		push_error("Smoke failed: play_selected returned empty result.")
 		get_tree().quit(1)
 		return
-	var score_result_value: Variant = result.get("score_result", {})
-	var score_result: Dictionary = score_result_value if score_result_value is Dictionary else {}
+	var score_result: Dictionary = result.get("score_result", {})
 	if int(score_result.get("score", 0)) <= 0:
 		push_error("Smoke failed: score result is invalid.")
 		get_tree().quit(1)

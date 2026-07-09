@@ -1,87 +1,52 @@
 class_name PlayingCardView
 extends Button
 
-
 signal card_selection_changed(card_id: String, selected: bool)
 
-const HOVER_SCALE: float = 1.08
-const HOVER_DURATION: float = 0.10
+const HOVER_SCALE: Vector2 = Vector2(1.08, 1.08)
+
+@onready var card_art: TextureRect = $CardArt
 
 var card_data: Dictionary = {}
 var _selected: bool = false
-var _is_interactive: bool = true
-var _hovered: bool = false
-var _hover_tween: Tween = null
+var _scale_tween: Tween = null
 
 func _ready() -> void:
 	pressed.connect(_emit_selection)
-	pivot_offset = custom_minimum_size * 0.5
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	_apply_style()
+	focus_mode = Control.FOCUS_NONE
+	pivot_offset = custom_minimum_size * 0.5
+	_apply_flat_style()
 
 func setup(card: Dictionary) -> void:
 	card_data = card
-	text = CardConstants.card_title(card)
-	add_theme_font_size_override("font_size", 30)
-	var text_color: Color = _text_color()
-	add_theme_color_override("font_color", text_color)
-	add_theme_color_override("font_hover_color", text_color)
-	add_theme_color_override("font_pressed_color", text_color)
-	add_theme_color_override("font_hover_pressed_color", text_color)
-	add_theme_color_override("font_focus_color", text_color)
-	add_theme_color_override("font_disabled_color", text_color)
-	_apply_style()
-
-func set_interactive(value: bool) -> void:
-	_is_interactive = value
-	disabled = false
-	mouse_filter = Control.MOUSE_FILTER_STOP if value else Control.MOUSE_FILTER_IGNORE
-	focus_mode = Control.FOCUS_ALL if value else Control.FOCUS_NONE
-	if not value:
-		_hovered = false
-		_set_hover_scale(false, false)
-	_apply_style()
+	text = ""
+	tooltip_text = CardConstants.card_title(card)
+	var texture_path: String = _face_texture_path(card)
+	if ResourceLoader.exists(texture_path):
+		card_art.texture = load(texture_path)
+	else:
+		card_art.texture = null
+	_apply_flat_style()
 
 func set_selected_without_signal(selected: bool) -> void:
 	_selected = selected
 	set_pressed_no_signal(selected)
-	_apply_style()
-
-func reset_visual_state() -> void:
-	_hovered = false
-	set_pressed_no_signal(false)
-	_selected = false
-	_set_hover_scale(false, false)
-	_apply_style()
+	_apply_flat_style()
 
 func _emit_selection() -> void:
-	if not _is_interactive:
-		set_pressed_no_signal(false)
-		return
 	_selected = button_pressed
-	_apply_style()
+	_apply_flat_style()
 	card_selection_changed.emit(str(card_data.get("instance_id", "")), button_pressed)
 
-func _text_color() -> Color:
-	var suit: String = str(card_data.get("suit", ""))
-	if suit == "hearts" or suit == "diamonds":
-		return Color(0.72, 0.08, 0.1)
-	return Color(0.08, 0.09, 0.13)
+func _face_texture_path(card: Dictionary) -> String:
+	var rank: String = str(card.get("rank", "A")).to_lower()
+	var suit: String = str(card.get("suit", "spades"))
+	return "res://assets/cards/poker/faces/%s_%s.png" % [rank, suit]
 
-func _apply_style() -> void:
-	# 正式交互规范：扑克牌 hover / pressed / selected 不换色，只保留同一套牌面样式。
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.96, 0.93, 0.84)
-	style.border_color = Color(0.08, 0.09, 0.12)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(12)
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
+func _apply_flat_style() -> void:
+	var style: StyleBoxEmpty = StyleBoxEmpty.new()
 	add_theme_stylebox_override("normal", style)
 	add_theme_stylebox_override("hover", style)
 	add_theme_stylebox_override("pressed", style)
@@ -89,24 +54,15 @@ func _apply_style() -> void:
 	add_theme_stylebox_override("disabled", style)
 
 func _on_mouse_entered() -> void:
-	if not _is_interactive:
-		return
-	_hovered = true
-	_set_hover_scale(true, true)
+	_tween_scale(HOVER_SCALE)
 
 func _on_mouse_exited() -> void:
-	_hovered = false
-	_set_hover_scale(false, true)
+	_tween_scale(Vector2.ONE)
 
-func _set_hover_scale(active: bool, animated: bool) -> void:
-	if _hover_tween != null and _hover_tween.is_valid():
-		_hover_tween.kill()
-	var target_scale: Vector2 = Vector2(HOVER_SCALE, HOVER_SCALE) if active else Vector2.ONE
-	pivot_offset = size * 0.5
-	if animated and is_inside_tree():
-		_hover_tween = create_tween()
-		_hover_tween.set_trans(Tween.TRANS_BACK)
-		_hover_tween.set_ease(Tween.EASE_OUT)
-		_hover_tween.tween_property(self, "scale", target_scale, HOVER_DURATION)
-	else:
-		scale = target_scale
+func _tween_scale(target_scale: Vector2) -> void:
+	if _scale_tween != null and _scale_tween.is_valid():
+		_scale_tween.kill()
+	_scale_tween = create_tween()
+	_scale_tween.set_trans(Tween.TRANS_BACK)
+	_scale_tween.set_ease(Tween.EASE_OUT)
+	_scale_tween.tween_property(self, "scale", target_scale, 0.12)

@@ -32,6 +32,7 @@ func _on_run_changed() -> void:
 			current_screen.refresh()
 		return
 	current_phase = Game.run.phase
+	_sync_bgm_for_phase(current_phase)
 	_load_screen(SCREEN_BY_PHASE.get(current_phase, SCREEN_BY_PHASE[RunState.Phase.HOME]))
 
 func _load_screen(path: String) -> void:
@@ -57,3 +58,12 @@ func _animate_screen_in(screen: Control) -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(screen, "modulate:a", 1.0, 0.18)
 	tween.parallel().tween_property(screen, "position:y", 0.0, 0.18)
+
+func _sync_bgm_for_phase(phase: int) -> void:
+	match phase:
+		RunState.Phase.SHOP:
+			AudioManager.play_bgm("shop_loop")
+		RunState.Phase.STAGE_SELECT, RunState.Phase.ROUND, RunState.Phase.SETTLEMENT:
+			AudioManager.play_bgm("game_loop")
+		_:
+			AudioManager.play_bgm("menu_loop")

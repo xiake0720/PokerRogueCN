@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://main_menu_screen"]
+[gd_scene load_steps=4 format=3 uid="uid://main_menu_screen"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/home_title_panel.png" id="2_title_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/home_card_pile.png" id="3_cards"]
 
 [node name="MainMenuScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +13,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
+[node name="CardPileArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -360.0
+offset_right = 520.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_cards")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -20,22 +39,35 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="PanelContainer" parent="Center"]
-custom_minimum_size = Vector2(1080.0, 645.0)
+custom_minimum_size = Vector2(900, 520)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="Center/Panel"]
 layout_mode = 2
-theme_override_constants/separation = 27
+theme_override_constants/separation = 24
 
-[node name="TitleLabel" type="Label" parent="Center/Panel/VBox"]
+[node name="TitleArt" type="TextureRect" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 81
+texture = ExtResource("2_title_panel")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/VBox/TitleArt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
 horizontal_alignment = 1
-text = "牌局构筑"
+vertical_alignment = 1
+text = "炸分扑克"
 
 [node name="SubtitleLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 text = "中文扑克 Roguelike 构筑游戏"
 
@@ -45,26 +77,26 @@ alignment = 1
 theme_override_constants/separation = 18
 
 [node name="StartButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(315.0, 105.0)
+custom_minimum_size = Vector2(260, 86)
 layout_mode = 2
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 34
 text = "开始游戏"
 
 [node name="OptionsButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(225.0, 105.0)
+custom_minimum_size = Vector2(180, 86)
 layout_mode = 2
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 30
 text = "选项"
 
 [node name="QuitButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(225.0, 105.0)
+custom_minimum_size = Vector2(180, 86)
 layout_mode = 2
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 30
 text = "退出"
 
 [node name="TipLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.75, 0.8, 0.86, 1)
+theme_override_colors/font_color = Color(0.9, 0.82, 0.55, 1)
+theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
-text = "正式资源未接入前，界面使用场景化占位美术。"
-
+text = "正式美术资源接入版"

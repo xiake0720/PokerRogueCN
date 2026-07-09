@@ -7,23 +7,23 @@ transparent_bg = true
 script = ExtResource("1_script")
 
 [node name="Panel" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(630.0, 360.0)
+custom_minimum_size = Vector2(420, 240)
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="Panel"]
 layout_mode = 2
-theme_override_constants/margin_left = 27
-theme_override_constants/margin_top = 27
-theme_override_constants/margin_right = 27
-theme_override_constants/margin_bottom = 27
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
 
 [node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 
 [node name="TitleLabel" type="Label" parent="Panel/Margin/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 28
 text = "小丑牌"
 horizontal_alignment = 1
 
@@ -36,11 +36,11 @@ horizontal_alignment = 1
 [node name="DescLabel" type="Label" parent="Panel/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 18
 text = "说明"
 autowrap_mode = 3
 
 [node name="CloseButton" type="Button" parent="Panel/Margin/VBox"]
-custom_minimum_size = Vector2(0.0, 69.0)
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 text = "关闭"

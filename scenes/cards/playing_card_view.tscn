@@ -3,9 +3,19 @@
 [ext_resource type="Script" path="res://scripts/cards/playing_card_view.gd" id="1_script"]
 
 [node name="PlayingCardView" type="Button"]
-custom_minimum_size = Vector2(144.0, 204.0)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+custom_minimum_size = Vector2(144, 204)
 toggle_mode = true
-text = "A\n♠"
+text = ""
+flat = true
 script = ExtResource("1_script")
+
+[node name="CardArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

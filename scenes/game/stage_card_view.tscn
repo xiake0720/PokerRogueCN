@@ -3,51 +3,52 @@
 [ext_resource type="Script" path="res://scripts/game/stage_card_view.gd" id="1_script"]
 
 [node name="StageCardView" type="PanelContainer"]
-custom_minimum_size = Vector2(375.0, 540.0)
+custom_minimum_size = Vector2(300, 460)
 script = ExtResource("1_script")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 16
 
 [node name="SelectButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(0.0, 78.0)
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 text = "选择"
 
 [node name="TitleLabel" type="Label" parent="VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "小关卡"
+theme_override_font_sizes/font_size = 32
+text = "小盲注"
 horizontal_alignment = 1
 
 [node name="TokenLabel" type="Label" parent="VBox"]
-custom_minimum_size = Vector2(0.0, 105.0)
+custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 30
 text = "SMALL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TargetLabel" type="Label" parent="VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 33
-text = "至少得分\n300"
+theme_override_font_sizes/font_size = 28
+text = "至少得分 300"
 horizontal_alignment = 1
 
 [node name="RewardLabel" type="Label" parent="VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.7, 0.22, 1)
+theme_override_font_sizes/font_size = 26
 text = "奖励：$$$"
 horizontal_alignment = 1
 
 [node name="OrLabel" type="Label" parent="VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 30
 text = "或"
 horizontal_alignment = 1
 
 [node name="SkipButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(0.0, 81.0)
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 text = "跳过关卡"

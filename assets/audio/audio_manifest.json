@@ -1,0 +1,39 @@
+{
+  "copyright": "Original procedural audio generated for PokerRogueCN. Do not use Balatro original audio.",
+  "bgm": {
+    "menu_loop": "res://assets/audio/bgm/menu_loop.ogg",
+    "game_loop": "res://assets/audio/bgm/game_loop.ogg",
+    "shop_loop": "res://assets/audio/bgm/shop_loop.ogg"
+  },
+  "sfx": {
+    "ui_click": "res://assets/audio/sfx/ui_click.wav",
+    "ui_hover_tick": "res://assets/audio/sfx/ui_hover_tick.wav",
+    "ui_error": "res://assets/audio/sfx/ui_error.wav",
+    "modal_open": "res://assets/audio/sfx/modal_open.wav",
+    "modal_close": "res://assets/audio/sfx/modal_close.wav",
+    "deck_switch": "res://assets/audio/sfx/deck_switch.wav",
+    "difficulty_toggle": "res://assets/audio/sfx/difficulty_toggle.wav",
+    "deal_card": "res://assets/audio/sfx/deal_card.wav",
+    "select_card": "res://assets/audio/sfx/select_card.wav",
+    "deselect_card": "res://assets/audio/sfx/deselect_card.wav",
+    "play_cards": "res://assets/audio/sfx/play_cards.wav",
+    "discard_cards": "res://assets/audio/sfx/discard_cards.wav",
+    "flip_card": "res://assets/audio/sfx/flip_card.wav",
+    "chips_count": "res://assets/audio/sfx/chips_count.wav",
+    "multiplier_up": "res://assets/audio/sfx/multiplier_up.wav",
+    "joker_trigger": "res://assets/audio/sfx/joker_trigger.wav",
+    "joker_rare_trigger": "res://assets/audio/sfx/joker_rare_trigger.wav",
+    "score_target_reached": "res://assets/audio/sfx/score_target_reached.wav",
+    "round_fail": "res://assets/audio/sfx/round_fail.wav",
+    "purchase_card": "res://assets/audio/sfx/purchase_card.wav",
+    "sell_card": "res://assets/audio/sfx/sell_card.wav",
+    "shop_reroll": "res://assets/audio/sfx/shop_reroll.wav",
+    "booster_open": "res://assets/audio/sfx/booster_open.wav",
+    "tarot_use": "res://assets/audio/sfx/tarot_use.wav",
+    "planet_use": "res://assets/audio/sfx/planet_use.wav",
+    "spectral_use": "res://assets/audio/sfx/spectral_use.wav",
+    "card_upgrade": "res://assets/audio/sfx/card_upgrade.wav",
+    "card_destroy": "res://assets/audio/sfx/card_destroy.wav",
+    "shuffle_cards": "res://assets/audio/sfx/shuffle_cards.wav"
+  }
+}

@@ -1,7 +1,6 @@
 class_name ScoreEngine
 extends RefCounted
 
-
 static func calculate(played_cards: Array, hand_result: Dictionary, run: RunState) -> Dictionary:
 	var hand_data: Dictionary = DataRegistry.find_by_id("poker_hands", str(hand_result.get("id", "high_card")))
 	if hand_data.is_empty():

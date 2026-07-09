@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/shop/shop_offer_card.gd" id="1_script"]
 
 [node name="ShopOfferCard" type="PanelContainer"]
-custom_minimum_size = Vector2(170.0, 270.0)
+custom_minimum_size = Vector2(160, 236)
 script = ExtResource("1_script")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="PriceLabel" type="Label" parent="VBox"]
 layout_mode = 2
@@ -18,19 +18,19 @@ text = "$5"
 horizontal_alignment = 1
 
 [node name="ArtPanel" type="PanelContainer" parent="VBox"]
-custom_minimum_size = Vector2(0.0, 108.0)
+custom_minimum_size = Vector2(0, 108)
 layout_mode = 2
 
 [node name="ArtLabel" type="Label" parent="VBox/ArtPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 text = "ITEM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NameLabel" type="Label" parent="VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "商品"
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -43,7 +43,6 @@ text = "类型"
 horizontal_alignment = 1
 
 [node name="BuyButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(0.0, 46.0)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
 text = "购买"

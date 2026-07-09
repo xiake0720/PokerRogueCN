@@ -1,30 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://deck_pile_view"]
+[gd_scene format=3 uid="uid://c58v186t7gdmt"]
 
 [ext_resource type="Script" path="res://scripts/cards/deck_pile_view.gd" id="1_script"]
 
-[node name="DeckPileView" type="PanelContainer"]
-custom_minimum_size = Vector2(150.0, 216.0)
+[node name="DeckPileView" type="PanelContainer" unique_id=146152006]
+custom_minimum_size = Vector2(150, 216)
 script = ExtResource("1_script")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=1795213497]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
+[node name="VBox" type="VBoxContainer" parent="Margin" unique_id=2123366618]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="BackLabel" type="Label" parent="Margin/VBox"]
+[node name="BackLabel" type="Label" parent="Margin/VBox" unique_id=335138760]
 layout_mode = 2
 size_flags_vertical = 3
 text = "牌背"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CountLabel" type="Label" parent="Margin/VBox"]
+[node name="CountLabel" type="Label" parent="Margin/VBox" unique_id=581778587]
 layout_mode = 2
 text = "52/52"
 horizontal_alignment = 1

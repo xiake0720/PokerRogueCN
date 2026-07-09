@@ -1,0 +1,202 @@
+[
+  {
+    "source": "首页/ChatGPT Image 2026年7月9日 21_34_44 (3).png",
+    "target": "ui/panels/home_title_panel.png",
+    "size": [
+      1548,
+      634
+    ]
+  },
+  {
+    "source": "首页/ChatGPT Image 2026年7月9日 21_34_44 (4).png",
+    "target": "ui/panels/home_logo_text.png",
+    "size": [
+      681,
+      196
+    ]
+  },
+  {
+    "source": "首页/ChatGPT Image 2026年7月9日 21_34_44 (8).png",
+    "target": "ui/panels/home_card_pile.png",
+    "size": [
+      1451,
+      806
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_35_51 (3).png",
+    "target": "ui/panels/game_hud_panel.png",
+    "size": [
+      1407,
+      891
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_35_51 (4).png",
+    "target": "ui/panels/top_joker_shelf.png",
+    "size": [
+      1585,
+      233
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_35_51 (5).png",
+    "target": "ui/panels/right_deck_stack_panel.png",
+    "size": [
+      627,
+      804
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_35_51 (6).png",
+    "target": "ui/panels/played_cards_zone.png",
+    "size": [
+      634,
+      268
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_35_51 (7).png",
+    "target": "ui/panels/hand_cards_zone.png",
+    "size": [
+      1220,
+      156
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_36_30 (1).png",
+    "target": "ui/buttons/button_primary_large.png",
+    "size": [
+      1552,
+      526
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_36_30 (2).png",
+    "target": "ui/buttons/button_red.png",
+    "size": [
+      779,
+      362
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_36_30 (3).png",
+    "target": "ui/buttons/button_gold.png",
+    "size": [
+      1039,
+      407
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_36_30 (4).png",
+    "target": "ui/buttons/button_blue.png",
+    "size": [
+      1445,
+      500
+    ]
+  },
+  {
+    "source": "出牌页面/ChatGPT Image 2026年7月9日 21_36_30 (5).png",
+    "target": "ui/buttons/button_tabs_strip.png",
+    "size": [
+      1804,
+      122
+    ]
+  },
+  {
+    "source": "商店/ChatGPT Image 2026年7月9日 21_37_47 (2).png",
+    "target": "ui/panels/shop_frame.png",
+    "size": [
+      1407,
+      1044
+    ]
+  },
+  {
+    "source": "商店/ChatGPT Image 2026年7月9日 21_37_47 (3).png",
+    "target": "ui/panels/shop_components_sheet.png",
+    "size": [
+      1319,
+      960
+    ]
+  },
+  {
+    "source": "商店/ChatGPT Image 2026年7月9日 21_37_47 (6).png",
+    "target": "ui/panels/shop_coins_decoration.png",
+    "size": [
+      1419,
+      985
+    ]
+  },
+  {
+    "source": "关卡页面/ChatGPT Image 2026年7月9日 21_37_34 (4).png",
+    "target": "ui/panels/stage_card_gold.png",
+    "size": [
+      760,
+      1366
+    ]
+  },
+  {
+    "source": "关卡页面/ChatGPT Image 2026年7月9日 21_37_34 (5).png",
+    "target": "ui/panels/stage_card_green.png",
+    "size": [
+      608,
+      1390
+    ]
+  },
+  {
+    "source": "关卡页面/ChatGPT Image 2026年7月9日 21_37_34 (6).png",
+    "target": "ui/panels/stage_card_black.png",
+    "size": [
+      826,
+      1335
+    ]
+  },
+  {
+    "source": "结算页面/ChatGPT Image 2026年7月9日 21_38_08.png",
+    "target": "ui/panels/settlement_reward_panel.png",
+    "size": [
+      1344,
+      1107
+    ]
+  },
+  {
+    "source": "选牌颜色/ChatGPT Image 2026年7月9日 21_37_59.png",
+    "target": "ui/panels/deck_select_components_sheet.png",
+    "size": [
+      1370,
+      1091
+    ]
+  },
+  {
+    "source": "扑克牌/ChatGPT Image 2026年7月9日 21_35_12.png",
+    "target": "cards/poker/elements/card_face_blank.png",
+    "size": [
+      949,
+      1461
+    ]
+  },
+  {
+    "source": "扑克牌/ChatGPT Image 2026年7月9日 21_34_58.png",
+    "target": "cards/poker/elements/suit_symbols_sheet.png",
+    "size": [
+      975,
+      939
+    ]
+  },
+  {
+    "source": "扑克牌/ChatGPT Image 2026年7月9日 21_35_26.png",
+    "target": "cards/poker/elements/ranks_black_sheet.png",
+    "size": [
+      1079,
+      951
+    ]
+  },
+  {
+    "source": "扑克牌/ChatGPT Image 2026年7月9日 21_36_36.png",
+    "target": "cards/poker/elements/ranks_red_sheet.png",
+    "size": [
+      1145,
+      1004
+    ]
+  }
+]

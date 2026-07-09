@@ -1,2 +1,3 @@
-PokerRogueCN_1920_1080_FIX_F
-修复出牌卡牌飞到右下角：出牌区改为固定坐标 Control，出牌目标点手动计算，不再依赖 HBoxContainer；出牌卡继续复用手牌卡牌对象。
+PokerRogueCN_1920_1080_ASSET_REPLACE_A_SLIM
+Build date: 2026-07-09
+Download-safe package: large reference images removed, font subset applied, card textures resized for runtime use.

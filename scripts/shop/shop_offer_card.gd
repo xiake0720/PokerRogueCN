@@ -15,7 +15,6 @@ var item_index: int = -1
 var item_data: Dictionary = {}
 
 func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
 	add_theme_stylebox_override("panel", _panel_style())
 	art_panel.add_theme_stylebox_override("panel", _art_style(Color(0.82, 0.2, 0.18)))
 	buy_button.pressed.connect(func() -> void: buy_requested.emit(item_index))
@@ -23,18 +22,6 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	pivot_offset = custom_minimum_size * 0.5
-	_apply_mouse_passthrough()
-
-func _apply_mouse_passthrough() -> void:
-	_set_children_mouse_filter(self)
-	buy_button.mouse_filter = Control.MOUSE_FILTER_STOP
-
-func _set_children_mouse_filter(node: Node) -> void:
-	for child in node.get_children():
-		if child is Control and child != buy_button:
-			var control: Control = child as Control
-			control.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_set_children_mouse_filter(child)
 
 func setup(item: Dictionary, index: int, kind: String) -> void:
 	item_index = index
@@ -110,18 +97,18 @@ func _panel_style() -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.13, 0.19, 0.2, 0.98)
 	style.border_color = Color(0.05, 0.09, 0.1)
-	style.set_border_width_all(5)
-	style.set_corner_radius_all(13)
-	style.content_margin_left = 14
-	style.content_margin_top = 12
-	style.content_margin_right = 14
-	style.content_margin_bottom = 12
+	style.set_border_width_all(3)
+	style.set_corner_radius_all(9)
+	style.content_margin_left = 6
+	style.content_margin_top = 6
+	style.content_margin_right = 6
+	style.content_margin_bottom = 6
 	return style
 
 func _art_style(color: Color) -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = color
 	style.border_color = Color(0.92, 0.92, 0.86)
-	style.set_border_width_all(5)
-	style.set_corner_radius_all(12)
+	style.set_border_width_all(3)
+	style.set_corner_radius_all(8)
 	return style

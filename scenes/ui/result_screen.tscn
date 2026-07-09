@@ -18,22 +18,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Panel" type="PanelContainer" parent="Center"]
-custom_minimum_size = Vector2(840.0, 495.0)
+custom_minimum_size = Vector2(760, 430)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="Center/Panel"]
 layout_mode = 2
-theme_override_constants/separation = 27
+theme_override_constants/separation = 24
 
 [node name="TitleLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 63
+theme_override_font_sizes/font_size = 56
 horizontal_alignment = 1
 text = "结果"
 
 [node name="DescLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 text = "说明"
 
@@ -43,12 +43,11 @@ alignment = 1
 theme_override_constants/separation = 18
 
 [node name="HomeButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(240.0, 90.0)
+custom_minimum_size = Vector2(210, 76)
 layout_mode = 2
 text = "返回首页"
 
 [node name="EndlessButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(240.0, 90.0)
+custom_minimum_size = Vector2(210, 76)
 layout_mode = 2
 text = "无尽模式"
-

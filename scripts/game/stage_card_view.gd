@@ -59,10 +59,10 @@ func _panel_style(active: bool, locked: bool) -> StyleBoxFlat:
 		style.border_color = Color(0.0, 0.52, 0.88)
 	else:
 		style.border_color = Color(0.55, 0.43, 0.16)
-	style.set_border_width_all(6 if active else 3)
-	style.set_corner_radius_all(15)
-	style.content_margin_left = 21
-	style.content_margin_top = 21
-	style.content_margin_right = 21
-	style.content_margin_bottom = 21
+	style.set_border_width_all(4 if active else 2)
+	style.set_corner_radius_all(10)
+	style.content_margin_left = 14
+	style.content_margin_top = 14
+	style.content_margin_right = 14
+	style.content_margin_bottom = 14
 	return style

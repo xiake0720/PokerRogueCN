@@ -34,8 +34,12 @@ func _ready() -> void:
 	prev_stake_button.pressed.connect(func() -> void: _change_stake(-1))
 	next_stake_button.pressed.connect(func() -> void: _change_stake(1))
 	start_button.pressed.connect(_start_game)
-	back_button.pressed.connect(func() -> void: Game.run.show_home())
+	back_button.pressed.connect(func() -> void:
+		AudioManager.play_sfx("modal_close")
+		Game.run.show_home()
+	)
 	decks = DataRegistry.get_table("decks")
+	AudioManager.play_sfx("modal_open")
 	_play_intro()
 	refresh()
 
@@ -60,11 +64,13 @@ func refresh() -> void:
 func _change_deck(direction: int) -> void:
 	if decks.is_empty():
 		return
+	AudioManager.play_sfx("deck_switch")
 	deck_index = int(posmod(deck_index + direction, decks.size()))
 	_pulse(deck_card)
 	refresh()
 
 func _change_stake(direction: int) -> void:
+	AudioManager.play_sfx("difficulty_toggle")
 	stake_index = int(posmod(stake_index + direction, stakes.size()))
 	_pulse(stake_label)
 	refresh()
@@ -72,6 +78,7 @@ func _change_stake(direction: int) -> void:
 func _start_game() -> void:
 	if decks.is_empty():
 		return
+	AudioManager.play_sfx("ui_click")
 	var deck: Dictionary = decks[deck_index]
 	Game.start_new_run(str(deck.get("id", "red_deck")))
 
@@ -97,26 +104,26 @@ func _panel_style() -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.16, 0.26, 0.28, 0.98)
 	style.border_color = Color(0.72, 0.8, 0.86)
-	style.set_border_width_all(5)
-	style.set_corner_radius_all(12)
+	style.set_border_width_all(3)
+	style.set_corner_radius_all(8)
 	return style
 
 func _inner_panel_style() -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.08, 0.14, 0.16, 0.94)
 	style.border_color = Color(0.05, 0.09, 0.1)
-	style.set_border_width_all(6)
-	style.set_corner_radius_all(12)
+	style.set_border_width_all(4)
+	style.set_corner_radius_all(8)
 	return style
 
 func _deck_back_style(color: Color) -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = color
 	style.border_color = Color(0.95, 0.94, 0.86)
-	style.set_border_width_all(6)
-	style.set_corner_radius_all(12)
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
+	style.set_border_width_all(4)
+	style.set_corner_radius_all(8)
+	style.content_margin_left = 8
+	style.content_margin_top = 8
+	style.content_margin_right = 8
+	style.content_margin_bottom = 8
 	return style

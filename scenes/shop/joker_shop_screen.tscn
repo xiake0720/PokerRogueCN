@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://joker_shop_screen"]
+[gd_scene load_steps=5 format=3 uid="uid://joker_shop_screen"]
 
 [ext_resource type="Script" path="res://scripts/shop/joker_shop_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="2_hud"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/shop_frame.png" id="3_shop_frame"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_shelf"]
 
 [node name="JokerShopScreen" type="Control"]
 layout_mode = 3
@@ -17,145 +19,162 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 21.0
-offset_right = -21.0
-offset_bottom = -21.0
+offset_left = 42.0
+offset_top = 36.0
+offset_right = -42.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBox" type="HBoxContainer" parent="Root"]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 30
 
-[node name="HudPanel" parent="Root/HBox" instance=ExtResource("2_hud")]
+[node name="HUD" parent="Root/HBox" instance=ExtResource("2_hud")]
 layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
 
 [node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel"]
+[node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
 
-[node name="OwnedPanel" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardVBox"]
-custom_minimum_size = Vector2(0.0, 300.0)
-layout_mode = 2
-
-[node name="OwnedMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardVBox/OwnedPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 27
-theme_override_constants/margin_top = 18
-theme_override_constants/margin_right = 27
-theme_override_constants/margin_bottom = 18
-
-[node name="OwnedVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/OwnedPanel/OwnedMargin"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="OwnedJokerHeader" type="Label" parent="Root/HBox/BoardPanel/BoardVBox/OwnedPanel/OwnedMargin/OwnedVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "已拥有小丑牌 0/5"
-horizontal_alignment = 1
-
-[node name="OwnedJokerRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/OwnedPanel/OwnedMargin/OwnedVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-theme_override_constants/separation = 24
-
-[node name="ShopPanel" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ShopMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 24
-
-[node name="ShopVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin"]
+[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin"]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="TopSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
-custom_minimum_size = Vector2(0.0, 300.0)
+[node name="OwnedJokerHeader" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
 layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="ActionColumn" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
-custom_minimum_size = Vector2(255.0, 0.0)
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="NextButton" type="Button" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
-custom_minimum_size = Vector2(0.0, 132.0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "下一个\n回合"
-
-[node name="RerollButton" type="Button" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
-custom_minimum_size = Vector2(0.0, 132.0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "重掷\n$5"
-
-[node name="JokerShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="JokerShelfMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf"]
-layout_mode = 2
-theme_override_constants/margin_left = 21
-theme_override_constants/margin_top = 18
-theme_override_constants/margin_right = 21
-theme_override_constants/margin_bottom = 18
-
-[node name="JokerShopRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin"]
-layout_mode = 2
-alignment = 1
-theme_override_constants/separation = 36
-
-[node name="BottomSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 27
-
-[node name="VoucherShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
-custom_minimum_size = Vector2(390.0, 0.0)
-layout_mode = 2
-
-[node name="VoucherVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf"]
-layout_mode = 2
-
-[node name="VoucherTitle" type="Label" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "底注优惠券"
+theme_override_font_sizes/font_size = 28
+text = "已拥有小丑牌 0/5"
 horizontal_alignment = 1
 
-[node name="VoucherRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox"]
+[node name="OwnedShelf" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+texture = ExtResource("4_shelf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OwnedJokerRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 18.0
+offset_right = -80.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 18
+
+[node name="ShopPanel" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 24
+
+[node name="ShopVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="ShopTitle" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+theme_override_colors/font_color = Color(1, 0.78, 0.24, 1)
+text = "商店"
+horizontal_alignment = 1
+
+[node name="SpacerTop" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TopSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="ActionColumn" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="NextButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+text = "下一个回合"
+
+[node name="RerollButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+text = "重掷 $5"
+
+[node name="JokerShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="JokerShelfMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="JokerShopRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 30
+
+[node name="BottomSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 22
+
+[node name="VoucherShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="VoucherVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf"]
+layout_mode = 2
+
+[node name="VoucherTitle" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "优惠券"
+horizontal_alignment = 1
+
+[node name="VoucherRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="PackShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
+[node name="PackShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PackVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf"]
+[node name="PackVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf"]
 layout_mode = 2
 
-[node name="PackTitle" type="Label" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox"]
+[node name="PackTitle" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "卡牌补充包"
 horizontal_alignment = 1
 
-[node name="PackRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox"]
+[node name="PackRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1

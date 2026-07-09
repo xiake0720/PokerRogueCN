@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://stage_select_screen"]
+[gd_scene load_steps=5 format=3 uid="uid://stage_select_screen"]
 
 [ext_resource type="Script" path="res://scripts/game/stage_select_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="2_hud"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/stage_card_green.png" id="3_stage_card"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_header"]
 
 [node name="StageSelectScreen" type="Control"]
 layout_mode = 3
@@ -17,44 +19,65 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 21.0
-offset_right = -21.0
-offset_bottom = -21.0
+offset_left = 42.0
+offset_top = 36.0
+offset_right = -42.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBox" type="HBoxContainer" parent="Root"]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 30
 
-[node name="HudPanel" parent="Root/HBox" instance=ExtResource("2_hud")]
+[node name="HUD" parent="Root/HBox" instance=ExtResource("2_hud")]
 layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
 
 [node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel"]
+[node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
 layout_mode = 2
-theme_override_constants/separation = 21
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 28
 
-[node name="HeaderLabel" type="Label" parent="Root/HBox/BoardPanel/BoardVBox"]
+[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "选择关卡"
+theme_override_constants/separation = 28
+
+[node name="HeaderArt" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 112)
+layout_mode = 2
+texture = ExtResource("4_header")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HeaderLabel" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/HeaderArt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 44
+text = "选择你的下一个盲注"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StageRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox"]
+[node name="StageRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
-theme_override_constants/separation = 45
+theme_override_constants/separation = 54
 
-[node name="DeckPileLabel" type="Label" parent="Root/HBox/BoardPanel/BoardVBox"]
-custom_minimum_size = Vector2(0.0, 87.0)
+[node name="DeckPileLabel" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.86, 0.94, 0.9, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.94, 0.91, 0.75, 1)
 text = "牌库 52/52"
 horizontal_alignment = 2

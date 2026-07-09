@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://battle_screen"]
+[gd_scene load_steps=6 format=3 uid="uid://battle_screen"]
 
 [ext_resource type="Script" path="res://scripts/game/battle_screen.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="2_hud"]
-[ext_resource type="Script" path="res://scripts/cards/card_fan_area.gd" id="3_fan"]
-[ext_resource type="PackedScene" path="res://scenes/cards/deck_pile_view.tscn" id="4_deck_pile"]
+[ext_resource type="Script" path="res://scripts/cards/card_fan_area.gd" id="2_fan"]
+[ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_joker_shelf"]
+[ext_resource type="Texture2D" path="res://assets/cards/poker/backs/card_back_red.png" id="5_card_back"]
 
 [node name="BattleScreen" type="Control"]
 layout_mode = 3
@@ -19,97 +20,152 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 21.0
-offset_right = -21.0
-offset_bottom = -21.0
+offset_left = 42.0
+offset_top = 36.0
+offset_right = -42.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBox" type="HBoxContainer" parent="Root"]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 30
 
-[node name="HudPanel" parent="Root/HBox" instance=ExtResource("2_hud")]
+[node name="HUD" parent="Root/HBox" instance=ExtResource("3_hud")]
 layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
 
 [node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel"]
+[node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
 
-[node name="JokerHeader" type="Label" parent="Root/HBox/BoardPanel/BoardVBox"]
+[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_constants/separation = 18
+
+[node name="JokerHeader" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "小丑牌 0/5"
 horizontal_alignment = 1
 
-[node name="JokerRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox"]
-custom_minimum_size = Vector2(0.0, 252.0)
+[node name="JokerShelf" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 188)
 layout_mode = 2
-alignment = 1
-theme_override_constants/separation = 33
+texture = ExtResource("4_joker_shelf")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="PlayArea" type="Control" parent="Root/HBox/BoardPanel/BoardVBox"]
+[node name="JokerRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 22.0
+offset_right = -70.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 26
+
+[node name="PlayArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 420)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayedArea" type="Control" parent="Root/HBox/BoardPanel/BoardVBox/PlayArea"]
+[node name="PlayedArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -560.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_top = 24.0
-offset_right = 560.0
-offset_bottom = 276.0
+offset_bottom = 250.0
 grow_horizontal = 2
-mouse_filter = 2
 
-[node name="DeckPile" parent="Root/HBox/BoardPanel/BoardVBox/PlayArea" instance=ExtResource("4_deck_pile")]
+[node name="DeckPile" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -190.0
-offset_top = -246.0
-offset_right = -32.0
-offset_bottom = -30.0
+offset_left = -176.0
+offset_top = -232.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="HandArea" type="Control" parent="Root/HBox/BoardPanel/BoardVBox"]
-custom_minimum_size = Vector2(0.0, 315.0)
-layout_mode = 2
-script = ExtResource("3_fan")
+[node name="DeckBack" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -102.0
+offset_right = 72.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_card_back")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="ActionRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox"]
-custom_minimum_size = Vector2(0.0, 105.0)
+[node name="DeckPileLabel" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.94, 0.91, 0.75, 1)
+text = "52/52"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HandArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+script = ExtResource("2_fan")
+card_size = Vector2(144, 204)
+selected_lift = 46.0
+preferred_overlap = 50.0
+
+[node name="ActionRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
+custom_minimum_size = Vector2(0, 78)
 layout_mode = 2
 alignment = 1
 theme_override_constants/separation = 18
 
-[node name="PlayButton" type="Button" parent="Root/HBox/BoardPanel/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(240.0, 90.0)
+[node name="PlayButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
+custom_minimum_size = Vector2(190, 66)
 layout_mode = 2
 text = "出牌"
 
-[node name="SortRankButton" type="Button" parent="Root/HBox/BoardPanel/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(168.0, 90.0)
+[node name="SortRankButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
+custom_minimum_size = Vector2(150, 66)
 layout_mode = 2
 text = "按点数"
 
-[node name="SortSuitButton" type="Button" parent="Root/HBox/BoardPanel/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(168.0, 90.0)
+[node name="SortSuitButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
+custom_minimum_size = Vector2(150, 66)
 layout_mode = 2
 text = "按花色"
 
-[node name="DiscardButton" type="Button" parent="Root/HBox/BoardPanel/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(240.0, 90.0)
+[node name="DiscardButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
+custom_minimum_size = Vector2(190, 66)
 layout_mode = 2
 text = "弃牌"
