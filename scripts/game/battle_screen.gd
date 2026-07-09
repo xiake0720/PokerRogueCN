@@ -1,12 +1,17 @@
 extends Control
 
-const JokerCardViewScene: PackedScene = preload("res://scenes/cards/joker_card_view.tscn")
 const CardDetailPopupScene: PackedScene = preload("res://scenes/ui/card_detail_popup.tscn")
+const FloatingScoreLabelScene: PackedScene = preload("res://scenes/ui/floating_score_label.tscn")
 
 @onready var hud: GameHudPanel = $Root/HBox/HUD
-@onready var board_panel: PanelContainer = $Root/HBox/BoardPanel
 @onready var joker_header: Label = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerHeader
-@onready var joker_row: HBoxContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow
+@onready var joker_slots: Array[JokerCardView] = [
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot1,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot2,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot3,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot4,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot5,
+]
 @onready var played_area: Control = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/PlayedArea
 @onready var deck_pile: Control = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile
 @onready var deck_pile_label: Label = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile/DeckPileLabel
@@ -22,7 +27,6 @@ var joker_views_by_id: Dictionary = {}
 var detail_popup: CardDetailPopup
 
 func _ready() -> void:
-	board_panel.add_theme_stylebox_override("panel", _table_style())
 	play_button.pressed.connect(_play_selected)
 	discard_button.pressed.connect(_discard_selected)
 	sort_rank_button.pressed.connect(func() -> void: Game.run.set_hand_sort_mode("rank"))
@@ -30,6 +34,8 @@ func _ready() -> void:
 	hand_area.card_selection_changed.connect(_on_card_selection_changed)
 	detail_popup = CardDetailPopupScene.instantiate() as CardDetailPopup
 	add_child(detail_popup)
+	for slot in joker_slots:
+		slot.inspect_requested.connect(func(joker: Dictionary) -> void: detail_popup.show_joker(joker))
 	AudioManager.play_sfx("shuffle_cards", -2.0)
 	modulate.a = 0.0
 	var tween: Tween = create_tween()
@@ -54,14 +60,14 @@ func _rebuild_hand(run: RunState) -> void:
 func _rebuild_jokers(run: RunState) -> void:
 	joker_header.text = "小丑牌 %d/%d" % [run.jokers.size(), run.joker_slots]
 	joker_views_by_id.clear()
-	for child in joker_row.get_children():
-		child.queue_free()
-	for i in range(run.jokers.size()):
-		var view: JokerCardView = JokerCardViewScene.instantiate() as JokerCardView
-		joker_row.add_child(view)
-		view.setup(run.jokers[i], i, false)
-		view.inspect_requested.connect(func(joker: Dictionary) -> void: detail_popup.show_joker(joker))
-		joker_views_by_id[str(run.jokers[i].get("id", ""))] = view
+	for i in range(joker_slots.size()):
+		var view: JokerCardView = joker_slots[i]
+		if i < run.jokers.size():
+			view.visible = true
+			view.setup(run.jokers[i], i, false)
+			joker_views_by_id[str(run.jokers[i].get("id", ""))] = view
+		else:
+			view.visible = false
 
 func _on_card_selection_changed(card_id: String, selected: bool, view: PlayingCardView) -> void:
 	if is_animating:
@@ -223,13 +229,11 @@ func _animate_joker_effects(effects: Array) -> void:
 			await _float_score(str(effect_data.get("text", "")), view.global_position + Vector2(16, view.size.y + 4), Color(1.0, 0.54, 0.28))
 
 func _float_score(text: String, start_position: Vector2, color: Color) -> void:
-	var label: Label = Label.new()
+	var label: Label = FloatingScoreLabelScene.instantiate() as Label
 	add_child(label)
 	label.text = text
-	label.add_theme_font_size_override("font_size", 32)
 	label.add_theme_color_override("font_color", color)
 	label.global_position = start_position
-	label.z_index = 500
 	label.modulate.a = 0.0
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -246,11 +250,3 @@ func _pulse_node(node: Control) -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(node, "scale", Vector2(1.16, 1.16), 0.10)
 	tween.tween_property(node, "scale", Vector2.ONE, 0.14)
-
-func _table_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.055, 0.24, 0.16, 0.82)
-	style.border_color = Color(0.61, 0.24, 0.16, 1)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(8)
-	return style

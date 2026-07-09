@@ -1,9 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://joker_shop_screen"]
+[gd_scene load_steps=10 format=3 uid="uid://joker_shop_screen"]
 
 [ext_resource type="Script" path="res://scripts/shop/joker_shop_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="2_hud"]
-[ext_resource type="Texture2D" path="res://assets/ui/panels/shop_frame.png" id="3_shop_frame"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/shop/shop_background.png" id="3_shop_frame"]
 [ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_shelf"]
+[ext_resource type="PackedScene" path="res://scenes/cards/joker_card_view.tscn" id="5_joker_card"]
+[ext_resource type="PackedScene" path="res://scenes/shop/shop_offer_card.tscn" id="6_offer_card"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_board"]
+bg_color = Color(0.055, 0.24, 0.16, 0.82)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.61, 0.24, 0.16, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop_panel"]
+bg_color = Color(0.08, 0.11, 0.1, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9, 0.24, 0.16, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shelf"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.12, 0.23, 0.18, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.74, 0.47, 0.17, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="JokerShopScreen" type="Control"]
 layout_mode = 3
@@ -13,6 +55,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
+
+[node name="BackgroundArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_shop_frame")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Root" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -37,6 +90,7 @@ custom_minimum_size = Vector2(380, 0)
 [node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_board")
 
 [node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
 layout_mode = 2
@@ -76,9 +130,30 @@ grow_vertical = 2
 alignment = 1
 theme_override_constants/separation = 18
 
+[node name="OwnedJokerSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+custom_minimum_size = Vector2(88, 116)
+layout_mode = 2
+
+[node name="OwnedJokerSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+custom_minimum_size = Vector2(88, 116)
+layout_mode = 2
+
+[node name="OwnedJokerSlot3" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+custom_minimum_size = Vector2(88, 116)
+layout_mode = 2
+
+[node name="OwnedJokerSlot4" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+custom_minimum_size = Vector2(88, 116)
+layout_mode = 2
+
+[node name="OwnedJokerSlot5" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+custom_minimum_size = Vector2(88, 116)
+layout_mode = 2
+
 [node name="ShopPanel" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_shop_panel")
 
 [node name="ShopMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel"]
 layout_mode = 2
@@ -115,16 +190,17 @@ theme_override_constants/separation = 18
 [node name="NextButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
 custom_minimum_size = Vector2(0, 92)
 layout_mode = 2
-text = "下一个回合"
+text = "下一回合"
 
 [node name="RerollButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
 custom_minimum_size = Vector2(0, 92)
 layout_mode = 2
-text = "重掷 $5"
+text = "刷新 $5"
 
 [node name="JokerShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_shelf")
 
 [node name="JokerShelfMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf"]
 layout_mode = 2
@@ -138,6 +214,12 @@ layout_mode = 2
 alignment = 1
 theme_override_constants/separation = 30
 
+[node name="JokerOfferSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow" instance=ExtResource("6_offer_card")]
+layout_mode = 2
+
+[node name="JokerOfferSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow" instance=ExtResource("6_offer_card")]
+layout_mode = 2
+
 [node name="BottomSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -146,6 +228,7 @@ theme_override_constants/separation = 22
 [node name="VoucherShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shelf")
 
 [node name="VoucherVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf"]
 layout_mode = 2
@@ -161,9 +244,13 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
+[node name="VoucherOfferSlot" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox/VoucherRow" instance=ExtResource("6_offer_card")]
+layout_mode = 2
+
 [node name="PackShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_shelf")
 
 [node name="PackVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf"]
 layout_mode = 2
@@ -179,3 +266,9 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 theme_override_constants/separation = 30
+
+[node name="PackOfferSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow" instance=ExtResource("6_offer_card")]
+layout_mode = 2
+
+[node name="PackOfferSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow" instance=ExtResource("6_offer_card")]
+layout_mode = 2

@@ -26,8 +26,6 @@ var stakes: Array[Dictionary] = [
 ]
 
 func _ready() -> void:
-	dialog.add_theme_stylebox_override("panel", _panel_style())
-	deck_card.add_theme_stylebox_override("panel", _inner_panel_style())
 	deck_back.add_theme_stylebox_override("panel", _deck_back_style(Color(0.75, 0.18, 0.12)))
 	prev_deck_button.pressed.connect(func() -> void: _change_deck(-1))
 	next_deck_button.pressed.connect(func() -> void: _change_deck(1))
@@ -99,22 +97,6 @@ func _pulse(node: Control) -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(node, "scale", Vector2(1.04, 1.04), 0.08)
 	tween.tween_property(node, "scale", Vector2.ONE, 0.12)
-
-func _panel_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.16, 0.26, 0.28, 0.98)
-	style.border_color = Color(0.72, 0.8, 0.86)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(8)
-	return style
-
-func _inner_panel_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.08, 0.14, 0.16, 0.94)
-	style.border_color = Color(0.05, 0.09, 0.1)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(8)
-	return style
 
 func _deck_back_style(color: Color) -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()

@@ -15,7 +15,6 @@ var joker_data: Dictionary = {}
 var _base_scale: Vector2 = Vector2.ONE
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", _panel_style())
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	gui_input.connect(_on_gui_input)
@@ -45,18 +44,6 @@ func _apply_compact_mode(compact: bool) -> void:
 		art_label.add_theme_font_size_override("font_size", 20)
 		rarity_label.add_theme_font_size_override("font_size", 16)
 		art_frame.custom_minimum_size = Vector2(0, 88)
-
-func _panel_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.88, 0.9, 0.84, 0.98)
-	style.border_color = Color(0.08, 0.11, 0.13)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(8)
-	style.content_margin_left = 8
-	style.content_margin_top = 8
-	style.content_margin_right = 8
-	style.content_margin_bottom = 8
-	return style
 
 func _rarity_text(rarity: String) -> String:
 	match rarity:

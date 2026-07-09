@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://deck_select_screen"]
+[gd_scene load_steps=6 format=3 uid="uid://deck_select_screen"]
 
 [ext_resource type="Script" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/references/deck_select_reference.png" id="2_reference"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="3_parts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialog"]
+bg_color = Color(0.16, 0.26, 0.28, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.72, 0.8, 0.86, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inner_panel"]
+bg_color = Color(0.08, 0.14, 0.16, 0.94)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.05, 0.09, 0.1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="DeckSelectScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +37,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
+[node name="BackgroundArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+modulate = Color(1, 1, 1, 0.48)
+texture = ExtResource("2_reference")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PartsDecor" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -710.0
+offset_top = -530.0
+offset_right = 710.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+modulate = Color(1, 1, 1, 0.18)
+texture = ExtResource("3_parts")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Dimmer" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -18,7 +75,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.02, 0.04, 0.05, 0.56)
+color = Color(0.01, 0.02, 0.015, 0.22)
 
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -31,6 +88,7 @@ grow_vertical = 2
 [node name="Dialog" type="PanelContainer" parent="Center"]
 custom_minimum_size = Vector2(1040, 760)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialog")
 
 [node name="Margin" type="MarginContainer" parent="Center/Dialog"]
 layout_mode = 2
@@ -77,6 +135,7 @@ text = "<"
 [node name="DeckCard" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow"]
 custom_minimum_size = Vector2(740, 280)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inner_panel")
 
 [node name="DeckCardMargin" type="MarginContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard"]
 layout_mode = 2

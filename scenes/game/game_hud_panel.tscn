@@ -1,9 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://game_hud_panel"]
+[gd_scene load_steps=4 format=3 uid="uid://game_hud_panel"]
 
 [ext_resource type="Script" path="res://scripts/game/game_hud_panel.gd" id="1_script"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.055, 0.105, 0.095, 0.94)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.67, 0.24, 0.16, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_box"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.06, 0.09, 0.08, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.86, 0.53, 0.18, 0.9)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
 [node name="GameHudPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(380, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 script = ExtResource("1_script")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -34,6 +63,7 @@ autowrap_mode = 3
 [node name="ScoreBox" type="PanelContainer" parent="Margin/VBox"]
 custom_minimum_size = Vector2(0, 104)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_box")
 
 [node name="ScoreLabel" type="Label" parent="Margin/VBox/ScoreBox"]
 layout_mode = 2
@@ -45,6 +75,7 @@ vertical_alignment = 1
 [node name="HandBox" type="PanelContainer" parent="Margin/VBox"]
 custom_minimum_size = Vector2(0, 154)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_box")
 
 [node name="HandVBox" type="VBoxContainer" parent="Margin/VBox/HandBox"]
 layout_mode = 2

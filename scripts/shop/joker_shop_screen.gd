@@ -1,41 +1,49 @@
 extends Control
 
-const ShopOfferCardScene: PackedScene = preload("res://scenes/shop/shop_offer_card.tscn")
-const JokerCardViewScene: PackedScene = preload("res://scenes/cards/joker_card_view.tscn")
 const CardDetailPopupScene: PackedScene = preload("res://scenes/ui/card_detail_popup.tscn")
 
 @onready var hud: GameHudPanel = $Root/HBox/HUD
-@onready var board_panel: PanelContainer = $Root/HBox/BoardPanel
 @onready var shop_panel: PanelContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel
-@onready var joker_shelf: PanelContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf
-@onready var voucher_shelf: PanelContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf
-@onready var pack_shelf: PanelContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf
 @onready var owned_joker_header: Label = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedJokerHeader
-@onready var owned_joker_row: HBoxContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow
+@onready var owned_joker_slots: Array[JokerCardView] = [
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow/OwnedJokerSlot1,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow/OwnedJokerSlot2,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow/OwnedJokerSlot3,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow/OwnedJokerSlot4,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow/OwnedJokerSlot5,
+]
 @onready var next_button: Button = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn/NextButton
 @onready var reroll_button: Button = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn/RerollButton
-@onready var joker_shop_row: HBoxContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow
-@onready var voucher_row: HBoxContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox/VoucherRow
-@onready var pack_row: HBoxContainer = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow
+@onready var joker_offer_slots: Array[ShopOfferCard] = [
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow/JokerOfferSlot1,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow/JokerOfferSlot2,
+]
+@onready var voucher_offer_slots: Array[ShopOfferCard] = [
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox/VoucherRow/VoucherOfferSlot,
+]
+@onready var pack_offer_slots: Array[ShopOfferCard] = [
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow/PackOfferSlot1,
+	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow/PackOfferSlot2,
+]
 
 var detail_popup: CardDetailPopup
 
 func _ready() -> void:
-	board_panel.add_theme_stylebox_override("panel", _board_style())
-	shop_panel.add_theme_stylebox_override("panel", _shop_panel_style())
-	joker_shelf.add_theme_stylebox_override("panel", _shelf_style())
-	voucher_shelf.add_theme_stylebox_override("panel", _shelf_style())
-	pack_shelf.add_theme_stylebox_override("panel", _shelf_style())
 	detail_popup = CardDetailPopupScene.instantiate() as CardDetailPopup
 	add_child(detail_popup)
-	next_button.pressed.connect(func() -> void:
-		AudioManager.play_sfx("ui_click")
-		Game.run.leave_shop()
-	)
-	reroll_button.pressed.connect(func() -> void:
-		AudioManager.play_sfx("shop_reroll")
-		Game.run.reroll_shop()
-	)
+	next_button.pressed.connect(_on_next_pressed)
+	reroll_button.pressed.connect(_on_reroll_pressed)
+	for slot in owned_joker_slots:
+		slot.inspect_requested.connect(func(joker: Dictionary) -> void: detail_popup.show_joker(joker))
+	for slot in joker_offer_slots:
+		slot.inspect_requested.connect(_show_offer_detail)
+		slot.buy_requested.connect(_on_joker_offer_buy_requested)
+	for slot in voucher_offer_slots:
+		slot.inspect_requested.connect(_show_offer_detail)
+		slot.buy_requested.connect(_on_voucher_offer_buy_requested)
+	for slot in pack_offer_slots:
+		slot.inspect_requested.connect(_show_offer_detail)
+		slot.buy_requested.connect(_on_pack_offer_buy_requested)
 	AudioManager.play_sfx("modal_open")
 	_play_intro()
 	refresh()
@@ -43,114 +51,96 @@ func _ready() -> void:
 func refresh() -> void:
 	var run: RunState = Game.run
 	hud.refresh_run(run, "shop")
-	reroll_button.text = "重掷\n$%d" % (0 if run.has_joker("chaos_the_clown") else 5)
-	_rebuild_owned(run)
-	_rebuild_joker_shop(run)
-	_rebuild_vouchers(run)
-	_rebuild_packs(run)
+	reroll_button.text = "刷新\n$%d" % (0 if run.has_joker("chaos_the_clown") else 5)
+	_refresh_owned(run)
+	_refresh_joker_shop(run)
+	_refresh_vouchers(run)
+	_refresh_packs(run)
 
-func _rebuild_owned(run: RunState) -> void:
+func _refresh_owned(run: RunState) -> void:
 	owned_joker_header.text = "已拥有小丑牌 %d/%d" % [run.jokers.size(), run.joker_slots]
-	for child in owned_joker_row.get_children():
-		child.queue_free()
-	for i in range(run.jokers.size()):
-		var view: JokerCardView = JokerCardViewScene.instantiate() as JokerCardView
-		owned_joker_row.add_child(view)
-		view.custom_minimum_size = Vector2(88, 116)
-		view.setup(run.jokers[i], i, false)
-		view.inspect_requested.connect(func(joker: Dictionary) -> void: detail_popup.show_joker(joker))
+	for i in range(owned_joker_slots.size()):
+		var slot: JokerCardView = owned_joker_slots[i]
+		if i < run.jokers.size():
+			slot.visible = true
+			slot.custom_minimum_size = Vector2(88, 116)
+			slot.setup(run.jokers[i], i, false)
+		else:
+			slot.visible = false
 
-func _rebuild_joker_shop(run: RunState) -> void:
-	for child in joker_shop_row.get_children():
-		child.queue_free()
-	for i in range(run.shop_items.size()):
-		var view: ShopOfferCard = ShopOfferCardScene.instantiate() as ShopOfferCard
-		joker_shop_row.add_child(view)
-		view.setup(run.shop_items[i], i, "joker")
-		view.set_can_afford(run.money >= int(run.shop_items[i].get("cost", 0)) and run.jokers.size() < run.joker_slots)
-		view.inspect_requested.connect(_show_offer_detail)
-		view.buy_requested.connect(func(index: int) -> void:
-			AudioManager.play_sfx("purchase_card")
-			Game.run.buy_shop_item(index)
-		)
-		_animate_offer_in(view, i)
+func _refresh_joker_shop(run: RunState) -> void:
+	for i in range(joker_offer_slots.size()):
+		var slot: ShopOfferCard = joker_offer_slots[i]
+		if i < run.shop_items.size():
+			slot.visible = true
+			slot.setup(run.shop_items[i], i, "joker")
+			slot.set_can_afford(run.money >= int(run.shop_items[i].get("cost", 0)) and run.jokers.size() < run.joker_slots)
+			_animate_offer_in(slot, i)
+		else:
+			slot.visible = false
 
-func _rebuild_vouchers(run: RunState) -> void:
-	for child in voucher_row.get_children():
-		child.queue_free()
-	for i in range(run.shop_voucher_items.size()):
-		var view: ShopOfferCard = ShopOfferCardScene.instantiate() as ShopOfferCard
-		voucher_row.add_child(view)
-		view.setup(run.shop_voucher_items[i], i, "voucher")
-		view.set_can_afford(run.money >= int(run.shop_voucher_items[i].get("cost", 0)))
-		view.inspect_requested.connect(_show_offer_detail)
-		view.buy_requested.connect(func(index: int) -> void:
-			AudioManager.play_sfx("purchase_card")
-			Game.run.buy_shop_voucher(index)
-		)
-		_animate_offer_in(view, i)
+func _refresh_vouchers(run: RunState) -> void:
+	for i in range(voucher_offer_slots.size()):
+		var slot: ShopOfferCard = voucher_offer_slots[i]
+		if i < run.shop_voucher_items.size():
+			slot.visible = true
+			slot.setup(run.shop_voucher_items[i], i, "voucher")
+			slot.set_can_afford(run.money >= int(run.shop_voucher_items[i].get("cost", 0)))
+			_animate_offer_in(slot, i)
+		else:
+			slot.visible = false
 
-func _rebuild_packs(run: RunState) -> void:
-	for child in pack_row.get_children():
-		child.queue_free()
-	for i in range(run.shop_pack_items.size()):
-		var view: ShopOfferCard = ShopOfferCardScene.instantiate() as ShopOfferCard
-		pack_row.add_child(view)
-		view.setup(run.shop_pack_items[i], i, "pack")
-		view.set_can_afford(run.money >= int(run.shop_pack_items[i].get("cost", 0)))
-		view.inspect_requested.connect(_show_offer_detail)
-		view.buy_requested.connect(func(index: int) -> void:
-			AudioManager.play_sfx("booster_open")
-			Game.run.buy_shop_pack(index)
-		)
-		_animate_offer_in(view, i)
+func _refresh_packs(run: RunState) -> void:
+	for i in range(pack_offer_slots.size()):
+		var slot: ShopOfferCard = pack_offer_slots[i]
+		if i < run.shop_pack_items.size():
+			slot.visible = true
+			slot.setup(run.shop_pack_items[i], i, "pack")
+			slot.set_can_afford(run.money >= int(run.shop_pack_items[i].get("cost", 0)))
+			_animate_offer_in(slot, i)
+		else:
+			slot.visible = false
+
+func _on_next_pressed() -> void:
+	AudioManager.play_sfx("ui_click")
+	Game.run.leave_shop()
+
+func _on_reroll_pressed() -> void:
+	AudioManager.play_sfx("shop_reroll")
+	Game.run.reroll_shop()
+
+func _on_joker_offer_buy_requested(index: int) -> void:
+	AudioManager.play_sfx("purchase_card")
+	Game.run.buy_shop_item(index)
+
+func _on_voucher_offer_buy_requested(index: int) -> void:
+	AudioManager.play_sfx("purchase_card")
+	Game.run.buy_shop_voucher(index)
+
+func _on_pack_offer_buy_requested(index: int) -> void:
+	AudioManager.play_sfx("booster_open")
+	Game.run.buy_shop_pack(index)
 
 func _show_offer_detail(item: Dictionary) -> void:
 	detail_popup.show_item(item)
 
 func _animate_offer_in(view: Control, index: int) -> void:
 	view.modulate.a = 0.0
-	view.position.y += 18.0
+	var target_y: float = view.position.y
+	view.position.y = target_y + 18.0
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_interval(float(index) * 0.035)
 	tween.tween_property(view, "modulate:a", 1.0, 0.14)
-	tween.parallel().tween_property(view, "position:y", view.position.y - 18.0, 0.18)
+	tween.parallel().tween_property(view, "position:y", target_y, 0.18)
 
 func _play_intro() -> void:
 	shop_panel.modulate.a = 0.0
-	shop_panel.position.y += 28.0
+	var target_y: float = shop_panel.position.y
+	shop_panel.position.y = target_y + 28.0
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(shop_panel, "modulate:a", 1.0, 0.18)
-	tween.parallel().tween_property(shop_panel, "position:y", shop_panel.position.y - 28.0, 0.22)
-
-func _board_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.055, 0.24, 0.16, 0.82)
-	style.border_color = Color(0.61, 0.24, 0.16, 1)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(8)
-	return style
-
-func _shop_panel_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.08, 0.11, 0.1, 0.95)
-	style.border_color = Color(0.9, 0.24, 0.16, 1)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(8)
-	return style
-
-func _shelf_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.12, 0.23, 0.18, 0.92)
-	style.border_color = Color(0.74, 0.47, 0.17, 1)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(8)
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
-	return style
+	tween.parallel().tween_property(shop_panel, "position:y", target_y, 0.22)

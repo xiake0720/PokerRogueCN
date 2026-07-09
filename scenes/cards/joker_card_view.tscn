@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://joker_card_view"]
+[gd_scene load_steps=3 format=3 uid="uid://joker_card_view"]
 
 [ext_resource type="Script" path="res://scripts/cards/joker_card_view.gd" id="1_script"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.88, 0.9, 0.84, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.08, 0.11, 0.13, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="JokerCardView" type="PanelContainer"]
 custom_minimum_size = Vector2(130, 178)
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 script = ExtResource("1_script")
 
 [node name="VBox" type="VBoxContainer" parent="."]

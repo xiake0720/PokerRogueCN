@@ -20,9 +20,6 @@ extends PanelContainer
 var hand_list_expanded: bool = false
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", _panel_style())
-	score_box.add_theme_stylebox_override("panel", _box_style())
-	hand_box.add_theme_stylebox_override("panel", _box_style())
 	hand_list_toggle.pressed.connect(_toggle_hand_list)
 
 func refresh_run(run: RunState, mode: String = "battle") -> void:
@@ -58,23 +55,3 @@ func _hand_info_text(run: RunState) -> String:
 		var hand_id: String = str(h.get("id", ""))
 		lines.append("%s Lv.%d  %d筹码 x %d倍率" % [str(h.get("name_cn", "")), int(run.hand_levels.get(hand_id, 1)), int(h.get("base_chips", 0)), int(h.get("base_mult", 0))])
 	return "\n".join(lines)
-
-func _panel_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.055, 0.105, 0.095, 0.94)
-	style.border_color = Color(0.67, 0.24, 0.16, 1)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(8)
-	return style
-
-func _box_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.06, 0.09, 0.08, 0.96)
-	style.border_color = Color(0.86, 0.53, 0.18, 0.9)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(7)
-	style.content_margin_left = 10
-	style.content_margin_top = 10
-	style.content_margin_right = 10
-	style.content_margin_bottom = 10
-	return style

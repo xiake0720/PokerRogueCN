@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://result_screen"]
+[gd_scene load_steps=5 format=3 uid="uid://result_screen"]
 
 [ext_resource type="Script" path="res://scripts/ui/result_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/ornate_frame.png" id="3_frame"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 28.0
+content_margin_top = 24.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+bg_color = Color(0.12, 0.15, 0.18, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.88, 0.58, 0.2, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="ResultScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +29,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
+[node name="BackgroundArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FrameArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_frame")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -20,6 +61,7 @@ anchor_bottom = 1.0
 [node name="Panel" type="PanelContainer" parent="Center"]
 custom_minimum_size = Vector2(760, 430)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VBox" type="VBoxContainer" parent="Center/Panel"]
 layout_mode = 2
@@ -28,14 +70,14 @@ theme_override_constants/separation = 24
 [node name="TitleLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
-horizontal_alignment = 1
 text = "结果"
+horizontal_alignment = 1
 
 [node name="DescLabel" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-horizontal_alignment = 1
 text = "说明"
+horizontal_alignment = 1
 
 [node name="ButtonRow" type="HBoxContainer" parent="Center/Panel/VBox"]
 layout_mode = 2

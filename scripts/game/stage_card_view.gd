@@ -4,6 +4,10 @@ extends PanelContainer
 signal select_requested
 signal skip_requested
 
+const ACTIVE_PANEL_TEXTURE: Texture2D = preload("res://assets/ui/extracted/stage_select/stage_card_active.png")
+const NEXT_PANEL_TEXTURE: Texture2D = preload("res://assets/ui/extracted/stage_select/stage_card_next.png")
+const LOCKED_PANEL_TEXTURE: Texture2D = preload("res://assets/ui/extracted/stage_select/stage_card_locked.png")
+
 @onready var select_button: Button = $VBox/SelectButton
 @onready var title_label: Label = $VBox/TitleLabel
 @onready var token_label: Label = $VBox/TokenLabel
@@ -50,17 +54,14 @@ func _play_intro(active: bool) -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2(1.04, 1.04) if active else Vector2.ONE, 0.16)
 
-func _panel_style(active: bool, locked: bool) -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.12, 0.18, 0.19, 0.96)
+func _panel_style(active: bool, locked: bool) -> StyleBox:
+	var style: StyleBoxTexture = StyleBoxTexture.new()
 	if locked:
-		style.border_color = Color(0.4, 0.43, 0.45)
+		style.texture = LOCKED_PANEL_TEXTURE
 	elif active:
-		style.border_color = Color(0.0, 0.52, 0.88)
+		style.texture = ACTIVE_PANEL_TEXTURE
 	else:
-		style.border_color = Color(0.55, 0.43, 0.16)
-	style.set_border_width_all(4 if active else 2)
-	style.set_corner_radius_all(10)
+		style.texture = NEXT_PANEL_TEXTURE
 	style.content_margin_left = 14
 	style.content_margin_top = 14
 	style.content_margin_right = 14

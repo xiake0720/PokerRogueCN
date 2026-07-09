@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://battle_screen"]
+[gd_scene load_steps=9 format=3 uid="uid://battle_screen"]
 
 [ext_resource type="Script" path="res://scripts/game/battle_screen.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/cards/card_fan_area.gd" id="2_fan"]
 [ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="3_hud"]
 [ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_joker_shelf"]
 [ext_resource type="Texture2D" path="res://assets/cards/poker/backs/card_back_red.png" id="5_card_back"]
+[ext_resource type="PackedScene" path="res://scenes/cards/joker_card_view.tscn" id="6_joker_card"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/battle/battle_background_frame.png" id="7_background"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_board"]
+bg_color = Color(0.055, 0.24, 0.16, 0.82)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.61, 0.24, 0.16, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="BattleScreen" type="Control"]
 layout_mode = 3
@@ -14,6 +28,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
+
+[node name="BackgroundArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_background")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Root" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,6 +63,7 @@ custom_minimum_size = Vector2(380, 0)
 [node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_board")
 
 [node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
 layout_mode = 2
@@ -76,6 +102,21 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 theme_override_constants/separation = 26
+
+[node name="JokerSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+layout_mode = 2
+
+[node name="JokerSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+layout_mode = 2
+
+[node name="JokerSlot3" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+layout_mode = 2
+
+[node name="JokerSlot4" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+layout_mode = 2
+
+[node name="JokerSlot5" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+layout_mode = 2
 
 [node name="PlayArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
 custom_minimum_size = Vector2(0, 420)

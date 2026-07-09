@@ -15,7 +15,6 @@ var item_index: int = -1
 var item_data: Dictionary = {}
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", _panel_style())
 	art_panel.add_theme_stylebox_override("panel", _art_style(Color(0.82, 0.2, 0.18)))
 	buy_button.pressed.connect(func() -> void: buy_requested.emit(item_index))
 	gui_input.connect(_on_gui_input)
@@ -92,18 +91,6 @@ func _kind_color(kind: String) -> Color:
 			return Color(0.55, 0.32, 0.9)
 		_:
 			return Color(0.28, 0.38, 0.42)
-
-func _panel_style() -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.13, 0.19, 0.2, 0.98)
-	style.border_color = Color(0.05, 0.09, 0.1)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(9)
-	style.content_margin_left = 6
-	style.content_margin_top = 6
-	style.content_margin_right = 6
-	style.content_margin_bottom = 6
-	return style
 
 func _art_style(color: Color) -> StyleBoxFlat:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
