@@ -1,0 +1,15 @@
+[
+  {"id":"pluto","name_cn":"冥王星","target_hand":"high_card","description_cn":"升级高牌。"},
+  {"id":"mercury","name_cn":"水星","target_hand":"pair","description_cn":"升级对子。"},
+  {"id":"uranus","name_cn":"天王星","target_hand":"two_pair","description_cn":"升级两对。"},
+  {"id":"venus","name_cn":"金星","target_hand":"three_kind","description_cn":"升级三条。"},
+  {"id":"saturn","name_cn":"土星","target_hand":"straight","description_cn":"升级顺子。"},
+  {"id":"jupiter","name_cn":"木星","target_hand":"flush","description_cn":"升级同花。"},
+  {"id":"earth","name_cn":"地球","target_hand":"full_house","description_cn":"升级葫芦。"},
+  {"id":"mars","name_cn":"火星","target_hand":"four_kind","description_cn":"升级四条。"},
+  {"id":"neptune","name_cn":"海王星","target_hand":"straight_flush","description_cn":"升级同花顺。"},
+  {"id":"planet_x","name_cn":"X行星","target_hand":"five_kind","description_cn":"升级五条。"},
+  {"id":"ceres","name_cn":"谷神星","target_hand":"flush_house","description_cn":"升级同花葫芦。"},
+  {"id":"eris","name_cn":"阋神星","target_hand":"flush_five","description_cn":"升级同花五条。"}
+]
+

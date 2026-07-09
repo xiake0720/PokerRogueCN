@@ -1,0 +1,21 @@
+[
+  {"id":"familiar","name_cn":"使魔","description_cn":"摧毁一张手牌，生成强化人头牌。"},
+  {"id":"grim","name_cn":"死兆","description_cn":"摧毁一张手牌，生成强化A。"},
+  {"id":"incantation","name_cn":"咒文","description_cn":"摧毁一张手牌，生成强化数字牌。"},
+  {"id":"talisman","name_cn":"护符","description_cn":"给选中牌添加金色封印。"},
+  {"id":"aura","name_cn":"灵光","description_cn":"给选中牌添加随机版本。"},
+  {"id":"wraith","name_cn":"幽魂","description_cn":"生成稀有小丑，金币归零。"},
+  {"id":"sigil","name_cn":"印记","description_cn":"手牌全部改为同一花色。"},
+  {"id":"ouija","name_cn":"通灵板","description_cn":"手牌全部改为同一点数，手牌上限降低。"},
+  {"id":"ectoplasm","name_cn":"灵质","description_cn":"给随机小丑负片，降低手牌上限。"},
+  {"id":"immolate","name_cn":"献祭","description_cn":"摧毁随机手牌并获得金币。"},
+  {"id":"ankh","name_cn":"十字章","description_cn":"复制随机小丑并摧毁其他小丑。"},
+  {"id":"deja_vu","name_cn":"似曾相识","description_cn":"给选中牌添加红色封印。"},
+  {"id":"hex","name_cn":"妖术","description_cn":"给随机小丑多彩并摧毁其他小丑。"},
+  {"id":"trance","name_cn":"入神","description_cn":"给选中牌添加蓝色封印。"},
+  {"id":"medium","name_cn":"灵媒","description_cn":"给选中牌添加紫色封印。"},
+  {"id":"cryptid","name_cn":"隐生物","description_cn":"复制选中手牌。"},
+  {"id":"soul","name_cn":"灵魂","description_cn":"生成传奇小丑。"},
+  {"id":"black_hole","name_cn":"黑洞","description_cn":"所有牌型升一级。"}
+]
+

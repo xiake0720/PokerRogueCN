@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://stage_select_screen"]
+
+[ext_resource type="Script" path="res://scripts/game/stage_select_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="2_hud"]
+
+[node name="StageSelectScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Root" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = -21.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="HudPanel" parent="Root/HBox" instance=ExtResource("2_hud")]
+layout_mode = 2
+
+[node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel"]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="HeaderLabel" type="Label" parent="Root/HBox/BoardPanel/BoardVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "选择关卡"
+horizontal_alignment = 1
+
+[node name="StageRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 45
+
+[node name="DeckPileLabel" type="Label" parent="Root/HBox/BoardPanel/BoardVBox"]
+custom_minimum_size = Vector2(0.0, 87.0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.94, 0.9, 1)
+theme_override_font_sizes/font_size = 24
+text = "牌库 52/52"
+horizontal_alignment = 2

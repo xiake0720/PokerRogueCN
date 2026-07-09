@@ -1,0 +1,7 @@
+[
+  {"id":"arcana_pack","name_cn":"塔罗补充包","type":"tarot","choose":1,"show":3},
+  {"id":"celestial_pack","name_cn":"星球补充包","type":"planet","choose":1,"show":3},
+  {"id":"spectral_pack","name_cn":"幻灵补充包","type":"spectral","choose":1,"show":2},
+  {"id":"buffoon_pack","name_cn":"小丑补充包","type":"joker","choose":1,"show":2}
+]
+

@@ -1,0 +1,7 @@
+[
+  {"id":"money_tag","name_cn":"金币标签","description_cn":"获得金币。"},
+  {"id":"joker_tag","name_cn":"小丑标签","description_cn":"下个商店出现免费小丑。"},
+  {"id":"planet_tag","name_cn":"星球标签","description_cn":"获得星球牌奖励。"},
+  {"id":"double_tag","name_cn":"双倍标签","description_cn":"复制下一个标签奖励。"}
+]
+

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://playing_card_view"]
+
+[ext_resource type="Script" path="res://scripts/cards/playing_card_view.gd" id="1_script"]
+
+[node name="PlayingCardView" type="Button"]
+custom_minimum_size = Vector2(144.0, 204.0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+text = "A\n♠"
+script = ExtResource("1_script")

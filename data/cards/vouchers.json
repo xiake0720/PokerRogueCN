@@ -1,0 +1,18 @@
+[
+  {"id":"overstock","name_cn":"库存过剩","description_cn":"商店增加一个商品槽。"},
+  {"id":"clearance_sale","name_cn":"清仓促销","description_cn":"商店商品打折。"},
+  {"id":"hone","name_cn":"打磨","description_cn":"提高带版本卡牌出现率。"},
+  {"id":"reroll_surplus","name_cn":"刷新盈余","description_cn":"刷新商店更便宜。"},
+  {"id":"crystal_ball","name_cn":"水晶球","description_cn":"+1消耗牌槽。"},
+  {"id":"telescope","name_cn":"望远镜","description_cn":"星球包更容易出现常用牌型。"},
+  {"id":"grabber","name_cn":"抓手","description_cn":"+1出牌次数。"},
+  {"id":"wasteful","name_cn":"浪费","description_cn":"+1弃牌次数。"},
+  {"id":"tarot_merchant","name_cn":"塔罗商人","description_cn":"塔罗牌更常见。"},
+  {"id":"planet_merchant","name_cn":"星球商人","description_cn":"星球牌更常见。"},
+  {"id":"seed_money","name_cn":"种子资金","description_cn":"提高利息上限。"},
+  {"id":"blank","name_cn":"空白","description_cn":"看似没有效果。"},
+  {"id":"magic_trick","name_cn":"魔术戏法","description_cn":"商店可出现扑克牌。"},
+  {"id":"hieroglyph","name_cn":"象形文字","description_cn":"降低底注，减少出牌次数。"},
+  {"id":"directors_cut","name_cn":"导演剪辑","description_cn":"可重随首领关卡。"},
+  {"id":"paint_brush","name_cn":"画笔","description_cn":"+1手牌上限。"}
+]

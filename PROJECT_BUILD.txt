@@ -1,0 +1,2 @@
+PokerRogueCN_1920_1080_FIX_F
+修复出牌卡牌飞到右下角：出牌区改为固定坐标 Control，出牌目标点手动计算，不再依赖 HBoxContainer；出牌卡继续复用手牌卡牌对象。

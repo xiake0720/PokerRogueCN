@@ -1,0 +1,25 @@
+[
+  {"id":"fool","name_cn":"愚者","description_cn":"复制上一张使用的消耗牌。"},
+  {"id":"magician","name_cn":"魔术师","description_cn":"将选中的牌变为幸运牌。"},
+  {"id":"high_priestess","name_cn":"女祭司","description_cn":"生成星球牌。"},
+  {"id":"empress","name_cn":"皇后","description_cn":"将选中的牌变为倍率牌。"},
+  {"id":"emperor","name_cn":"皇帝","description_cn":"生成塔罗牌。"},
+  {"id":"hierophant","name_cn":"教皇","description_cn":"将选中的牌变为奖励筹码牌。"},
+  {"id":"lovers","name_cn":"恋人","description_cn":"将选中的牌变为万能花色牌。"},
+  {"id":"chariot","name_cn":"战车","description_cn":"将选中的牌变为钢铁牌。"},
+  {"id":"justice","name_cn":"正义","description_cn":"将选中的牌变为玻璃牌。"},
+  {"id":"hermit","name_cn":"隐者","description_cn":"翻倍金币，上限20。"},
+  {"id":"wheel","name_cn":"命运之轮","description_cn":"概率给小丑添加版本。"},
+  {"id":"strength","name_cn":"力量","description_cn":"提升选中牌点数。"},
+  {"id":"hanged_man","name_cn":"倒吊人","description_cn":"摧毁选中的牌。"},
+  {"id":"death","name_cn":"死神","description_cn":"将左牌复制为右牌。"},
+  {"id":"temperance","name_cn":"节制","description_cn":"按小丑售价获得金币。"},
+  {"id":"devil","name_cn":"恶魔","description_cn":"将选中的牌变为黄金牌。"},
+  {"id":"tower","name_cn":"高塔","description_cn":"将选中的牌变为石头牌。"},
+  {"id":"star","name_cn":"星星","description_cn":"将选中牌变为方片。"},
+  {"id":"moon","name_cn":"月亮","description_cn":"将选中牌变为梅花。"},
+  {"id":"sun","name_cn":"太阳","description_cn":"将选中牌变为红桃。"},
+  {"id":"judgement","name_cn":"审判","description_cn":"生成小丑牌。"},
+  {"id":"world","name_cn":"世界","description_cn":"将选中牌变为黑桃。"}
+]
+

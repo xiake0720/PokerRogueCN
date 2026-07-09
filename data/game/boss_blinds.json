@@ -1,0 +1,7 @@
+[
+  {"id":"boss_none","name_cn":"标准首领","rule":"none"},
+  {"id":"boss_hearts_disabled","name_cn":"血心封锁","rule":"debuff_suit","suit":"hearts"},
+  {"id":"boss_spades_disabled","name_cn":"黑锋封锁","rule":"debuff_suit","suit":"spades"},
+  {"id":"boss_no_discards","name_cn":"禁弃之眼","rule":"discourage_discards"},
+  {"id":"boss_final_hand","name_cn":"终局压迫","rule":"final_hand_pressure"}
+]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://card_detail_popup"]
+
+[ext_resource type="Script" path="res://scripts/ui/card_detail_popup.gd" id="1_script"]
+
+[node name="CardDetailPopup" type="PopupPanel"]
+transparent_bg = true
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(630.0, 360.0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 27
+theme_override_constants/margin_top = 27
+theme_override_constants/margin_right = 27
+theme_override_constants/margin_bottom = 27
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "小丑牌"
+horizontal_alignment = 1
+
+[node name="TypeLabel" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.84, 0.9, 1)
+text = "普通"
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 27
+text = "说明"
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0.0, 69.0)
+layout_mode = 2
+text = "关闭"

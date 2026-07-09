@@ -1,0 +1,16 @@
+[
+  {"id":"high_card","name_cn":"高牌","name_en":"High Card","base_chips":5,"base_mult":1,"level_chips":10,"level_mult":1},
+  {"id":"pair","name_cn":"对子","name_en":"Pair","base_chips":10,"base_mult":2,"level_chips":15,"level_mult":1},
+  {"id":"two_pair","name_cn":"两对","name_en":"Two Pair","base_chips":20,"base_mult":2,"level_chips":20,"level_mult":1},
+  {"id":"three_kind","name_cn":"三条","name_en":"Three of a Kind","base_chips":30,"base_mult":3,"level_chips":20,"level_mult":2},
+  {"id":"straight","name_cn":"顺子","name_en":"Straight","base_chips":30,"base_mult":4,"level_chips":30,"level_mult":3},
+  {"id":"flush","name_cn":"同花","name_en":"Flush","base_chips":35,"base_mult":4,"level_chips":15,"level_mult":2},
+  {"id":"full_house","name_cn":"葫芦","name_en":"Full House","base_chips":40,"base_mult":4,"level_chips":25,"level_mult":2},
+  {"id":"four_kind","name_cn":"四条","name_en":"Four of a Kind","base_chips":60,"base_mult":7,"level_chips":30,"level_mult":3},
+  {"id":"straight_flush","name_cn":"同花顺","name_en":"Straight Flush","base_chips":100,"base_mult":8,"level_chips":40,"level_mult":4},
+  {"id":"royal_flush","name_cn":"皇家同花顺","name_en":"Royal Flush","base_chips":100,"base_mult":8,"level_chips":40,"level_mult":4},
+  {"id":"five_kind","name_cn":"五条","name_en":"Five of a Kind","base_chips":120,"base_mult":12,"level_chips":35,"level_mult":3},
+  {"id":"flush_house","name_cn":"同花葫芦","name_en":"Flush House","base_chips":140,"base_mult":14,"level_chips":40,"level_mult":4},
+  {"id":"flush_five","name_cn":"同花五条","name_en":"Flush Five","base_chips":160,"base_mult":16,"level_chips":50,"level_mult":3}
+]
+

@@ -1,0 +1,9 @@
+[
+  {"id":"small_blind","name_cn":"小关卡","description_cn":"基础挑战，可跳过换取奖励。","score_mult":1.0,"reward":3},
+  {"id":"big_blind","name_cn":"中关卡","description_cn":"进阶挑战，目标分更高，奖励更多。","score_mult":1.5,"reward":4},
+  {"id":"boss_none","name_cn":"首领关卡","description_cn":"本轮最终挑战，必须完成。","score_mult":2.0,"reward":5},
+  {"id":"boss_hearts_disabled","name_cn":"血心首领","description_cn":"红桃牌不触发部分得分效果。","score_mult":2.0,"reward":5},
+  {"id":"boss_spades_disabled","name_cn":"黑锋首领","description_cn":"黑桃牌不触发部分得分效果。","score_mult":2.0,"reward":5},
+  {"id":"boss_no_discards","name_cn":"禁弃首领","description_cn":"本轮尽量减少弃牌。","score_mult":2.0,"reward":5},
+  {"id":"boss_final_hand","name_cn":"终局首领","description_cn":"最后一手非常关键。","score_mult":2.0,"reward":5}
+]
