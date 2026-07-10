@@ -4,18 +4,21 @@ extends PanelContainer
 signal buy_requested(index: int)
 signal inspect_requested(item: Dictionary)
 
-@onready var price_label: Label = $VBox/PriceLabel
-@onready var art_panel: PanelContainer = $VBox/ArtPanel
-@onready var art_label: Label = $VBox/ArtPanel/ArtLabel
-@onready var name_label: Label = $VBox/NameLabel
-@onready var type_label: Label = $VBox/TypeLabel
-@onready var buy_button: Button = $VBox/BuyButton
+@onready var product_art: TextureRect = %ProductArt
+@onready var product_frame: Panel = %ProductFrame
+@onready var price_label: Label = %PriceLabel
+@onready var name_label: Label = %NameLabel
+@onready var type_label: Label = %TypeLabel
+@onready var buy_button: Button = %BuyButton
+@onready var sold_overlay: ColorRect = %SoldOverlay
+@onready var disabled_overlay: ColorRect = %DisabledOverlay
+@onready var hover_glow: Panel = %HoverGlow
 
 var item_index: int = -1
 var item_data: Dictionary = {}
+var item_kind: String = ""
 
 func _ready() -> void:
-	art_panel.add_theme_stylebox_override("panel", _art_style(Color(0.82, 0.2, 0.18)))
 	buy_button.pressed.connect(func() -> void: buy_requested.emit(item_index))
 	gui_input.connect(_on_gui_input)
 	mouse_entered.connect(_on_mouse_entered)
@@ -24,29 +27,72 @@ func _ready() -> void:
 
 func setup(item: Dictionary, index: int, kind: String) -> void:
 	item_index = index
+	item_kind = kind
 	item_data = item.duplicate(true)
 	item_data["kind"] = kind
 	var cost: int = int(item_data.get("cost", 0))
 	price_label.text = "$%d" % cost
 	name_label.text = str(item_data.get("name_cn", "商品"))
 	type_label.text = _type_text(kind)
-	art_label.text = _art_text(kind)
+	product_art.texture = _resolve_art(kind, str(item_data.get("id", "unknown")))
+	product_frame.modulate = _kind_color(kind)
 	tooltip_text = "%s\n%s" % [name_label.text, str(item_data.get("description_cn", ""))]
-	art_panel.add_theme_stylebox_override("panel", _art_style(_kind_color(kind)))
+	sold_overlay.visible = false
+	buy_button.visible = true
 	buy_button.text = "购买"
 
 func set_can_afford(can_afford: bool) -> void:
 	buy_button.disabled = not can_afford
-	modulate = Color.WHITE if can_afford else Color(1, 1, 1, 0.56)
+	disabled_overlay.visible = not can_afford
+	product_art.modulate = Color.WHITE if can_afford else Color(0.48, 0.48, 0.48, 1)
+	name_label.modulate = Color.WHITE
+	price_label.modulate = Color.WHITE
+
+func mark_sold() -> void:
+	sold_overlay.visible = true
+	disabled_overlay.visible = false
+	buy_button.visible = false
+	product_art.modulate = Color(0.55, 0.55, 0.55, 1)
+
+func set_action_text(action_text: String) -> void:
+	buy_button.text = action_text
+
+func clear_offer() -> void:
+	item_index = -1
+	item_data.clear()
+	product_art.texture = null
+	name_label.text = "待补货"
+	type_label.text = ""
+	price_label.text = "—"
+	buy_button.visible = false
+	disabled_overlay.visible = true
+	sold_overlay.visible = false
+
+func _resolve_art(kind: String, id: String) -> Texture2D:
+	match kind:
+		"joker":
+			return ArtResolver.get_joker_art(id)
+		"voucher":
+			return ArtResolver.get_voucher_art(id)
+		"pack":
+			return ArtResolver.get_pack_art(id)
+		_:
+			return ArtResolver.get_consumable_art(kind, id)
 
 func _on_gui_input(event: InputEvent) -> void:
+	if item_data.is_empty():
+		return
 	if event is InputEventMouseButton:
 		var mouse_event: InputEventMouseButton = event as InputEventMouseButton
 		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
 			inspect_requested.emit(item_data)
 
 func _on_mouse_entered() -> void:
+	if item_data.is_empty():
+		return
 	z_index = 50
+	hover_glow.visible = true
+	hover_glow.modulate = Color(1.25, 1.1, 0.72, 1)
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
@@ -54,10 +100,11 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	z_index = 0
+	hover_glow.visible = false
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.10)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 func _type_text(kind: String) -> String:
 	match kind:
@@ -67,35 +114,22 @@ func _type_text(kind: String) -> String:
 			return "优惠券"
 		"pack":
 			return "补充包"
+		"tarot":
+			return "塔罗牌"
+		"planet":
+			return "星球牌"
+		"spectral":
+			return "幻灵牌"
 		_:
 			return "商品"
-
-func _art_text(kind: String) -> String:
-	match kind:
-		"joker":
-			return "JOKER"
-		"voucher":
-			return "VOUCHER"
-		"pack":
-			return "PACK"
-		_:
-			return "ITEM"
 
 func _kind_color(kind: String) -> Color:
 	match kind:
 		"joker":
-			return Color(0.82, 0.18, 0.16)
+			return Color(1.08, 0.62, 0.56, 1)
 		"voucher":
-			return Color(0.85, 0.38, 0.62)
+			return Color(1.05, 0.68, 0.88, 1)
 		"pack":
-			return Color(0.55, 0.32, 0.9)
+			return Color(0.76, 0.66, 1.12, 1)
 		_:
-			return Color(0.28, 0.38, 0.42)
-
-func _art_style(color: Color) -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = color
-	style.border_color = Color(0.92, 0.92, 0.86)
-	style.set_border_width_all(3)
-	style.set_corner_radius_all(8)
-	return style
+			return Color(0.72, 0.86, 0.82, 1)

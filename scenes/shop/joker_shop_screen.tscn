@@ -1,51 +1,76 @@
-[gd_scene load_steps=10 format=3 uid="uid://joker_shop_screen"]
+[gd_scene load_steps=20 format=3 uid="uid://joker_shop_screen"]
 
 [ext_resource type="Script" path="res://scripts/shop/joker_shop_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="2_hud"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/shop/shop_background.png" id="3_shop_frame"]
-[ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_shelf"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/backgrounds/shop.png" id="3_shop_bg"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/backgrounds/home_table.png" id="4_table"]
 [ext_resource type="PackedScene" path="res://scenes/cards/joker_card_view.tscn" id="5_joker_card"]
 [ext_resource type="PackedScene" path="res://scenes/shop/shop_offer_card.tscn" id="6_offer_card"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/battle_title_bar.png" id="7_shelf"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_title_panel.png" id="8_title"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_offers_panel.png" id="9_offers"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_voucher_panel.png" id="10_voucher"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_packs_panel.png" id="11_packs"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/shop_button_red.png" id="12_red"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/shop_button_green.png" id="13_green"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/decorations/shop_curtain_bottom_left.png" id="14_decor_left"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/decorations/shop_curtain_right.png" id="15_decor_right"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="16_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="17_panel"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_board"]
-bg_color = Color(0.055, 0.24, 0.16, 0.82)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.61, 0.24, 0.16, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="Style_red"]
+content_margin_left = 46.0
+content_margin_top = 18.0
+content_margin_right = 46.0
+content_margin_bottom = 18.0
+texture = ExtResource("12_red")
+texture_margin_left = 68.0
+texture_margin_top = 46.0
+texture_margin_right = 68.0
+texture_margin_bottom = 46.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop_panel"]
-bg_color = Color(0.08, 0.11, 0.1, 0.95)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.9, 0.24, 0.16, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="Style_red_hover"]
+content_margin_left = 46.0
+content_margin_top = 18.0
+content_margin_right = 46.0
+content_margin_bottom = 18.0
+texture = ExtResource("12_red")
+texture_margin_left = 68.0
+texture_margin_top = 46.0
+texture_margin_right = 68.0
+texture_margin_bottom = 46.0
+modulate_color = Color(1.18, 1.1, 0.84, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shelf"]
-content_margin_left = 12.0
-content_margin_top = 12.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
-bg_color = Color(0.12, 0.23, 0.18, 0.92)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.74, 0.47, 0.17, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="Style_green"]
+content_margin_left = 46.0
+content_margin_top = 18.0
+content_margin_right = 46.0
+content_margin_bottom = 18.0
+texture = ExtResource("13_green")
+texture_margin_left = 68.0
+texture_margin_top = 46.0
+texture_margin_right = 68.0
+texture_margin_bottom = 46.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_green_hover"]
+content_margin_left = 46.0
+content_margin_top = 18.0
+content_margin_right = 46.0
+content_margin_bottom = 18.0
+texture = ExtResource("13_green")
+texture_margin_left = 68.0
+texture_margin_top = 46.0
+texture_margin_right = 68.0
+texture_margin_bottom = 46.0
+modulate_color = Color(1.16, 1.12, 0.84, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="JokerShopScreen" type="Control"]
 layout_mode = 3
@@ -56,219 +81,386 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="BackgroundArt" type="TextureRect" parent="."]
+[node name="BackgroundBase" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_shop_frame")
+texture = ExtResource("4_table")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="SafeAspect" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.77778
+stretch_mode = 2
+
+[node name="Canvas" type="Control" parent="SafeAspect"]
+layout_mode = 2
+
+[node name="ShopBackgroundArt" type="TextureRect" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchor_left = 0.235
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_shop_bg")
 expand_mode = 1
 stretch_mode = 5
+mouse_filter = 2
 
-[node name="Root" type="MarginContainer" parent="."]
+[node name="Root" type="MarginContainer" parent="SafeAspect/Canvas"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 42.0
-offset_top = 36.0
-offset_right = -42.0
-offset_bottom = -36.0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBox" type="HBoxContainer" parent="Root"]
+[node name="HBox" type="HBoxContainer" parent="SafeAspect/Canvas/Root"]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 26
 
-[node name="HUD" parent="Root/HBox" instance=ExtResource("2_hud")]
+[node name="HUD" parent="SafeAspect/Canvas/Root/HBox" instance=ExtResource("2_hud")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(430, 0)
 layout_mode = 2
-custom_minimum_size = Vector2(380, 0)
 
-[node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
+[node name="ShopArea" type="Control" parent="SafeAspect/Canvas/Root/HBox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_board")
 
-[node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 20
-
-[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin"]
-layout_mode = 2
-theme_override_constants/separation = 18
-
-[node name="OwnedJokerHeader" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "已拥有小丑牌 0/5"
-horizontal_alignment = 1
-
-[node name="OwnedShelf" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-custom_minimum_size = Vector2(0, 160)
-layout_mode = 2
-texture = ExtResource("4_shelf")
+[node name="OwnedShelf" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.0
+anchor_right = 0.98
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_shelf")
 expand_mode = 1
 stretch_mode = 5
+mouse_filter = 2
 
-[node name="OwnedJokerRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf"]
+[node name="OwnedJokerHeader" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchor_right = 0.16
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = 18.0
-offset_right = -80.0
-offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_font_sizes/font_size = 16
+text = "已拥有\n0/5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OwnedJokerRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf"]
+layout_mode = 1
+anchor_left = 0.13
+anchor_top = 0.04
+anchor_right = 0.97
+anchor_bottom = 0.96
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-theme_override_constants/separation = 18
+theme_override_constants/separation = 16
 
-[node name="OwnedJokerSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
-custom_minimum_size = Vector2(88, 116)
+[node name="OwnedJokerSlot1" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 142)
+layout_mode = 2
+[node name="OwnedJokerSlot2" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 142)
+layout_mode = 2
+[node name="OwnedJokerSlot3" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 142)
+layout_mode = 2
+[node name="OwnedJokerSlot4" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 142)
+layout_mode = 2
+[node name="OwnedJokerSlot5" parent="SafeAspect/Canvas/Root/HBox/ShopArea/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 142)
 layout_mode = 2
 
-[node name="OwnedJokerSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
-custom_minimum_size = Vector2(88, 116)
-layout_mode = 2
-
-[node name="OwnedJokerSlot3" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
-custom_minimum_size = Vector2(88, 116)
-layout_mode = 2
-
-[node name="OwnedJokerSlot4" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
-custom_minimum_size = Vector2(88, 116)
-layout_mode = 2
-
-[node name="OwnedJokerSlot5" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/OwnedShelf/OwnedJokerRow" instance=ExtResource("5_joker_card")]
-custom_minimum_size = Vector2(88, 116)
-layout_mode = 2
-
-[node name="ShopPanel" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_shop_panel")
-
-[node name="ShopMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 26
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 26
-theme_override_constants/margin_bottom = 24
-
-[node name="ShopVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin"]
-layout_mode = 2
-theme_override_constants/separation = 22
-
-[node name="ShopTitle" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 44
-theme_override_colors/font_color = Color(1, 0.78, 0.24, 1)
+[node name="TitlePanel" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.01
+anchor_top = 0.2
+anchor_right = 0.41
+anchor_bottom = 0.4
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_title")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="ShopTitle" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/TitlePanel"]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.72
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.38, 1)
+theme_override_font_sizes/font_size = 58
 text = "商店"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SpacerTop" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
-custom_minimum_size = Vector2(0, 30)
+[node name="ActionRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.4
+anchor_right = 0.42
+anchor_bottom = 0.51
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 12
+z_index = 5
+[node name="NextButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/ShopArea/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 90)
 layout_mode = 2
-
-[node name="TopSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
-custom_minimum_size = Vector2(0, 260)
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("Style_red")
+theme_override_styles/hover = SubResource("Style_red_hover")
+theme_override_styles/pressed = SubResource("Style_red")
+theme_override_styles/focus = ExtResource("16_focus")
+text = "下一盲注"
+[node name="RerollButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/ShopArea/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 90)
 layout_mode = 2
-theme_override_constants/separation = 22
-
-[node name="ActionColumn" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme_override_constants/separation = 18
-
-[node name="NextButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
-custom_minimum_size = Vector2(0, 92)
-layout_mode = 2
-text = "下一回合"
-
-[node name="RerollButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/ActionColumn"]
-custom_minimum_size = Vector2(0, 92)
-layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("Style_green")
+theme_override_styles/hover = SubResource("Style_green_hover")
+theme_override_styles/pressed = SubResource("Style_green")
+theme_override_styles/focus = ExtResource("16_focus")
 text = "刷新 $5"
 
-[node name="JokerShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_shelf")
-
-[node name="JokerShelfMargin" type="MarginContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 16
-
-[node name="JokerShopRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin"]
-layout_mode = 2
-alignment = 1
-theme_override_constants/separation = 30
-
-[node name="JokerOfferSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow" instance=ExtResource("6_offer_card")]
-layout_mode = 2
-
-[node name="JokerOfferSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/TopSection/JokerShelf/JokerShelfMargin/JokerShopRow" instance=ExtResource("6_offer_card")]
-layout_mode = 2
-
-[node name="BottomSection" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 22
-
-[node name="VoucherShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_shelf")
-
-[node name="VoucherVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf"]
-layout_mode = 2
-
-[node name="VoucherTitle" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "优惠券"
+[node name="JokerShelf" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+layout_mode = 1
+anchor_left = 0.43
+anchor_top = 0.2
+anchor_right = 0.995
+anchor_bottom = 0.53
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_offers")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="JokerTitle" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/JokerShelf"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.16
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "可购买小丑牌"
 horizontal_alignment = 1
-
-[node name="VoucherRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox"]
-layout_mode = 2
-size_flags_vertical = 3
+vertical_alignment = 1
+[node name="JokerShopRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea/JokerShelf"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.15
+anchor_right = 0.88
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
-
-[node name="VoucherOfferSlot" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/VoucherShelf/VoucherVBox/VoucherRow" instance=ExtResource("6_offer_card")]
+theme_override_constants/separation = 40
+[node name="JokerOfferSlot1" parent="SafeAspect/Canvas/Root/HBox/ShopArea/JokerShelf/JokerShopRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 215)
+layout_mode = 2
+[node name="JokerOfferSlot2" parent="SafeAspect/Canvas/Root/HBox/ShopArea/JokerShelf/JokerShopRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 215)
 layout_mode = 2
 
-[node name="PackShelf" type="PanelContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_shelf")
+[node name="VoucherShelf" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+layout_mode = 1
+anchor_left = 0.01
+anchor_top = 0.53
+anchor_right = 0.42
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_voucher")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="VoucherTitle" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/VoucherShelf"]
+layout_mode = 1
+anchor_left = 0.22
+anchor_right = 0.78
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "特殊优惠"
+horizontal_alignment = 1
+vertical_alignment = 1
+[node name="VoucherOfferSlot" parent="SafeAspect/Canvas/Root/HBox/ShopArea/VoucherShelf" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 215)
+layout_mode = 1
+anchor_left = 0.36
+anchor_top = 0.22
+anchor_right = 0.66
+anchor_bottom = 0.88
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PackVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf"]
-layout_mode = 2
-
-[node name="PackTitle" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
+[node name="PackShelf" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+layout_mode = 1
+anchor_left = 0.44
+anchor_top = 0.53
+anchor_right = 0.995
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_packs")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="PackTitle" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackShelf"]
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
 text = "卡牌补充包"
 horizontal_alignment = 1
+vertical_alignment = 1
+[node name="PackRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackShelf"]
+layout_mode = 1
+anchor_left = 0.14
+anchor_top = 0.16
+anchor_right = 0.88
+anchor_bottom = 0.93
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 38
+[node name="PackOfferSlot1" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackShelf/PackRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(155, 220)
+layout_mode = 2
+[node name="PackOfferSlot2" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackShelf/PackRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(155, 220)
+layout_mode = 2
 
-[node name="PackRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox"]
+[node name="PackOverlay" type="Control" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+[node name="Dim" type="ColorRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.005, 0.018, 0.012, 0.82)
+[node name="OpenPanel" type="PanelContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay"]
+layout_mode = 1
+anchor_left = 0.08
+anchor_top = 0.12
+anchor_right = 0.92
+anchor_bottom = 0.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("17_panel")
+[node name="OpenVBox" type="VBoxContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel"]
+layout_mode = 2
+theme_override_constants/separation = 18
+[node name="PackOpenTitle" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+theme_override_font_sizes/font_size = 42
+text = "选择一张卡牌"
+horizontal_alignment = 1
+[node name="PackChoiceLabel" type="Label" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "可选择 1 张"
+horizontal_alignment = 1
+[node name="PackOptionsRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
-theme_override_constants/separation = 30
-
-[node name="PackOfferSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow" instance=ExtResource("6_offer_card")]
+theme_override_constants/separation = 34
+[node name="PackOptionSlot1" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox/PackOptionsRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="PackOfferSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ShopPanel/ShopMargin/ShopVBox/BottomSection/PackShelf/PackVBox/PackRow" instance=ExtResource("6_offer_card")]
+[node name="PackOptionSlot2" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox/PackOptionsRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
 layout_mode = 2
+[node name="PackOptionSlot3" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox/PackOptionsRow" instance=ExtResource("6_offer_card")]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="SkipPackButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/ShopArea/PackOverlay/OpenPanel/OpenVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "跳过剩余选择"
+
+[node name="BottomDecorLeft" type="TextureRect" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchor_top = 0.75
+anchor_right = 0.22
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_decor_left")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="BottomDecorRight" type="TextureRect" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchor_left = 0.76
+anchor_top = 0.72
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_decor_right")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
