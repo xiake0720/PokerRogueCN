@@ -110,4 +110,3 @@ Joker 固定槽由场景预置；每张实际小丑纹理由 `ArtResolver.get_jo
 - 装饰 TextureRect 使用 `mouse_filter = IGNORE`。
 - 像素素材默认 nearest；字体和非像素装饰保持线性过滤。
 - runtime 单图均有透明安全边，禁止再次自动 Alpha 裁切。
-

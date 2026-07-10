@@ -78,4 +78,3 @@ ScrollBar/styles/scroll = SubResource("StyleBox_scroll")
 TooltipLabel/colors/font_color = Color(1, 0.9, 0.62, 1)
 TooltipLabel/font_sizes/font_size = 20
 TooltipPanel/styles/panel = SubResource("StyleBox_tooltip")
-

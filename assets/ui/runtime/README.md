@@ -11,4 +11,3 @@ modified in place.
 `ui_asset_catalog.json` records every source rectangle, output size, alpha-edge
 check, SHA-256 hash, scene, category, and intended use. Generated category
 fallbacks are explicitly marked with `generated: true`.
-

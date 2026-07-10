@@ -69,4 +69,3 @@ func _finish(test_name: String) -> void:
 	for failure in failures:
 		push_error("%s: %s" % [test_name, failure])
 	quit(1)
-
