@@ -6,7 +6,7 @@ extends Control
 	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/StageRow/BigBlindCard,
 	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/StageRow/BossBlindCard,
 ]
-@onready var deck_pile_label: Label = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/DeckPileLabel
+@onready var deck_pile_label: Label = %DeckPileLabel
 
 func _ready() -> void:
 	for i in range(stage_cards.size()):
@@ -21,9 +21,27 @@ func refresh() -> void:
 	_refresh_stages(run)
 
 func _refresh_stages(run: RunState) -> void:
-	var names: Array[String] = ["小关卡", "中关卡", "首领关卡"]
+	var blind_ids: Array[String] = ["small_blind", "big_blind", str(run.current_blind.get("id", "boss_none"))]
+	var default_names: Array[String] = ["小盲注", "大盲注", "首领盲注"]
 	for i in range(stage_cards.size()):
-		stage_cards[i].setup(names[i], run.target_preview_for_stage(i), 3 + i, i == run.blind_index, i < run.blind_index, i < 2)
+		var blind_data: Dictionary = DataRegistry.find_by_id("blinds", blind_ids[i])
+		var title: String = str(blind_data.get("name_cn", default_names[i]))
+		if i == 2 and title.is_empty():
+			title = "首领盲注"
+		var is_active: bool = i == run.blind_index
+		var is_locked: bool = i < run.blind_index or i > run.blind_index + 1
+		var tag_data: Dictionary = run.current_skip_tag() if is_active and i < 2 else {}
+		stage_cards[i].setup(
+			title,
+			run.target_preview_for_stage(i),
+			int(blind_data.get("reward", 3 + i)),
+			is_active,
+			is_locked,
+			i < 2,
+			["small", "big", "boss"][i],
+			tag_data,
+			str(blind_data.get("description_cn", ""))
+		)
 
 func _on_stage_select_requested(index: int) -> void:
 	if index == Game.run.blind_index:
