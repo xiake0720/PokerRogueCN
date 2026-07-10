@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="1_panel"]
+
+[node name="OrnatePanel" type="PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 260)
+theme_override_styles/panel = ExtResource("1_panel")
+
+[node name="ContentMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="Content" type="Control" parent="ContentMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+
