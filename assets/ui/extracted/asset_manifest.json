@@ -86,6 +86,70 @@
     ]
   },
   {
+    "kind": "asset_slice",
+    "scene": "home",
+    "source": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_stack.png#start",
+    "target": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_start.png",
+    "size": [
+      1009,
+      222
+    ],
+    "bbox": [
+      0,
+      5,
+      1009,
+      227
+    ]
+  },
+  {
+    "kind": "asset_slice",
+    "scene": "home",
+    "source": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_stack.png#settings",
+    "target": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_settings.png",
+    "size": [
+      846,
+      159
+    ],
+    "bbox": [
+      18,
+      236,
+      864,
+      395
+    ]
+  },
+  {
+    "kind": "asset_slice",
+    "scene": "home",
+    "source": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_stack.png#quit",
+    "target": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_quit.png",
+    "size": [
+      846,
+      168
+    ],
+    "bbox": [
+      17,
+      403,
+      863,
+      571
+    ]
+  },
+  {
+    "kind": "asset_slice",
+    "scene": "home",
+    "source": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_stack.png#language",
+    "target": "E:\\game\\PokerRogueCN\\assets\\ui\\extracted\\home\\menu_button_language.png",
+    "size": [
+      846,
+      168
+    ],
+    "bbox": [
+      17,
+      580,
+      863,
+      748
+    ]
+  },
+  {
     "kind": "asset",
     "scene": "home",
     "source": "E:\\game\\小丑牌素材透明底\\首页\\ChatGPT Image 2026年7月9日 21_34_44 (6).png",

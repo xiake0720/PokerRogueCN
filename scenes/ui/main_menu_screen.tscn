@@ -1,13 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://main_menu_screen"]
+[gd_scene format=3 uid="uid://d0knnmmbgmdyi"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu_screen.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/joker_pile.png" id="3_cards"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/title_panel.png" id="4_title_panel"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/title_text.png" id="5_title_text"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/ornate_frame.png" id="6_frame"]
+[ext_resource type="Script" uid="uid://bmg5wld3nfare" path="res://scripts/ui/main_menu_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bvfdsdx2jlip" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
+[ext_resource type="Texture2D" uid="uid://beiban7xl6mkq" path="res://assets/ui/extracted/home/joker_pile.png" id="3_cards"]
+[ext_resource type="Texture2D" uid="uid://yphcmwsyes0l" path="res://assets/ui/extracted/home/title_panel.png" id="4_title_panel"]
+[ext_resource type="FontFile" uid="uid://r5o20v5r4gpp" path="res://assets/ui/fonts/ChillHuoGothic_F_Bold.otf" id="6_8nn57"]
+[ext_resource type="Texture2D" uid="uid://dwq0f1mcr8wcy" path="res://assets/ui/extracted/home/ornate_frame.png" id="6_frame"]
+[ext_resource type="Texture2D" uid="uid://cu2dlqhsfi4mi" path="res://assets/ui/extracted/home/menu_button_start.png" id="7_button_start"]
+[ext_resource type="Texture2D" uid="uid://bnwq6brxuv6at" path="res://assets/ui/extracted/home/menu_button_settings.png" id="8_button_settings"]
+[ext_resource type="Texture2D" uid="uid://m3ce6puugmb5" path="res://assets/ui/extracted/home/menu_button_quit.png" id="9_button_quit"]
+[ext_resource type="Texture2D" uid="uid://bp74457m1bje8" path="res://assets/ui/extracted/home/menu_button_language.png" id="10_button_language"]
 
-[node name="MainMenuScreen" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_start"]
+content_margin_left = 176.0
+content_margin_top = 14.0
+content_margin_right = 54.0
+content_margin_bottom = 14.0
+texture = ExtResource("7_button_start")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_settings"]
+content_margin_left = 150.0
+content_margin_top = 12.0
+content_margin_right = 48.0
+content_margin_bottom = 12.0
+texture = ExtResource("8_button_settings")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_quit"]
+content_margin_left = 150.0
+content_margin_top = 12.0
+content_margin_right = 48.0
+content_margin_bottom = 12.0
+texture = ExtResource("9_button_quit")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_language"]
+content_margin_left = 150.0
+content_margin_top = 12.0
+content_margin_right = 48.0
+content_margin_bottom = 12.0
+texture = ExtResource("10_button_language")
+
+[node name="MainMenuScreen" type="Control" unique_id=363600651]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="BackgroundArt" type="TextureRect" parent="."]
+[node name="BackgroundArt" type="TextureRect" parent="." unique_id=2129570330]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +59,25 @@ texture = ExtResource("2_background")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="FrameArt" type="TextureRect" parent="."]
+[node name="CardPileArt" type="TextureRect" parent="." unique_id=1114321864]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.31
+anchor_right = 0.53
+anchor_bottom = 0.935
+offset_left = 3.2000008
+offset_top = -6.799988
+offset_right = 81.599976
+offset_bottom = 56.00006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_cards")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FrameArt" type="TextureRect" parent="." unique_id=1755586685]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,102 +89,205 @@ texture = ExtResource("6_frame")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CardPileArt" type="TextureRect" parent="."]
+[node name="TitleGroup" type="Control" parent="." unique_id=2102442606]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -720.0
-offset_top = -455.0
-offset_right = -72.0
-offset_bottom = -36.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("3_cards")
-expand_mode = 1
-stretch_mode = 5
+anchor_left = 0.285
+anchor_top = 0.055
+anchor_right = 0.705
+anchor_bottom = 0.32
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="TitleArt" type="TextureRect" parent="TitleGroup" unique_id=938631382]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Panel" type="MarginContainer" parent="Center"]
-custom_minimum_size = Vector2(900, 540)
-layout_mode = 2
-theme_override_constants/margin_left = 28
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 28
-theme_override_constants/margin_bottom = 24
-
-[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="TitleArt" type="TextureRect" parent="Center/Panel/VBox"]
-custom_minimum_size = Vector2(0, 190)
-layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("4_title_panel")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleTextArt" type="TextureRect" parent="Center/Panel/VBox/TitleArt"]
+[node name="TitleShadowLabel" type="Label" parent="TitleGroup" unique_id=917595832]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -70.0
-offset_right = 250.0
-offset_bottom = 70.0
+offset_left = -243.0
+offset_top = -67.0
+offset_right = 257.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.24, 0.075, 0.015, 1)
+theme_override_font_sizes/font_size = 86
+text = "炸分扑克"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="TitleGroup" unique_id=1484261021]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.00003
+offset_top = -79.0
+offset_right = 253.99997
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.77, 0.22, 1)
+theme_override_colors/font_outline_color = Color(0.37, 0.12, 0.015, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_8nn57")
+theme_override_font_sizes/font_size = 121
+text = "炸分扑克"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SparkleLayer" type="Control" parent="TitleGroup" unique_id=67401677]
+layout_mode = 1
+anchor_right = 0.998
+anchor_bottom = 0.994
+offset_top = 12.599998
+offset_right = 0.012817383
+offset_bottom = 1.7171936
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("5_title_text")
-expand_mode = 1
-stretch_mode = 5
 
-[node name="SubtitleLabel" type="Label" parent="Center/Panel/VBox"]
-layout_mode = 2
+[node name="Sparkle1" type="Label" parent="TitleGroup/SparkleLayer" unique_id=1097809284]
+layout_mode = 1
+offset_left = 105.0
+offset_top = 44.0
+offset_right = 145.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(1, 0.86, 0.34, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_colors/font_color = Color(1, 0.78, 0.32, 1)
-text = "中文扑克 Roguelike 构筑游戏"
+text = "✦"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ButtonRow" type="HBoxContainer" parent="Center/Panel/VBox"]
-layout_mode = 2
-alignment = 1
-theme_override_constants/separation = 18
+[node name="Sparkle2" type="Label" parent="TitleGroup/SparkleLayer" unique_id=1187031331]
+layout_mode = 1
+offset_left = 410.0
+offset_top = 30.0
+offset_right = 450.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 0.86, 0.34, 1)
+theme_override_font_sizes/font_size = 24
+text = "✦"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(260, 86)
-layout_mode = 2
-theme_override_font_sizes/font_size = 34
+[node name="Sparkle3" type="Label" parent="TitleGroup/SparkleLayer" unique_id=1141748380]
+layout_mode = 1
+offset_left = 540.0
+offset_top = 136.0
+offset_right = 580.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(1, 0.86, 0.34, 1)
+theme_override_font_sizes/font_size = 26
+text = "✦"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sparkle4" type="Label" parent="TitleGroup/SparkleLayer" unique_id=1206842673]
+layout_mode = 1
+offset_left = 270.0
+offset_top = 177.0
+offset_right = 310.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(1, 0.86, 0.34, 1)
+theme_override_font_sizes/font_size = 22
+text = "✦"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuColumn" type="Control" parent="." unique_id=2066291458]
+layout_mode = 1
+anchor_left = 0.57
+anchor_top = 0.34
+anchor_right = 0.92
+anchor_bottom = 0.82
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="MenuColumn" unique_id=1678191892]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -42.400024
+offset_top = -28.200012
+offset_right = 0.5999756
+offset_bottom = 133.79999
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.06, 0.01, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 88
+theme_override_styles/normal = SubResource("StyleBoxTexture_button_start")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_start")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_start")
 text = "开始游戏"
 
-[node name="OptionsButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(180, 86)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "选项"
+[node name="OptionsButton" type="Button" parent="MenuColumn" unique_id=1240629304]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -22.400024
+offset_top = 144.79999
+offset_right = -56.400024
+offset_bottom = 258.8
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.02, 0.08, 0.04, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_button_settings")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_settings")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_settings")
+text = "设置"
 
-[node name="QuitButton" type="Button" parent="Center/Panel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(180, 86)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
+[node name="QuitButton" type="Button" parent="MenuColumn" unique_id=1428666017]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -22.400024
+offset_top = 269.8
+offset_right = -56.400024
+offset_bottom = 383.8
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.02, 0.05, 0.1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_button_quit")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_quit")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_quit")
 text = "退出"
 
-[node name="TipLabel" type="Label" parent="Center/Panel/VBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.82, 0.55, 1)
-theme_override_font_sizes/font_size = 22
-text = "正式美术资源接入版"
-horizontal_alignment = 1
+[node name="LanguageButton" type="Button" parent="MenuColumn" unique_id=1310449283]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -22.400024
+offset_top = 400.8
+offset_right = -56.400024
+offset_bottom = 514.8
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.02, 0.1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_button_language")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_language")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_language")
+text = "切换语言"

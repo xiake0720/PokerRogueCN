@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://deck_select_screen"]
+[gd_scene format=3 uid="uid://cgjvi43lcl4k6"]
 
-[ext_resource type="Script" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/references/deck_select_reference.png" id="2_reference"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="3_parts"]
+[ext_resource type="Script" uid="uid://dbcvvtpr5b3gw" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://rqdrxeo5m0i7" path="res://assets/ui/references/deck_select_reference.png" id="2_reference"]
+[ext_resource type="Texture2D" uid="uid://ck3uegivi0xk2" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="3_parts"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialog"]
 bg_color = Color(0.16, 0.26, 0.28, 0.98)
@@ -28,7 +28,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="DeckSelectScreen" type="Control"]
+[node name="DeckSelectScreen" type="Control" unique_id=1021129966]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,19 +37,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="BackgroundArt" type="TextureRect" parent="."]
+[node name="BackgroundArt" type="TextureRect" parent="." unique_id=791396644]
+modulate = Color(1, 1, 1, 0.48)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-modulate = Color(1, 1, 1, 0.48)
 texture = ExtResource("2_reference")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PartsDecor" type="TextureRect" parent="."]
+[node name="PartsDecor" type="TextureRect" parent="." unique_id=854633447]
+modulate = Color(1, 1, 1, 0.18)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,12 +64,11 @@ offset_bottom = 530.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-modulate = Color(1, 1, 1, 0.18)
 texture = ExtResource("3_parts")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Dimmer" type="ColorRect" parent="."]
+[node name="Dimmer" type="ColorRect" parent="." unique_id=94222834]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.01, 0.02, 0.015, 0.22)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=698992970]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,92 +85,92 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dialog" type="PanelContainer" parent="Center"]
+[node name="Dialog" type="PanelContainer" parent="Center" unique_id=495819978]
 custom_minimum_size = Vector2(1040, 760)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dialog")
 
-[node name="Margin" type="MarginContainer" parent="Center/Dialog"]
+[node name="Margin" type="MarginContainer" parent="Center/Dialog" unique_id=1219534567]
 layout_mode = 2
 theme_override_constants/margin_left = 34
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 34
 theme_override_constants/margin_bottom = 30
 
-[node name="VBox" type="VBoxContainer" parent="Center/Dialog/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Center/Dialog/Margin" unique_id=981883425]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Tabs" type="HBoxContainer" parent="Center/Dialog/Margin/VBox"]
+[node name="Tabs" type="HBoxContainer" parent="Center/Dialog/Margin/VBox" unique_id=1337856851]
 layout_mode = 2
-alignment = 1
 theme_override_constants/separation = 12
+alignment = 1
 
-[node name="NewRunButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs"]
+[node name="NewRunButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs" unique_id=445657404]
 custom_minimum_size = Vector2(150, 56)
 layout_mode = 2
 text = "新一局"
 
-[node name="ContinueButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs"]
+[node name="ContinueButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs" unique_id=1724928137]
 custom_minimum_size = Vector2(150, 56)
 layout_mode = 2
 text = "继续"
 
-[node name="ChallengeButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs"]
+[node name="ChallengeButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs" unique_id=562635563]
 custom_minimum_size = Vector2(150, 56)
 layout_mode = 2
 text = "挑战"
 
-[node name="DeckRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox"]
+[node name="DeckRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox" unique_id=340336960]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-alignment = 1
 theme_override_constants/separation = 16
+alignment = 1
 
-[node name="PrevDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow"]
+[node name="PrevDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow" unique_id=2146087212]
 custom_minimum_size = Vector2(70, 260)
 layout_mode = 2
 text = "<"
 
-[node name="DeckCard" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow"]
+[node name="DeckCard" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow" unique_id=646430724]
 custom_minimum_size = Vector2(740, 280)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_inner_panel")
 
-[node name="DeckCardMargin" type="MarginContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard"]
+[node name="DeckCardMargin" type="MarginContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard" unique_id=167968574]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="DeckInfoRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin"]
+[node name="DeckInfoRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin" unique_id=609502898]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="DeckBack" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow"]
+[node name="DeckBack" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow" unique_id=2106208130]
 custom_minimum_size = Vector2(168, 230)
 layout_mode = 2
 
-[node name="DeckBackLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckBack"]
+[node name="DeckBackLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckBack" unique_id=463545559]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "牌背"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DeckText" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow"]
+[node name="DeckText" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow" unique_id=223053384]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="DeckNameLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText"]
+[node name="DeckNameLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText" unique_id=1007548811]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "红色牌组"
 horizontal_alignment = 1
 
-[node name="DeckDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText"]
+[node name="DeckDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText" unique_id=1433479572]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 28
@@ -179,58 +179,58 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="DeckStatsLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText"]
+[node name="DeckStatsLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText" unique_id=1431031755]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.72, 0.28, 1)
 text = "回合 4  弃牌 3  资金 $4"
 horizontal_alignment = 1
 
-[node name="NextDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow"]
+[node name="NextDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow" unique_id=2146782354]
 custom_minimum_size = Vector2(70, 260)
 layout_mode = 2
 text = ">"
 
-[node name="DifficultyRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox"]
+[node name="DifficultyRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox" unique_id=1572418987]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-alignment = 1
 theme_override_constants/separation = 14
+alignment = 1
 
-[node name="PrevStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow"]
+[node name="PrevStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow" unique_id=2098549874]
 custom_minimum_size = Vector2(50, 82)
 layout_mode = 2
 text = "<"
 
-[node name="DifficultyPanel" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow"]
+[node name="DifficultyPanel" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow" unique_id=474708028]
 custom_minimum_size = Vector2(700, 108)
 layout_mode = 2
 
-[node name="DifficultyVBox" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel"]
+[node name="DifficultyVBox" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel" unique_id=302517713]
 layout_mode = 2
 
-[node name="StakeLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox"]
+[node name="StakeLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox" unique_id=2091310849]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "基础难度"
 horizontal_alignment = 1
 
-[node name="StakeDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox"]
+[node name="StakeDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox" unique_id=1161789677]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.82, 0.88, 0.88, 1)
 text = "标准规则，适合测试完整流程。"
 horizontal_alignment = 1
 
-[node name="NextStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow"]
+[node name="NextStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow" unique_id=1551668885]
 custom_minimum_size = Vector2(50, 82)
 layout_mode = 2
 text = ">"
 
-[node name="StartButton" type="Button" parent="Center/Dialog/Margin/VBox"]
+[node name="StartButton" type="Button" parent="Center/Dialog/Margin/VBox" unique_id=491140058]
 custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
 text = "开始游戏"
 
-[node name="BackButton" type="Button" parent="Center/Dialog/Margin/VBox"]
+[node name="BackButton" type="Button" parent="Center/Dialog/Margin/VBox" unique_id=120907393]
 custom_minimum_size = Vector2(0, 66)
 layout_mode = 2
 text = "返回"
