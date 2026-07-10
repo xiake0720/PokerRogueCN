@@ -1,24 +1,134 @@
-[gd_scene load_steps=9 format=3 uid="uid://battle_screen"]
+[gd_scene load_steps=23 format=3 uid="uid://battle_screen"]
 
 [ext_resource type="Script" path="res://scripts/game/battle_screen.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/cards/card_fan_area.gd" id="2_fan"]
 [ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="3_hud"]
-[ext_resource type="Texture2D" path="res://assets/ui/panels/top_joker_shelf.png" id="4_joker_shelf"]
-[ext_resource type="Texture2D" path="res://assets/cards/poker/backs/card_back_red.png" id="5_card_back"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/battle_title_bar.png" id="4_joker_shelf"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="5_card_back"]
 [ext_resource type="PackedScene" path="res://scenes/cards/joker_card_view.tscn" id="6_joker_card"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/battle/battle_background_frame.png" id="7_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/backgrounds/battle_frame.png" id="7_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/backgrounds/home_table.png" id="8_table"]
+[ext_resource type="PackedScene" path="res://scenes/ui/shared/consumable_slot_view.tscn" id="9_consumable"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_consumable_tray.png" id="10_tray"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/battle_card_slot.png" id="11_played_frame"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_score_chip_plate.png" id="12_chip_plate"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_score_mult_plate.png" id="13_mult_plate"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_deck_count_panel.png" id="14_deck_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/battle_play_button.png" id="15_play"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/battle_discard_button.png" id="16_discard"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/battle_sort_rank_button.png" id="17_rank"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/battle_sort_suit_button.png" id="18_suit"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="19_focus"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_board"]
-bg_color = Color(0.055, 0.24, 0.16, 0.82)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.61, 0.24, 0.16, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxEmpty" id="Style_empty"]
+
+[sub_resource type="StyleBoxTexture" id="Style_play"]
+content_margin_left = 42.0
+content_margin_top = 14.0
+content_margin_right = 42.0
+content_margin_bottom = 14.0
+texture = ExtResource("15_play")
+texture_margin_left = 52.0
+texture_margin_top = 34.0
+texture_margin_right = 52.0
+texture_margin_bottom = 34.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_play_hover"]
+content_margin_left = 42.0
+content_margin_top = 14.0
+content_margin_right = 42.0
+content_margin_bottom = 14.0
+texture = ExtResource("15_play")
+texture_margin_left = 52.0
+texture_margin_top = 34.0
+texture_margin_right = 52.0
+texture_margin_bottom = 34.0
+modulate_color = Color(1.2, 1.12, 0.85, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_discard"]
+content_margin_left = 36.0
+content_margin_top = 14.0
+content_margin_right = 36.0
+content_margin_bottom = 14.0
+texture = ExtResource("16_discard")
+texture_margin_left = 46.0
+texture_margin_top = 30.0
+texture_margin_right = 46.0
+texture_margin_bottom = 30.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_discard_hover"]
+content_margin_left = 36.0
+content_margin_top = 14.0
+content_margin_right = 36.0
+content_margin_bottom = 14.0
+texture = ExtResource("16_discard")
+texture_margin_left = 46.0
+texture_margin_top = 30.0
+texture_margin_right = 46.0
+texture_margin_bottom = 30.0
+modulate_color = Color(1.2, 1.08, 0.84, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_rank"]
+content_margin_left = 36.0
+content_margin_top = 14.0
+content_margin_right = 42.0
+content_margin_bottom = 14.0
+texture = ExtResource("17_rank")
+texture_margin_left = 46.0
+texture_margin_top = 30.0
+texture_margin_right = 46.0
+texture_margin_bottom = 30.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_rank_hover"]
+content_margin_left = 36.0
+content_margin_top = 14.0
+content_margin_right = 42.0
+content_margin_bottom = 14.0
+texture = ExtResource("17_rank")
+texture_margin_left = 46.0
+texture_margin_top = 30.0
+texture_margin_right = 46.0
+texture_margin_bottom = 30.0
+modulate_color = Color(1.18, 1.1, 0.86, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_suit"]
+content_margin_left = 36.0
+content_margin_top = 14.0
+content_margin_right = 42.0
+content_margin_bottom = 14.0
+texture = ExtResource("18_suit")
+texture_margin_left = 46.0
+texture_margin_top = 30.0
+texture_margin_right = 46.0
+texture_margin_bottom = 30.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_suit_hover"]
+content_margin_left = 36.0
+content_margin_top = 14.0
+content_margin_right = 42.0
+content_margin_bottom = 14.0
+texture = ExtResource("18_suit")
+texture_margin_left = 46.0
+texture_margin_top = 30.0
+texture_margin_right = 46.0
+texture_margin_bottom = 30.0
+modulate_color = Color(1.18, 1.1, 0.86, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="BattleScreen" type="Control"]
 layout_mode = 3
@@ -28,6 +138,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
+
+[node name="BackgroundBase" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_table")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
 
 [node name="BackgroundArt" type="TextureRect" parent="."]
 layout_mode = 1
@@ -39,174 +161,422 @@ grow_vertical = 2
 texture = ExtResource("7_background")
 expand_mode = 1
 stretch_mode = 5
+mouse_filter = 2
 
-[node name="Root" type="MarginContainer" parent="."]
+[node name="SafeAspect" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 42.0
-offset_top = 36.0
-offset_right = -42.0
-offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.77778
+stretch_mode = 2
+
+[node name="Canvas" type="Control" parent="SafeAspect"]
+layout_mode = 2
+
+[node name="Root" type="MarginContainer" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBox" type="HBoxContainer" parent="Root"]
+[node name="HBox" type="HBoxContainer" parent="SafeAspect/Canvas/Root"]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 26
 
-[node name="HUD" parent="Root/HBox" instance=ExtResource("3_hud")]
+[node name="HUD" parent="SafeAspect/Canvas/Root/HBox" instance=ExtResource("3_hud")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(430, 0)
 layout_mode = 2
-custom_minimum_size = Vector2(380, 0)
 
-[node name="BoardPanel" type="PanelContainer" parent="Root/HBox"]
+[node name="Board" type="Control" parent="SafeAspect/Canvas/Root/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_board")
 
-[node name="BoardMargin" type="MarginContainer" parent="Root/HBox/BoardPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 20
-
-[node name="BoardVBox" type="VBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin"]
-layout_mode = 2
-theme_override_constants/separation = 18
-
-[node name="JokerHeader" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "小丑牌 0/5"
-horizontal_alignment = 1
-
-[node name="JokerShelf" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-custom_minimum_size = Vector2(0, 188)
-layout_mode = 2
+[node name="JokerShelf" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.71
+anchor_bottom = 0.225
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_joker_shelf")
 expand_mode = 1
 stretch_mode = 5
+mouse_filter = 2
 
-[node name="JokerRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf"]
+[node name="JokerHeader" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_right = 0.15
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+theme_override_font_sizes/font_size = 19
+text = "小丑牌\n0/5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JokerRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.05
+anchor_right = 0.97
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 10
+
+[node name="JokerSlot1" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(116, 160)
+layout_mode = 2
+[node name="JokerSlot2" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(116, 160)
+layout_mode = 2
+[node name="JokerSlot3" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(116, 160)
+layout_mode = 2
+[node name="JokerSlot4" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(116, 160)
+layout_mode = 2
+[node name="JokerSlot5" parent="SafeAspect/Canvas/Root/HBox/Board/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(116, 160)
+layout_mode = 2
+
+[node name="ConsumableTray" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.72
+anchor_top = 0.04
+anchor_right = 0.995
+anchor_bottom = 0.29
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_tray")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="ConsumableRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/Board/ConsumableTray"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.08
+anchor_right = 0.96
+anchor_bottom = 0.84
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="ConsumableSlot1" parent="SafeAspect/Canvas/Root/HBox/Board/ConsumableTray/ConsumableRow" instance=ExtResource("9_consumable")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(92, 126)
+layout_mode = 2
+[node name="ConsumableSlot2" parent="SafeAspect/Canvas/Root/HBox/Board/ConsumableTray/ConsumableRow" instance=ExtResource("9_consumable")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(92, 126)
+layout_mode = 2
+[node name="ConsumableSlot3" parent="SafeAspect/Canvas/Root/HBox/Board/ConsumableTray/ConsumableRow" instance=ExtResource("9_consumable")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(92, 126)
+layout_mode = 2
+
+[node name="ConsumableCountLabel" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/ConsumableTray"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_top = 0.82
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "0/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayedFrame" type="NinePatchRect" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.245
+anchor_right = 0.69
+anchor_bottom = 0.52
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_played_frame")
+patch_margin_left = 54
+patch_margin_top = 42
+patch_margin_right = 54
+patch_margin_bottom = 42
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+mouse_filter = 2
+
+[node name="PlayedArea" type="Control" parent="SafeAspect/Canvas/Root/HBox/Board/PlayedFrame"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 70.0
-offset_top = 22.0
-offset_right = -70.0
-offset_bottom = -22.0
+offset_left = 34.0
+offset_top = 20.0
+offset_right = -34.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreDisplay" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.28
+anchor_top = 0.475
+anchor_right = 0.57
+anchor_bottom = 0.57
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-theme_override_constants/separation = 26
+theme_override_constants/separation = 8
 
-[node name="JokerSlot1" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
+[node name="ChipsPlate" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/ScoreDisplay"]
+custom_minimum_size = Vector2(160, 70)
 layout_mode = 2
-
-[node name="JokerSlot2" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
-layout_mode = 2
-
-[node name="JokerSlot3" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
-layout_mode = 2
-
-[node name="JokerSlot4" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
-layout_mode = 2
-
-[node name="JokerSlot5" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow" instance=ExtResource("6_joker_card")]
-layout_mode = 2
-
-[node name="PlayArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-custom_minimum_size = Vector2(0, 420)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PlayedArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea"]
+texture = ExtResource("12_chip_plate")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="ChipsValue" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/ScoreDisplay/ChipsPlate"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 24.0
-offset_bottom = 250.0
-grow_horizontal = 2
-
-[node name="DeckPile" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -176.0
-offset_top = -232.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="DeckBack" type="TextureRect" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile"]
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+[node name="MultiplySymbol" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/ScoreDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "×"
+vertical_alignment = 1
+[node name="MultPlate" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/ScoreDisplay"]
+custom_minimum_size = Vector2(130, 70)
+layout_mode = 2
+texture = ExtResource("13_mult_plate")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="MultValue" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/ScoreDisplay/MultPlate"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -102.0
-offset_right = 72.0
-offset_bottom = 102.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.72, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeckArea" type="Control" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.76
+anchor_top = 0.31
+anchor_right = 0.98
+anchor_bottom = 0.71
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeckTitlePlate" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea"]
+layout_mode = 1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.13
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_deck_panel")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckPile" type="Control" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.18
+anchor_top = 0.13
+anchor_right = 0.82
+anchor_bottom = 0.84
+grow_horizontal = 2
+grow_vertical = 2
+[node name="DeckBack4" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea/DeckPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 15.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_card_back")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="DeckPileLabel" type="Label" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile"]
+mouse_filter = 2
+[node name="DeckBack3" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea/DeckPile"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -36.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 8.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(0.94, 0.91, 0.75, 1)
+grow_vertical = 2
+texture = ExtResource("5_card_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckBack2" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea/DeckPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_card_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckBack" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea/DeckPile"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_card_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckPileLabel" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/DeckArea"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
 text = "52/52"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HandArea" type="Control" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-custom_minimum_size = Vector2(0, 250)
+[node name="DiscardArea" type="PanelContainer" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.79
+anchor_top = 0.72
+anchor_right = 0.96
+anchor_bottom = 0.83
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Style_empty")
+[node name="DiscardCountLabel" type="Label" parent="SafeAspect/Canvas/Root/HBox/Board/DiscardArea"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.82, 0.7, 1)
+theme_override_font_sizes/font_size = 20
+text = "弃牌堆\n0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HandArea" type="Control" parent="SafeAspect/Canvas/Root/HBox/Board"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.56
+anchor_right = 0.75
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_fan")
-card_size = Vector2(144, 204)
-selected_lift = 46.0
-preferred_overlap = 50.0
+card_size = Vector2(132, 188)
+selected_lift = 42.0
+preferred_overlap = 48.0
 
-[node name="ActionRow" type="HBoxContainer" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox"]
-custom_minimum_size = Vector2(0, 78)
-layout_mode = 2
+[node name="ActionRow" type="HBoxContainer" parent="SafeAspect/Canvas/Root/HBox/Board"]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.865
+anchor_right = 0.78
+anchor_bottom = 0.985
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
-theme_override_constants/separation = 18
-
-[node name="PlayButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(190, 66)
+theme_override_constants/separation = 12
+[node name="PlayButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/Board/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 84)
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("Style_play")
+theme_override_styles/hover = SubResource("Style_play_hover")
+theme_override_styles/pressed = SubResource("Style_play")
+theme_override_styles/focus = ExtResource("19_focus")
 text = "出牌"
-
-[node name="SortRankButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(150, 66)
+[node name="DiscardButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/Board/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 76)
 layout_mode = 2
-text = "按点数"
-
-[node name="SortSuitButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(150, 66)
-layout_mode = 2
-text = "按花色"
-
-[node name="DiscardButton" type="Button" parent="Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow"]
-custom_minimum_size = Vector2(190, 66)
-layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("Style_discard")
+theme_override_styles/hover = SubResource("Style_discard_hover")
+theme_override_styles/pressed = SubResource("Style_discard")
+theme_override_styles/focus = ExtResource("19_focus")
 text = "弃牌"
+[node name="SortRankButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/Board/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 76)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.06, 0.015, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("Style_rank")
+theme_override_styles/hover = SubResource("Style_rank_hover")
+theme_override_styles/pressed = SubResource("Style_rank")
+theme_override_styles/focus = ExtResource("19_focus")
+text = "点数排序"
+[node name="SortSuitButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/Board/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 76)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.06, 0.015, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("Style_suit")
+theme_override_styles/hover = SubResource("Style_suit_hover")
+theme_override_styles/pressed = SubResource("Style_suit")
+theme_override_styles/focus = ExtResource("19_focus")
+text = "花色排序"

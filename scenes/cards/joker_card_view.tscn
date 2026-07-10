@@ -1,62 +1,211 @@
-[gd_scene load_steps=3 format=3 uid="uid://joker_card_view"]
+[gd_scene load_steps=5 format=3 uid="uid://joker_card_view"]
 
 [ext_resource type="Script" path="res://scripts/cards/joker_card_view.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/cards/blank_card_face.png" id="2_card"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.88, 0.9, 0.84, 0.98)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.08, 0.11, 0.13, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxFlat" id="StyleBox_rarity"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.78, 0.62, 0.26, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_name"]
+bg_color = Color(0.025, 0.09, 0.065, 0.94)
+border_width_top = 2
+border_color = Color(0.78, 0.59, 0.2, 1)
 
 [node name="JokerCardView" type="PanelContainer"]
 custom_minimum_size = Vector2(130, 178)
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+mouse_default_cursor_shape = 2
 script = ExtResource("1_script")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="CardContent" type="Control" parent="."]
 layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 6
+mouse_filter = 1
 
-[node name="NameLabel" type="Label" parent="VBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.08, 0.1, 0.12, 1)
+[node name="CardBackground" type="TextureRect" parent="CardContent"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_card")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="ArtTexture" type="TextureRect" parent="CardContent"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="EditionOverlay" type="TextureRect" parent="CardContent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="SealOverlay" type="TextureRect" parent="CardContent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.66
+anchor_top = 0.58
+anchor_right = 0.94
+anchor_bottom = 0.82
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="EternalOverlay" type="Label" parent="CardContent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.28
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.94, 0.78, 0.3, 1)
 theme_override_font_sizes/font_size = 18
+text = "∞"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="RarityFrame" type="Panel" parent="CardContent"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBox_rarity")
+
+[node name="NamePlate" type="PanelContainer" parent="CardContent"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -48.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBox_name")
+
+[node name="NameLabel" type="Label" parent="CardContent/NamePlate"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.55, 1)
+theme_override_font_sizes/font_size = 16
 text = "小丑牌"
 horizontal_alignment = 1
-autowrap_mode = 3
+vertical_alignment = 1
+text_overrun_behavior = 3
 
-[node name="ArtFrame" type="PanelContainer" parent="VBox"]
+[node name="RarityLabel" type="Label" parent="CardContent"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.22
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.54, 1)
+theme_override_colors/font_outline_color = Color(0.03, 0.04, 0.03, 0.95)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 13
+text = "普通"
+horizontal_alignment = 2
+vertical_alignment = 1
 mouse_filter = 2
-custom_minimum_size = Vector2(0, 88)
-layout_mode = 2
 
-[node name="ArtLabel" type="Label" parent="VBox/ArtFrame"]
+[node name="TriggerGlow" type="Panel" parent="CardContent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.22, 0.28, 1)
-theme_override_font_sizes/font_size = 20
-text = "JOKER"
+theme_override_styles/panel = SubResource("StyleBox_rarity")
+
+[node name="EmptySlotOverlay" type="ColorRect" parent="CardContent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.008, 0.035, 0.025, 0.82)
+
+[node name="EmptyLabel" type="Label" parent="CardContent/EmptySlotOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.58, 0.5, 0.34, 0.9)
+theme_override_font_sizes/font_size = 15
+text = "空槽"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RarityLabel" type="Label" parent="VBox"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.05, 0.45, 0.95, 1)
-theme_override_font_sizes/font_size = 16
-text = "普通"
-horizontal_alignment = 1
-
-[node name="SellButton" type="Button" parent="VBox"]
-layout_mode = 2
+[node name="SellButton" type="Button" parent="CardContent"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.08
+anchor_top = 0.72
+anchor_right = 0.92
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
 text = "出售"
