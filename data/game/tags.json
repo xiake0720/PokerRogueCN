@@ -1,7 +1,6 @@
 [
-  {"id":"money_tag","name_cn":"金币标签","description_cn":"获得金币。"},
-  {"id":"joker_tag","name_cn":"小丑标签","description_cn":"下个商店出现免费小丑。"},
-  {"id":"planet_tag","name_cn":"星球标签","description_cn":"获得星球牌奖励。"},
-  {"id":"double_tag","name_cn":"双倍标签","description_cn":"复制下一个标签奖励。"}
+  {"id":"money_tag","name_cn":"金币标签","description_cn":"下次结算额外获得5金币。","effect":{"kind":"grant_money","trigger":"settlement","amount":5}},
+  {"id":"joker_tag","name_cn":"小丑标签","description_cn":"下个商店出现一个免费小丑。","effect":{"kind":"free_joker","trigger":"shop","count":1}},
+  {"id":"planet_tag","name_cn":"星球标签","description_cn":"下个商店开始时获得一张星球牌。","effect":{"kind":"grant_consumable","trigger":"shop","card_type":"planet"}},
+  {"id":"double_tag","name_cn":"双倍标签","description_cn":"复制下一个非双倍标签奖励。","effect":{"kind":"double_next_tag","trigger":"next_tag"}}
 ]
-

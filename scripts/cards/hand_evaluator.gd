@@ -8,8 +8,9 @@ static func evaluate(played_cards: Array, rules: Dictionary = {}) -> Dictionary:
 	var allow_four: bool = bool(rules.get("four_card_hands", false))
 	var allow_shortcut: bool = bool(rules.get("shortcut_straights", false))
 	var splash: bool = bool(rules.get("all_cards_score", false))
+	var smeared_suits: bool = bool(rules.get("smeared_suits", false))
 
-	var best: Dictionary = _detect_best(normal_cards, allow_four, allow_shortcut)
+	var best: Dictionary = _detect_best(normal_cards, allow_four, allow_shortcut, smeared_suits)
 	var scoring_ids: Array = best.get("scoring_ids", [])
 	for stone in stone_cards:
 		scoring_ids.append(stone.get("instance_id", ""))
@@ -18,15 +19,15 @@ static func evaluate(played_cards: Array, rules: Dictionary = {}) -> Dictionary:
 		for card in cards:
 			scoring_ids.append(card.get("instance_id", ""))
 	best["scoring_ids"] = scoring_ids
-	best["contains"] = _build_contains(best.get("id", "high_card"), normal_cards, allow_four, allow_shortcut)
+	best["contains"] = _build_contains(best.get("id", "high_card"), normal_cards, allow_four, allow_shortcut, smeared_suits)
 	return best
 
-static func _detect_best(cards: Array, allow_four: bool, allow_shortcut: bool) -> Dictionary:
+static func _detect_best(cards: Array, allow_four: bool, allow_shortcut: bool, smeared_suits: bool) -> Dictionary:
 	if cards.is_empty():
 		return {"id": "high_card", "name_cn": "高牌", "scoring_ids": []}
 
 	var rank_groups: Dictionary = _rank_groups(cards)
-	var flush_groups: Dictionary = _flush_groups(cards)
+	var flush_groups: Dictionary = _flush_groups(cards, smeared_suits)
 
 	var flush_five: Array = _find_flush_five(rank_groups)
 	if not flush_five.is_empty():
@@ -80,7 +81,7 @@ static func _detect_best(cards: Array, allow_four: bool, allow_shortcut: bool) -
 	var high: Array = _highest_cards(cards, 1)
 	return {"id": "high_card", "name_cn": "高牌", "scoring_ids": _ids(high)}
 
-static func _build_contains(hand_id: String, cards: Array, allow_four: bool, allow_shortcut: bool) -> Array:
+static func _build_contains(hand_id: String, cards: Array, allow_four: bool, allow_shortcut: bool, smeared_suits: bool) -> Array:
 	var contains: Array = [hand_id]
 	var ranks: Dictionary = _rank_groups(cards)
 	if not _find_count(ranks, 2).is_empty() and not contains.has("pair"):
@@ -91,7 +92,7 @@ static func _build_contains(hand_id: String, cards: Array, allow_four: bool, all
 		contains.append("three_kind")
 	if not _find_straight(cards, allow_four, allow_shortcut).is_empty() and not contains.has("straight"):
 		contains.append("straight")
-	if not _find_flush(_flush_groups(cards), allow_four).is_empty() and not contains.has("flush"):
+	if not _find_flush(_flush_groups(cards, smeared_suits), allow_four).is_empty() and not contains.has("flush"):
 		contains.append("flush")
 	return contains
 
@@ -106,16 +107,21 @@ static func _rank_groups(cards: Array) -> Dictionary:
 		groups[rank].append(card)
 	return groups
 
-static func _flush_groups(cards: Array) -> Dictionary:
+static func _flush_groups(cards: Array, smeared_suits: bool = false) -> Dictionary:
 	var groups: Dictionary = {"spades": [], "hearts": [], "diamonds": [], "clubs": []}
 	for card in cards:
 		var suit: String = str(card.get("suit", ""))
-		if groups.has(suit):
-			groups[suit].append(card)
 		if card.get("enhancement", "") == "wild":
 			for s in groups.keys():
-				if s != suit:
-					groups[s].append(card)
+				groups[s].append(card)
+		elif smeared_suits and (suit == "hearts" or suit == "diamonds"):
+			groups["hearts"].append(card)
+			groups["diamonds"].append(card)
+		elif smeared_suits and (suit == "spades" or suit == "clubs"):
+			groups["spades"].append(card)
+			groups["clubs"].append(card)
+		elif groups.has(suit):
+			groups[suit].append(card)
 	return groups
 
 static func _find_flush_five(rank_groups: Dictionary) -> Array:
@@ -147,7 +153,9 @@ static func _find_straight_flush(flush_groups: Dictionary, allow_four: bool, all
 	return []
 
 static func _find_count(rank_groups: Dictionary, count: int) -> Array:
-	for rank in rank_groups.keys():
+	var ranks: Array = rank_groups.keys()
+	ranks.sort_custom(func(a, b): return CardConstants.rank_order(str(a)) > CardConstants.rank_order(str(b)))
+	for rank in ranks:
 		if rank_groups[rank].size() >= count:
 			return rank_groups[rank].slice(0, count)
 	return []
@@ -173,7 +181,7 @@ static func _find_flush(flush_groups: Dictionary, allow_four: bool) -> Array:
 	for suit in flush_groups.keys():
 		var cards: Array = flush_groups[suit]
 		if cards.size() >= needed:
-			return _highest_cards(cards, needed)
+			return _highest_cards(cards, min(5, cards.size()))
 	return []
 
 static func _find_straight(cards: Array, allow_four: bool, allow_shortcut: bool) -> Array:
@@ -190,6 +198,8 @@ static func _find_straight(cards: Array, allow_four: bool, allow_shortcut: bool)
 			by_value[1] = card
 	var values: Array = by_value.keys()
 	values.sort()
+	var best: Array = []
+	var best_high: int = -1
 	for i in range(values.size()):
 		var chosen: Array = [values[i]]
 		var last: int = int(values[i])
@@ -198,14 +208,17 @@ static func _find_straight(cards: Array, allow_four: bool, allow_shortcut: bool)
 			if gap == 1 or (allow_shortcut and gap <= 2):
 				chosen.append(values[j])
 				last = int(values[j])
-				if chosen.size() == needed:
-					var result: Array = []
-					for v in chosen:
-						result.append(by_value[v])
-					return result
+				if chosen.size() >= needed:
+					var candidate: Array = chosen.slice(max(0, chosen.size() - 5), chosen.size())
+					if candidate.size() > best.size() or (candidate.size() == best.size() and last > best_high):
+						best = candidate
+						best_high = last
 			elif gap > 2:
 				break
-	return []
+	var result: Array = []
+	for value in best:
+		result.append(by_value[value])
+	return result
 
 static func _find_two_pair(rank_groups: Dictionary) -> Array:
 	var pairs: Array = []

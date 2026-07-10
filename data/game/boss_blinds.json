@@ -1,7 +1,7 @@
 [
-  {"id":"boss_none","name_cn":"标准首领","rule":"none"},
-  {"id":"boss_hearts_disabled","name_cn":"血心封锁","rule":"debuff_suit","suit":"hearts"},
-  {"id":"boss_spades_disabled","name_cn":"黑锋封锁","rule":"debuff_suit","suit":"spades"},
-  {"id":"boss_no_discards","name_cn":"禁弃之眼","rule":"discourage_discards"},
-  {"id":"boss_final_hand","name_cn":"终局压迫","rule":"final_hand_pressure"}
+  {"id":"boss_none","name_cn":"标准首领","rule":"none","description_cn":"没有额外限制。"},
+  {"id":"boss_hearts_disabled","name_cn":"血心封锁","rule":"debuff_suit","suit":"hearts","description_cn":"红桃牌仍可组成牌型，但不提供筹码、强化或花色小丑触发。"},
+  {"id":"boss_spades_disabled","name_cn":"黑锋封锁","rule":"debuff_suit","suit":"spades","description_cn":"黑桃牌仍可组成牌型，但不提供筹码、强化或花色小丑触发。"},
+  {"id":"boss_no_discards","name_cn":"禁弃之眼","rule":"discourage_discards","description_cn":"本回合弃牌次数为0。"},
+  {"id":"boss_final_hand","name_cn":"终局压迫","rule":"final_hand_pressure","score_multiplier_before_final":0.5,"description_cn":"最终一次出牌前，本次得分减半。"}
 ]
