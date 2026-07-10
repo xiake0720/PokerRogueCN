@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://c58v186t7gdmt"]
+[gd_scene load_steps=3 format=3 uid="uid://c58v186t7gdmt"]
 
 [ext_resource type="Script" path="res://scripts/cards/deck_pile_view.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="2_back"]
 
 [node name="DeckPileView" type="PanelContainer" unique_id=146152006]
 custom_minimum_size = Vector2(150, 216)
@@ -17,12 +18,12 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="BackLabel" type="Label" parent="Margin/VBox" unique_id=335138760]
+[node name="BackTexture" type="TextureRect" parent="Margin/VBox" unique_id=335138760]
 layout_mode = 2
 size_flags_vertical = 3
-text = "牌背"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("2_back")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CountLabel" type="Label" parent="Margin/VBox" unique_id=581778587]
 layout_mode = 2

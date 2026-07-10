@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Texture2D" path="res://assets/cards/poker/backs/card_back_red.png" id="1_back"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="1_back"]
 
 [node name="DeckStackView" type="Control"]
 unique_name_in_owner = true
@@ -60,4 +60,3 @@ theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
 theme_override_font_sizes/font_size = 22
 text = "52/52"
 horizontal_alignment = 1
-

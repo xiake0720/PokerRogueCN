@@ -1,36 +1,44 @@
 extends Control
 
-@onready var dimmer: ColorRect = $Dimmer
-@onready var dialog: PanelContainer = $Center/Dialog
-@onready var deck_card: PanelContainer = $Center/Dialog/Margin/VBox/DeckRow/DeckCard
-@onready var deck_back: PanelContainer = $Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckBack
-@onready var deck_name_label: Label = $Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText/DeckNameLabel
-@onready var deck_desc_label: Label = $Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText/DeckDescLabel
-@onready var deck_stats_label: Label = $Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText/DeckStatsLabel
-@onready var stake_label: Label = $Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox/StakeLabel
-@onready var stake_desc_label: Label = $Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox/StakeDescLabel
-@onready var prev_deck_button: Button = $Center/Dialog/Margin/VBox/DeckRow/PrevDeckButton
-@onready var next_deck_button: Button = $Center/Dialog/Margin/VBox/DeckRow/NextDeckButton
-@onready var prev_stake_button: Button = $Center/Dialog/Margin/VBox/DifficultyRow/PrevStakeButton
-@onready var next_stake_button: Button = $Center/Dialog/Margin/VBox/DifficultyRow/NextStakeButton
-@onready var start_button: Button = $Center/Dialog/Margin/VBox/StartButton
-@onready var back_button: Button = $Center/Dialog/Margin/VBox/BackButton
+@onready var main_panel: NinePatchRect = %MainPanel
+@onready var deck_stack: Control = %DeckStack
+@onready var deck_back: TextureRect = %DeckBack
+@onready var deck_name_label: Label = %DeckNameLabel
+@onready var deck_desc_label: Label = %DeckDescLabel
+@onready var hands_value: Label = %HandsValue
+@onready var discards_value: Label = %DiscardsValue
+@onready var money_value: Label = %MoneyValue
+@onready var hand_size_value: Label = %HandSizeValue
+@onready var joker_slots_value: Label = %JokerSlotsValue
+@onready var stake_token_label: Label = %StakeTokenLabel
+@onready var stake_label: Label = %StakeLabel
+@onready var stake_desc_label: Label = %StakeDescLabel
+@onready var new_run_button: Button = %NewRunButton
+@onready var continue_button: Button = %ContinueButton
+@onready var challenge_button: Button = %ChallengeButton
+@onready var prev_deck_button: Button = %PrevDeckButton
+@onready var next_deck_button: Button = %NextDeckButton
+@onready var prev_stake_button: Button = %PrevStakeButton
+@onready var next_stake_button: Button = %NextStakeButton
+@onready var start_button: Button = %StartButton
+@onready var back_button: Button = %BackButton
 
 var decks: Array = []
 var deck_index: int = 0
 var stake_index: int = 0
 var stakes: Array[Dictionary] = [
-	{"name": "白注", "desc": "基础难度，适合完整测试流程。"},
-	{"name": "红注", "desc": "目标分略高，奖励节奏更紧。"},
-	{"name": "绿注", "desc": "进阶难度，适合熟悉规则后挑战。"}
+	{"name": "白注", "token": "白", "desc": "基础规则，适合完整体验。"},
+	{"name": "红注", "token": "红", "desc": "目标分提高，资源节奏更紧。"},
+	{"name": "绿注", "token": "绿", "desc": "进阶难度，要求更稳定的构筑。"}
 ]
 
 func _ready() -> void:
-	deck_back.add_theme_stylebox_override("panel", _deck_back_style(Color(0.75, 0.18, 0.12)))
 	prev_deck_button.pressed.connect(func() -> void: _change_deck(-1))
 	next_deck_button.pressed.connect(func() -> void: _change_deck(1))
 	prev_stake_button.pressed.connect(func() -> void: _change_stake(-1))
 	next_stake_button.pressed.connect(func() -> void: _change_stake(1))
+	new_run_button.pressed.connect(func() -> void: stake_index = 0; refresh())
+	challenge_button.pressed.connect(func() -> void: Game.run.add_message("挑战模式将在解锁后开放。"))
 	start_button.pressed.connect(_start_game)
 	back_button.pressed.connect(func() -> void:
 		AudioManager.play_sfx("modal_close")
@@ -43,28 +51,34 @@ func _ready() -> void:
 
 func refresh() -> void:
 	if decks.is_empty():
+		start_button.disabled = true
 		return
+	deck_index = clampi(deck_index, 0, decks.size() - 1)
 	var deck: Dictionary = decks[deck_index]
 	deck_name_label.text = str(deck.get("name_cn", "牌组"))
 	deck_desc_label.text = str(deck.get("description_cn", ""))
-	deck_stats_label.text = "回合 %d  弃牌 %d  资金 $%d  小丑槽 %d" % [
-		int(deck.get("hands", 4)),
-		int(deck.get("discards", 3)),
-		int(deck.get("start_money", 4)),
-		int(deck.get("joker_slots", 5))
-	]
-	var colors: Array[Color] = [Color(0.72, 0.12, 0.08), Color(0.08, 0.34, 0.72), Color(0.9, 0.58, 0.08), Color(0.1, 0.1, 0.12)]
-	deck_back.add_theme_stylebox_override("panel", _deck_back_style(colors[deck_index % colors.size()]))
+	hands_value.text = str(int(deck.get("hands", 4)))
+	discards_value.text = str(int(deck.get("discards", 3)))
+	money_value.text = "$%d" % int(deck.get("start_money", 4))
+	hand_size_value.text = str(int(deck.get("hand_size", 8)))
+	joker_slots_value.text = str(int(deck.get("joker_slots", 5)))
+	var texture: Texture2D = ArtResolver.get_deck_back(str(deck.get("id", "red_deck")))
+	for child in deck_stack.get_children():
+		if child is TextureRect:
+			(child as TextureRect).texture = texture
+	deck_back.texture = texture
 	var stake: Dictionary = stakes[stake_index]
+	stake_token_label.text = str(stake.get("token", "白"))
 	stake_label.text = str(stake.get("name", "白注"))
 	stake_desc_label.text = str(stake.get("desc", ""))
+	start_button.disabled = false
 
 func _change_deck(direction: int) -> void:
 	if decks.is_empty():
 		return
 	AudioManager.play_sfx("deck_switch")
 	deck_index = int(posmod(deck_index + direction, decks.size()))
-	_pulse(deck_card)
+	_pulse(deck_stack)
 	refresh()
 
 func _change_stake(direction: int) -> void:
@@ -81,31 +95,18 @@ func _start_game() -> void:
 	Game.start_new_run(str(deck.get("id", "red_deck")))
 
 func _play_intro() -> void:
-	dimmer.modulate.a = 0.0
-	dialog.position.y += 80.0
-	dialog.modulate.a = 0.0
+	main_panel.position.y += 70.0
+	main_panel.modulate.a = 0.0
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(dimmer, "modulate:a", 1.0, 0.18)
-	tween.parallel().tween_property(dialog, "position:y", dialog.position.y - 80.0, 0.22)
-	tween.parallel().tween_property(dialog, "modulate:a", 1.0, 0.18)
+	tween.tween_property(main_panel, "position:y", main_panel.position.y - 70.0, 0.24)
+	tween.parallel().tween_property(main_panel, "modulate:a", 1.0, 0.2)
 
 func _pulse(node: Control) -> void:
+	node.pivot_offset = node.size * 0.5
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(node, "scale", Vector2(1.04, 1.04), 0.08)
 	tween.tween_property(node, "scale", Vector2.ONE, 0.12)
-
-func _deck_back_style(color: Color) -> StyleBoxFlat:
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = color
-	style.border_color = Color(0.95, 0.94, 0.86)
-	style.set_border_width_all(4)
-	style.set_corner_radius_all(8)
-	style.content_margin_left = 8
-	style.content_margin_top = 8
-	style.content_margin_right = 8
-	style.content_margin_bottom = 8
-	return style
