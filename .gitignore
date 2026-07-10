@@ -1,0 +1,11 @@
+# Godot editor and import cache (local only)
+.godot/
+
+# Local diagnostics and generated review output
+*.tmp
+*.log
+artifacts/
+
+# Python tooling cache
+__pycache__/
+*.py[cod]
