@@ -1,0 +1,1458 @@
+{
+  "schema_version": 1,
+  "generator": "tools/button_asset_normalizer.py",
+  "assets": [
+    {
+      "id": "common_primary_red",
+      "source": "res://assets/ui/extracted/battle/button_red_large.png",
+      "source_sha256": "8b572329a9c464a7ebdea1d093ca992e58824fb98ced8e91e073ac315681575a",
+      "source_size": [
+        1544,
+        518
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        1544,
+        518
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        1544,
+        518
+      ],
+      "cropped_size": [
+        1544,
+        518
+      ],
+      "output": "res://assets/ui/runtime/buttons/common/primary_red.png",
+      "output_size": [
+        420,
+        110
+      ],
+      "output_sha256": "95fb0db24605efad9f9f9895977f1978b7ace49c2534a42086f7faff16d1b632",
+      "texture_margin": {
+        "left": 58,
+        "top": 24,
+        "right": 58,
+        "bottom": 24
+      },
+      "recommended_minimum_size": [
+        280,
+        84
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Extra-large and primary red buttons"
+    },
+    {
+      "id": "common_primary_gold",
+      "source": "res://assets/ui/extracted/battle/button_gold_large.png",
+      "source_sha256": "6a30ae7d977f6e19e902fcc2528698b31b9c51702e56d6c650d0489ddb28a61a",
+      "source_size": [
+        1437,
+        492
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        1437,
+        492
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        1437,
+        492
+      ],
+      "cropped_size": [
+        1437,
+        492
+      ],
+      "output": "res://assets/ui/runtime/buttons/common/primary_gold.png",
+      "output_size": [
+        420,
+        110
+      ],
+      "output_sha256": "6915bebc29932ae89756ce7372d2abef875eb280dfbbca1545ea7a55ad29a1f4",
+      "texture_margin": {
+        "left": 58,
+        "top": 24,
+        "right": 58,
+        "bottom": 24
+      },
+      "recommended_minimum_size": [
+        280,
+        84
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Extra-large and primary gold buttons"
+    },
+    {
+      "id": "common_secondary_red",
+      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
+      "source_size": [
+        771,
+        354
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "cropped_size": [
+        771,
+        354
+      ],
+      "output": "res://assets/ui/runtime/buttons/common/secondary_red.png",
+      "output_size": [
+        300,
+        88
+      ],
+      "output_sha256": "44635098ee814d63b372fb205b7cb60f43779838d06a0aeb4abf373de2cddd97",
+      "texture_margin": {
+        "left": 42,
+        "top": 19,
+        "right": 42,
+        "bottom": 19
+      },
+      "recommended_minimum_size": [
+        170,
+        58
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Secondary red buttons"
+    },
+    {
+      "id": "common_secondary_gold",
+      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
+      "source_size": [
+        1031,
+        399
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "cropped_size": [
+        1031,
+        399
+      ],
+      "output": "res://assets/ui/runtime/buttons/common/secondary_gold.png",
+      "output_size": [
+        300,
+        88
+      ],
+      "output_sha256": "96781bd5cd7f93eda2e7f76ec96eab889f2cc130a321aaeb442afb0cdfb7a811",
+      "texture_margin": {
+        "left": 42,
+        "top": 19,
+        "right": 42,
+        "bottom": 19
+      },
+      "recommended_minimum_size": [
+        170,
+        58
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Secondary gold buttons"
+    },
+    {
+      "id": "common_small_red",
+      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
+      "source_size": [
+        771,
+        354
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "cropped_size": [
+        771,
+        354
+      ],
+      "output": "res://assets/ui/runtime/buttons/common/small_red.png",
+      "output_size": [
+        190,
+        64
+      ],
+      "output_sha256": "20c2f1b760619d000da2862d470e23738ee23743f2b4b5e85ee4895eb5b9900a",
+      "texture_margin": {
+        "left": 27,
+        "top": 14,
+        "right": 27,
+        "bottom": 14
+      },
+      "recommended_minimum_size": [
+        120,
+        46
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Compact red and danger buttons"
+    },
+    {
+      "id": "common_small_gold",
+      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
+      "source_size": [
+        1031,
+        399
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "cropped_size": [
+        1031,
+        399
+      ],
+      "output": "res://assets/ui/runtime/buttons/common/small_gold.png",
+      "output_size": [
+        190,
+        64
+      ],
+      "output_sha256": "98c938b3c13484d1395dae509b23bdff8a176547a2994f987287002fdbf40170",
+      "texture_margin": {
+        "left": 27,
+        "top": 14,
+        "right": 27,
+        "bottom": 14
+      },
+      "recommended_minimum_size": [
+        120,
+        46
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Compact gold buttons"
+    },
+    {
+      "id": "home_start",
+      "source": "res://assets/ui/extracted/home/menu_button_start.png",
+      "source_sha256": "6c5a8e10cc3f8074e50e65543c1937dcf48d1925c52eec633afed224bc25e610",
+      "source_size": [
+        1009,
+        222
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        1009,
+        222
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        1009,
+        222
+      ],
+      "cropped_size": [
+        1009,
+        222
+      ],
+      "output": "res://assets/ui/runtime/buttons/home/start.png",
+      "output_size": [
+        620,
+        136
+      ],
+      "output_sha256": "c08e9de7fa81d1dc4ede2a6ac6b2ec9322da04175fe1b22d99e08badcc2ed103",
+      "texture_margin": {
+        "left": 84,
+        "top": 26,
+        "right": 84,
+        "bottom": 26
+      },
+      "recommended_minimum_size": [
+        360,
+        96
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Home start button"
+    },
+    {
+      "id": "home_options",
+      "source": "res://assets/ui/extracted/home/menu_button_settings.png",
+      "source_sha256": "45eeb76d194df787b31e732c1e842bee49998ec84d1c96682d14a29f14c7d6ad",
+      "source_size": [
+        846,
+        159
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        846,
+        159
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        846,
+        159
+      ],
+      "cropped_size": [
+        846,
+        159
+      ],
+      "output": "res://assets/ui/runtime/buttons/home/options.png",
+      "output_size": [
+        560,
+        105
+      ],
+      "output_sha256": "2a89151a5e402008a593ce8fe0d8c20f55d2d6f2e24325a3c9f67dfd5e8616c1",
+      "texture_margin": {
+        "left": 72,
+        "top": 22,
+        "right": 72,
+        "bottom": 22
+      },
+      "recommended_minimum_size": [
+        300,
+        72
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Home settings button"
+    },
+    {
+      "id": "home_quit",
+      "source": "res://assets/ui/extracted/home/menu_button_quit.png",
+      "source_sha256": "94fe1f63e2bd5969318952ce1c663eab78ca54d5b5a30c6b5a59f07ccf46a322",
+      "source_size": [
+        846,
+        168
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        846,
+        168
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        846,
+        168
+      ],
+      "cropped_size": [
+        846,
+        168
+      ],
+      "output": "res://assets/ui/runtime/buttons/home/quit.png",
+      "output_size": [
+        560,
+        111
+      ],
+      "output_sha256": "e17b1d11919b5d4fa8dc88568dda2a8656e8bc816768af24362441e93b4e954c",
+      "texture_margin": {
+        "left": 72,
+        "top": 23,
+        "right": 72,
+        "bottom": 23
+      },
+      "recommended_minimum_size": [
+        300,
+        72
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Home quit button"
+    },
+    {
+      "id": "home_language",
+      "source": "res://assets/ui/extracted/home/menu_button_language.png",
+      "source_sha256": "e1309383ecc32a0ef6e70c33490faa2700a3510838b8c89257e325c44e523bf1",
+      "source_size": [
+        846,
+        168
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        846,
+        168
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        846,
+        168
+      ],
+      "cropped_size": [
+        846,
+        168
+      ],
+      "output": "res://assets/ui/runtime/buttons/home/language.png",
+      "output_size": [
+        560,
+        111
+      ],
+      "output_sha256": "e57086081d82711bd6510d4c9f45eacd212af96ef390ed1278b788d04753c2a1",
+      "texture_margin": {
+        "left": 72,
+        "top": 23,
+        "right": 72,
+        "bottom": 23
+      },
+      "recommended_minimum_size": [
+        300,
+        72
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Home language button"
+    },
+    {
+      "id": "deck_tab_left",
+      "source": "res://assets/ui/runtime/buttons/deck_tab_left.png",
+      "source_sha256": "d60bb6301104ac144f4d8e4e8fc2aa3a7b780d63a3fe13daeeecf1903e50616b",
+      "source_size": [
+        303,
+        88
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        299,
+        84
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        299,
+        84
+      ],
+      "cropped_size": [
+        295,
+        80
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/tab_left.png",
+      "output_size": [
+        303,
+        88
+      ],
+      "output_sha256": "ee815b7eb1024baea4368b05f63b0d7da0ea1cab66b8de8c0e887809bb3d4f93",
+      "texture_margin": {
+        "left": 44,
+        "top": 20,
+        "right": 38,
+        "bottom": 20
+      },
+      "recommended_minimum_size": [
+        240,
+        72
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "New-run tab"
+    },
+    {
+      "id": "deck_tab_center",
+      "source": "res://assets/ui/runtime/buttons/deck_tab_center.png",
+      "source_sha256": "421c4d10bdac5f267bc228cb459c3a2ddfa58bdcdefd09e508afb972768e9913",
+      "source_size": [
+        262,
+        83
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        258,
+        79
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        258,
+        79
+      ],
+      "cropped_size": [
+        254,
+        75
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/tab_center.png",
+      "output_size": [
+        280,
+        88
+      ],
+      "output_sha256": "93f87379f5b2c3829cc45b0031a7fb57b889869fedddb2374f67c32280754c73",
+      "texture_margin": {
+        "left": 38,
+        "top": 20,
+        "right": 38,
+        "bottom": 20
+      },
+      "recommended_minimum_size": [
+        240,
+        72
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Continue tab"
+    },
+    {
+      "id": "deck_tab_right",
+      "source": "res://assets/ui/runtime/buttons/deck_tab_right.png",
+      "source_sha256": "bf55a25c1ee6b7b9a1d078d209fe38ec2cec052fed4edc6d4d7b0c12e7a7e6f9",
+      "source_size": [
+        275,
+        88
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        271,
+        84
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        271,
+        84
+      ],
+      "cropped_size": [
+        267,
+        80
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/tab_right.png",
+      "output_size": [
+        292,
+        88
+      ],
+      "output_sha256": "0b4d74e4a93aa30e3a6fd6112c86341eb0c62dbbfddb06797d4467ba1aa66d3c",
+      "texture_margin": {
+        "left": 38,
+        "top": 20,
+        "right": 44,
+        "bottom": 20
+      },
+      "recommended_minimum_size": [
+        240,
+        72
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Challenge tab"
+    },
+    {
+      "id": "deck_start",
+      "source": "res://assets/ui/runtime/buttons/deck_start_button.png",
+      "source_sha256": "f0b72fc35e3422e9b57a3ff85c4c993244f505c2f3b0c7ddde3d3be9984fd048",
+      "source_size": [
+        517,
+        128
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        513,
+        124
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        513,
+        124
+      ],
+      "cropped_size": [
+        509,
+        120
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/start.png",
+      "output_size": [
+        420,
+        100
+      ],
+      "output_sha256": "97b857aae7a497fd4dc28d9f9f90d5261028dcb342a8001f380cb357577357f4",
+      "texture_margin": {
+        "left": 58,
+        "top": 22,
+        "right": 58,
+        "bottom": 22
+      },
+      "recommended_minimum_size": [
+        300,
+        84
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Deck start button"
+    },
+    {
+      "id": "deck_back",
+      "source": "res://assets/ui/runtime/buttons/deck_back_button.png",
+      "source_sha256": "2f2545afa10753af6b5002212d514db118895fb039a5675429d3b263b89b739c",
+      "source_size": [
+        517,
+        125
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        513,
+        121
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        513,
+        121
+      ],
+      "cropped_size": [
+        509,
+        117
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/back.png",
+      "output_size": [
+        300,
+        78
+      ],
+      "output_sha256": "4df5a9b385f2072cb093dec3a64fd37e1302e97a0d3e9524f085eeca7aa6b298",
+      "texture_margin": {
+        "left": 42,
+        "top": 18,
+        "right": 42,
+        "bottom": 18
+      },
+      "recommended_minimum_size": [
+        220,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Deck back button"
+    },
+    {
+      "id": "deck_arrow_left",
+      "source": "res://assets/ui/runtime/icons/deck_arrow_left.png",
+      "source_sha256": "782426c28e693b12d58f74a8c10408c06669b364e486663e3b5ad0aec6319390",
+      "source_size": [
+        44,
+        33
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        39,
+        28
+      ],
+      "crop_bbox": [
+        5,
+        5,
+        39,
+        28
+      ],
+      "cropped_size": [
+        34,
+        23
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/arrow_left.png",
+      "output_size": [
+        42,
+        34
+      ],
+      "output_sha256": "4ee09ae95025fa6a4f59ca4cf7960b4a23d70a2135e571a4a129db45f4821692",
+      "texture_margin": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "recommended_minimum_size": [
+        48,
+        48
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Previous selector icon"
+    },
+    {
+      "id": "deck_arrow_right",
+      "source": "res://assets/ui/runtime/icons/deck_arrow_right.png",
+      "source_sha256": "c920b7b1902f00856b2741c2e1bca274c39aca930ff5a1b555dccc6a9edf5b74",
+      "source_size": [
+        44,
+        33
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        39,
+        28
+      ],
+      "crop_bbox": [
+        5,
+        5,
+        39,
+        28
+      ],
+      "cropped_size": [
+        34,
+        23
+      ],
+      "output": "res://assets/ui/runtime/buttons/deck_select/arrow_right.png",
+      "output_size": [
+        42,
+        34
+      ],
+      "output_sha256": "52da23e50a1b68fbb62b6f24ff78546c13c4883967bed5eb11e4fb8a941b1a7a",
+      "texture_margin": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "recommended_minimum_size": [
+        48,
+        48
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Next selector icon"
+    },
+    {
+      "id": "stage_select",
+      "source": "res://assets/ui/runtime/buttons/stage_select_button.png",
+      "source_sha256": "bca8ddc7b3954cc4c3bdc0a4250b03506544f38bd9ece255c5f8fe45c540778c",
+      "source_size": [
+        475,
+        191
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        471,
+        187
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        471,
+        187
+      ],
+      "cropped_size": [
+        467,
+        183
+      ],
+      "output": "res://assets/ui/runtime/buttons/stage/select.png",
+      "output_size": [
+        300,
+        78
+      ],
+      "output_sha256": "56b9ad495c4cf92dada0900392fe54a89e7e474a6c2b4b747c4c3beb020c3609",
+      "texture_margin": {
+        "left": 40,
+        "top": 18,
+        "right": 40,
+        "bottom": 18
+      },
+      "recommended_minimum_size": [
+        220,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Blind select button"
+    },
+    {
+      "id": "stage_skip",
+      "source": "res://assets/ui/runtime/buttons/stage_skip_button.png",
+      "source_sha256": "182c1a7b357282bfd84b0dcd0afb731c784170791761b5de5645715b5511108c",
+      "source_size": [
+        477,
+        191
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        473,
+        187
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        473,
+        187
+      ],
+      "cropped_size": [
+        469,
+        183
+      ],
+      "output": "res://assets/ui/runtime/buttons/stage/skip.png",
+      "output_size": [
+        240,
+        68
+      ],
+      "output_sha256": "e90be91c051b96543facc5f47b7d94db14f649633b4a098fb124c1681ab832b0",
+      "texture_margin": {
+        "left": 34,
+        "top": 16,
+        "right": 34,
+        "bottom": 16
+      },
+      "recommended_minimum_size": [
+        170,
+        58
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Blind skip button"
+    },
+    {
+      "id": "stage_disabled",
+      "source": "res://assets/ui/runtime/buttons/stage_disabled_button.png",
+      "source_sha256": "192ef99c4af1bb613df2257c091cf38bdcdc7539c48614e9f9e06bff15f38fd2",
+      "source_size": [
+        471,
+        191
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        467,
+        187
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        467,
+        187
+      ],
+      "cropped_size": [
+        463,
+        183
+      ],
+      "output": "res://assets/ui/runtime/buttons/stage/disabled.png",
+      "output_size": [
+        300,
+        78
+      ],
+      "output_sha256": "e2ea1374cd6d3c06c5996af7d9397b442e61a6a79a09d084098685848b7bd78c",
+      "texture_margin": {
+        "left": 40,
+        "top": 18,
+        "right": 40,
+        "bottom": 18
+      },
+      "recommended_minimum_size": [
+        220,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Blind disabled state"
+    },
+    {
+      "id": "battle_play",
+      "source": "res://assets/ui/runtime/buttons/battle_play_button.png",
+      "source_sha256": "95470414e7194171a63515ac809f40a62f6fdaca653e11259acfd7af2cd7d751",
+      "source_size": [
+        362,
+        156
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        358,
+        152
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        358,
+        152
+      ],
+      "cropped_size": [
+        354,
+        148
+      ],
+      "output": "res://assets/ui/runtime/buttons/battle/play.png",
+      "output_size": [
+        300,
+        92
+      ],
+      "output_sha256": "f96b4654228a82885200f9ad36cddf1c0c5f3fd4c021757acd6fd126f818e148",
+      "texture_margin": {
+        "left": 44,
+        "top": 22,
+        "right": 44,
+        "bottom": 22
+      },
+      "recommended_minimum_size": [
+        220,
+        84
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Battle play button"
+    },
+    {
+      "id": "battle_discard",
+      "source": "res://assets/ui/runtime/buttons/battle_discard_button.png",
+      "source_sha256": "905d94eff7857be343d1e52b4d8a7436c8f70e62274bb5067a17c2664c8939ff",
+      "source_size": [
+        261,
+        125
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        257,
+        121
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        257,
+        121
+      ],
+      "cropped_size": [
+        253,
+        117
+      ],
+      "output": "res://assets/ui/runtime/buttons/battle/discard.png",
+      "output_size": [
+        230,
+        78
+      ],
+      "output_sha256": "d978b869f7c400dd6bdc7f2e82afbce516371a6139720004beb58c280119311e",
+      "texture_margin": {
+        "left": 34,
+        "top": 18,
+        "right": 34,
+        "bottom": 18
+      },
+      "recommended_minimum_size": [
+        170,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Battle discard button"
+    },
+    {
+      "id": "battle_sort_rank",
+      "source": "res://assets/ui/runtime/buttons/battle_sort_rank_button.png",
+      "source_sha256": "9e9b871d087d318484483f5aacf5bedac3f918de21b43d571e183a291383209e",
+      "source_size": [
+        278,
+        127
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        274,
+        123
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        274,
+        123
+      ],
+      "cropped_size": [
+        270,
+        119
+      ],
+      "output": "res://assets/ui/runtime/buttons/battle/sort_rank.png",
+      "output_size": [
+        230,
+        78
+      ],
+      "output_sha256": "c096218cce43ff2e0c988e980558c6799f5b170bb1e881d0fb4fe7a9adef5a30",
+      "texture_margin": {
+        "left": 34,
+        "top": 18,
+        "right": 34,
+        "bottom": 18
+      },
+      "recommended_minimum_size": [
+        170,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Sort by rank button"
+    },
+    {
+      "id": "battle_sort_suit",
+      "source": "res://assets/ui/runtime/buttons/battle_sort_suit_button.png",
+      "source_sha256": "f452e2f469b8c3743829d57d2db28425653f12e56e8daca7963116a84d44f16e",
+      "source_size": [
+        279,
+        127
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        275,
+        123
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        275,
+        123
+      ],
+      "cropped_size": [
+        271,
+        119
+      ],
+      "output": "res://assets/ui/runtime/buttons/battle/sort_suit.png",
+      "output_size": [
+        230,
+        78
+      ],
+      "output_sha256": "3bc19688d931e9477648f0da47d0ef9f677ccde335812a456b67c550adc1332e",
+      "texture_margin": {
+        "left": 34,
+        "top": 18,
+        "right": 34,
+        "bottom": 18
+      },
+      "recommended_minimum_size": [
+        170,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Sort by suit button"
+    },
+    {
+      "id": "shop_next",
+      "source": "res://assets/ui/runtime/buttons/shop_button_red.png",
+      "source_sha256": "89ca3f61b425f3229e2dcc99823a21c2f73c038ca6560760c8332b2bfdf56941",
+      "source_size": [
+        502,
+        212
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        498,
+        208
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        498,
+        208
+      ],
+      "cropped_size": [
+        494,
+        204
+      ],
+      "output": "res://assets/ui/runtime/buttons/shop/next.png",
+      "output_size": [
+        300,
+        82
+      ],
+      "output_sha256": "f65915a4bcb6681eb384a93eb9fabeb15c8f4dd8dba22d51528badcb062eec36",
+      "texture_margin": {
+        "left": 42,
+        "top": 19,
+        "right": 42,
+        "bottom": 19
+      },
+      "recommended_minimum_size": [
+        220,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Leave shop button"
+    },
+    {
+      "id": "shop_reroll",
+      "source": "res://assets/ui/runtime/buttons/shop_button_green.png",
+      "source_sha256": "77edb0a9ad3db7a12f50c1ee2a37f20ce24e9abe76f2e9d9d78e990af18cf6da",
+      "source_size": [
+        474,
+        212
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        470,
+        208
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        470,
+        208
+      ],
+      "cropped_size": [
+        466,
+        204
+      ],
+      "output": "res://assets/ui/runtime/buttons/shop/reroll.png",
+      "output_size": [
+        240,
+        72
+      ],
+      "output_sha256": "98fd04dadb272873329755abc179c52a3a580e9f45a6a7b1f5d3faa1ac32ef63",
+      "texture_margin": {
+        "left": 34,
+        "top": 17,
+        "right": 34,
+        "bottom": 17
+      },
+      "recommended_minimum_size": [
+        170,
+        58
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Shop reroll button"
+    },
+    {
+      "id": "shop_buy",
+      "source": "res://assets/ui/runtime/buttons/shop_button_green.png",
+      "source_sha256": "77edb0a9ad3db7a12f50c1ee2a37f20ce24e9abe76f2e9d9d78e990af18cf6da",
+      "source_size": [
+        474,
+        212
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        470,
+        208
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        470,
+        208
+      ],
+      "cropped_size": [
+        466,
+        204
+      ],
+      "output": "res://assets/ui/runtime/buttons/shop/buy.png",
+      "output_size": [
+        190,
+        60
+      ],
+      "output_sha256": "17bb9ac26adfd2dd4b6f1228ef62adc7223662b0978cd9e9f4beb0508815f230",
+      "texture_margin": {
+        "left": 27,
+        "top": 14,
+        "right": 27,
+        "bottom": 14
+      },
+      "recommended_minimum_size": [
+        120,
+        48
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Shop offer buy button"
+    },
+    {
+      "id": "settlement_continue",
+      "source": "res://assets/ui/runtime/buttons/settlement_continue_button.png",
+      "source_sha256": "12a1f473b20e6e6a15f640d2bd5ac44f0b90442ea98db5344dc7d7780f5cd7d6",
+      "source_size": [
+        374,
+        85
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        370,
+        81
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        370,
+        81
+      ],
+      "cropped_size": [
+        366,
+        77
+      ],
+      "output": "res://assets/ui/runtime/buttons/settlement/continue.png",
+      "output_size": [
+        360,
+        92
+      ],
+      "output_sha256": "d0a5261428644160d4bb8abd24002889b4ee9720ede9d4592ebf2e860c427537",
+      "texture_margin": {
+        "left": 50,
+        "top": 21,
+        "right": 50,
+        "bottom": 21
+      },
+      "recommended_minimum_size": [
+        280,
+        84
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Settlement continue button"
+    },
+    {
+      "id": "settlement_claim",
+      "source": "res://assets/ui/runtime/buttons/settlement_claim_button.png",
+      "source_sha256": "2dd5848b3003f8b7d094343781c0aafb5a714655cbde1b3d47db699ba4156b49",
+      "source_size": [
+        429,
+        92
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        425,
+        88
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        425,
+        88
+      ],
+      "cropped_size": [
+        421,
+        84
+      ],
+      "output": "res://assets/ui/runtime/buttons/settlement/claim.png",
+      "output_size": [
+        360,
+        92
+      ],
+      "output_sha256": "f17814c48e68d4e0f71d1dd92a021a703be0bd91b57252800022b38c686ff67d",
+      "texture_margin": {
+        "left": 50,
+        "top": 21,
+        "right": 50,
+        "bottom": 21
+      },
+      "recommended_minimum_size": [
+        280,
+        84
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Settlement claim button"
+    },
+    {
+      "id": "result_primary",
+      "source": "res://assets/ui/runtime/buttons/settlement_continue_button.png",
+      "source_sha256": "12a1f473b20e6e6a15f640d2bd5ac44f0b90442ea98db5344dc7d7780f5cd7d6",
+      "source_size": [
+        374,
+        85
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        370,
+        81
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        370,
+        81
+      ],
+      "cropped_size": [
+        366,
+        77
+      ],
+      "output": "res://assets/ui/runtime/buttons/result/primary.png",
+      "output_size": [
+        340,
+        88
+      ],
+      "output_sha256": "18add51eda6aee6549bbb8e10b1ba923ee360af0796682ff03867e078908783d",
+      "texture_margin": {
+        "left": 48,
+        "top": 20,
+        "right": 48,
+        "bottom": 20
+      },
+      "recommended_minimum_size": [
+        280,
+        80
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Result primary action"
+    },
+    {
+      "id": "result_home",
+      "source": "res://assets/ui/runtime/buttons/deck_back_button.png",
+      "source_sha256": "2f2545afa10753af6b5002212d514db118895fb039a5675429d3b263b89b739c",
+      "source_size": [
+        517,
+        125
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        513,
+        121
+      ],
+      "crop_bbox": [
+        4,
+        4,
+        513,
+        121
+      ],
+      "cropped_size": [
+        509,
+        117
+      ],
+      "output": "res://assets/ui/runtime/buttons/result/home.png",
+      "output_size": [
+        280,
+        76
+      ],
+      "output_sha256": "14e27d8ddeb182334653c0197f04f8cc0b10571c689ced9eeb4b0b82d8e949fd",
+      "texture_margin": {
+        "left": 40,
+        "top": 17,
+        "right": 40,
+        "bottom": 17
+      },
+      "recommended_minimum_size": [
+        220,
+        68
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Result secondary action"
+    },
+    {
+      "id": "popup_confirm",
+      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
+      "source_size": [
+        1031,
+        399
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "cropped_size": [
+        1031,
+        399
+      ],
+      "output": "res://assets/ui/runtime/buttons/popup/confirm.png",
+      "output_size": [
+        220,
+        64
+      ],
+      "output_sha256": "912b1e21986dbb972e4eba870d430006023f67ec255edbbcdc3d5d37374c1edc",
+      "texture_margin": {
+        "left": 31,
+        "top": 14,
+        "right": 31,
+        "bottom": 14
+      },
+      "recommended_minimum_size": [
+        160,
+        54
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Popup confirmation"
+    },
+    {
+      "id": "popup_cancel",
+      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
+      "source_size": [
+        771,
+        354
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "crop_bbox": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "cropped_size": [
+        771,
+        354
+      ],
+      "output": "res://assets/ui/runtime/buttons/popup/cancel.png",
+      "output_size": [
+        220,
+        64
+      ],
+      "output_sha256": "17cfea3346cff93afefbaf18bbcc7a27b501bc8a368f610bdf4cbb0f9079c3f5",
+      "texture_margin": {
+        "left": 31,
+        "top": 14,
+        "right": 31,
+        "bottom": 14
+      },
+      "recommended_minimum_size": [
+        160,
+        54
+      ],
+      "axis_stretch": "stretch",
+      "filter": "nearest",
+      "usage": "Popup cancel"
+    }
+  ]
+}

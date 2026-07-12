@@ -13,47 +13,12 @@
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/decorations/settlement_decor_left.png" id="11_decor_left"]
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/decorations/settlement_decor_right.png" id="12_decor_right"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="13_focus"]
-
-[sub_resource type="StyleBoxTexture" id="Style_continue_normal"]
-content_margin_left = 70.0
-content_margin_top = 16.0
-content_margin_right = 70.0
-content_margin_bottom = 16.0
-texture = ExtResource("10_continue")
-texture_margin_left = 80.0
-texture_margin_top = 28.0
-texture_margin_right = 80.0
-texture_margin_bottom = 28.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="Style_continue_hover"]
-content_margin_left = 70.0
-content_margin_top = 16.0
-content_margin_right = 70.0
-content_margin_bottom = 16.0
-texture = ExtResource("10_continue")
-texture_margin_left = 80.0
-texture_margin_top = 28.0
-texture_margin_right = 80.0
-texture_margin_bottom = 28.0
-modulate_color = Color(1.18, 1.1, 0.84, 1)
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="Style_continue_pressed"]
-content_margin_left = 72.0
-content_margin_top = 20.0
-content_margin_right = 68.0
-content_margin_bottom = 12.0
-texture = ExtResource("10_continue")
-texture_margin_left = 80.0
-texture_margin_top = 28.0
-texture_margin_right = 80.0
-texture_margin_bottom = 28.0
-modulate_color = Color(0.76, 0.73, 0.68, 1)
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/normal.tres" id="14_continue_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/hover.tres" id="15_continue_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/pressed.tres" id="16_continue_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/disabled.tres" id="17_continue_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/focus.tres" id="18_continue_focus"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="19_feedback"]
 
 [node name="SettlementScreen" type="Control"]
 layout_mode = 3
@@ -477,6 +442,7 @@ text = "$0"
 
 [node name="ClaimButton" type="Button" parent="SafeAspect/Canvas/RootMargin/RootRow/RightArea"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 84)
 layout_mode = 1
 anchor_left = 0.33
 anchor_top = 0.79
@@ -486,11 +452,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.86, 0.46, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("Style_continue_normal")
-theme_override_styles/hover = SubResource("Style_continue_hover")
-theme_override_styles/pressed = SubResource("Style_continue_pressed")
-theme_override_styles/focus = ExtResource("13_focus")
+theme_override_styles/normal = ExtResource("14_continue_normal")
+theme_override_styles/hover = ExtResource("15_continue_hover")
+theme_override_styles/pressed = ExtResource("16_continue_pressed")
+theme_override_styles/disabled = ExtResource("17_continue_disabled")
+theme_override_styles/focus = ExtResource("18_continue_focus")
 text = "领取并继续"
+text_overrun_behavior = 3
+script = ExtResource("19_feedback")
 
 [node name="MoneyBeforeRow" type="HBoxContainer" parent="SafeAspect/Canvas/RootMargin/RootRow/RightArea"]
 unique_name_in_owner = true

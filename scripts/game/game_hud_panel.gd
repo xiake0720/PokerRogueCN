@@ -110,7 +110,7 @@ func _format_score(value: int) -> String:
 
 
 func _toggle_hand_list() -> void:
-	hand_list_expanded = not hand_list_expanded
+	hand_list_expanded = hand_list_toggle.button_pressed
 	hand_info_scroll.visible = hand_list_expanded
 	hand_list_toggle.text = "牌型等级  -" if hand_list_expanded else "牌型等级  +"
 

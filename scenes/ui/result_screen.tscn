@@ -6,35 +6,7 @@
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/settlement_title_banner.png" id="4_title"]
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/settlement_cashout_panel.png" id="5_cashout"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="6_panel"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/settlement_continue_button.png" id="7_primary"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/deck_back_button.png" id="8_home"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="9_focus"]
-
-[sub_resource type="StyleBoxTexture" id="Style_primary"]
-content_margin_left = 60.0
-content_margin_top = 18.0
-content_margin_right = 60.0
-content_margin_bottom = 18.0
-texture = ExtResource("7_primary")
-texture_margin_left = 72.0
-texture_margin_top = 28.0
-texture_margin_right = 72.0
-texture_margin_bottom = 28.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="Style_home"]
-content_margin_left = 60.0
-content_margin_top = 18.0
-content_margin_right = 60.0
-content_margin_bottom = 18.0
-texture = ExtResource("8_home")
-texture_margin_left = 72.0
-texture_margin_top = 28.0
-texture_margin_right = 72.0
-texture_margin_bottom = 28.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="7_feedback"]
 
 [node name="ResultScreen" type="Control"]
 layout_mode = 3
@@ -269,24 +241,20 @@ alignment = 1
 theme_override_constants/separation = 24
 [node name="PrimaryButton" type="Button" parent="SafeAspect/Canvas/ButtonRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(330, 92)
+custom_minimum_size = Vector2(300, 84)
 layout_mode = 2
-theme_override_font_sizes/font_size = 29
-theme_override_styles/normal = SubResource("Style_primary")
-theme_override_styles/hover = SubResource("Style_primary")
-theme_override_styles/pressed = SubResource("Style_primary")
-theme_override_styles/focus = ExtResource("9_focus")
+theme_type_variation = &"ResultVictoryButton"
 text = "进入无尽模式"
+text_overrun_behavior = 3
+script = ExtResource("7_feedback")
 [node name="HomeButton" type="Button" parent="SafeAspect/Canvas/ButtonRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 92)
+custom_minimum_size = Vector2(300, 84)
 layout_mode = 2
-theme_override_font_sizes/font_size = 29
-theme_override_styles/normal = SubResource("Style_home")
-theme_override_styles/hover = SubResource("Style_home")
-theme_override_styles/pressed = SubResource("Style_home")
-theme_override_styles/focus = ExtResource("9_focus")
+theme_type_variation = &"ResultHomeButton"
 text = "返回首页"
+text_overrun_behavior = 3
+script = ExtResource("7_feedback")
 
 [node name="FrameArt" type="TextureRect" parent="SafeAspect/Canvas"]
 layout_mode = 1

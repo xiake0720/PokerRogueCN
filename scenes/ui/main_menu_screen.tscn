@@ -6,38 +6,27 @@
 [ext_resource type="Texture2D" uid="uid://yphcmwsyes0l" path="res://assets/ui/extracted/home/title_panel.png" id="4_title_panel"]
 [ext_resource type="FontFile" uid="uid://r5o20v5r4gpp" path="res://assets/ui/fonts/ChillHuoGothic_F_Bold.otf" id="6_8nn57"]
 [ext_resource type="Texture2D" uid="uid://dwq0f1mcr8wcy" path="res://assets/ui/extracted/home/ornate_frame.png" id="6_frame"]
-[ext_resource type="Texture2D" uid="uid://cu2dlqhsfi4mi" path="res://assets/ui/extracted/home/menu_button_start.png" id="7_button_start"]
-[ext_resource type="Texture2D" uid="uid://bnwq6brxuv6at" path="res://assets/ui/extracted/home/menu_button_settings.png" id="8_button_settings"]
-[ext_resource type="Texture2D" uid="uid://m3ce6puugmb5" path="res://assets/ui/extracted/home/menu_button_quit.png" id="9_button_quit"]
-[ext_resource type="Texture2D" uid="uid://bp74457m1bje8" path="res://assets/ui/extracted/home/menu_button_language.png" id="10_button_language"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_start"]
-content_margin_left = 176.0
-content_margin_top = 14.0
-content_margin_right = 54.0
-content_margin_bottom = 14.0
-texture = ExtResource("7_button_start")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_settings"]
-content_margin_left = 150.0
-content_margin_top = 12.0
-content_margin_right = 48.0
-content_margin_bottom = 12.0
-texture = ExtResource("8_button_settings")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_quit"]
-content_margin_left = 150.0
-content_margin_top = 12.0
-content_margin_right = 48.0
-content_margin_bottom = 12.0
-texture = ExtResource("9_button_quit")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_language"]
-content_margin_left = 150.0
-content_margin_top = 12.0
-content_margin_right = 48.0
-content_margin_bottom = 12.0
-texture = ExtResource("10_button_language")
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="7_feedback"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/normal.tres" id="8_start_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/hover.tres" id="9_start_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/pressed.tres" id="10_start_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/disabled.tres" id="11_start_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/focus.tres" id="12_start_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/normal.tres" id="13_options_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/hover.tres" id="14_options_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/pressed.tres" id="15_options_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/disabled.tres" id="16_options_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/focus.tres" id="17_options_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/quit/normal.tres" id="18_quit_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/quit/hover.tres" id="19_quit_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/quit/pressed.tres" id="20_quit_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/quit/disabled.tres" id="21_quit_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/quit/focus.tres" id="22_quit_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/language/normal.tres" id="23_language_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/language/hover.tres" id="24_language_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/language/pressed.tres" id="25_language_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/language/disabled.tres" id="26_language_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/language/focus.tres" id="27_language_focus"]
 
 [node name="MainMenuScreen" type="Control" unique_id=363600651]
 layout_mode = 3
@@ -221,6 +210,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StartButton" type="Button" parent="MenuColumn" unique_id=1678191892]
+custom_minimum_size = Vector2(420, 110)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -232,13 +222,18 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.06, 0.01, 1)
 theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 88
-theme_override_styles/normal = SubResource("StyleBoxTexture_button_start")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_button_start")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_start")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("8_start_normal")
+theme_override_styles/hover = ExtResource("9_start_hover")
+theme_override_styles/pressed = ExtResource("10_start_pressed")
+theme_override_styles/disabled = ExtResource("11_start_disabled")
+theme_override_styles/focus = ExtResource("12_start_focus")
 text = "开始游戏"
+text_overrun_behavior = 3
+script = ExtResource("7_feedback")
 
 [node name="OptionsButton" type="Button" parent="MenuColumn" unique_id=1240629304]
+custom_minimum_size = Vector2(360, 88)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -250,13 +245,18 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
 theme_override_colors/font_outline_color = Color(0.02, 0.08, 0.04, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxTexture_button_settings")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_button_settings")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_settings")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("13_options_normal")
+theme_override_styles/hover = ExtResource("14_options_hover")
+theme_override_styles/pressed = ExtResource("15_options_pressed")
+theme_override_styles/disabled = ExtResource("16_options_disabled")
+theme_override_styles/focus = ExtResource("17_options_focus")
 text = "设置"
+text_overrun_behavior = 3
+script = ExtResource("7_feedback")
 
 [node name="QuitButton" type="Button" parent="MenuColumn" unique_id=1428666017]
+custom_minimum_size = Vector2(360, 88)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -268,13 +268,18 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
 theme_override_colors/font_outline_color = Color(0.02, 0.05, 0.1, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxTexture_button_quit")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_button_quit")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_quit")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("18_quit_normal")
+theme_override_styles/hover = ExtResource("19_quit_hover")
+theme_override_styles/pressed = ExtResource("20_quit_pressed")
+theme_override_styles/disabled = ExtResource("21_quit_disabled")
+theme_override_styles/focus = ExtResource("22_quit_focus")
 text = "退出"
+text_overrun_behavior = 3
+script = ExtResource("7_feedback")
 
 [node name="LanguageButton" type="Button" parent="MenuColumn" unique_id=1310449283]
+custom_minimum_size = Vector2(360, 88)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -286,8 +291,12 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.02, 0.1, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxTexture_button_language")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_button_language")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_language")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("23_language_normal")
+theme_override_styles/hover = ExtResource("24_language_hover")
+theme_override_styles/pressed = ExtResource("25_language_pressed")
+theme_override_styles/disabled = ExtResource("26_language_disabled")
+theme_override_styles/focus = ExtResource("27_language_focus")
 text = "切换语言"
+text_overrun_behavior = 3
+script = ExtResource("7_feedback")

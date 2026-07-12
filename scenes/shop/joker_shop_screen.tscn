@@ -17,60 +17,17 @@
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/decorations/shop_curtain_right.png" id="15_decor_right"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="16_focus"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="17_panel"]
-
-[sub_resource type="StyleBoxTexture" id="Style_red"]
-content_margin_left = 46.0
-content_margin_top = 18.0
-content_margin_right = 46.0
-content_margin_bottom = 18.0
-texture = ExtResource("12_red")
-texture_margin_left = 68.0
-texture_margin_top = 46.0
-texture_margin_right = 68.0
-texture_margin_bottom = 46.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="Style_red_hover"]
-content_margin_left = 46.0
-content_margin_top = 18.0
-content_margin_right = 46.0
-content_margin_bottom = 18.0
-texture = ExtResource("12_red")
-texture_margin_left = 68.0
-texture_margin_top = 46.0
-texture_margin_right = 68.0
-texture_margin_bottom = 46.0
-modulate_color = Color(1.18, 1.1, 0.84, 1)
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="Style_green"]
-content_margin_left = 46.0
-content_margin_top = 18.0
-content_margin_right = 46.0
-content_margin_bottom = 18.0
-texture = ExtResource("13_green")
-texture_margin_left = 68.0
-texture_margin_top = 46.0
-texture_margin_right = 68.0
-texture_margin_bottom = 46.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="Style_green_hover"]
-content_margin_left = 46.0
-content_margin_top = 18.0
-content_margin_right = 46.0
-content_margin_bottom = 18.0
-texture = ExtResource("13_green")
-texture_margin_left = 68.0
-texture_margin_top = 46.0
-texture_margin_right = 68.0
-texture_margin_bottom = 46.0
-modulate_color = Color(1.16, 1.12, 0.84, 1)
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/normal.tres" id="18_next_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/hover.tres" id="19_next_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/pressed.tres" id="20_next_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/disabled.tres" id="21_next_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/focus.tres" id="22_next_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/normal.tres" id="23_reroll_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/hover.tres" id="24_reroll_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/pressed.tres" id="25_reroll_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/disabled.tres" id="26_reroll_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/focus.tres" id="27_reroll_focus"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="28_feedback"]
 
 [node name="JokerShopScreen" type="Control"]
 layout_mode = 3
@@ -245,21 +202,27 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 90)
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
-theme_override_styles/normal = SubResource("Style_red")
-theme_override_styles/hover = SubResource("Style_red_hover")
-theme_override_styles/pressed = SubResource("Style_red")
-theme_override_styles/focus = ExtResource("16_focus")
+theme_override_styles/normal = ExtResource("18_next_normal")
+theme_override_styles/hover = ExtResource("19_next_hover")
+theme_override_styles/pressed = ExtResource("20_next_pressed")
+theme_override_styles/disabled = ExtResource("21_next_disabled")
+theme_override_styles/focus = ExtResource("22_next_focus")
 text = "下一盲注"
+text_overrun_behavior = 3
+script = ExtResource("28_feedback")
 [node name="RerollButton" type="Button" parent="SafeAspect/Canvas/Root/HBox/ShopArea/ActionRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 90)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("Style_green")
-theme_override_styles/hover = SubResource("Style_green_hover")
-theme_override_styles/pressed = SubResource("Style_green")
-theme_override_styles/focus = ExtResource("16_focus")
+theme_override_styles/normal = ExtResource("23_reroll_normal")
+theme_override_styles/hover = ExtResource("24_reroll_hover")
+theme_override_styles/pressed = ExtResource("25_reroll_pressed")
+theme_override_styles/disabled = ExtResource("26_reroll_disabled")
+theme_override_styles/focus = ExtResource("27_reroll_focus")
 text = "刷新 $5"
+text_overrun_behavior = 3
+script = ExtResource("28_feedback")
 
 [node name="JokerShelf" type="TextureRect" parent="SafeAspect/Canvas/Root/HBox/ShopArea"]
 layout_mode = 1
@@ -439,7 +402,10 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
 text = "跳过剩余选择"
+text_overrun_behavior = 3
+script = ExtResource("28_feedback")
 
 [node name="BottomDecorLeft" type="TextureRect" parent="SafeAspect/Canvas"]
 layout_mode = 1

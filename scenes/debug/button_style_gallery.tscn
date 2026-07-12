@@ -1,0 +1,1368 @@
+[gd_scene load_steps=78 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="1_feedback"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/disabled.tres" id="2_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/focus.tres" id="3_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/hover.tres" id="4_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/normal.tres" id="5_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/pressed.tres" id="6_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/disabled.tres" id="7_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/focus.tres" id="8_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/hover.tres" id="9_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/normal.tres" id="10_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/pressed.tres" id="11_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/disabled.tres" id="12_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/focus.tres" id="13_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/hover.tres" id="14_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/normal.tres" id="15_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/pressed.tres" id="16_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/selected.tres" id="17_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/selected_hover.tres" id="18_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/disabled.tres" id="19_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/focus.tres" id="20_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/hover.tres" id="21_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/normal.tres" id="22_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/pressed.tres" id="23_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/selected.tres" id="24_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/selected_hover.tres" id="25_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/disabled.tres" id="26_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/focus.tres" id="27_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/hover.tres" id="28_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/normal.tres" id="29_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/pressed.tres" id="30_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/disabled.tres" id="31_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/focus.tres" id="32_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/hover.tres" id="33_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/normal.tres" id="34_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/pressed.tres" id="35_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/disabled.tres" id="36_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/focus.tres" id="37_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/hover.tres" id="38_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/normal.tres" id="39_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/options/pressed.tres" id="40_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/disabled.tres" id="41_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/focus.tres" id="42_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/hover.tres" id="43_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/normal.tres" id="44_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/home/start/pressed.tres" id="45_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/disabled.tres" id="46_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/focus.tres" id="47_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/hover.tres" id="48_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/normal.tres" id="49_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/pressed.tres" id="50_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/disabled.tres" id="51_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/focus.tres" id="52_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/hover.tres" id="53_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/normal.tres" id="54_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/pressed.tres" id="55_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/disabled.tres" id="56_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/focus.tres" id="57_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/hover.tres" id="58_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/normal.tres" id="59_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/pressed.tres" id="60_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/disabled.tres" id="61_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/focus.tres" id="62_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/hover.tres" id="63_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/normal.tres" id="64_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/pressed.tres" id="65_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/disabled.tres" id="66_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/focus.tres" id="67_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/hover.tres" id="68_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/normal.tres" id="69_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/pressed.tres" id="70_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/disabled.tres" id="71_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/focus.tres" id="72_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/hover.tres" id="73_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/normal.tres" id="74_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/pressed.tres" id="75_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/selected.tres" id="76_style"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/selected_hover.tres" id="77_style"]
+
+[node name="ButtonStyleGallery" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.045, 0.034, 1)
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = -28.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Rows" type="VBoxContainer" parent="Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.3, 1)
+theme_override_font_sizes/font_size = 40
+text = "按钮样式画廊 · normal / hover / pressed / disabled / focus / selected"
+horizontal_alignment = 1
+
+[node name="ColumnLabels" type="Label" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "每行依次展示：正常 ｜ 悬停预览 ｜ 按下 ｜ 禁用 ｜ 焦点 ｜ 选中"
+horizontal_alignment = 1
+
+[node name="Row0" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "超大红色主按钮 | 纹理 420×110 | Texture Margin L58 T24 R58 B24 | Content Margin 见外部 .tres | 推荐最小 280×84"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row0/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryRedButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row0/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryRedButton"
+theme_override_styles/normal = ExtResource("53_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row0/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryRedButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row0/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryRedButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row0/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryRedButton"
+theme_override_styles/normal = ExtResource("52_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row0/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryRedButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row1" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "超大金色主按钮 | 纹理 420×110 | Texture Margin L58 T24 R58 B24 | Content Margin 见外部 .tres | 推荐最小 280×84"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row1"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row1/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryGoldButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row1/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryGoldButton"
+theme_override_styles/normal = ExtResource("33_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row1/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryGoldButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row1/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryGoldButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row1/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryGoldButton"
+theme_override_styles/normal = ExtResource("32_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row1/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_type_variation = &"PrimaryGoldButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row2" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "红色次级按钮 | 纹理 300×88 | Texture Margin L42 T19 R42 B19 | Content Margin 见外部 .tres | 推荐最小 170×58"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row2"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row2/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row2/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+theme_override_styles/normal = ExtResource("53_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row2/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row2/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row2/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+theme_override_styles/normal = ExtResource("52_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row2/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row3" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "金色次级按钮 | 纹理 300×88 | Texture Margin L42 T19 R42 B19 | Content Margin 见外部 .tres | 推荐最小 170×58"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row3"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row3/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row3/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
+theme_override_styles/normal = ExtResource("33_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row3/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row3/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row3/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
+theme_override_styles/normal = ExtResource("32_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row3/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row4" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "小型红色按钮 | 纹理 190×64 | Texture Margin L27 T14 R27 B14 | Content Margin 见外部 .tres | 推荐最小 120×46"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row4"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row4/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallRedButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row4/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallRedButton"
+theme_override_styles/normal = ExtResource("28_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row4/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallRedButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row4/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallRedButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row4/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallRedButton"
+theme_override_styles/normal = ExtResource("27_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row4/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallRedButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row5" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "小型金色按钮 | 纹理 190×64 | Texture Margin L27 T14 R27 B14 | Content Margin 见外部 .tres | 推荐最小 120×46"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row5"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row5/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallGoldButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row5/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallGoldButton"
+theme_override_styles/normal = ExtResource("68_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row5/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallGoldButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row5/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallGoldButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row5/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallGoldButton"
+theme_override_styles/normal = ExtResource("67_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row5/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SmallGoldButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row6" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "标签按钮 | 纹理 280×88 | Texture Margin L38 T20 R38 B20 | Content Margin 见外部 .tres | 推荐最小 240×72"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row6"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row6/States"]
+custom_minimum_size = Vector2(170, 58)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row6/States"]
+custom_minimum_size = Vector2(170, 58)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+theme_override_styles/normal = ExtResource("73_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row6/States"]
+custom_minimum_size = Vector2(170, 58)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row6/States"]
+custom_minimum_size = Vector2(170, 58)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row6/States"]
+custom_minimum_size = Vector2(170, 58)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+theme_override_styles/normal = ExtResource("72_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row6/States"]
+custom_minimum_size = Vector2(170, 58)
+layout_mode = 2
+theme_type_variation = &"TabButton"
+theme_override_styles/normal = ExtResource("76_style")
+text = "已选中"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row7" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "图标按钮 | 纹理 42×34 | Texture Margin L0 T0 R0 B0 | Content Margin 见外部 .tres | 推荐最小 48×48"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row7"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row7/States"]
+custom_minimum_size = Vector2(96, 52)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row7/States"]
+custom_minimum_size = Vector2(96, 52)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+theme_override_styles/normal = ExtResource("48_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row7/States"]
+custom_minimum_size = Vector2(96, 52)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row7/States"]
+custom_minimum_size = Vector2(96, 52)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row7/States"]
+custom_minimum_size = Vector2(96, 52)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+theme_override_styles/normal = ExtResource("47_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row7/States"]
+custom_minimum_size = Vector2(96, 52)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row8" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row8"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "危险按钮 | 纹理 190×64 | Texture Margin L27 T14 R27 B14 | Content Margin 见外部 .tres | 推荐最小 120×46"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row8"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row8/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row8/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+theme_override_styles/normal = ExtResource("28_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row8/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+toggle_mode = true
+button_pressed = true
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row8/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+disabled = true
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row8/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+theme_override_styles/normal = ExtResource("27_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row8/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+toggle_mode = true
+button_pressed = true
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row9" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row9"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "首页开始专属 | 纹理 620×136 | Texture Margin L84 T26 R84 B26 | Content Margin 见外部 .tres | 推荐最小 360×96"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row9"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row9/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("44_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row9/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("43_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row9/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("45_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row9/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("41_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row9/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("42_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row9/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("45_style")
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row10" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "首页设置专属 | 纹理 560×105 | Texture Margin L72 T22 R72 B22 | Content Margin 见外部 .tres | 推荐最小 300×72"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row10"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row10/States"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("39_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row10/States"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("38_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row10/States"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("40_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row10/States"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("36_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row10/States"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("37_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row10/States"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("40_style")
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row11" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row11"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "战斗出牌专属 | 纹理 300×92 | Texture Margin L44 T22 R44 B22 | Content Margin 见外部 .tres | 推荐最小 220×84"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row11"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row11/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("10_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row11/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("9_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row11/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("11_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row11/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("7_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row11/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("8_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row11/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("11_style")
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row12" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row12"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "战斗弃牌专属 | 纹理 230×78 | Texture Margin L34 T18 R34 B18 | Content Margin 见外部 .tres | 推荐最小 170×68"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row12"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row12/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row12/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row12/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row12/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row12/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row12/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_style")
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row13" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row13"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "战斗点数排序 | 纹理 230×78 | Texture Margin L34 T18 R34 B18 | Content Margin 见外部 .tres | 推荐最小 170×68"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row13"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row13/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("15_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row13/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("14_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row13/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("16_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row13/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row13/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("13_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row13/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("17_style")
+theme_override_styles/normal = ExtResource("17_style")
+text = "已选中"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row14" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row14"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "战斗花色排序 | 纹理 230×78 | Texture Margin L34 T18 R34 B18 | Content Margin 见外部 .tres | 推荐最小 170×68"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row14"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row14/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("22_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row14/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("21_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row14/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("23_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row14/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("19_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row14/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("20_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row14/States"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("24_style")
+theme_override_styles/normal = ExtResource("24_style")
+text = "已选中"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row15" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row15"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "商店购买专属 | 纹理 190×60 | Texture Margin L27 T14 R27 B14 | Content Margin 见外部 .tres | 推荐最小 120×48"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row15"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row15/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("64_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row15/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("63_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row15/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("65_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row15/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("61_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row15/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("62_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row15/States"]
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("65_style")
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="Row16" type="VBoxContainer" parent="Margin/Scroll/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Description" type="Label" parent="Margin/Scroll/Rows/Row16"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.78, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "结算继续专属 | 纹理 360×92 | Texture Margin L50 T21 R50 B21 | Content Margin 见外部 .tres | 推荐最小 280×84"
+
+[node name="States" type="HBoxContainer" parent="Margin/Scroll/Rows/Row16"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="State0" type="Button" parent="Margin/Scroll/Rows/Row16/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("59_style")
+text = "正常"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State1" type="Button" parent="Margin/Scroll/Rows/Row16/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("58_style")
+text = "悬停"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State2" type="Button" parent="Margin/Scroll/Rows/Row16/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("60_style")
+text = "按下"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State3" type="Button" parent="Margin/Scroll/Rows/Row16/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("56_style")
+text = "禁用"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State4" type="Button" parent="Margin/Scroll/Rows/Row16/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("57_style")
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+text = "焦点"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false
+
+[node name="State5" type="Button" parent="Margin/Scroll/Rows/Row16/States"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("60_style")
+text = "价格 $12"
+text_overrun_behavior = 3
+script = ExtResource("1_feedback")
+play_hover_sound = false

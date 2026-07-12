@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://deck_option_view"]
 
 [ext_resource type="Script" path="res://scripts/ui/deck_option_view.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="2_feedback"]
 
 [node name="DeckOptionView" type="PanelContainer"]
 custom_minimum_size = Vector2(640, 112)
@@ -25,7 +26,8 @@ text = "说明"
 autowrap_mode = 3
 
 [node name="SelectButton" type="Button" parent="Row"]
-custom_minimum_size = Vector2(112, 54)
+custom_minimum_size = Vector2(170, 58)
 layout_mode = 2
+theme_type_variation = &"SecondaryGoldButton"
 text = "选择"
-
+script = ExtResource("2_feedback")

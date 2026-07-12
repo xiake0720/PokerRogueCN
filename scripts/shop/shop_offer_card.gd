@@ -41,12 +41,14 @@ func setup(item: Dictionary, index: int, kind: String) -> void:
 	buy_button.visible = true
 	buy_button.text = "购买"
 
-func set_can_afford(can_afford: bool) -> void:
+func set_can_afford(can_afford: bool, disabled_reason: String = "funds") -> void:
 	buy_button.disabled = not can_afford
 	disabled_overlay.visible = not can_afford
 	product_art.modulate = Color.WHITE if can_afford else Color(0.48, 0.48, 0.48, 1)
 	name_label.modulate = Color.WHITE
 	price_label.modulate = Color.WHITE
+	if not can_afford:
+		buy_button.text = "槽位已满" if disabled_reason == "slots" else "金币不足"
 
 func mark_sold() -> void:
 	sold_overlay.visible = true

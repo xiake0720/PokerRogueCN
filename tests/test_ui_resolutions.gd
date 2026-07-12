@@ -5,6 +5,7 @@ const RESOLUTIONS: Array[Vector2i] = [
 	Vector2i(1280, 720),
 	Vector2i(1600, 900),
 	Vector2i(1920, 1080),
+	Vector2i(2560, 1440),
 	Vector2i(1920, 1200),
 	Vector2i(2520, 1080),
 ]
@@ -52,12 +53,47 @@ func _run() -> void:
 					continue
 				if not bounds.intersects(control.get_global_rect(), true):
 					failures.append("%s %s outside %s" % [scene_path, node_name, resolution])
+			_check_buttons(screen, scene_path, resolution, bounds)
 			viewport.free()
 			await process_frame
 		print("CHECKED UI resolution %dx%d" % [resolution.x, resolution.y])
 	root.get_node("AudioManager").stop_all_sfx()
 	await process_frame
 	_finish()
+
+func _check_buttons(screen: Control, scene_path: String, resolution: Vector2i, bounds: Rect2) -> void:
+	var buttons: Array[Button] = []
+	_collect_buttons(screen, buttons)
+	for button: Button in buttons:
+		if not button.is_visible_in_tree():
+			continue
+		var rect := button.get_global_rect()
+		if not bounds.intersects(rect, true):
+			failures.append("%s %s button outside %s" % [scene_path, button.name, resolution])
+		if button.size.x + 0.5 < button.custom_minimum_size.x or button.size.y + 0.5 < button.custom_minimum_size.y:
+			failures.append("%s %s compressed below minimum at %s" % [scene_path, button.name, resolution])
+		if not button.text.is_empty():
+			var font := button.get_theme_font("font")
+			var font_size := button.get_theme_font_size("font_size")
+			var text_width := font.get_string_size(button.text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+			if text_width > maxf(button.size.x - 12.0, 1.0):
+				failures.append("%s %s text overflows at %s" % [scene_path, button.name, resolution])
+	for i in range(buttons.size()):
+		var first := buttons[i]
+		if not first.is_visible_in_tree() or first.flat:
+			continue
+		for j in range(i + 1, buttons.size()):
+			var second := buttons[j]
+			if not second.is_visible_in_tree() or second.flat or first.get_parent() != second.get_parent():
+				continue
+			if first.get_global_rect().intersects(second.get_global_rect(), false):
+				failures.append("%s sibling buttons %s/%s overlap at %s" % [scene_path, first.name, second.name, resolution])
+
+func _collect_buttons(node: Node, result: Array[Button]) -> void:
+	if node is Button:
+		result.append(node as Button)
+	for child in node.get_children():
+		_collect_buttons(child, result)
 
 func _prepare_state(scene_path: String) -> void:
 	var game: Node = root.get_node("Game")

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_hud_full.png" id="2_hud"]
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/stage_blind_small.png" id="3_blind"]
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/battle_coin_pile.png" id="4_coins"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="5_feedback"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_root"]
 
@@ -366,16 +367,20 @@ text_overrun_behavior = 3
 
 [node name="HandListToggle" type="Button" parent="Content"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 46)
 layout_mode = 1
 anchor_left = 0.13
-anchor_top = 0.864
+anchor_top = 0.79
 anchor_right = 0.87
-anchor_bottom = 0.912
+anchor_bottom = 0.88
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"GoldButton"
+theme_type_variation = &"SmallGoldButton"
 theme_override_font_sizes/font_size = 17
+toggle_mode = true
 text = "牌型等级  +"
+text_overrun_behavior = 3
+script = ExtResource("5_feedback")
 
 [node name="HandInfoScroll" type="ScrollContainer" parent="Content"]
 unique_name_in_owner = true
@@ -399,13 +404,16 @@ bbcode_enabled = true
 
 [node name="OptionsButton" type="Button" parent="Content"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 46)
 layout_mode = 1
 anchor_left = 0.15
-anchor_top = 0.925
+anchor_top = 0.895
 anchor_right = 0.85
-anchor_bottom = 0.972
+anchor_bottom = 0.985
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"GoldButton"
+theme_type_variation = &"SmallGoldButton"
 theme_override_font_sizes/font_size = 17
 text = "选项"
+text_overrun_behavior = 3
+script = ExtResource("5_feedback")

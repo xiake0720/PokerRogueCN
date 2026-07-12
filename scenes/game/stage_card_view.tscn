@@ -10,54 +10,19 @@
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_select_button.png" id="8_select"]
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_skip_button.png" id="9_skip"]
 [ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_disabled_button.png" id="10_disabled"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="11_feedback"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/normal.tres" id="12_select_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/hover.tres" id="13_select_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/pressed.tres" id="14_select_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/disabled.tres" id="15_select_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/focus.tres" id="16_select_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/normal.tres" id="17_skip_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/hover.tres" id="18_skip_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/pressed.tres" id="19_skip_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/disabled.tres" id="20_skip_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/focus.tres" id="21_skip_focus"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_root"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_select"]
-texture = ExtResource("8_select")
-texture_margin_left = 26.0
-texture_margin_top = 18.0
-texture_margin_right = 26.0
-texture_margin_bottom = 18.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_select_hover"]
-texture = ExtResource("8_select")
-texture_margin_left = 26.0
-texture_margin_top = 18.0
-texture_margin_right = 26.0
-texture_margin_bottom = 18.0
-modulate_color = Color(1.18, 1.18, 1.18, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_select_pressed"]
-texture = ExtResource("8_select")
-texture_margin_left = 26.0
-texture_margin_top = 18.0
-texture_margin_right = 26.0
-texture_margin_bottom = 18.0
-modulate_color = Color(0.75, 0.82, 0.92, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skip"]
-texture = ExtResource("9_skip")
-texture_margin_left = 26.0
-texture_margin_top = 18.0
-texture_margin_right = 26.0
-texture_margin_bottom = 18.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skip_hover"]
-texture = ExtResource("9_skip")
-texture_margin_left = 26.0
-texture_margin_top = 18.0
-texture_margin_right = 26.0
-texture_margin_bottom = 18.0
-modulate_color = Color(1.18, 1.12, 1.08, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_disabled"]
-texture = ExtResource("10_disabled")
-texture_margin_left = 26.0
-texture_margin_top = 18.0
-texture_margin_right = 26.0
-texture_margin_bottom = 18.0
-modulate_color = Color(0.78, 0.78, 0.78, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tag"]
 bg_color = Color(0.025, 0.12, 0.105, 0.92)
@@ -263,11 +228,14 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxTexture_select")
-theme_override_styles/hover = SubResource("StyleBoxTexture_select_hover")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_select_pressed")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
+theme_override_styles/normal = ExtResource("12_select_normal")
+theme_override_styles/hover = ExtResource("13_select_hover")
+theme_override_styles/pressed = ExtResource("14_select_pressed")
+theme_override_styles/disabled = ExtResource("15_select_disabled")
+theme_override_styles/focus = ExtResource("16_select_focus")
 text = "挑战"
+text_overrun_behavior = 3
+script = ExtResource("11_feedback")
 
 [node name="SkipButton" type="Button" parent="Content/ActionRow"]
 unique_name_in_owner = true
@@ -277,8 +245,11 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.88, 0.68, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.86, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxTexture_skip")
-theme_override_styles/hover = SubResource("StyleBoxTexture_skip_hover")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_skip")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
+theme_override_styles/normal = ExtResource("17_skip_normal")
+theme_override_styles/hover = ExtResource("18_skip_hover")
+theme_override_styles/pressed = ExtResource("19_skip_pressed")
+theme_override_styles/disabled = ExtResource("20_skip_disabled")
+theme_override_styles/focus = ExtResource("21_skip_focus")
 text = "跳过"
+text_overrun_behavior = 3
+script = ExtResource("11_feedback")

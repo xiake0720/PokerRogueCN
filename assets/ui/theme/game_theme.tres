@@ -1,16 +1,48 @@
-[gd_resource type="Theme" load_steps=15 format=3]
+[gd_resource type="Theme" load_steps=50 format=3]
 
 [ext_resource type="FontFile" path="res://assets/ui/fonts/ChillHuoGothic_F_ConBold.otf" id="1_font"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_red_normal.tres" id="2_red_normal"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_red_hover.tres" id="3_red_hover"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_red_pressed.tres" id="4_red_pressed"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_red_disabled.tres" id="5_red_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="6_focus"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_gold_normal.tres" id="7_gold_normal"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_gold_hover.tres" id="8_gold_hover"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_gold_pressed.tres" id="9_gold_pressed"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_gold_disabled.tres" id="10_gold_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="11_panel"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/normal.tres" id="2_neutral_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/hover.tres" id="3_neutral_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/pressed.tres" id="4_neutral_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/disabled.tres" id="5_neutral_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/icon/focus.tres" id="6_neutral_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/normal.tres" id="7_red_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/hover.tres" id="8_red_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/pressed.tres" id="9_red_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/disabled.tres" id="10_red_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/red/focus.tres" id="11_red_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/normal.tres" id="12_gold_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/hover.tres" id="13_gold_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/pressed.tres" id="14_gold_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/disabled.tres" id="15_gold_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/gold/focus.tres" id="16_gold_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/normal.tres" id="17_small_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/hover.tres" id="18_small_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/pressed.tres" id="19_small_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/disabled.tres" id="20_small_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/small/focus.tres" id="21_small_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/normal.tres" id="22_tab_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/hover.tres" id="23_tab_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/selected.tres" id="24_tab_selected"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/selected_hover.tres" id="25_tab_selected_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/disabled.tres" id="26_tab_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/tab/focus.tres" id="27_tab_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/normal.tres" id="28_danger_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/hover.tres" id="29_danger_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/pressed.tres" id="30_danger_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/disabled.tres" id="31_danger_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/danger/focus.tres" id="32_danger_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="33_panel"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/primary/normal.tres" id="34_result_primary_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/primary/hover.tres" id="35_result_primary_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/primary/pressed.tres" id="36_result_primary_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/primary/disabled.tres" id="37_result_primary_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/primary/focus.tres" id="38_result_primary_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/normal.tres" id="39_result_home_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/hover.tres" id="40_result_home_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/pressed.tres" id="41_result_home_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/disabled.tres" id="42_result_home_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/focus.tres" id="43_result_home_focus"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_tooltip"]
 content_margin_left = 18.0
@@ -46,30 +78,106 @@ corner_radius_bottom_left = 5
 default_font = ExtResource("1_font")
 default_font_size = 24
 Button/colors/font_color = Color(1, 0.83, 0.42, 1)
-Button/colors/font_disabled_color = Color(0.7, 0.68, 0.6, 0.9)
+Button/colors/font_disabled_color = Color(0.78, 0.76, 0.68, 0.96)
 Button/colors/font_hover_color = Color(1, 0.94, 0.68, 1)
 Button/colors/font_outline_color = Color(0.12, 0.025, 0.01, 0.95)
 Button/constants/outline_size = 3
-Button/font_sizes/font_size = 26
-Button/styles/disabled = ExtResource("5_red_disabled")
-Button/styles/focus = ExtResource("6_focus")
-Button/styles/hover = ExtResource("3_red_hover")
-Button/styles/normal = ExtResource("2_red_normal")
-Button/styles/pressed = ExtResource("4_red_pressed")
+Button/font_sizes/font_size = 22
+Button/styles/disabled = ExtResource("5_neutral_disabled")
+Button/styles/focus = ExtResource("6_neutral_focus")
+Button/styles/hover = ExtResource("3_neutral_hover")
+Button/styles/hover_pressed = ExtResource("4_neutral_pressed")
+Button/styles/normal = ExtResource("2_neutral_normal")
+Button/styles/pressed = ExtResource("4_neutral_pressed")
+PrimaryRedButton/base_type = &"Button"
+PrimaryRedButton/font_sizes/font_size = 30
+PrimaryRedButton/styles/disabled = ExtResource("10_red_disabled")
+PrimaryRedButton/styles/focus = ExtResource("11_red_focus")
+PrimaryRedButton/styles/hover = ExtResource("8_red_hover")
+PrimaryRedButton/styles/normal = ExtResource("7_red_normal")
+PrimaryRedButton/styles/pressed = ExtResource("9_red_pressed")
+SecondaryRedButton/base_type = &"PrimaryRedButton"
+SecondaryRedButton/font_sizes/font_size = 24
+PrimaryGoldButton/base_type = &"Button"
+PrimaryGoldButton/colors/font_color = Color(0.16, 0.055, 0.012, 1)
+PrimaryGoldButton/colors/font_disabled_color = Color(0.25, 0.17, 0.1, 0.92)
+PrimaryGoldButton/colors/font_hover_color = Color(0.08, 0.02, 0.005, 1)
+PrimaryGoldButton/font_sizes/font_size = 30
+PrimaryGoldButton/styles/disabled = ExtResource("15_gold_disabled")
+PrimaryGoldButton/styles/focus = ExtResource("16_gold_focus")
+PrimaryGoldButton/styles/hover = ExtResource("13_gold_hover")
+PrimaryGoldButton/styles/normal = ExtResource("12_gold_normal")
+PrimaryGoldButton/styles/pressed = ExtResource("14_gold_pressed")
+SecondaryGoldButton/base_type = &"PrimaryGoldButton"
+SecondaryGoldButton/font_sizes/font_size = 24
+SmallRedButton/base_type = &"Button"
+SmallRedButton/font_sizes/font_size = 18
+SmallRedButton/styles/disabled = ExtResource("31_danger_disabled")
+SmallRedButton/styles/focus = ExtResource("32_danger_focus")
+SmallRedButton/styles/hover = ExtResource("29_danger_hover")
+SmallRedButton/styles/normal = ExtResource("28_danger_normal")
+SmallRedButton/styles/pressed = ExtResource("30_danger_pressed")
+SmallGoldButton/base_type = &"Button"
+SmallGoldButton/colors/font_color = Color(0.16, 0.055, 0.012, 1)
+SmallGoldButton/colors/font_disabled_color = Color(0.25, 0.17, 0.1, 0.92)
+SmallGoldButton/font_sizes/font_size = 18
+SmallGoldButton/styles/disabled = ExtResource("20_small_disabled")
+SmallGoldButton/styles/focus = ExtResource("21_small_focus")
+SmallGoldButton/styles/hover = ExtResource("18_small_hover")
+SmallGoldButton/styles/normal = ExtResource("17_small_normal")
+SmallGoldButton/styles/pressed = ExtResource("19_small_pressed")
+TabButton/base_type = &"Button"
+TabButton/font_sizes/font_size = 28
+TabButton/styles/disabled = ExtResource("26_tab_disabled")
+TabButton/styles/focus = ExtResource("27_tab_focus")
+TabButton/styles/hover = ExtResource("23_tab_hover")
+TabButton/styles/hover_pressed = ExtResource("25_tab_selected_hover")
+TabButton/styles/normal = ExtResource("22_tab_normal")
+TabButton/styles/pressed = ExtResource("24_tab_selected")
+IconButton/base_type = &"Button"
+IconButton/font_sizes/font_size = 22
+IconButton/styles/disabled = ExtResource("5_neutral_disabled")
+IconButton/styles/focus = ExtResource("6_neutral_focus")
+IconButton/styles/hover = ExtResource("3_neutral_hover")
+IconButton/styles/normal = ExtResource("2_neutral_normal")
+IconButton/styles/pressed = ExtResource("4_neutral_pressed")
+DangerButton/base_type = &"Button"
+DangerButton/font_sizes/font_size = 18
+DangerButton/styles/disabled = ExtResource("31_danger_disabled")
+DangerButton/styles/focus = ExtResource("32_danger_focus")
+DangerButton/styles/hover = ExtResource("29_danger_hover")
+DangerButton/styles/normal = ExtResource("28_danger_normal")
+DangerButton/styles/pressed = ExtResource("30_danger_pressed")
+ResultVictoryButton/base_type = &"Button"
+ResultVictoryButton/font_sizes/font_size = 29
+ResultVictoryButton/styles/disabled = ExtResource("37_result_primary_disabled")
+ResultVictoryButton/styles/focus = ExtResource("38_result_primary_focus")
+ResultVictoryButton/styles/hover = ExtResource("35_result_primary_hover")
+ResultVictoryButton/styles/normal = ExtResource("34_result_primary_normal")
+ResultVictoryButton/styles/pressed = ExtResource("36_result_primary_pressed")
+ResultRetryButton/base_type = &"PrimaryRedButton"
+ResultRetryButton/font_sizes/font_size = 29
+ResultHomeButton/base_type = &"Button"
+ResultHomeButton/font_sizes/font_size = 27
+ResultHomeButton/styles/disabled = ExtResource("42_result_home_disabled")
+ResultHomeButton/styles/focus = ExtResource("43_result_home_focus")
+ResultHomeButton/styles/hover = ExtResource("40_result_home_hover")
+ResultHomeButton/styles/normal = ExtResource("39_result_home_normal")
+ResultHomeButton/styles/pressed = ExtResource("41_result_home_pressed")
 GoldButton/base_type = &"Button"
 GoldButton/colors/font_color = Color(0.16, 0.055, 0.012, 1)
 GoldButton/colors/font_hover_color = Color(0.08, 0.02, 0.005, 1)
-GoldButton/styles/disabled = ExtResource("10_gold_disabled")
-GoldButton/styles/focus = ExtResource("6_focus")
-GoldButton/styles/hover = ExtResource("8_gold_hover")
-GoldButton/styles/normal = ExtResource("7_gold_normal")
-GoldButton/styles/pressed = ExtResource("9_gold_pressed")
+GoldButton/styles/disabled = ExtResource("15_gold_disabled")
+GoldButton/styles/focus = ExtResource("16_gold_focus")
+GoldButton/styles/hover = ExtResource("13_gold_hover")
+GoldButton/styles/normal = ExtResource("12_gold_normal")
+GoldButton/styles/pressed = ExtResource("14_gold_pressed")
 Label/colors/font_color = Color(0.96, 0.89, 0.69, 1)
 Label/colors/font_outline_color = Color(0.035, 0.055, 0.04, 0.96)
 Label/constants/outline_size = 2
 Label/font_sizes/font_size = 24
-PanelContainer/styles/panel = ExtResource("11_panel")
-PopupPanel/styles/panel = ExtResource("11_panel")
+PanelContainer/styles/panel = ExtResource("33_panel")
+PopupPanel/styles/panel = ExtResource("33_panel")
 RichTextLabel/colors/default_color = Color(0.94, 0.9, 0.78, 1)
 RichTextLabel/font_sizes/normal_font_size = 22
 ScrollBar/styles/grabber = SubResource("StyleBox_grabber")

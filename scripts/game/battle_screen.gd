@@ -152,6 +152,8 @@ func _update_action_buttons() -> void:
 	var has_selection: bool = not selected_cards.is_empty()
 	play_button.disabled = is_animating or not has_selection or Game.run.hands_left <= 0
 	discard_button.disabled = is_animating or not has_selection or Game.run.discards_left <= 0
+	sort_rank_button.button_pressed = Game.run.hand_sort_mode == "rank"
+	sort_suit_button.button_pressed = Game.run.hand_sort_mode == "suit"
 
 func _update_selected_preview() -> void:
 	if selected_cards.is_empty():

@@ -35,6 +35,7 @@ func refresh() -> void:
 	_set_row(money_row, "最终资金", "$%d" % run.money)
 	failure_reason_row.visible = not _victory
 	_set_row(failure_reason_row, "失败原因", "出牌次数耗尽，未达到目标分")
+	primary_button.theme_type_variation = &"ResultVictoryButton" if _victory else &"ResultRetryButton"
 	primary_button.text = "进入无尽模式" if _victory else "重新开始"
 	result_art_label.text = "征服八个底注\n幸运常伴" if _victory else "整理牌组\n再试一次"
 

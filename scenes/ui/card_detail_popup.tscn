@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://card_detail_popup"]
 
 [ext_resource type="Script" path="res://scripts/ui/card_detail_popup.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="2_feedback"]
 
 [node name="CardDetailPopup" type="PopupPanel"]
 transparent_bg = true
@@ -41,6 +42,8 @@ text = "说明"
 autowrap_mode = 3
 
 [node name="CloseButton" type="Button" parent="Panel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 46)
+custom_minimum_size = Vector2(170, 54)
 layout_mode = 2
+theme_type_variation = &"SmallRedButton"
 text = "关闭"
+script = ExtResource("2_feedback")

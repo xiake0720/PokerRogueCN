@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/cards/joker_card_view.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/ui/extracted/cards/blank_card_face.png" id="2_card"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="3_feedback"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_rarity"]
 draw_center = false
@@ -200,6 +201,7 @@ vertical_alignment = 1
 [node name="SellButton" type="Button" parent="CardContent"]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 1
 anchor_left = 0.08
 anchor_top = 0.72
@@ -207,5 +209,9 @@ anchor_right = 0.92
 anchor_bottom = 0.94
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"DangerButton"
 theme_override_font_sizes/font_size = 14
 text = "出售"
+text_overrun_behavior = 3
+script = ExtResource("3_feedback")
+hover_scale = 1.02

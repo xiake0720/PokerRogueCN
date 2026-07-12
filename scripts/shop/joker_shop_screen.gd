@@ -72,7 +72,9 @@ func _refresh_joker_shop(run: RunState) -> void:
 		var slot: ShopOfferCard = joker_offer_slots[i]
 		if i < run.shop_items.size():
 			slot.setup(run.shop_items[i], i, "joker")
-			slot.set_can_afford(run.money >= int(run.shop_items[i].get("cost", 0)) and run.jokers.size() < run.joker_slots)
+			var has_money := run.money >= int(run.shop_items[i].get("cost", 0))
+			var has_slot := run.jokers.size() < run.joker_slots
+			slot.set_can_afford(has_money and has_slot, "funds" if not has_money else "slots")
 			_animate_offer_in(slot, i)
 		else:
 			slot.clear_offer()
