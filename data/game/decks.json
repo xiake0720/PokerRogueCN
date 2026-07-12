@@ -1,7 +1,6 @@
 [
-  {"id":"red_deck","name_cn":"红色牌组","description_cn":"+1弃牌次数，适合新手。","start_money":4,"hands":4,"discards":4},
-  {"id":"blue_deck","name_cn":"蓝色牌组","description_cn":"+1出牌次数，容错更高。","start_money":4,"hands":5,"discards":3},
-  {"id":"yellow_deck","name_cn":"黄色牌组","description_cn":"开局金币更多。","start_money":10,"hands":4,"discards":3},
-  {"id":"black_deck","name_cn":"黑色牌组","description_cn":"+1小丑槽，-1出牌次数。","start_money":4,"hands":3,"discards":3,"joker_slots":6}
+  {"id":"red_deck","name_cn":"红色牌组","description_cn":"+1弃牌次数，适合新手。","start_money":4,"hands":4,"discards":4,"hand_size":8,"joker_slots":5,"consumable_slots":2,"max_play_cards":5,"interest_cap":5,"reroll_cost":5},
+  {"id":"blue_deck","name_cn":"蓝色牌组","description_cn":"+1出牌次数，容错更高。","start_money":4,"hands":5,"discards":3,"hand_size":8,"joker_slots":5,"consumable_slots":2,"max_play_cards":5,"interest_cap":5,"reroll_cost":5},
+  {"id":"yellow_deck","name_cn":"黄色牌组","description_cn":"开局金币更多。","start_money":10,"hands":4,"discards":3,"hand_size":8,"joker_slots":5,"consumable_slots":2,"max_play_cards":5,"interest_cap":5,"reroll_cost":5},
+  {"id":"black_deck","name_cn":"黑色牌组","description_cn":"+1小丑槽，-1出牌次数。","start_money":4,"hands":3,"discards":3,"hand_size":8,"joker_slots":6,"consumable_slots":2,"max_play_cards":5,"interest_cap":5,"reroll_cost":5}
 ]
-

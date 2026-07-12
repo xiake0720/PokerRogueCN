@@ -1,34 +1,161 @@
-[gd_scene format=3 uid="uid://cgjvi43lcl4k6"]
+[gd_scene load_steps=21 format=3 uid="uid://cgjvi43lcl4k6"]
 
-[ext_resource type="Script" uid="uid://dbcvvtpr5b3gw" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://rqdrxeo5m0i7" path="res://assets/ui/references/deck_select_reference.png" id="2_reference"]
-[ext_resource type="Texture2D" uid="uid://ck3uegivi0xk2" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="3_parts"]
+[ext_resource type="Script" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/ornate_frame.png" id="3_frame"]
+[ext_resource type="Texture2D" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="4_parts"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="5_back"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="6_focus"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialog"]
-bg_color = Color(0.16, 0.26, 0.28, 0.98)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.72, 0.8, 0.86, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="AtlasTexture" id="Atlas_tab_left"]
+atlas = ExtResource("4_parts")
+region = Rect2(0, 0, 297, 76)
+filter_clip = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inner_panel"]
-bg_color = Color(0.08, 0.14, 0.16, 0.94)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.05, 0.09, 0.1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="AtlasTexture" id="Atlas_tab_center"]
+atlas = ExtResource("4_parts")
+region = Rect2(324, 0, 287, 76)
+filter_clip = true
 
-[node name="DeckSelectScreen" type="Control" unique_id=1021129966]
+[sub_resource type="AtlasTexture" id="Atlas_tab_right"]
+atlas = ExtResource("4_parts")
+region = Rect2(607, 0, 274, 76)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_main_panel"]
+atlas = ExtResource("4_parts")
+region = Rect2(12, 101, 590, 298)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_stats_panel"]
+atlas = ExtResource("4_parts")
+region = Rect2(864, 102, 498, 255)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_token_panel"]
+atlas = ExtResource("4_parts")
+region = Rect2(21, 399, 151, 150)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_stake_panel"]
+atlas = ExtResource("4_parts")
+region = Rect2(181, 398, 604, 148)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_start_button"]
+atlas = ExtResource("4_parts")
+region = Rect2(840, 389, 510, 118)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_back_button"]
+atlas = ExtResource("4_parts")
+region = Rect2(839, 530, 511, 116)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_decor_left"]
+atlas = ExtResource("4_parts")
+region = Rect2(19, 928, 240, 155)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_decor_right"]
+atlas = ExtResource("4_parts")
+region = Rect2(259, 929, 244, 154)
+filter_clip = true
+
+[sub_resource type="StyleBoxTexture" id="Style_tab_left"]
+content_margin_left = 38.0
+content_margin_top = 14.0
+content_margin_right = 38.0
+content_margin_bottom = 14.0
+texture = SubResource("Atlas_tab_left")
+texture_margin_left = 66.0
+texture_margin_top = 24.0
+texture_margin_right = 66.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_tab_center"]
+content_margin_left = 38.0
+content_margin_top = 14.0
+content_margin_right = 38.0
+content_margin_bottom = 14.0
+texture = SubResource("Atlas_tab_center")
+texture_margin_left = 66.0
+texture_margin_top = 24.0
+texture_margin_right = 66.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_tab_right"]
+content_margin_left = 38.0
+content_margin_top = 14.0
+content_margin_right = 38.0
+content_margin_bottom = 14.0
+texture = SubResource("Atlas_tab_right")
+texture_margin_left = 66.0
+texture_margin_top = 24.0
+texture_margin_right = 66.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_start_normal"]
+content_margin_left = 72.0
+content_margin_top = 20.0
+content_margin_right = 72.0
+content_margin_bottom = 20.0
+texture = SubResource("Atlas_start_button")
+texture_margin_left = 92.0
+texture_margin_top = 34.0
+texture_margin_right = 92.0
+texture_margin_bottom = 34.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_start_hover"]
+content_margin_left = 72.0
+content_margin_top = 20.0
+content_margin_right = 72.0
+content_margin_bottom = 20.0
+texture = SubResource("Atlas_start_button")
+texture_margin_left = 92.0
+texture_margin_top = 34.0
+texture_margin_right = 92.0
+texture_margin_bottom = 34.0
+modulate_color = Color(1.18, 1.12, 0.86, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_back_normal"]
+content_margin_left = 72.0
+content_margin_top = 20.0
+content_margin_right = 72.0
+content_margin_bottom = 20.0
+texture = SubResource("Atlas_back_button")
+texture_margin_left = 92.0
+texture_margin_top = 34.0
+texture_margin_right = 92.0
+texture_margin_bottom = 34.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="Style_back_hover"]
+content_margin_left = 72.0
+content_margin_top = 20.0
+content_margin_right = 72.0
+content_margin_bottom = 20.0
+texture = SubResource("Atlas_back_button")
+texture_margin_left = 92.0
+texture_margin_top = 34.0
+texture_margin_right = 92.0
+texture_margin_bottom = 34.0
+modulate_color = Color(1.18, 1.1, 0.86, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DeckSelectScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,200 +164,479 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="BackgroundArt" type="TextureRect" parent="." unique_id=791396644]
-modulate = Color(1, 1, 1, 0.48)
+[node name="BackgroundArt" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_reference")
+texture = ExtResource("2_background")
 expand_mode = 1
-stretch_mode = 5
-
-[node name="PartsDecor" type="TextureRect" parent="." unique_id=854633447]
-modulate = Color(1, 1, 1, 0.18)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -710.0
-offset_top = -530.0
-offset_right = 710.0
-offset_bottom = 530.0
-grow_horizontal = 2
-grow_vertical = 2
+stretch_mode = 6
 mouse_filter = 2
-texture = ExtResource("3_parts")
+
+[node name="SafeAspect" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.77778
+stretch_mode = 2
+mouse_filter = 1
+
+[node name="Canvas" type="Control" parent="SafeAspect"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="FrameArt" type="TextureRect" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_frame")
 expand_mode = 1
 stretch_mode = 5
+mouse_filter = 2
 
-[node name="Dimmer" type="ColorRect" parent="." unique_id=94222834]
+[node name="Tabs" type="HBoxContainer" parent="SafeAspect/Canvas"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.2
+anchor_top = 0.04
+anchor_right = 0.8
+anchor_bottom = 0.14
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.01, 0.02, 0.015, 0.22)
-
-[node name="Center" type="CenterContainer" parent="." unique_id=698992970]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Dialog" type="PanelContainer" parent="Center" unique_id=495819978]
-custom_minimum_size = Vector2(1040, 760)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dialog")
-
-[node name="Margin" type="MarginContainer" parent="Center/Dialog" unique_id=1219534567]
-layout_mode = 2
-theme_override_constants/margin_left = 34
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 34
-theme_override_constants/margin_bottom = 30
-
-[node name="VBox" type="VBoxContainer" parent="Center/Dialog/Margin" unique_id=981883425]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="Tabs" type="HBoxContainer" parent="Center/Dialog/Margin/VBox" unique_id=1337856851]
-layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 22
 alignment = 1
 
-[node name="NewRunButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs" unique_id=445657404]
-custom_minimum_size = Vector2(150, 56)
+[node name="NewRunButton" type="Button" parent="SafeAspect/Canvas/Tabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("Style_tab_left")
+theme_override_styles/focus = ExtResource("6_focus")
 text = "新一局"
 
-[node name="ContinueButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs" unique_id=1724928137]
-custom_minimum_size = Vector2(150, 56)
+[node name="ContinueButton" type="Button" parent="SafeAspect/Canvas/Tabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("Style_tab_center")
+theme_override_styles/focus = ExtResource("6_focus")
 text = "继续"
+disabled = true
 
-[node name="ChallengeButton" type="Button" parent="Center/Dialog/Margin/VBox/Tabs" unique_id=562635563]
-custom_minimum_size = Vector2(150, 56)
+[node name="ChallengeButton" type="Button" parent="SafeAspect/Canvas/Tabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("Style_tab_right")
+theme_override_styles/focus = ExtResource("6_focus")
 text = "挑战"
 
-[node name="DeckRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox" unique_id=340336960]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-theme_override_constants/separation = 16
-alignment = 1
+[node name="MainPanel" type="NinePatchRect" parent="SafeAspect/Canvas"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.15
+anchor_right = 0.8
+anchor_bottom = 0.72
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Atlas_main_panel")
+patch_margin_left = 74
+patch_margin_top = 64
+patch_margin_right = 74
+patch_margin_bottom = 64
+axis_stretch_horizontal = 0
+axis_stretch_vertical = 0
+mouse_filter = 2
 
-[node name="PrevDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow" unique_id=2146087212]
-custom_minimum_size = Vector2(70, 260)
-layout_mode = 2
-text = "<"
+[node name="DeckShowcase" type="Control" parent="SafeAspect/Canvas/MainPanel"]
+layout_mode = 1
+anchor_left = 0.04
+anchor_top = 0.08
+anchor_right = 0.34
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="DeckCard" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow" unique_id=646430724]
-custom_minimum_size = Vector2(740, 280)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_inner_panel")
+[node name="DeckStack" type="Control" parent="SafeAspect/Canvas/MainPanel/DeckShowcase"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.04
+anchor_right = 0.8
+anchor_bottom = 0.84
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="DeckCardMargin" type="MarginContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard" unique_id=167968574]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+[node name="DeckBack4" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 15.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
 
-[node name="DeckInfoRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin" unique_id=609502898]
-layout_mode = 2
-theme_override_constants/separation = 18
+[node name="DeckBack3" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
 
-[node name="DeckBack" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow" unique_id=2106208130]
-custom_minimum_size = Vector2(168, 230)
-layout_mode = 2
+[node name="DeckBack2" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
 
-[node name="DeckBackLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckBack" unique_id=463545559]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "牌背"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="DeckBack" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
 
-[node name="DeckText" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow" unique_id=223053384]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 12
+[node name="PrevDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.34
+anchor_right = 0.18
+anchor_bottom = 0.62
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"GoldButton"
+theme_override_font_sizes/font_size = 34
+text = "◀"
 
-[node name="DeckNameLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText" unique_id=1007548811]
+[node name="NextDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.82
+anchor_top = 0.34
+anchor_right = 1.0
+anchor_bottom = 0.62
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"GoldButton"
+theme_override_font_sizes/font_size = 34
+text = "▶"
+
+[node name="DeckInfo" type="Control" parent="SafeAspect/Canvas/MainPanel"]
+layout_mode = 1
+anchor_left = 0.37
+anchor_top = 0.08
+anchor_right = 0.96
+anchor_bottom = 0.88
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsPanel" type="NinePatchRect" parent="SafeAspect/Canvas/MainPanel/DeckInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Atlas_stats_panel")
+patch_margin_left = 52
+patch_margin_top = 42
+patch_margin_right = 52
+patch_margin_bottom = 42
+axis_stretch_horizontal = 0
+axis_stretch_vertical = 0
+mouse_filter = 2
+
+[node name="InfoMargin" type="MarginContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 126.0
+offset_top = 32.0
+offset_right = -72.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoVBox" type="VBoxContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
+theme_override_constants/separation = 6
+
+[node name="DeckNameLabel" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.42, 1)
+theme_override_font_sizes/font_size = 38
 text = "红色牌组"
 horizontal_alignment = 1
 
-[node name="DeckDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText" unique_id=1433479572]
+[node name="DeckDescLabel" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 28
-text = "说明"
+theme_override_font_sizes/font_size = 20
+text = "牌组说明"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="DeckStatsLabel" type="Label" parent="Center/Dialog/Margin/VBox/DeckRow/DeckCard/DeckCardMargin/DeckInfoRow/DeckText" unique_id=1431031755]
+[node name="StatsGrid" type="GridContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.96, 0.72, 0.28, 1)
-text = "回合 4  弃牌 3  资金 $4"
-horizontal_alignment = 1
+size_flags_vertical = 3
+columns = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 4
 
-[node name="NextDeckButton" type="Button" parent="Center/Dialog/Margin/VBox/DeckRow" unique_id=2146782354]
-custom_minimum_size = Vector2(70, 260)
+[node name="HandsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
 layout_mode = 2
-text = ">"
+size_flags_horizontal = 3
+text = "出牌次数"
 
-[node name="DifficultyRow" type="HBoxContainer" parent="Center/Dialog/Margin/VBox" unique_id=1572418987]
-custom_minimum_size = Vector2(0, 120)
+[node name="HandsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.68, 1, 1)
+text = "4"
+horizontal_alignment = 2
+
+[node name="DiscardsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "弃牌次数"
+
+[node name="DiscardsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.36, 0.28, 1)
+text = "3"
+horizontal_alignment = 2
+
+[node name="MoneyTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "起始资金"
+
+[node name="MoneyValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72, 0.18, 1)
+text = "$4"
+horizontal_alignment = 2
+
+[node name="HandSizeTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "手牌上限"
+
+[node name="HandSizeValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58, 0.92, 0.48, 1)
+text = "8"
+horizontal_alignment = 2
+
+[node name="JokerSlotsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "小丑槽位"
+
+[node name="JokerSlotsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.56, 1, 1)
+text = "5"
+horizontal_alignment = 2
+
+[node name="DifficultyRow" type="HBoxContainer" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchor_left = 0.26
+anchor_top = 0.66
+anchor_right = 0.74
+anchor_bottom = 0.82
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="PrevStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow" unique_id=2098549874]
-custom_minimum_size = Vector2(50, 82)
+[node name="PrevStakeButton" type="Button" parent="SafeAspect/Canvas/DifficultyRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(66, 120)
 layout_mode = 2
-text = "<"
+theme_type_variation = &"GoldButton"
+text = "◀"
 
-[node name="DifficultyPanel" type="PanelContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow" unique_id=474708028]
-custom_minimum_size = Vector2(700, 108)
+[node name="StakeTokenFrame" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow"]
+custom_minimum_size = Vector2(140, 120)
 layout_mode = 2
+texture = SubResource("Atlas_token_panel")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 2
 
-[node name="DifficultyVBox" type="VBoxContainer" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel" unique_id=302517713]
-layout_mode = 2
+[node name="StakeTokenLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/StakeTokenFrame"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.66, 1)
+theme_override_font_sizes/font_size = 38
+text = "白"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StakeLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox" unique_id=2091310849]
+[node name="DifficultyPanel" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow"]
+custom_minimum_size = Vector2(560, 120)
 layout_mode = 2
+texture = SubResource("Atlas_stake_panel")
+patch_margin_left = 54
+patch_margin_top = 38
+patch_margin_right = 54
+patch_margin_bottom = 38
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+mouse_filter = 2
+
+[node name="StakeVBox" type="VBoxContainer" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 18.0
+offset_right = -42.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StakeLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel/StakeVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.48, 1)
 theme_override_font_sizes/font_size = 28
+text = "白注"
+horizontal_alignment = 1
+
+[node name="StakeDescLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel/StakeVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
 text = "基础难度"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="StakeDescLabel" type="Label" parent="Center/Dialog/Margin/VBox/DifficultyRow/DifficultyPanel/DifficultyVBox" unique_id=1161789677]
+[node name="NextStakeButton" type="Button" parent="SafeAspect/Canvas/DifficultyRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(66, 120)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.88, 0.88, 1)
-text = "标准规则，适合测试完整流程。"
-horizontal_alignment = 1
+theme_type_variation = &"GoldButton"
+text = "▶"
 
-[node name="NextStakeButton" type="Button" parent="Center/Dialog/Margin/VBox/DifficultyRow" unique_id=1551668885]
-custom_minimum_size = Vector2(50, 82)
-layout_mode = 2
-text = ">"
-
-[node name="StartButton" type="Button" parent="Center/Dialog/Margin/VBox" unique_id=491140058]
-custom_minimum_size = Vector2(0, 84)
-layout_mode = 2
+[node name="StartButton" type="Button" parent="SafeAspect/Canvas"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.35
+anchor_top = 0.81
+anchor_right = 0.65
+anchor_bottom = 0.91
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.44, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("Style_start_normal")
+theme_override_styles/hover = SubResource("Style_start_hover")
+theme_override_styles/focus = ExtResource("6_focus")
 text = "开始游戏"
 
-[node name="BackButton" type="Button" parent="Center/Dialog/Margin/VBox" unique_id=120907393]
-custom_minimum_size = Vector2(0, 66)
-layout_mode = 2
+[node name="BackButton" type="Button" parent="SafeAspect/Canvas"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.37
+anchor_top = 0.915
+anchor_right = 0.63
+anchor_bottom = 0.985
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.38, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("Style_back_normal")
+theme_override_styles/hover = SubResource("Style_back_hover")
+theme_override_styles/focus = ExtResource("6_focus")
 text = "返回"
+
+[node name="BottomDecorLeft" type="TextureRect" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchor_top = 0.79
+anchor_right = 0.18
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Atlas_decor_left")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="BottomDecorRight" type="TextureRect" parent="SafeAspect/Canvas"]
+layout_mode = 1
+anchor_left = 0.82
+anchor_top = 0.79
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Atlas_decor_right")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+mouse_filter = 2

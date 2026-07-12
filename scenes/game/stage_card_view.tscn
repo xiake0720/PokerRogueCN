@@ -1,54 +1,284 @@
-[gd_scene load_steps=2 format=3 uid="uid://stage_card_view"]
+[gd_scene load_steps=17 format=3 uid="uid://stage_card_view"]
 
 [ext_resource type="Script" path="res://scripts/game/stage_card_view.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_card_active.png" id="2_active"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_card_next.png" id="3_next"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_card_locked.png" id="4_locked"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/stage_blind_small.png" id="5_small"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/blind_lock_icon.png" id="6_lock"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/battle_chip_blue.png" id="7_chip"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_select_button.png" id="8_select"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_skip_button.png" id="9_skip"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_disabled_button.png" id="10_disabled"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_root"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_select"]
+texture = ExtResource("8_select")
+texture_margin_left = 26.0
+texture_margin_top = 18.0
+texture_margin_right = 26.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_select_hover"]
+texture = ExtResource("8_select")
+texture_margin_left = 26.0
+texture_margin_top = 18.0
+texture_margin_right = 26.0
+texture_margin_bottom = 18.0
+modulate_color = Color(1.18, 1.18, 1.18, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_select_pressed"]
+texture = ExtResource("8_select")
+texture_margin_left = 26.0
+texture_margin_top = 18.0
+texture_margin_right = 26.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0.75, 0.82, 0.92, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skip"]
+texture = ExtResource("9_skip")
+texture_margin_left = 26.0
+texture_margin_top = 18.0
+texture_margin_right = 26.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skip_hover"]
+texture = ExtResource("9_skip")
+texture_margin_left = 26.0
+texture_margin_top = 18.0
+texture_margin_right = 26.0
+texture_margin_bottom = 18.0
+modulate_color = Color(1.18, 1.12, 1.08, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_disabled"]
+texture = ExtResource("10_disabled")
+texture_margin_left = 26.0
+texture_margin_top = 18.0
+texture_margin_right = 26.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0.78, 0.78, 0.78, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tag"]
+bg_color = Color(0.025, 0.12, 0.105, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.37, 0.72, 0.82, 0.86)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="StageCardView" type="PanelContainer"]
-custom_minimum_size = Vector2(300, 460)
+custom_minimum_size = Vector2(320, 590)
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_root")
 script = ExtResource("1_script")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="ActiveGlow" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 16
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("2_active")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+modulate = Color(1, 0.72, 0.22, 0.28)
 
-[node name="SelectButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(0, 62)
+[node name="CardFrame" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
-text = "选择"
+texture = ExtResource("2_active")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
 
-[node name="TitleLabel" type="Label" parent="VBox"]
+[node name="Content" type="Control" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+
+[node name="StateBadge" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.015
+anchor_right = 0.33
+anchor_bottom = 0.13
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.62
+theme_override_colors/font_color = Color(1, 0.91, 0.6, 1)
+theme_override_font_sizes/font_size = 18
+text = "可选"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.13
+anchor_top = 0.065
+anchor_right = 0.87
+anchor_bottom = 0.17
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+theme_override_font_sizes/font_size = 28
 text = "小盲注"
 horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
 
-[node name="TokenLabel" type="Label" parent="VBox"]
-custom_minimum_size = Vector2(0, 96)
+[node name="BlindToken" type="TextureRect" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.24
+anchor_top = 0.17
+anchor_right = 0.76
+anchor_bottom = 0.45
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_small")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="LockOverlay" type="TextureRect" parent="Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.35
+anchor_top = 0.235
+anchor_right = 0.65
+anchor_bottom = 0.405
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_lock")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="DescriptionLabel" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.45
+anchor_right = 0.88
+anchor_bottom = 0.535
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.79, 0.84, 0.77, 1)
+theme_override_font_sizes/font_size = 14
+text = "基础挑战，可跳过换取标签"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="TargetRow" type="HBoxContainer" parent="Content"]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.545
+anchor_right = 0.85
+anchor_bottom = 0.635
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 6
+
+[node name="TargetChip" type="TextureRect" parent="Content/TargetRow"]
+custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "SMALL"
+texture = ExtResource("7_chip")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="TargetLabel" type="Label" parent="Content/TargetRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.47, 0.28, 1)
+theme_override_font_sizes/font_size = 24
+text = "300"
+vertical_alignment = 1
+
+[node name="RewardLabel" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.635
+anchor_right = 0.88
+anchor_bottom = 0.695
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.74, 0.24, 1)
+theme_override_font_sizes/font_size = 20
+text = "奖励：$$$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TargetLabel" type="Label" parent="VBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "至少得分 300"
-horizontal_alignment = 1
+[node name="TagRewardPanel" type="PanelContainer" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.70
+anchor_right = 0.88
+anchor_bottom = 0.80
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tag")
 
-[node name="RewardLabel" type="Label" parent="VBox"]
+[node name="TagRewardLabel" type="Label" parent="Content/TagRewardPanel"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.7, 0.22, 1)
-theme_override_font_sizes/font_size = 26
-text = "奖励：$$$"
+theme_override_colors/font_color = Color(0.66, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "跳过：金币标签"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 3
 
-[node name="OrLabel" type="Label" parent="VBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "或"
-horizontal_alignment = 1
+[node name="ActionRow" type="HBoxContainer" parent="Content"]
+layout_mode = 1
+anchor_left = 0.08
+anchor_top = 0.82
+anchor_right = 0.92
+anchor_bottom = 0.935
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 8
 
-[node name="SkipButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(0, 62)
+[node name="SelectButton" type="Button" parent="Content/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
-text = "跳过关卡"
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_select")
+theme_override_styles/hover = SubResource("StyleBoxTexture_select_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_select_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
+text = "挑战"
+
+[node name="SkipButton" type="Button" parent="Content/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.88, 0.68, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.86, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_skip")
+theme_override_styles/hover = SubResource("StyleBoxTexture_skip_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_skip")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
+text = "跳过"

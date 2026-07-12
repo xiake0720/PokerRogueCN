@@ -1,0 +1,5005 @@
+{
+  "schema_version": 1,
+  "generator": "res://tools/ui_asset_slicer.py",
+  "config": "res://tools/ui_asset_slices.json",
+  "output_root": "res://assets/ui/runtime",
+  "asset_count": 108,
+  "source_count": 28,
+  "sources": [
+    "res://assets/ui/extracted/battle/battle_action_buttons.png",
+    "res://assets/ui/extracted/battle/battle_background_frame.png",
+    "res://assets/ui/extracted/battle/battle_card_slots.png",
+    "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+    "res://assets/ui/extracted/battle/battle_deck_area.png",
+    "res://assets/ui/extracted/battle/battle_left_hud.png",
+    "res://assets/ui/extracted/battle/battle_title_bar.png",
+    "res://assets/ui/extracted/battle/battle_tokens.png",
+    "res://assets/ui/extracted/battle/button_gold_large.png",
+    "res://assets/ui/extracted/battle/button_gold_small.png",
+    "res://assets/ui/extracted/battle/button_red_large.png",
+    "res://assets/ui/extracted/battle/button_red_small.png",
+    "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+    "res://assets/ui/extracted/home/background_table.png",
+    "res://assets/ui/extracted/settlement/settlement_parts.png",
+    "res://assets/ui/extracted/shop/shop_background.png",
+    "res://assets/ui/extracted/shop/shop_button_bars.png",
+    "res://assets/ui/extracted/shop/shop_cards_packs.png",
+    "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+    "res://assets/ui/extracted/shop/shop_frame_panels.png",
+    "res://assets/ui/extracted/stage_select/stage_background.png",
+    "res://assets/ui/extracted/stage_select/stage_buttons.png",
+    "res://assets/ui/extracted/stage_select/stage_card_active.png",
+    "res://assets/ui/extracted/stage_select/stage_card_locked.png",
+    "res://assets/ui/extracted/stage_select/stage_card_next.png",
+    "res://assets/ui/extracted/stage_select/stage_title_banner.png",
+    "res://assets/ui/extracted/stage_select/stage_tokens.png",
+    "res://tools/generate_card_fallbacks.py"
+  ],
+  "assets": [
+    {
+      "id": "background_battle_frame",
+      "scene": "battle",
+      "category": "backgrounds",
+      "path": "res://assets/ui/runtime/backgrounds/battle_frame.png",
+      "source": "res://assets/ui/extracted/battle/battle_background_frame.png",
+      "source_sha256": "6b8587be771366a80261fd73b47cbe443783bb0ded4446b2df90360e1efbdb92",
+      "source_size": [
+        1672,
+        941
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1672,
+        941
+      ],
+      "output_alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 255,
+      "output_sha256": "35c8988e366fef8a60577e804399f365c16d1a1a1b9c4eef2d6263b5feea5851",
+      "generated": false,
+      "usage": "Battle table and ornate full-screen frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "background_home_table",
+      "scene": "shared",
+      "category": "backgrounds",
+      "path": "res://assets/ui/runtime/backgrounds/home_table.png",
+      "source": "res://assets/ui/extracted/home/background_table.png",
+      "source_sha256": "b900e0baf9f043bc0e4a3c35d22a8c70c9bd810acbe94722502ffb2415a90df1",
+      "source_size": [
+        1672,
+        941
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1672,
+        941
+      ],
+      "output_alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 255,
+      "output_sha256": "4b483db90f75d9fe181443b886c5b676f1f61b93b5ce45cf12cbf0fa6258a228",
+      "generated": false,
+      "usage": "Shared 16:9 table background for deck selection, settlement, and result screens",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "background_shop",
+      "scene": "shop",
+      "category": "backgrounds",
+      "path": "res://assets/ui/runtime/backgrounds/shop.png",
+      "source": "res://assets/ui/extracted/shop/shop_background.png",
+      "source_sha256": "e5a2958f6707541cf1c510175b34ff913f33c44717a4625157c518d91ac87629",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1448,
+        1086
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1448,
+        1086
+      ],
+      "output_alpha_bbox": [
+        0,
+        0,
+        1448,
+        1086
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 255,
+      "output_sha256": "e5785a901f37f66930a0800a1db849b1cc3dfc4f5f5acc5515fabb78797e43e9",
+      "generated": false,
+      "usage": "Shop table background",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "background_stage_select",
+      "scene": "stage_select",
+      "category": "backgrounds",
+      "path": "res://assets/ui/runtime/backgrounds/stage_select.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_background.png",
+      "source_sha256": "fde757e2c68af7285c38ec518c0bb60fd4372ce5f02c7ab05bf64485c816f13f",
+      "source_size": [
+        1672,
+        941
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1672,
+        941
+      ],
+      "output_alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 255,
+      "output_sha256": "63bc634471cff77cd7461dea6cd10c1e078c2d4bc2817ad04c44d6ca83456526",
+      "generated": false,
+      "usage": "Blind-selection table background",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_button_gold_large_hd",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_button_gold_large_hd.png",
+      "source": "res://assets/ui/extracted/battle/button_gold_large.png",
+      "source_sha256": "6a30ae7d977f6e19e902fcc2528698b31b9c51702e56d6c650d0489ddb28a61a",
+      "source_size": [
+        1437,
+        492
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1437,
+        492
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1445,
+        500
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1441,
+        496
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "facda602891ad25e9931049b29d0baa36232f6778b7e60b66fd0c2b009bf6f9b",
+      "generated": false,
+      "usage": "High-resolution gold primary button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_button_gold_small_hd",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_button_gold_small_hd.png",
+      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
+      "source_size": [
+        1031,
+        399
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1031,
+        399
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1039,
+        407
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1035,
+        403
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "8651f71d4bddb963034fdd164dd895f2e61fb3d586886a834bbe3947f3386d26",
+      "generated": false,
+      "usage": "High-resolution gold secondary button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_button_red_large_hd",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_button_red_large_hd.png",
+      "source": "res://assets/ui/extracted/battle/button_red_large.png",
+      "source_sha256": "8b572329a9c464a7ebdea1d093ca992e58824fb98ced8e91e073ac315681575a",
+      "source_size": [
+        1544,
+        518
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1544,
+        518
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1552,
+        526
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1548,
+        522
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "078371fc9be30154fe83d576f103b18587a2d009270367ec7749c670edb207a3",
+      "generated": false,
+      "usage": "High-resolution red primary button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_button_red_small_hd",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_button_red_small_hd.png",
+      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
+      "source_size": [
+        771,
+        354
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        771,
+        354
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        779,
+        362
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        775,
+        358
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "1e04788a37cdc77ee309f7f47bd419b57ba28bd7240ae1d6831a777aec15f544",
+      "generated": false,
+      "usage": "High-resolution red secondary button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_card_slot",
+      "scene": "battle",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/battle_card_slot.png",
+      "source": "res://assets/ui/extracted/battle/battle_card_slots.png",
+      "source_sha256": "ac11ec18c162b5b7ab11e0c82906f7b37741a9556950606be79913b76dd5fbd9",
+      "source_size": [
+        626,
+        260
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        128,
+        177
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        136,
+        185
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        132,
+        181
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "a30576f8c913b624cda27180c230c6733fbdc6a6730bb4d2d30d6c99d65895f5",
+      "generated": false,
+      "usage": "Reusable played-card slot frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_chip_blue",
+      "scene": "battle",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/battle_chip_blue.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        444,
+        176,
+        145,
+        153
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        153,
+        161
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        149,
+        157
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "794beb7de9108c9da0dd70ed90572496b4e37ad04e982baabb4f52bcceab3c23",
+      "generated": false,
+      "usage": "Blue score chip",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_coin_pile",
+      "scene": "battle",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/battle_coin_pile.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        298,
+        757,
+        278,
+        201
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        285,
+        209
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        281,
+        205
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "e5a03c4e8544865a34813871fee7cd9366ad6c2bd1a543a926eb18261aaa9356",
+      "generated": false,
+      "usage": "Currency pile decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_consumable_tray",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_consumable_tray.png",
+      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
+      "source_size": [
+        619,
+        796
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        56,
+        619,
+        234
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        627,
+        242
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        623,
+        238
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "96f8ed565c64bd6742aebccb7ded5a41e2ac3fa341ac0da4e0ff0bb74fecde3f",
+      "generated": false,
+      "usage": "Three-slot consumable tray",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_crown_icon",
+      "scene": "battle",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/battle_crown_icon.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        194,
+        0,
+        149,
+        137
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        157,
+        145
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        153,
+        141
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d13705e89cde21a7a1e70596f4af8be36d8b0fdbf0f5b2ad707dd1ff91f2124d",
+      "generated": false,
+      "usage": "Ante or boss crown icon",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_deck_count_panel",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_deck_count_panel.png",
+      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
+      "source_size": [
+        619,
+        796
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        375,
+        625,
+        161,
+        171
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        168,
+        179
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        164,
+        175
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "1642958c24db0e64824524d64b761da553e9f013647d0f0712904140762fa984",
+      "generated": false,
+      "usage": "Remaining-deck count panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_deck_stack",
+      "scene": "battle",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/battle_deck_stack.png",
+      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
+      "source_size": [
+        619,
+        796
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        346,
+        303,
+        217,
+        301
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        224,
+        309
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        220,
+        305
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "e4a2508f2a36bfedbf9ba4e5dbf60f8aed3cfdc8567872b3987972ae9eacf781",
+      "generated": false,
+      "usage": "Battle draw-pile card stack",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_deck_title_plate",
+      "scene": "battle",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/battle_deck_title_plate.png",
+      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
+      "source_size": [
+        619,
+        796
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        96,
+        0,
+        413,
+        43
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        419,
+        51
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        415,
+        47
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "a7ffaffd44ebf56d70f1ad5dbe5ae15575a0b1530c7c957502458781c57284da",
+      "generated": false,
+      "usage": "Deck-area red title plate",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_discard_button",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_discard_button.png",
+      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
+      "source_size": [
+        1212,
+        148
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        373,
+        20,
+        253,
+        120
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        261,
+        125
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        257,
+        121
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "905d94eff7857be343d1e52b4d8a7436c8f70e62274bb5067a17c2664c8939ff",
+      "generated": false,
+      "usage": "Discard-hand button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_gold_token_large",
+      "scene": "battle",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/battle_gold_token_large.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        37,
+        176,
+        331,
+        359
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        339,
+        367
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        335,
+        363
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c4b97021204a363eedf8b9e406376595dcd30a2716f42fd1418f663ae16c2bb1",
+      "generated": false,
+      "usage": "Large target or reward token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_hand_type_panel",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_hand_type_panel.png",
+      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
+      "source_size": [
+        766,
+        1386
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        34,
+        855,
+        698,
+        156
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        706,
+        164
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        702,
+        160
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "188c9ffb1ae9fa8dc04ec2c09c43ca041313d66c35475e05254dbcab0b14a9da",
+      "generated": false,
+      "usage": "Current poker-hand type panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_hud_chips_panel",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_hud_chips_panel.png",
+      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
+      "source_size": [
+        766,
+        1386
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        607,
+        368,
+        164
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        375,
+        172
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        371,
+        168
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "6cefc992b89a78977f3a74d8f979a33dea2afa7b8ea46d4722bf3c5370adfcaf",
+      "generated": false,
+      "usage": "Compact blue chips panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_hud_full",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_hud_full.png",
+      "source": "res://assets/ui/extracted/battle/battle_left_hud.png",
+      "source_sha256": "19c87c775da8fd9cf12fbc1f26f9768a8382ddd922077c0f66139c7ede0c6b2f",
+      "source_size": [
+        894,
+        1628
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        894,
+        1628
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        902,
+        1636
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        898,
+        1632
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "e64fe76bf9ffc2b8762fa6adf08935a271c8feb537194c5a8d8e7731d1f2b82d",
+      "generated": false,
+      "usage": "Shared battle and shop left HUD artwork",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_hud_mult_panel",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_hud_mult_panel.png",
+      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
+      "source_size": [
+        766,
+        1386
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        404,
+        608,
+        362,
+        163
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        370,
+        171
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        366,
+        167
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "b9d023c8b2ab1b80396ca5cde1d23ab1f954b1d0113dae6ea89b253986dd7535",
+      "generated": false,
+      "usage": "Compact red multiplier panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_hud_title_plate",
+      "scene": "battle",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/battle_hud_title_plate.png",
+      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
+      "source_size": [
+        766,
+        1386
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        115,
+        0,
+        536,
+        108
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        544,
+        116
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        540,
+        112
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "989556ef8c450ee3e6ff7f85295404440593b142082023d05dcb022195c18bd0",
+      "generated": false,
+      "usage": "Compact HUD red blind-title plate",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_play_button",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_play_button.png",
+      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
+      "source_size": [
+        1212,
+        148
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        354,
+        148
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        362,
+        156
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        358,
+        152
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "95470414e7194171a63515ac809f40a62f6fdaca653e11259acfd7af2cd7d751",
+      "generated": false,
+      "usage": "Primary play-hand button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_score_chip_plate",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_score_chip_plate.png",
+      "source": "res://assets/ui/extracted/battle/battle_card_slots.png",
+      "source_sha256": "ac11ec18c162b5b7ab11e0c82906f7b37741a9556950606be79913b76dd5fbd9",
+      "source_size": [
+        626,
+        260
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        140,
+        190,
+        209,
+        70
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        216,
+        78
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        212,
+        74
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "403da36a3e6e6d4ab5206464316218c4c7de4a845d66068c6cdcc99e871e845e",
+      "generated": false,
+      "usage": "Blue chips score plate",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_score_mult_plate",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_score_mult_plate.png",
+      "source": "res://assets/ui/extracted/battle/battle_card_slots.png",
+      "source_sha256": "ac11ec18c162b5b7ab11e0c82906f7b37741a9556950606be79913b76dd5fbd9",
+      "source_size": [
+        626,
+        260
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        377,
+        192,
+        157,
+        68
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        165,
+        75
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        161,
+        71
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "87a7024cc916c48e0d0ba4edd9bdbd1be07c645d341cbff4304bbba9cc456044",
+      "generated": false,
+      "usage": "Red multiplier score plate",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_settings_gear",
+      "scene": "battle",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/battle_settings_gear.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        340,
+        1028,
+        145,
+        151
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        153,
+        159
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        149,
+        155
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "4bc6db437c32e0423629471ded524b8e190fb492d6b9229292e9a0f1544b283c",
+      "generated": false,
+      "usage": "Settings gear icon",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_sort_rank_button",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_sort_rank_button.png",
+      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
+      "source_size": [
+        1212,
+        148
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        648,
+        20,
+        271,
+        120
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        278,
+        127
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        274,
+        123
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "9e9b871d087d318484483f5aacf5bedac3f918de21b43d571e183a291383209e",
+      "generated": false,
+      "usage": "Sort-by-rank button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_sort_suit_button",
+      "scene": "battle",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/battle_sort_suit_button.png",
+      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
+      "source_size": [
+        1212,
+        148
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        941,
+        20,
+        271,
+        120
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        279,
+        127
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        275,
+        123
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "f452e2f469b8c3743829d57d2db28425653f12e56e8daca7963116a84d44f16e",
+      "generated": false,
+      "usage": "Sort-by-suit button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_stat_panel",
+      "scene": "battle",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/battle_stat_panel.png",
+      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
+      "source_size": [
+        766,
+        1386
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        34,
+        1030,
+        345,
+        180
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        353,
+        188
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        349,
+        184
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "0366be5e5ac3d5a44fb4be9e4f6e113c3a4e711bab87941af7596753b0b06b1b",
+      "generated": false,
+      "usage": "Reusable compact HUD statistic panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_title_bar",
+      "scene": "battle",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/battle_title_bar.png",
+      "source": "res://assets/ui/extracted/battle/battle_title_bar.png",
+      "source_sha256": "ca09c45afebea67cf8cb45f94e93150759af0ecb78283c206caf0ee3092cc2c0",
+      "source_size": [
+        1577,
+        225
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1214,
+        225
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1222,
+        233
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1218,
+        229
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "1a35446c762ec061567f7c8acc8de3f81b3e6e2436b342a7fc9bf1328de14ab9",
+      "generated": false,
+      "usage": "Top joker shelf without the unrelated thin atlas bar",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_token_green",
+      "scene": "battle",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/battle_token_green.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        259,
+        1260,
+        277,
+        213
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        285,
+        221
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        281,
+        217
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "a18439d12bb665c794d5945e2c2995a068a6245907a33e41157a4304600adaef",
+      "generated": false,
+      "usage": "Green reward token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "battle_token_red",
+      "scene": "battle",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/battle_token_red.png",
+      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
+      "source_size": [
+        820,
+        1473
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        557,
+        1260,
+        263,
+        213
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        271,
+        221
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        267,
+        217
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "5201156de791a4f404793cbfa838dceaa5cdbf395f7a705203ebf625204a9b52",
+      "generated": false,
+      "usage": "Red reward token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_arrow_left",
+      "scene": "deck_select",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/deck_arrow_left.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        546,
+        603,
+        34,
+        23
+      ],
+      "trim_alpha": true,
+      "padding": 5,
+      "transform": {
+        "flip_x": true,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        44,
+        33
+      ],
+      "output_alpha_bbox": [
+        5,
+        5,
+        39,
+        28
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "782426c28e693b12d58f74a8c10408c06669b364e486663e3b5ad0aec6319390",
+      "generated": false,
+      "usage": "Previous deck selector arrow",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_arrow_right",
+      "scene": "deck_select",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/deck_arrow_right.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        546,
+        603,
+        34,
+        23
+      ],
+      "trim_alpha": true,
+      "padding": 5,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        44,
+        33
+      ],
+      "output_alpha_bbox": [
+        5,
+        5,
+        39,
+        28
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c920b7b1902f00856b2741c2e1bca274c39aca930ff5a1b555dccc6a9edf5b74",
+      "generated": false,
+      "usage": "Next deck selector arrow",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_back_button",
+      "scene": "deck_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/deck_back_button.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        841,
+        530,
+        510,
+        119
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        517,
+        125
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        513,
+        121
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "2f2545afa10753af6b5002212d514db118895fb039a5675429d3b263b89b739c",
+      "generated": false,
+      "usage": "Return button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_card_stack_green",
+      "scene": "deck_select",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/deck_card_stack_green.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        1061,
+        760,
+        139,
+        174
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        145,
+        181
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        141,
+        177
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "aa2eda9a27e1cd5b158afe7451a6b12cae54544fff69de4e653d81067a6f73f2",
+      "generated": false,
+      "usage": "Green deck stack decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_card_stack_red",
+      "scene": "deck_select",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/deck_card_stack_red.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        729,
+        760,
+        242,
+        174
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        249,
+        181
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        245,
+        177
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "b4d2f83d14336ce4b748e21138ea939cdb2de06bd414d79e97111825597109a0",
+      "generated": false,
+      "usage": "Red deck stack decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_challenge_button",
+      "scene": "deck_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/deck_challenge_button.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        901,
+        671,
+        348,
+        69
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        355,
+        76
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        351,
+        72
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "66b81b9beee83ac25c5b3606706ff1e856686247c82f23845b2fd1c5e7736edd",
+      "generated": false,
+      "usage": "Compact red challenge button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_deck_back_frame",
+      "scene": "deck_select",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/deck_deck_back_frame.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        639,
+        114,
+        184,
+        249
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        190,
+        256
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        186,
+        252
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c21900e072e1273df99d8fc6c1b3f0d2e7bde3bc89093b18b9c2af1b62f041fa",
+      "generated": false,
+      "usage": "Deck-back preview stack frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_decor_left",
+      "scene": "deck_select",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/deck_decor_left.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        19,
+        940,
+        190,
+        143
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        195,
+        149
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        192,
+        146
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "b35a6933a4342fc159e14a0eefc633271675bfa1d39904a1c595d89a6fced50b",
+      "generated": false,
+      "usage": "Bottom-left red velvet corner",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_decor_right",
+      "scene": "deck_select",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/deck_decor_right.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        258,
+        940,
+        188,
+        143
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        194,
+        149
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        191,
+        146
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "6d66149b95288ae25772489b51b3763f047f2902a88142249bf90a0458aa1894",
+      "generated": false,
+      "usage": "Bottom-right red velvet corner",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_main_panel",
+      "scene": "deck_select",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/deck_main_panel.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        11,
+        100,
+        592,
+        276
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        599,
+        284
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        595,
+        280
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "47cb9b1b3ecccf13194c4db14bb58b6063d2f61430afd190b8e85920b5b3e65b",
+      "generated": false,
+      "usage": "Central deck information panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_stake_panel",
+      "scene": "deck_select",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/deck_stake_panel.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        182,
+        396,
+        603,
+        150
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        610,
+        156
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        606,
+        152
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "ddf48e439608332df112a4efee3cee35ec628031157176d6a763f525795e6a8f",
+      "generated": false,
+      "usage": "Difficulty description panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_stake_token_frame",
+      "scene": "deck_select",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/deck_stake_token_frame.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        21,
+        398,
+        151,
+        142
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        159,
+        149
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        155,
+        145
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c53cc119de3545b4715f247e916b73ddca1f287de713e44bf79e7460f2451d66",
+      "generated": false,
+      "usage": "Difficulty chip frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_start_button",
+      "scene": "deck_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/deck_start_button.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        841,
+        389,
+        510,
+        121
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        517,
+        128
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        513,
+        124
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "f0b72fc35e3422e9b57a3ff85c4c993244f505c2f3b0c7ddde3d3be9984fd048",
+      "generated": false,
+      "usage": "Start game button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_stats_panel",
+      "scene": "deck_select",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/deck_stats_panel.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        864,
+        102,
+        498,
+        257
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        505,
+        265
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        501,
+        261
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "941d8a8c4a353143a69201ad318c3ccfe7646ef7c10e3f9ea1d8f51c3e0e8f6f",
+      "generated": false,
+      "usage": "Hands, discards, money, and joker-slot stat panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_tab_center",
+      "scene": "deck_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/deck_tab_center.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        324,
+        0,
+        256,
+        82
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        262,
+        83
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        258,
+        79
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "421c4d10bdac5f267bc228cb459c3a2ddfa58bdcdefd09e508afb972768e9913",
+      "generated": false,
+      "usage": "Continue tab button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_tab_left",
+      "scene": "deck_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/deck_tab_left.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        295,
+        81
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        303,
+        88
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        299,
+        84
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d60bb6301104ac144f4d8e4e8fc2aa3a7b780d63a3fe13daeeecf1903e50616b",
+      "generated": false,
+      "usage": "New-run tab button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "deck_tab_right",
+      "scene": "deck_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/deck_tab_right.png",
+      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
+      "source_size": [
+        1362,
+        1083
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        607,
+        0,
+        267,
+        81
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        275,
+        88
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        271,
+        84
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "bf55a25c1ee6b7b9a1d078d209fe38ec2cec052fed4edc6d4d7b0c12e7a7e6f9",
+      "generated": false,
+      "usage": "Challenge tab button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_blind_fallback",
+      "scene": "stage_select",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/blind_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "2b9b5bd9ec28674a70f2579f0521920537581f9f4105762df27c0ef5305e0041",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "2b9b5bd9ec28674a70f2579f0521920537581f9f4105762df27c0ef5305e0041",
+      "generated": true,
+      "usage": "Text-free unknown blind fallback",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_consumable_planet_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/consumable_planet_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "8793e444156c36eef0aa7931f2d5bd9c4bfa70a6cc3ed40665f60c8a7a505356",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "8793e444156c36eef0aa7931f2d5bd9c4bfa70a6cc3ed40665f60c8a7a505356",
+      "generated": true,
+      "usage": "Text-free planet consumable fallback",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_consumable_spectral_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/consumable_spectral_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "73b7af6047a3051d59a3992a4ca5844ad5c53787c69537fe96220cbf9d5a1176",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "73b7af6047a3051d59a3992a4ca5844ad5c53787c69537fe96220cbf9d5a1176",
+      "generated": true,
+      "usage": "Text-free spectral consumable fallback",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_consumable_tarot_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/consumable_tarot_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "09bd90d3c22997688e3fda7b572c0cf76f24385dd7a97756108d01f6686c539b",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "09bd90d3c22997688e3fda7b572c0cf76f24385dd7a97756108d01f6686c539b",
+      "generated": true,
+      "usage": "Text-free Tarot consumable fallback",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_deck_black_fallback",
+      "scene": "deck_select",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/deck_black_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "d17ec9a2fb49f23f572ba1755bff33a5d56ec70cedd52d21e6fa8435595c9b60",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d17ec9a2fb49f23f572ba1755bff33a5d56ec70cedd52d21e6fa8435595c9b60",
+      "generated": true,
+      "usage": "Black deck art where no source back exists",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_deck_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/deck_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "1d1ef6206b2c495158be2acff7e1691c6f6ae5e501fb02ed74a934e82e0267ab",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "1d1ef6206b2c495158be2acff7e1691c6f6ae5e501fb02ed74a934e82e0267ab",
+      "generated": true,
+      "usage": "Text-free unknown deck fallback",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_deck_yellow_fallback",
+      "scene": "deck_select",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/deck_yellow_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "14f632d88671a603ad3f759346805246bb3861b018cde5001b55afb586b6fddb",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "14f632d88671a603ad3f759346805246bb3861b018cde5001b55afb586b6fddb",
+      "generated": true,
+      "usage": "Yellow deck art where no source back exists",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_joker_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/joker_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "c2e144016de751c6bbfed83f0bf0e6d9e92db389ffaa941e9bedb130df586283",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c2e144016de751c6bbfed83f0bf0e6d9e92db389ffaa941e9bedb130df586283",
+      "generated": true,
+      "usage": "Text-free fallback for Joker art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_pack_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/pack_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "eb9d194de749b4488539a60706e46dd0954ed9e6bbf9e474aefcb34d2963cdec",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "eb9d194de749b4488539a60706e46dd0954ed9e6bbf9e474aefcb34d2963cdec",
+      "generated": true,
+      "usage": "Text-free fallback for booster-pack art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_unknown_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/unknown_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "2b54841f8f393bf185a6cfa81e0bad24c80f3c2c08afa961aac0dba47dd0ca21",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "2b54841f8f393bf185a6cfa81e0bad24c80f3c2c08afa961aac0dba47dd0ca21",
+      "generated": true,
+      "usage": "Last-resort unknown card art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "generated_voucher_fallback",
+      "scene": "shared",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/voucher_fallback.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "8230de940dbc2dfebd883e8f9934ceaecaa005253e2d0da28ef1bd52eb604191",
+      "source_size": [
+        320,
+        448
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        320,
+        448
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        320,
+        448
+      ],
+      "output_alpha_bbox": [
+        12,
+        12,
+        308,
+        438
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "8230de940dbc2dfebd883e8f9934ceaecaa005253e2d0da28ef1bd52eb604191",
+      "generated": true,
+      "usage": "Text-free fallback for voucher art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_blind_panel",
+      "scene": "settlement",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/settlement_blind_panel.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        140,
+        148,
+        211,
+        114
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        219,
+        122
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        215,
+        118
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c22eec064b0f02061b8e9bea4cc67478c0b2ee6b3ed4ebf372f2331579b11bff",
+      "generated": false,
+      "usage": "Blind name or reward summary panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_cashout_panel",
+      "scene": "settlement",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/settlement_cashout_panel.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        635,
+        329,
+        676,
+        270
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": [
+        330,
+        160
+      ],
+      "output_size": [
+        682,
+        277
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        678,
+        273
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d355957655c83e2515986b9730a341e6afe907023ca5e332b13ee9c0ceb8f01f",
+      "generated": false,
+      "usage": "Large ornate cashout amount panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_claim_button",
+      "scene": "settlement",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/settlement_claim_button.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        449,
+        891,
+        423,
+        86
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        429,
+        92
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        425,
+        88
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "2dd5848b3003f8b7d094343781c0aafb5a714655cbde1b3d47db699ba4156b49",
+      "generated": false,
+      "usage": "Claim reward button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_continue_button",
+      "scene": "settlement",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/settlement_continue_button.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        773,
+        631,
+        369,
+        79
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        374,
+        85
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        370,
+        81
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "12a1f473b20e6e6a15f640d2bd5ac44f0b90442ea98db5344dc7d7780f5cd7d6",
+      "generated": false,
+      "usage": "Continue-to-shop button backing",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_decor_left",
+      "scene": "settlement",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/settlement_decor_left.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        947,
+        187,
+        154
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        192,
+        160
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        189,
+        157
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "ceb869d47e27be1e59654f166f7bdd90963fe08499db8bf0ad430da1187770ab",
+      "generated": false,
+      "usage": "Settlement bottom-left velvet decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_decor_right",
+      "scene": "settlement",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/settlement_decor_right.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        198,
+        947,
+        198,
+        154
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        202,
+        160
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        199,
+        157
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "7953f2dd8f58e01202ae1630a7885576a7d538717c2c32bbfb7d73b6d561ab5e",
+      "generated": false,
+      "usage": "Settlement bottom-right velvet decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_detail_panel",
+      "scene": "settlement",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/settlement_detail_panel.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        3,
+        356,
+        510,
+        355
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        518,
+        362
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        514,
+        358
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "eb5b8842d4413dad597c18284463c07c684e7f908aa58729ff3145c488bc3dd7",
+      "generated": false,
+      "usage": "Static settlement detail rows panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_summary_bar",
+      "scene": "settlement",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/settlement_summary_bar.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        727,
+        1326,
+        150
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1333,
+        157
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1329,
+        153
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "9cd041371d04673db065491279e164533c68b38d14e98247eab41f47ec233a6b",
+      "generated": false,
+      "usage": "Bottom money calculation summary bar",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "settlement_title_banner",
+      "scene": "settlement",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/settlement_title_banner.png",
+      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
+      "source_size": [
+        1336,
+        1101
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        225,
+        0,
+        540,
+        130
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        548,
+        138
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        544,
+        134
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d10e3d6a45f5b60b68607668ea40db465198e5cf17405018ccdf386a4d22683b",
+      "generated": false,
+      "usage": "Round-settlement title banner",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_button_green",
+      "scene": "shop",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/shop_button_green.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        548,
+        0,
+        467,
+        205
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        474,
+        212
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        470,
+        208
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "77edb0a9ad3db7a12f50c1ee2a37f20ce24e9abe76f2e9d9d78e990af18cf6da",
+      "generated": false,
+      "usage": "Reroll-shop green action button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_button_red",
+      "scene": "shop",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/shop_button_red.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        494,
+        204
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        502,
+        212
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        498,
+        208
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "89ca3f61b425f3229e2dcc99823a21c2f73c038ca6560760c8332b2bfdf56941",
+      "generated": false,
+      "usage": "Next-round red action button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_coins",
+      "scene": "shop",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/shop_coins.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        906,
+        0,
+        436,
+        317
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        443,
+        324
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        439,
+        320
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "0ce53c5544be83b654a2a56a22add1966af2e0681d0672a343f9a0fc15441847",
+      "generated": false,
+      "usage": "Mixed poker chips and coin stack",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_consumable_mercury",
+      "scene": "shop",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/shop_consumable_mercury.png",
+      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
+      "source_size": [
+        1062,
+        962
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        612,
+        0,
+        299,
+        453
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        306,
+        461
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        302,
+        457
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "82fc5790033e2d3c2ffe29cb1bb58394a8fa2acd21dabd873515fb5f849da785",
+      "generated": false,
+      "usage": "Dedicated Mercury planet-card art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_curtain_bottom_left",
+      "scene": "shop",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/shop_curtain_bottom_left.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        507,
+        510,
+        470
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": [
+        100,
+        400
+      ],
+      "output_size": [
+        515,
+        475
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        512,
+        472
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "1e1f1e02004ed03ed91519eca7952d3fcb398ee13a83235c6e4a090f01894305",
+      "generated": false,
+      "usage": "Lower-left red velvet curtain",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_curtain_left",
+      "scene": "shop",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/shop_curtain_left.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        91,
+        452,
+        416
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        457,
+        419
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        454,
+        416
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "f3d239ea01af4a6a395281060be7cac785712c5164f78cc92f07acac46cfc139",
+      "generated": false,
+      "usage": "Upper-left red velvet curtain",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_curtain_right",
+      "scene": "shop",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/shop_curtain_right.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        849,
+        477,
+        562,
+        500
+      ],
+      "trim_alpha": true,
+      "padding": 3,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": [
+        540,
+        430
+      ],
+      "output_size": [
+        568,
+        506
+      ],
+      "output_alpha_bbox": [
+        3,
+        3,
+        565,
+        503
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "a04f8f3f691d7dd4ce67c7b402eccdd667ded27e15d0c2e3aef21054a52c0be9",
+      "generated": false,
+      "usage": "Lower-right red velvet curtain",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_joker_art",
+      "scene": "shop",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/shop_joker_art.png",
+      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
+      "source_size": [
+        1062,
+        962
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        157,
+        0,
+        300,
+        447
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        307,
+        455
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        303,
+        451
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "3331d87d81b64b6a9e81484e43446796bb04aacfb24cbb4c3233b572c42d9c32",
+      "generated": false,
+      "usage": "Dedicated base Joker card art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_offer_slot_green",
+      "scene": "shop",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/shop_offer_slot_green.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        579,
+        599,
+        408,
+        139
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        416,
+        147
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        412,
+        143
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "79c2317d3f48c21a2c93b312b906f311c3f976d6e55424116cdd9b4bf4890b31",
+      "generated": false,
+      "usage": "Green offer-slot frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_offer_slot_red",
+      "scene": "shop",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/shop_offer_slot_red.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        34,
+        595,
+        441,
+        141
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        448,
+        148
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        444,
+        144
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d4fc1d11825beeb4398078e938dbe1ae5f848f9c4bae6abc318937a92e2f0cc7",
+      "generated": false,
+      "usage": "Red offer-slot frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_offers_panel",
+      "scene": "shop",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/shop_offers_panel.png",
+      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
+      "source_size": [
+        1399,
+        1036
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        651,
+        0,
+        711,
+        458
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        718,
+        465
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        714,
+        461
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "742370e4e38b4d2d9b933db25ef44a256072c0a801b80695f1236315442e84af",
+      "generated": false,
+      "usage": "Large top offer display panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_pack_joker",
+      "scene": "shop",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/shop_pack_joker.png",
+      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
+      "source_size": [
+        1062,
+        962
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        353,
+        493,
+        313,
+        469
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        321,
+        477
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        317,
+        473
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "ef394e9b8910b32ba6251b5e751aa54e74162806c30a9e8aba30227f67b11826",
+      "generated": false,
+      "usage": "Buffoon/Joker booster-pack art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_pack_spectral",
+      "scene": "shop",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/shop_pack_spectral.png",
+      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
+      "source_size": [
+        1062,
+        962
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        754,
+        496,
+        308,
+        466
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        316,
+        473
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        312,
+        469
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "0c821a45bba73b54b9653e54a9252bce10beaa0330e69844c26c0625f12e98e4",
+      "generated": false,
+      "usage": "Spectral booster-pack art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_packs_panel",
+      "scene": "shop",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/shop_packs_panel.png",
+      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
+      "source_size": [
+        1399,
+        1036
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        550,
+        463,
+        849,
+        438
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        857,
+        446
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        853,
+        442
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "100a46b7791289658116c07488268076af0fa2d6a74504b58bf237f60a7b9603",
+      "generated": false,
+      "usage": "Booster-pack offer region panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_price_chip_blue",
+      "scene": "shop",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/shop_price_chip_blue.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        998,
+        336,
+        170,
+        113
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        177,
+        121
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        173,
+        117
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "72640eb05ae3118a441dfbd42749bb84207a6577f8890bd3a16e13694762a607",
+      "generated": false,
+      "usage": "Blue price chip",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_price_chip_red",
+      "scene": "shop",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/shop_price_chip_red.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        787,
+        336,
+        173,
+        113
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        181,
+        121
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        177,
+        117
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d1adebbaa6d9c9a3280f33061af1890bfc0c9f52ad3620d9b337a00e3e735bbe",
+      "generated": false,
+      "usage": "Red price chip",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_price_coin",
+      "scene": "shop",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/shop_price_coin.png",
+      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
+      "source_size": [
+        1411,
+        977
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        1207,
+        341,
+        150,
+        108
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        156,
+        116
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        152,
+        112
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "12b3d2cfa3670df28a7f351c0207bb5eb889e6e7e2d52b976ff3b955cb9aec92",
+      "generated": false,
+      "usage": "Gold price coin",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_price_plate",
+      "scene": "shop",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/shop_price_plate.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        1068,
+        24,
+        243,
+        121
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        251,
+        129
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        247,
+        125
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "32402c514a5ecf7daf9d0282919dc6083fe0d1f62d68ee8f9d13a154ba5356e3",
+      "generated": false,
+      "usage": "Reusable small red price plate",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_section_bar",
+      "scene": "shop",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/shop_section_bar.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        3,
+        237,
+        1001,
+        95
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1008,
+        103
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1004,
+        99
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "c2fff2ef898992debf8f7805066967f2ab999fdba22532c26a7fe48a964ba036",
+      "generated": false,
+      "usage": "Reusable dark section-title bar",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_section_bar_compact",
+      "scene": "shop",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/shop_section_bar_compact.png",
+      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
+      "source_size": [
+        1311,
+        952
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        3,
+        363,
+        1011,
+        85
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1019,
+        92
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1015,
+        88
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "930577440c70646314e58acb6a386a85285fde39a4946bf503c679796627405a",
+      "generated": false,
+      "usage": "Compact dark section-title bar",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_title_panel",
+      "scene": "shop",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/shop_title_panel.png",
+      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
+      "source_size": [
+        1399,
+        1036
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        648,
+        343
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        655,
+        350
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        651,
+        346
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "515b7b432adef4f314d8d78132afa04f617057ab7b64d9d4743462bcf614bf4b",
+      "generated": false,
+      "usage": "Crowned shop title panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_voucher_art",
+      "scene": "shop",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/shop_voucher_art.png",
+      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
+      "source_size": [
+        1062,
+        962
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        487,
+        280,
+        468
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        287,
+        475
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        283,
+        471
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "5be44b63e4cea0eba91ff3e1af01062409227190f6f59af2a326c02fd76dcf9b",
+      "generated": false,
+      "usage": "Voucher display art",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "shop_voucher_panel",
+      "scene": "shop",
+      "category": "panels",
+      "path": "res://assets/ui/runtime/panels/shop_voucher_panel.png",
+      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
+      "source_size": [
+        1399,
+        1036
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        23,
+        437,
+        507,
+        462
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        514,
+        469
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        510,
+        465
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "d25448960ffd0148aa5304b2540fb2e1f63783a05291a92563784ab8b05c1a68",
+      "generated": false,
+      "usage": "Voucher offer region panel",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_blind_big",
+      "scene": "stage_select",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/stage_blind_big.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        523,
+        0,
+        395,
+        392
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        402,
+        400
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        398,
+        396
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "9d4a56d8f1c0729eab4c169b6f44f0eb8c1aeb9854b545a014da929bb5d459d7",
+      "generated": false,
+      "usage": "Big blind token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_blind_boss_locked",
+      "scene": "stage_select",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/stage_blind_boss_locked.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        1038,
+        0,
+        402,
+        392
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        410,
+        399
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        406,
+        395
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "a2ef10f2dabbf61c2021eaa8a0d909dd46e75c3e7e4f64f5257fb1e2c060e212",
+      "generated": false,
+      "usage": "Locked boss blind token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_blind_lock_composite",
+      "scene": "stage_select",
+      "category": "icons",
+      "path": "res://assets/ui/runtime/icons/stage_blind_lock_composite.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        1240,
+        244,
+        200,
+        148
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        208,
+        155
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        204,
+        151
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "9f4d478bc3e7d18798ce64098a622caf66e31b50cb361f007077ea214fcb12ba",
+      "generated": false,
+      "usage": "Source lock crop retained for provenance; includes inseparable boss-token pixels",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_blind_lock_overlay",
+      "scene": "stage_select",
+      "category": "generated",
+      "path": "res://assets/ui/runtime/generated/blind_lock_icon.png",
+      "source": "res://tools/generate_card_fallbacks.py",
+      "source_sha256": "7f25e04ba2c69d2df0d76beeac5177fd370e714a5ae9fa68a1544d6dcf0d020c",
+      "source_size": [
+        200,
+        200
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        200,
+        200
+      ],
+      "trim_alpha": false,
+      "padding": 0,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "output_size": [
+        200,
+        200
+      ],
+      "output_alpha_bbox": [
+        35,
+        20,
+        164,
+        179
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "7f25e04ba2c69d2df0d76beeac5177fd370e714a5ae9fa68a1544d6dcf0d020c",
+      "generated": true,
+      "usage": "Clean text-free lock overlay because source lock pixels are fused to the boss token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_blind_small",
+      "scene": "stage_select",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/stage_blind_small.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        391,
+        392
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        399,
+        400
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        395,
+        396
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "677b6e13b37fe80be8da06770cff2948e8fc0fbd23987be611f01dea9b172165",
+      "generated": false,
+      "usage": "Small blind token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_card_active",
+      "scene": "stage_select",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/stage_card_active.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_card_active.png",
+      "source_sha256": "0de4d52f85d439416c8693efc0d4e371069bc9d6308f47526a72584124c62b11",
+      "source_size": [
+        752,
+        1358
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        752,
+        1358
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        760,
+        1366
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        756,
+        1362
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "f466483cfbc61ee5ba79a1d79f3de5d8d3d5b870fd3fdab74c05a43cd0f6bc3d",
+      "generated": false,
+      "usage": "Selectable blind card frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_card_locked",
+      "scene": "stage_select",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/stage_card_locked.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_card_locked.png",
+      "source_sha256": "625642c1b963c7600f6a5a48f24e9c9c264720c6131ccb8935a0c1d4dd1a688b",
+      "source_size": [
+        818,
+        1327
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        818,
+        1327
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        826,
+        1335
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        822,
+        1331
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "98e1ffbbd29044e3be4664c2e688cf164d626c3d2c049fb4c515fd1464a964f7",
+      "generated": false,
+      "usage": "Locked boss blind card frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_card_next",
+      "scene": "stage_select",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/stage_card_next.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_card_next.png",
+      "source_sha256": "d9071cd541b0842df89a0daf75092cf7c198118db74378e9d25915118925c3b4",
+      "source_size": [
+        600,
+        1382
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        600,
+        1382
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        608,
+        1390
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        604,
+        1386
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "443b4c6b5c1760040730a36c105f8341e39e8b3193fb45a4656a040e598d816f",
+      "generated": false,
+      "usage": "Next blind card frame",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_corner_active",
+      "scene": "stage_select",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/stage_corner_active.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        409,
+        482,
+        267,
+        270
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        274,
+        277
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        270,
+        273
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "8e296ff518c109a31cfa01fa99106860acad9f4dfaa63490c455cbb405ff8627",
+      "generated": false,
+      "usage": "Active red folded-corner decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_corner_locked",
+      "scene": "stage_select",
+      "category": "decorations",
+      "path": "res://assets/ui/runtime/decorations/stage_corner_locked.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        784,
+        483,
+        269,
+        269
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        275,
+        277
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        271,
+        273
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "66f18e0a923ce9aee3b64541ffcea82a177edeaa3533087a4bb3ac2f1daa9a65",
+      "generated": false,
+      "usage": "Locked dark folded-corner decoration",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_disabled_button",
+      "scene": "stage_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/stage_disabled_button.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+      "source_sha256": "c5c28459dac9c40d962b9a05845a08bf67f08b7b4ba19ba1007315cb349b4468",
+      "source_size": [
+        1538,
+        183
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        1075,
+        0,
+        463,
+        183
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        471,
+        191
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        467,
+        187
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "192ef99c4af1bb613df2257c091cf38bdcdc7539c48614e9f9e06bff15f38fd2",
+      "generated": false,
+      "usage": "Disabled blind action button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_select_button",
+      "scene": "stage_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/stage_select_button.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+      "source_sha256": "c5c28459dac9c40d962b9a05845a08bf67f08b7b4ba19ba1007315cb349b4468",
+      "source_size": [
+        1538,
+        183
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        467,
+        183
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        475,
+        191
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        471,
+        187
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "bca8ddc7b3954cc4c3bdc0a4250b03506544f38bd9ece255c5f8fe45c540778c",
+      "generated": false,
+      "usage": "Blue select-blind button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_skip_button",
+      "scene": "stage_select",
+      "category": "buttons",
+      "path": "res://assets/ui/runtime/buttons/stage_skip_button.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+      "source_sha256": "c5c28459dac9c40d962b9a05845a08bf67f08b7b4ba19ba1007315cb349b4468",
+      "source_size": [
+        1538,
+        183
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        537,
+        0,
+        469,
+        183
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        477,
+        191
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        473,
+        187
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "182c1a7b357282bfd84b0dcd0afb731c784170791761b5de5645715b5511108c",
+      "generated": false,
+      "usage": "Red skip-blind button",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_stake_chip",
+      "scene": "stage_select",
+      "category": "tokens",
+      "path": "res://assets/ui/runtime/tokens/stage_stake_chip.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
+      "source_size": [
+        1440,
+        752
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        63,
+        493,
+        242,
+        251
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        249,
+        257
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        245,
+        253
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "e5948b8cee31bdb4b228a21a020f7d2a54454a12966cf47b52a4236ca0dd39f5",
+      "generated": false,
+      "usage": "Difficulty chip token",
+      "tags": [],
+      "validation": "passed"
+    },
+    {
+      "id": "stage_title_banner",
+      "scene": "stage_select",
+      "category": "frames",
+      "path": "res://assets/ui/runtime/frames/stage_title_banner.png",
+      "source": "res://assets/ui/extracted/stage_select/stage_title_banner.png",
+      "source_sha256": "3949d1c2be1b0bb03e3e627a8a56b9c85fd75da8254e579db50a853495d9e29a",
+      "source_size": [
+        1592,
+        319
+      ],
+      "source_has_alpha": true,
+      "source_rect_xywh": [
+        0,
+        0,
+        1592,
+        319
+      ],
+      "trim_alpha": true,
+      "padding": 4,
+      "transform": {
+        "flip_x": false,
+        "flip_y": false
+      },
+      "component_seed": null,
+      "output_size": [
+        1600,
+        327
+      ],
+      "output_alpha_bbox": [
+        4,
+        4,
+        1596,
+        323
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "edge_alpha_max": 0,
+      "output_sha256": "33fc29a09dd527a209464e7eca4d03dc62ca0d479b57b0d9efa91b78744beb82",
+      "generated": false,
+      "usage": "Blind-selection title banner",
+      "tags": [],
+      "validation": "passed"
+    }
+  ]
+}

@@ -55,15 +55,15 @@ func _ready() -> void:
 		sfx_players.append(player)
 
 
-func play_bgm(name: String) -> void:
-	if name == current_bgm:
+func play_bgm(audio_key: String) -> void:
+	if audio_key == current_bgm:
 		return
-	if not BGM.has(name):
-		push_warning("Unknown BGM: " + name)
+	if not BGM.has(audio_key):
+		push_warning("Unknown BGM: " + audio_key)
 		return
-	current_bgm = name
+	current_bgm = audio_key
 	bgm_player.stop()
-	bgm_player.stream = BGM[name]
+	bgm_player.stream = BGM[audio_key]
 	bgm_player.play()
 
 
@@ -72,13 +72,18 @@ func stop_bgm() -> void:
 	bgm_player.stop()
 
 
-func play_sfx(name: String, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
-	if not SFX.has(name):
-		push_warning("Unknown SFX: " + name)
+func stop_all_sfx() -> void:
+	for player: AudioStreamPlayer in sfx_players:
+		player.stop()
+
+
+func play_sfx(audio_key: String, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
+	if not SFX.has(audio_key):
+		push_warning("Unknown SFX: " + audio_key)
 		return
 	var player: AudioStreamPlayer = _next_sfx_player()
 	player.stop()
-	player.stream = SFX[name]
+	player.stream = SFX[audio_key]
 	player.volume_db = -2.0 + volume_db
 	player.pitch_scale = pitch_scale
 	player.play()

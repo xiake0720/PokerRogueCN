@@ -2,24 +2,29 @@ extends Control
 
 const CardDetailPopupScene: PackedScene = preload("res://scenes/ui/card_detail_popup.tscn")
 const FloatingScoreLabelScene: PackedScene = preload("res://scenes/ui/floating_score_label.tscn")
-
-@onready var hud: GameHudPanel = $Root/HBox/HUD
-@onready var joker_header: Label = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerHeader
+@onready var hud: GameHudPanel = %HUD
+@onready var joker_header: Label = %JokerHeader
 @onready var joker_slots: Array[JokerCardView] = [
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot1,
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot2,
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot3,
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot4,
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/JokerShelf/JokerRow/JokerSlot5,
+	%JokerSlot1,
+	%JokerSlot2,
+	%JokerSlot3,
+	%JokerSlot4,
+	%JokerSlot5,
 ]
-@onready var played_area: Control = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/PlayedArea
-@onready var deck_pile: Control = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile
-@onready var deck_pile_label: Label = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/PlayArea/DeckPile/DeckPileLabel
-@onready var hand_area: CardFanArea = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/HandArea
-@onready var play_button: Button = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow/PlayButton
-@onready var sort_rank_button: Button = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow/SortRankButton
-@onready var sort_suit_button: Button = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow/SortSuitButton
-@onready var discard_button: Button = $Root/HBox/BoardPanel/BoardMargin/BoardVBox/ActionRow/DiscardButton
+@onready var consumable_slots: Array[PanelContainer] = [%ConsumableSlot1, %ConsumableSlot2, %ConsumableSlot3]
+@onready var consumable_count_label: Label = %ConsumableCountLabel
+@onready var played_area: Control = %PlayedArea
+@onready var deck_pile: Control = %DeckPile
+@onready var deck_back: TextureRect = %DeckBack
+@onready var deck_pile_label: Label = %DeckPileLabel
+@onready var discard_count_label: Label = %DiscardCountLabel
+@onready var hand_area: CardFanArea = %HandArea
+@onready var chips_value: Label = %ChipsValue
+@onready var mult_value: Label = %MultValue
+@onready var play_button: Button = %PlayButton
+@onready var sort_rank_button: Button = %SortRankButton
+@onready var sort_suit_button: Button = %SortSuitButton
+@onready var discard_button: Button = %DiscardButton
 
 var selected_cards: Array = []
 var is_animating: bool = false
@@ -36,6 +41,8 @@ func _ready() -> void:
 	add_child(detail_popup)
 	for slot in joker_slots:
 		slot.inspect_requested.connect(func(joker: Dictionary) -> void: detail_popup.show_joker(joker))
+	for i in range(consumable_slots.size()):
+		consumable_slots[i].gui_input.connect(_on_consumable_gui_input.bind(i))
 	AudioManager.play_sfx("shuffle_cards", -2.0)
 	modulate.a = 0.0
 	var tween: Tween = create_tween()
@@ -49,16 +56,23 @@ func refresh() -> void:
 	var run: RunState = Game.run
 	hud.refresh_run(run, "battle")
 	deck_pile_label.text = "%d/%d" % [run.deck.size(), run.full_deck.size()]
+	discard_count_label.text = "弃牌堆\n%d" % run.discard_pile.size()
+	var back_texture: Texture2D = ArtResolver.get_deck_back(run.deck_id)
+	for child in deck_pile.get_children():
+		if child is TextureRect:
+			(child as TextureRect).texture = back_texture
+	deck_back.texture = back_texture
 	_rebuild_hand(run)
 	_rebuild_jokers(run)
+	_refresh_consumables(run)
 	_update_selected_preview()
 	_update_action_buttons()
 
 func _rebuild_hand(run: RunState) -> void:
-	hand_area.display_cards(run.hand, selected_cards)
+	hand_area.display_cards(run.sorted_hand_for_display(), selected_cards)
 
 func _rebuild_jokers(run: RunState) -> void:
-	joker_header.text = "小丑牌 %d/%d" % [run.jokers.size(), run.joker_slots]
+	joker_header.text = "小丑牌\n%d/%d" % [run.jokers.size(), run.joker_slots]
 	joker_views_by_id.clear()
 	for i in range(joker_slots.size()):
 		var view: JokerCardView = joker_slots[i]
@@ -67,7 +81,40 @@ func _rebuild_jokers(run: RunState) -> void:
 			view.setup(run.jokers[i], i, false)
 			joker_views_by_id[str(run.jokers[i].get("id", ""))] = view
 		else:
-			view.visible = false
+			view.visible = true
+			view.clear_slot()
+
+func _refresh_consumables(run: RunState) -> void:
+	consumable_count_label.text = "%d/%d" % [run.consumables.size(), run.consumable_slots]
+	for i in range(consumable_slots.size()):
+		var slot: PanelContainer = consumable_slots[i]
+		var art: TextureRect = slot.get_node("Content/ArtTexture") as TextureRect
+		var name_label: Label = slot.get_node("Content/NameLabel") as Label
+		var empty_overlay: ColorRect = slot.get_node("Content/EmptySlotOverlay") as ColorRect
+		if i < run.consumables.size():
+			var item: Dictionary = run.consumables[i]
+			var kind: String = str(item.get("kind", item.get("type", "tarot")))
+			art.texture = ArtResolver.get_consumable_art(kind, str(item.get("id", "")))
+			name_label.text = str(item.get("name_cn", "消耗牌"))
+			empty_overlay.visible = false
+			slot.tooltip_text = "%s\n%s" % [name_label.text, str(item.get("description_cn", ""))]
+		else:
+			art.texture = null
+			name_label.text = "空槽"
+			empty_overlay.visible = true
+			slot.tooltip_text = "空消耗牌槽"
+
+func _on_consumable_gui_input(event: InputEvent, index: int) -> void:
+	if not (event is InputEventMouseButton):
+		return
+	var mouse_event: InputEventMouseButton = event as InputEventMouseButton
+	if not mouse_event.pressed or mouse_event.button_index != MOUSE_BUTTON_LEFT:
+		return
+	if index >= Game.run.consumables.size():
+		return
+	var item: Dictionary = Game.run.consumables[index]
+	if not Game.run.use_consumable(index, selected_cards.duplicate()):
+		detail_popup.show_item(item)
 
 func _on_card_selection_changed(card_id: String, selected: bool, view: PlayingCardView) -> void:
 	if is_animating:
@@ -109,6 +156,8 @@ func _update_action_buttons() -> void:
 func _update_selected_preview() -> void:
 	if selected_cards.is_empty():
 		hud.set_hand_preview("选择手牌", "0 x 0", "最多选择 5 张牌")
+		chips_value.text = "0"
+		mult_value.text = "0"
 		return
 	var run: RunState = Game.run
 	var cards: Array = _cards_by_ids(run.hand, selected_cards)
@@ -124,6 +173,8 @@ func _update_selected_preview() -> void:
 		if scoring_ids.has(card.get("instance_id", "")):
 			chips += CardConstants.card_chip_value(card)
 	hud.set_hand_preview("%s  等级%d" % [str(hand_result.get("name_cn", "高牌")), level], "%d x %d" % [chips, mult], "基础预览：%d分" % (chips * mult))
+	chips_value.text = str(chips)
+	mult_value.text = str(mult)
 
 func _cards_by_ids(cards: Array, ids: Array) -> Array:
 	var result: Array = []
@@ -200,7 +251,7 @@ func _animate_played_cards(played_views: Array[PlayingCardView], scoring_ids: Ar
 		AudioManager.play_sfx("score_target_reached")
 	await get_tree().create_timer(0.18).timeout
 	await _clear_played_area()
-	hand_area.display_cards(Game.run.hand, [])
+	hand_area.display_cards(Game.run.sorted_hand_for_display(), [])
 
 func _clear_played_area() -> void:
 	if played_area.get_child_count() == 0:
@@ -225,7 +276,7 @@ func _animate_joker_effects(effects: Array) -> void:
 		if joker_views_by_id.has(joker_id):
 			var view: JokerCardView = joker_views_by_id[joker_id]
 			AudioManager.play_sfx("joker_trigger", -2.0)
-			_pulse_node(view)
+			view.play_trigger()
 			await _float_score(str(effect_data.get("text", "")), view.global_position + Vector2(16, view.size.y + 4), Color(1.0, 0.54, 0.28))
 
 func _float_score(text: String, start_position: Vector2, color: Color) -> void:

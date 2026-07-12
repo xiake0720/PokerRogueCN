@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[node name="RewardRow" type="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+theme_override_constants/separation = 16
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="LeftLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "结算项目"
+vertical_alignment = 1
+[node name="RightLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.92, 0.36, 1)
+text = "+$0"
+horizontal_alignment = 2
+vertical_alignment = 1
