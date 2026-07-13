@@ -1,6 +1,6 @@
+class_name SettlementPanel
 extends Control
 
-@onready var hud: GameHudPanel = %HUD
 @onready var stage_name_label: Label = %StageNameLabel
 @onready var score_label: Label = %ScoreLabel
 @onready var total_row: HBoxContainer = %TotalRow
@@ -19,14 +19,13 @@ extends Control
 @onready var money_after_value: Label = %MoneyAfterValue
 @onready var claim_button: Button = %ClaimButton
 
+
 func _ready() -> void:
 	claim_button.pressed.connect(_claim_and_continue)
-	refresh()
 
-func refresh() -> void:
-	var run: RunState = Game.run
+
+func refresh_run(run: RunState) -> void:
 	var settlement: Dictionary = run.settlement
-	hud.refresh_run(run, "settlement")
 	var total: int = int(settlement.get("total", 0))
 	var reward: int = int(settlement.get("reward", 0))
 	var hand_bonus: int = int(settlement.get("hand_bonus", 0))
@@ -45,10 +44,12 @@ func refresh() -> void:
 	_set_row(interest_row, "利息奖励", "+$%d" % interest)
 	tag_reward_row.visible = tag_bonus > 0
 	_set_row(tag_reward_row, "标签奖励", "+$%d" % tag_bonus)
-	voucher_bonus_row.visible = int(settlement.get("voucher_bonus", 0)) > 0
-	_set_row(voucher_bonus_row, "优惠券奖励", "+$%d" % int(settlement.get("voucher_bonus", 0)))
-	other_bonus_row.visible = int(settlement.get("other_bonus", 0)) > 0
-	_set_row(other_bonus_row, "其他奖励", "+$%d" % int(settlement.get("other_bonus", 0)))
+	var voucher_bonus: int = int(settlement.get("voucher_bonus", 0))
+	voucher_bonus_row.visible = voucher_bonus > 0
+	_set_row(voucher_bonus_row, "优惠券奖励", "+$%d" % voucher_bonus)
+	var other_bonus: int = int(settlement.get("other_bonus", 0))
+	other_bonus_row.visible = other_bonus > 0
+	_set_row(other_bonus_row, "其他奖励", "+$%d" % other_bonus)
 	cashout_label.text = "+$%d" % total
 	base_income_value.text = "$%d" % reward
 	bonus_income_value.text = "$%d" % (total - reward)
@@ -56,11 +57,11 @@ func refresh() -> void:
 	money_after_value.text = "$%d" % (run.money + total)
 	claim_button.disabled = bool(settlement.get("claimed", false))
 
+
 func _set_row(row: HBoxContainer, title: String, value: String) -> void:
-	var left_label: Label = row.get_node("LeftLabel") as Label
-	var right_label: Label = row.get_node("RightLabel") as Label
-	left_label.text = title
-	right_label.text = value
+	(row.get_node("LeftLabel") as Label).text = title
+	(row.get_node("RightLabel") as Label).text = value
+
 
 func _claim_and_continue() -> void:
 	if claim_button.disabled:

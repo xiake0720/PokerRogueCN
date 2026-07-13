@@ -4,13 +4,13 @@ const RunStateScript = preload("res://scripts/run/run_state.gd")
 const OUTPUT_DIR := "res://artifacts/button_review"
 const CAPTURES: Array[Dictionary] = [
 	{"name": "button_gallery", "scene": "res://scenes/debug/button_style_gallery.tscn"},
-	{"name": "home_buttons", "scene": "res://scenes/ui/main_menu_screen.tscn"},
-	{"name": "deck_select_buttons", "scene": "res://scenes/ui/deck_select_screen.tscn"},
-	{"name": "stage_buttons", "scene": "res://scenes/game/stage_select_screen.tscn"},
-	{"name": "battle_buttons", "scene": "res://scenes/game/battle_screen.tscn"},
-	{"name": "settlement_button", "scene": "res://scenes/game/settlement_screen.tscn"},
-	{"name": "shop_buttons", "scene": "res://scenes/shop/joker_shop_screen.tscn"},
-	{"name": "result_buttons", "scene": "res://scenes/ui/result_screen.tscn"},
+	{"name": "home_buttons", "scene": "res://scenes/screens/main_menu_screen.tscn"},
+	{"name": "deck_select_buttons", "scene": "res://scenes/screens/run_setup_screen.tscn"},
+	{"name": "stage_buttons", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "battle_buttons", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "settlement_button", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "shop_buttons", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "result_buttons", "scene": "res://scenes/screens/result_screen.tscn"},
 	{"name": "popup_buttons", "scene": "res://scenes/ui/card_detail_popup.tscn"},
 ]
 

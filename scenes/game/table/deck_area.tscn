@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/table/deck_area.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="2_back"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_deck_count_panel.png" id="3_panel"]
+
+[sub_resource type="StyleBoxEmpty" id="Style_empty"]
+
+[node name="DeckArea" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="DeckTitlePlate" type="TextureRect" parent="."]
+layout_mode = 1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.13
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="DeckPile" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.18
+anchor_top = 0.13
+anchor_right = 0.82
+anchor_bottom = 0.78
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DeckBack4" type="TextureRect" parent="DeckPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 15.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckBack3" type="TextureRect" parent="DeckPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckBack2" type="TextureRect" parent="DeckPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DeckBack" type="TextureRect" parent="DeckPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_back")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="DeckCountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_top = 0.78
+anchor_right = 1.0
+anchor_bottom = 0.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "52/52"
+horizontal_alignment = 1
+vertical_alignment = 1
+[node name="DiscardArea" type="PanelContainer" parent="."]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.88
+anchor_right = 0.88
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Style_empty")
+mouse_filter = 2
+
+[node name="DiscardCountLabel" type="Label" parent="DiscardArea"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.82, 0.7, 1)
+theme_override_font_sizes/font_size = 18
+text = "弃牌堆\n0"
+horizontal_alignment = 1
+vertical_alignment = 1

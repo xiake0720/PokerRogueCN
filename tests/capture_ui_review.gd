@@ -1,16 +1,14 @@
 extends Control
 
 const RunStateScript = preload("res://scripts/run/run_state.gd")
-const OUTPUT_DIR := "res://artifacts/ui_review"
+const OUTPUT_DIR := "res://artifacts/scene_refactor"
 const CAPTURES: Array[Dictionary] = [
-	{"name": "home", "scene": "res://scenes/ui/main_menu_screen.tscn"},
-	{"name": "deck_select", "scene": "res://scenes/ui/deck_select_screen.tscn"},
-	{"name": "stage_select", "scene": "res://scenes/game/stage_select_screen.tscn"},
-	{"name": "battle", "scene": "res://scenes/game/battle_screen.tscn"},
-	{"name": "settlement", "scene": "res://scenes/game/settlement_screen.tscn"},
-	{"name": "shop", "scene": "res://scenes/shop/joker_shop_screen.tscn"},
-	{"name": "victory", "scene": "res://scenes/ui/result_screen.tscn"},
-	{"name": "game_over", "scene": "res://scenes/ui/result_screen.tscn"},
+	{"name": "home", "scene": "res://scenes/screens/main_menu_screen.tscn"},
+	{"name": "run_setup", "scene": "res://scenes/screens/run_setup_screen.tscn"},
+	{"name": "game_table_blind_select", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "game_table_battle", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "game_table_settlement", "scene": "res://scenes/game/game_table_screen.tscn"},
+	{"name": "game_table_shop", "scene": "res://scenes/game/game_table_screen.tscn"},
 ]
 
 var failures: Array[String] = []
@@ -53,15 +51,15 @@ func _prepare_state(capture_name: String) -> void:
 	match capture_name:
 		"home":
 			game.run.show_home()
-		"deck_select":
+		"run_setup":
 			game.run.show_deck_select()
 		_:
 			game.start_new_run("red_deck", "UI-REVIEW-2026")
 			_decorate_run()
 			match capture_name:
-				"battle":
+				"game_table_battle":
 					game.run.start_round()
-				"settlement":
+				"game_table_settlement":
 					game.run.phase = RunStateScript.Phase.SETTLEMENT
 					game.run.current_score = 1240
 					game.run.target_score = 900
@@ -72,19 +70,10 @@ func _prepare_state(capture_name: String) -> void:
 						"other_bonus": 0, "total": 15, "score": 1240,
 						"target": 900, "claimed": false,
 					}
-				"shop":
+				"game_table_shop":
 					game.run.phase = RunStateScript.Phase.SHOP
 					game.run.money = 28
 					game.run.generate_shop(true)
-				"victory":
-					game.run.phase = RunStateScript.Phase.VICTORY
-					game.run.ante = 9
-					game.run.current_score = 182400
-				"game_over":
-					game.run.phase = RunStateScript.Phase.GAME_OVER
-					game.run.ante = 4
-					game.run.current_score = 7800
-					game.run.target_score = 12000
 
 func _decorate_run() -> void:
 	var registry: Node = get_node("/root/DataRegistry")

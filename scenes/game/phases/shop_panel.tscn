@@ -1,0 +1,282 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/phases/shop_panel.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/shop/shop_offer_card.tscn" id="2_offer"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="3_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_title_panel.png" id="4_title"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_offers_panel.png" id="5_offers"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_voucher_panel.png" id="6_voucher"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/shop_packs_panel.png" id="7_packs"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/normal.tres" id="8_next_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/hover.tres" id="9_next_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/pressed.tres" id="10_next_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/disabled.tres" id="11_next_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/next/focus.tres" id="12_next_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/normal.tres" id="13_reroll_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/hover.tres" id="14_reroll_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/pressed.tres" id="15_reroll_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/disabled.tres" id="16_reroll_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/reroll/focus.tres" id="17_reroll_focus"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="18_feedback"]
+
+[node name="ShopPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_panel")
+
+[node name="TitlePanel" type="TextureRect" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.02
+anchor_right = 0.37
+anchor_bottom = 0.23
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_title")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="ShopTitle" type="Label" parent="Panel/TitlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.38, 1)
+theme_override_font_sizes/font_size = 48
+text = "商店"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionRow" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = 0.23
+anchor_right = 0.37
+anchor_bottom = 0.36
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 10
+z_index = 5
+[node name="NextButton" type="Button" parent="Panel/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(210, 76)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("8_next_normal")
+theme_override_styles/hover = ExtResource("9_next_hover")
+theme_override_styles/pressed = ExtResource("10_next_pressed")
+theme_override_styles/disabled = ExtResource("11_next_disabled")
+theme_override_styles/focus = ExtResource("12_next_focus")
+text = "下一盲注"
+script = ExtResource("18_feedback")
+[node name="RerollButton" type="Button" parent="Panel/ActionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(210, 76)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("13_reroll_normal")
+theme_override_styles/hover = ExtResource("14_reroll_hover")
+theme_override_styles/pressed = ExtResource("15_reroll_pressed")
+theme_override_styles/disabled = ExtResource("16_reroll_disabled")
+theme_override_styles/focus = ExtResource("17_reroll_focus")
+text = "刷新 $5"
+script = ExtResource("18_feedback")
+
+[node name="JokerShelf" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchor_left = 0.39
+anchor_top = 0.02
+anchor_right = 0.985
+anchor_bottom = 0.46
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_offers")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="JokerTitle" type="Label" parent="Panel/JokerShelf"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "可购买小丑牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+[node name="JokerShopRow" type="HBoxContainer" parent="Panel/JokerShelf"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.15
+anchor_right = 0.88
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 32
+[node name="JokerOfferSlot1" parent="Panel/JokerShelf/JokerShopRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 205)
+layout_mode = 2
+[node name="JokerOfferSlot2" parent="Panel/JokerShelf/JokerShopRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 205)
+layout_mode = 2
+
+[node name="VoucherShelf" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.38
+anchor_right = 0.39
+anchor_bottom = 0.96
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_voucher")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="VoucherTitle" type="Label" parent="Panel/VoucherShelf"]
+layout_mode = 1
+anchor_left = 0.22
+anchor_right = 0.78
+anchor_bottom = 0.14
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "特殊优惠"
+horizontal_alignment = 1
+vertical_alignment = 1
+[node name="VoucherOfferSlot" parent="Panel/VoucherShelf" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 205)
+layout_mode = 1
+anchor_left = 0.34
+anchor_top = 0.2
+anchor_right = 0.66
+anchor_bottom = 0.88
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PackShelf" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchor_left = 0.41
+anchor_top = 0.48
+anchor_right = 0.985
+anchor_bottom = 0.96
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_packs")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="PackTitle" type="Label" parent="Panel/PackShelf"]
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "卡牌补充包"
+horizontal_alignment = 1
+vertical_alignment = 1
+[node name="PackRow" type="HBoxContainer" parent="Panel/PackShelf"]
+layout_mode = 1
+anchor_left = 0.14
+anchor_top = 0.16
+anchor_right = 0.88
+anchor_bottom = 0.93
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+theme_override_constants/separation = 30
+[node name="PackOfferSlot1" parent="Panel/PackShelf/PackRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(148, 210)
+layout_mode = 2
+[node name="PackOfferSlot2" parent="Panel/PackShelf/PackRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(148, 210)
+layout_mode = 2
+
+[node name="PackOverlay" type="Control" parent="Panel"]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+[node name="Dim" type="ColorRect" parent="Panel/PackOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.005, 0.018, 0.012, 0.82)
+[node name="OpenPanel" type="PanelContainer" parent="Panel/PackOverlay"]
+layout_mode = 1
+anchor_left = 0.08
+anchor_top = 0.1
+anchor_right = 0.92
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_panel")
+[node name="OpenVBox" type="VBoxContainer" parent="Panel/PackOverlay/OpenPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+[node name="PackOpenTitle" type="Label" parent="Panel/PackOverlay/OpenPanel/OpenVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
+theme_override_font_sizes/font_size = 38
+text = "选择一张卡牌"
+horizontal_alignment = 1
+[node name="PackChoiceLabel" type="Label" parent="Panel/PackOverlay/OpenPanel/OpenVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "可选择 1 张"
+horizontal_alignment = 1
+[node name="PackOptionsRow" type="HBoxContainer" parent="Panel/PackOverlay/OpenPanel/OpenVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 28
+[node name="PackOptionSlot1" parent="Panel/PackOverlay/OpenPanel/OpenVBox/PackOptionsRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="PackOptionSlot2" parent="Panel/PackOverlay/OpenPanel/OpenVBox/PackOptionsRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="PackOptionSlot3" parent="Panel/PackOverlay/OpenPanel/OpenVBox/PackOptionsRow" instance=ExtResource("2_offer")]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="SkipPackButton" type="Button" parent="Panel/PackOverlay/OpenPanel/OpenVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_type_variation = &"SecondaryRedButton"
+text = "跳过剩余选择"
+script = ExtResource("18_feedback")

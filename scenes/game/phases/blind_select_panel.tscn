@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/phases/blind_select_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_title_banner.png" id="2_header"]
+[ext_resource type="PackedScene" path="res://scenes/game/stage_card_view.tscn" id="3_card"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="4_panel"]
+
+[node name="BlindSelectPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="HeaderArt" type="TextureRect" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+texture = ExtResource("2_header")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="HeaderLabel" type="Label" parent="Panel/Margin/VBox/HeaderArt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 38
+text = "选择你的下一个盲注"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StageRow" type="HBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 40
+
+[node name="SmallBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("3_card")]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="BigBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("3_card")]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="BossBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("3_card")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.8, 0.68, 1)
+theme_override_font_sizes/font_size = 17
+text = "左侧为本局信息；顶部小丑与右侧牌堆在阶段切换中保持不变"
+horizontal_alignment = 1

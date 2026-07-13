@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://poker_rogue_cn_main"]
+[gd_scene load_steps=2 format=3 uid="uid://poker_rogue_cn_main"]
 
 [ext_resource type="Script" path="res://scripts/ui/screen_router.gd" id="1_router"]
-[ext_resource type="Texture2D" path="res://assets/ui/backgrounds/home_green_table.png" id="2_bg"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -11,26 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_router")
-
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_bg")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="Dim" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.18)
 
 [node name="ScreenRoot" type="Control" parent="."]
 layout_mode = 1

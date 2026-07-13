@@ -1,5 +1,7 @@
 # Codex 按钮系统重构进度
 
+> 本文件保留上一轮按钮重构记录；以下新增“场景架构重构进度”。
+
 ## 阶段 1：完整扫描
 
 - 已完成：递归扫描 Theme、StyleBox、全部 `.tscn`、脚本创建点、AtlasTexture 与伪按钮。
@@ -96,3 +98,80 @@
 - 测试：`capture_button_review`、Godot editor 导入、全量回归、`git diff --check` 全部通过；`assets/ui/extracted/` 无差异。
 - 遗留问题：无阻塞项；仅有可选的人工 IconButton/弹窗专属皮肤美术提升。
 - 下一步：提交并推送 `main`。
+
+---
+
+# Codex 场景架构重构进度
+
+## 阶段 1：基线与完整扫描
+
+- 已完成：用 UTF-8 完整读取目标文件；核对 `main` 与基线提交；执行 `git pull --ff-only origin main`；扫描场景、脚本、测试和 UI 素材。
+- 基线：`118be49882381db6bcf4faeb4265548abfe6c80b`，远端已是最新。
+- 工作区保护：发现 `project.godot` 有 Godot MCP 插件产生的行尾/工作树修改，未覆盖、未清理、未重置。
+- Godot：4.6.2 MCP 会话 `pokerroguecn@725a` 已连接且 readiness 为 `ready`。
+- 下一步：建立审计文档与目标目录。
+
+## 阶段 2：重复结构审计
+
+- 已完成：新增 `docs/scene_architecture_audit.md`，逐项记录重复背景、HUD、小丑槽、消耗牌槽、牌堆、SafeAspect、动画与刷新链。
+- 结论：四个游戏内全屏场景应迁移为一个持久 `GameTableScreen`、一个常驻 `BattleContent` 和三个底部 Panel。
+- 下一步：建立独立正式牌桌背景、共享组件和主场景。
+
+## 阶段 3：GameTableScreen 与独立牌桌背景
+
+- 已完成：新增 `game_table_screen.tscn/.gd`，固定声明 Background、SafeAspect、PermanentLayout、PhaseContent、Modal、Effects、Overlay 各层。
+- 已完成：生成原创 1920×1080 深绿绒布/木框/金色角花牌桌背景 `game_table_base.png`，新增独立 `game_table_frame.png`；正式牌桌不再引用 `home_table.png`。
+- 已完成：移除 `main.tscn` 的全局首页背景，背景职责回到各页面场景。
+
+## 阶段 4：共享固定组件
+
+- 已完成：新增静态 `JokerShelf`（5 个基础槽位 + 2 个预置扩展槽位）、`ConsumableTray`（按 `RunState.consumable_slots` 显隐）、`DeckArea`（多层牌背、剩余/总数、弃牌数）。
+- 已完成：商店出售直接使用共享 `JokerShelf`，不再维护 `OwnedJokerSlot1..5`。
+
+## 阶段 5：BattleContent
+
+- 已完成：将出牌区、分数区、手牌、四个既有按钮与计分动画迁移到 `BattleContent`；保留清场和只补画新牌的既有逻辑。
+- 已完成：HUD、小丑、消耗牌、牌堆全部迁出；战斗通过明确接口引用共享组件。
+
+## 阶段 6：BlindSelectPanel
+
+- 已完成：三张盲注卡、选择/跳过、锁定和标签绑定迁移至独立 Panel。
+- 已完成：由 `BottomSheetHost` 从底部弹出；最终宽度约为 TableArea 的 80%，右侧牌堆可见。
+
+## 阶段 7：SettlementPanel
+
+- 已完成：结算明细、收入、资金前后值和领取按钮迁移至独立 Panel；领取按钮点击后立即禁用，资金仍只由 `RunState.claim_settlement()` 处理一次。
+
+## 阶段 8：ShopPanel
+
+- 已完成：商品、优惠券、补充包、刷新与下一回合流程迁移至独立 Panel。
+- 已完成：修正商店根布局容器，商品区与按钮尺寸恢复正常；顶部共享小丑架保持可见并在 SHOP 开放出售。
+
+## 阶段 9：ScreenRouter
+
+- 已完成：首页、开局设置、游戏牌桌、结果页成为页面级路由；四个游戏内阶段统一使用 `GAME_TABLE_PATH`。
+- 已完成：游戏内 phase 变化只调用现有 `GameTableScreen.set_phase()`；首次进入牌桌保留一次页面入场动画，阶段变化不再释放牌桌。
+
+## 阶段 10：刷新链、信号与输入安全
+
+- 已完成：Router 唯一监听当前 `RunState.changed`，GameTable 单向刷新 HUD/Joker/Consumable/Deck/Phase；子组件不重复监听全局 changed。
+- 已完成：`run_replaced` 时断开旧 RunState；弹窗 Tween 可中止；隐藏 Panel 禁用输入；ModalDim 只覆盖桌面中央下部，ROUND 隐藏。
+- 已完成：继续、领取、下一回合按钮点击后立即禁用；商店共享 JokerShelf 作为明确交互白名单。
+
+## 阶段 11：旧场景清理
+
+- 已完成：删除四个旧全屏场景及其旧脚本：stage select、battle、settlement、joker shop。
+- 已完成：更新生产代码、测试与截图脚本到新路径；项目中不再存在新旧两套游戏内全屏结构。
+
+## 阶段 12：自动化与多分辨率验证
+
+- 已完成：新增 `test_game_table_scene.gd`、`test_phase_panel_flow.gd`、`test_game_table_persistence.gd`、`game_table_flow.tscn`。
+- 已通过：场景完整性、静态结构、牌桌持久化、Panel 流程、按钮完整性、Smoke、盲注/战斗/结算/商店/优惠券/补充包/消耗牌相关既有回归。
+- 已通过：1280×720、1600×900、1920×1080、2560×1440、1920×1200、2520×1080；每档均轮换四个游戏内阶段并检查固定区与按钮。
+
+## 阶段 13：验收截图与报告
+
+- 已完成：OpenGL 实际渲染生成 `artifacts/scene_refactor/` 下六张 1920×1080 截图并逐张视觉检查。
+- 已完成：Godot MCP 实际运行首页 → 开局设置 → 游戏牌桌，确认最终 ScreenRoot 仅保留一个 GameTableScreen，运行日志无错误。
+- 最终验证：目标文件指定的 editor、game_table_flow、smoke、button_integrity 四条命令全部退出码 0；补充场景、Panel 与分辨率测试全部 PASS；MCP 当前运行无错误；`git diff --check` 通过。
+- 下一步：交付报告。

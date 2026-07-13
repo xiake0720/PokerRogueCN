@@ -1,0 +1,311 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/phases/settlement_panel.gd" id="1_script"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="2_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/settlement_title_banner.png" id="3_title"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/settlement_blind_panel.png" id="4_blind"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/settlement_detail_panel.png" id="5_detail"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/settlement_cashout_panel.png" id="6_cashout"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/normal.tres" id="7_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/hover.tres" id="8_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/pressed.tres" id="9_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/disabled.tres" id="10_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/focus.tres" id="11_focus"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="12_feedback"]
+
+[node name="SettlementPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleBanner" type="TextureRect" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 82)
+layout_mode = 2
+texture = ExtResource("3_title")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="TitleLabel" type="Label" parent="Panel/Margin/VBox/TitleBanner"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.46, 1)
+theme_override_font_sizes/font_size = 40
+text = "回合结算"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlindPanel" type="TextureRect" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+texture = ExtResource("4_blind")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="BlindInfo" type="HBoxContainer" parent="Panel/Margin/VBox/BlindPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+[node name="StageNameLabel" type="Label" parent="Panel/Margin/VBox/BlindPanel/BlindInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.84, 0.48, 1)
+theme_override_font_sizes/font_size = 27
+text = "小盲注"
+vertical_alignment = 1
+[node name="ScoreLabel" type="Label" parent="Panel/Margin/VBox/BlindPanel/BlindInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.72, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "0 / 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Body" type="HBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="DetailPanel" type="TextureRect" parent="Panel/Margin/VBox/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_detail")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="DetailMargin" type="MarginContainer" parent="Panel/Margin/VBox/Body/DetailPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 28.0
+offset_right = -44.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+[node name="DetailRows" type="VBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TotalRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/TotalRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 23
+text = "总收入"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/TotalRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.92, 0.36, 1)
+theme_override_font_sizes/font_size = 23
+text = "+$0"
+
+[node name="StageNameRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/StageNameRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "完成盲注"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/StageNameRow"]
+layout_mode = 2
+text = "小盲注"
+
+[node name="ScoreRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/ScoreRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "本关分数"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/ScoreRow"]
+layout_mode = 2
+text = "0 / 0"
+
+[node name="RewardRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/RewardRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "基础奖励"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/RewardRow"]
+layout_mode = 2
+text = "+$0"
+
+[node name="HandBonusRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/HandBonusRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "剩余出牌奖励"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/HandBonusRow"]
+layout_mode = 2
+text = "+$0"
+
+[node name="InterestRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/InterestRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "利息奖励"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/InterestRow"]
+layout_mode = 2
+text = "+$0"
+
+[node name="TagRewardRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/TagRewardRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "标签奖励"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/TagRewardRow"]
+layout_mode = 2
+text = "+$0"
+
+[node name="VoucherBonusRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/VoucherBonusRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "优惠券奖励"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/VoucherBonusRow"]
+layout_mode = 2
+text = "+$0"
+
+[node name="OtherBonusRow" type="HBoxContainer" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+[node name="LeftLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/OtherBonusRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "其他奖励"
+[node name="RightLabel" type="Label" parent="Panel/Margin/VBox/Body/DetailPanel/DetailMargin/DetailRows/OtherBonusRow"]
+layout_mode = 2
+text = "+$0"
+
+[node name="CashoutPanel" type="TextureRect" parent="Panel/Margin/VBox/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_cashout")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+[node name="CashoutVBox" type="VBoxContainer" parent="Panel/Margin/VBox/Body/CashoutPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+[node name="CongratulationsLabel" type="Label" parent="Panel/Margin/VBox/Body/CashoutPanel/CashoutVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.42, 1)
+theme_override_font_sizes/font_size = 28
+text = "恭喜通过！"
+horizontal_alignment = 1
+[node name="CashoutLabel" type="Label" parent="Panel/Margin/VBox/Body/CashoutPanel/CashoutVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.74, 0.2, 1)
+theme_override_font_sizes/font_size = 58
+text = "+$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SummaryGrid" type="GridContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+columns = 4
+theme_override_constants/h_separation = 24
+[node name="BaseIncomeTitle" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+text = "基础收入"
+[node name="BaseIncomeValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$0"
+[node name="MoneyBeforeTitle" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+text = "领取前资金"
+[node name="MoneyBeforeValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$0"
+[node name="BonusIncomeTitle" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+text = "奖励合计"
+[node name="BonusIncomeValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$0"
+[node name="MoneyAfterTitle" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+layout_mode = 2
+text = "领取后资金"
+[node name="MoneyAfterValue" type="Label" parent="Panel/Margin/VBox/SummaryGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$0"
+
+[node name="ClaimButton" type="Button" parent="Panel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 76)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.86, 0.46, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("7_normal")
+theme_override_styles/hover = ExtResource("8_hover")
+theme_override_styles/pressed = ExtResource("9_pressed")
+theme_override_styles/disabled = ExtResource("10_disabled")
+theme_override_styles/focus = ExtResource("11_focus")
+text = "领取并继续"
+script = ExtResource("12_feedback")

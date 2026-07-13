@@ -1,0 +1,366 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/game_table_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/backgrounds/game_table_base.png" id="2_background"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/game_table_frame.png" id="3_frame"]
+[ext_resource type="PackedScene" path="res://scenes/game/game_hud_panel.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://scenes/game/table/joker_shelf.tscn" id="5_jokers"]
+[ext_resource type="PackedScene" path="res://scenes/game/table/consumable_tray.tscn" id="6_consumables"]
+[ext_resource type="PackedScene" path="res://scenes/game/table/deck_area.tscn" id="7_deck"]
+[ext_resource type="PackedScene" path="res://scenes/game/phases/battle_content.tscn" id="8_battle"]
+[ext_resource type="PackedScene" path="res://scenes/ui/shared/bottom_sheet_host.tscn" id="9_host"]
+[ext_resource type="PackedScene" path="res://scenes/game/phases/blind_select_panel.tscn" id="10_blind"]
+[ext_resource type="PackedScene" path="res://scenes/game/phases/settlement_panel.tscn" id="11_settlement"]
+[ext_resource type="PackedScene" path="res://scenes/game/phases/shop_panel.tscn" id="12_shop"]
+
+[node name="GameTableScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="BackgroundLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameTableBackground" type="TextureRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="TableFrame" type="TextureRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+modulate = Color(1, 1, 1, 0.22)
+texture = ExtResource("3_frame")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="StaticDecorations" type="Control" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OptionalPhaseTint" type="ColorRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.01, 0.05, 0.03, 0.08)
+mouse_filter = 2
+
+[node name="SafeAspect" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.77778
+stretch_mode = 2
+
+[node name="Canvas" type="Control" parent="SafeAspect"]
+layout_mode = 2
+
+[node name="PermanentLayout" type="Control" parent="SafeAspect/Canvas"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUDArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.225
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameHudPanel" parent="SafeAspect/Canvas/PermanentLayout/HUDArea" instance=ExtResource("4_hud")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TableArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout"]
+layout_mode = 1
+anchor_left = 0.235
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JokerArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
+layout_mode = 1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.7
+anchor_bottom = 0.225
+grow_horizontal = 2
+grow_vertical = 2
+[node name="JokerShelf" parent="SafeAspect/Canvas/PermanentLayout/TableArea/JokerArea" instance=ExtResource("5_jokers")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConsumableArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
+layout_mode = 1
+anchor_left = 0.71
+anchor_top = 0.04
+anchor_right = 0.995
+anchor_bottom = 0.29
+grow_horizontal = 2
+grow_vertical = 2
+[node name="ConsumableTray" parent="SafeAspect/Canvas/PermanentLayout/TableArea/ConsumableArea" instance=ExtResource("6_consumables")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeckAreaAnchor" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
+layout_mode = 1
+anchor_left = 0.825
+anchor_top = 0.3
+anchor_right = 0.99
+anchor_bottom = 0.83
+grow_horizontal = 2
+grow_vertical = 2
+[node name="DeckArea" parent="SafeAspect/Canvas/PermanentLayout/TableArea/DeckAreaAnchor" instance=ExtResource("7_deck")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiscardArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
+layout_mode = 1
+anchor_left = 0.79
+anchor_top = 0.83
+anchor_right = 0.98
+anchor_bottom = 0.96
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContentArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
+layout_mode = 1
+anchor_right = 0.79
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PhaseContentLayer" type="Control" parent="SafeAspect/Canvas"]
+z_index = 20
+layout_mode = 1
+anchor_left = 0.235
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattleContent" parent="SafeAspect/Canvas/PhaseContentLayer" instance=ExtResource("8_battle")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupAnchor" type="Control" parent="SafeAspect/Canvas/PhaseContentLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ModalLayer" type="Control" parent="SafeAspect/Canvas"]
+z_index = 30
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ModalDim" type="ColorRect" parent="SafeAspect/Canvas/ModalLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.235
+anchor_top = 0.22
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2)
+mouse_filter = 2
+
+[node name="BottomSheetHost" parent="SafeAspect/Canvas/ModalLayer" instance=ExtResource("9_host")]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchor_left = 0.235
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+modal_dim_path = NodePath("../ModalDim")
+
+[node name="BlindSelectPanel" parent="SafeAspect/Canvas/ModalLayer/BottomSheetHost" instance=ExtResource("10_blind")]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.01
+anchor_top = 0.29
+anchor_right = 0.815
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettlementPanel" parent="SafeAspect/Canvas/ModalLayer/BottomSheetHost" instance=ExtResource("11_settlement")]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.26
+anchor_right = 0.815
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopPanel" parent="SafeAspect/Canvas/ModalLayer/BottomSheetHost" instance=ExtResource("12_shop")]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.24
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EffectsLayer" type="Control" parent="SafeAspect/Canvas"]
+z_index = 50
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+[node name="FloatingScoreHost" type="Control" parent="SafeAspect/Canvas/EffectsLayer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+[node name="ParticlesHost" type="Control" parent="SafeAspect/Canvas/EffectsLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+[node name="TransitionHost" type="Control" parent="SafeAspect/Canvas/EffectsLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OverlayLayer" type="Control" parent="SafeAspect/Canvas"]
+z_index = 60
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+[node name="TooltipHost" type="Control" parent="SafeAspect/Canvas/OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+[node name="CardDetailHost" type="Control" parent="SafeAspect/Canvas/OverlayLayer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+[node name="DebugOverlay" type="Control" parent="SafeAspect/Canvas/OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

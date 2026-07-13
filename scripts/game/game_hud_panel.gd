@@ -38,15 +38,31 @@ func refresh_run(run: RunState, mode: String = "battle") -> void:
 	target_label.text = _format_score(run.target_score)
 	desc_label.text = _blind_description(run, mode)
 	score_label.text = "%s / %s" % [_format_score(run.current_score), _format_score(run.target_score)]
-	hands_label.text = str(run.hands_left if mode == "battle" else run.base_hands)
-	discards_label.text = str(run.discards_left if mode == "battle" else run.base_discards)
+	match mode:
+		"battle":
+			hands_label.text = str(run.hands_left)
+			discards_label.text = str(run.discards_left)
+		"settlement":
+			hands_label.text = str(run.settlement.get("hand_bonus", 0))
+			discards_label.text = "0"
+		_:
+			hands_label.text = str(run.base_hands)
+			discards_label.text = str(run.base_discards)
 	money_label.text = "$%s" % _format_score(run.money)
 	ante_label.text = "底注 %d / 8" % run.ante
 	blind_step_label.text = "盲注 %d / 3" % (run.blind_index + 1)
-	if mode == "battle":
-		deck_label.text = "牌库 %d / 弃牌堆 %d" % [run.deck.size(), run.discard_pile.size()]
-	else:
-		deck_label.text = "牌库 %d / %d" % [run.full_deck.size(), run.full_deck.size()]
+	match mode:
+		"battle":
+			deck_label.text = "牌库 %d / 弃牌堆 %d" % [run.deck.size(), run.discard_pile.size()]
+		"settlement":
+			deck_label.text = "本回合 %s / %s" % [
+				_format_score(int(run.settlement.get("score", run.current_score))),
+				_format_score(int(run.settlement.get("target", run.target_score))),
+			]
+		"shop":
+			deck_label.text = "小丑 %d/%d · 牌库 %d" % [run.jokers.size(), run.joker_slots, run.full_deck.size()]
+		_:
+			deck_label.text = "牌库 %d / %d" % [run.full_deck.size(), run.full_deck.size()]
 	var tag: Dictionary = run.current_skip_tag() if mode == "stage" else _first_pending_tag(run)
 	tag_label.text = "标签：%s" % str(tag.get("name_cn", "无"))
 	consumables_label.text = "消耗牌 %d/%d" % [run.consumables.size(), run.consumable_slots]

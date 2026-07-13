@@ -1,29 +1,21 @@
+class_name BlindSelectPanel
 extends Control
 
-@onready var hud: GameHudPanel = $Root/HBox/HUD
 @onready var stage_cards: Array[StageCardView] = [
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/StageRow/SmallBlindCard,
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/StageRow/BigBlindCard,
-	$Root/HBox/BoardPanel/BoardMargin/BoardVBox/StageRow/BossBlindCard,
+	%SmallBlindCard, %BigBlindCard, %BossBlindCard,
 ]
-@onready var deck_pile_label: Label = %DeckPileLabel
+
 
 func _ready() -> void:
-	for i in range(stage_cards.size()):
+	for i: int in range(stage_cards.size()):
 		stage_cards[i].select_requested.connect(_on_stage_select_requested.bind(i))
 		stage_cards[i].skip_requested.connect(_on_stage_skip_requested.bind(i))
-	refresh()
 
-func refresh() -> void:
-	var run: RunState = Game.run
-	hud.refresh_run(run, "stage")
-	deck_pile_label.text = "牌库 %d/%d" % [run.full_deck.size(), run.full_deck.size()]
-	_refresh_stages(run)
 
-func _refresh_stages(run: RunState) -> void:
+func refresh_run(run: RunState) -> void:
 	var blind_ids: Array[String] = ["small_blind", "big_blind", str(run.current_blind.get("id", "boss_none"))]
 	var default_names: Array[String] = ["小盲注", "大盲注", "首领盲注"]
-	for i in range(stage_cards.size()):
+	for i: int in range(stage_cards.size()):
 		var blind_data: Dictionary = DataRegistry.find_by_id("blinds", blind_ids[i])
 		var title: String = str(blind_data.get("name_cn", default_names[i]))
 		if i == 2 and title.is_empty():
@@ -43,9 +35,14 @@ func _refresh_stages(run: RunState) -> void:
 			str(blind_data.get("description_cn", ""))
 		)
 
+
 func _on_stage_select_requested(index: int) -> void:
-	if index == Game.run.blind_index:
-		Game.run.start_round()
+	if index != Game.run.blind_index:
+		return
+	for card: StageCardView in stage_cards:
+		card.set_process_input(false)
+	Game.run.start_round()
+
 
 func _on_stage_skip_requested(index: int) -> void:
 	if index == Game.run.blind_index and index < 2:
