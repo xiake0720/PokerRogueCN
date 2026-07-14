@@ -10,6 +10,7 @@ extends PopupPanel
 const POPUP_SIZE := Vector2i(460, 420)
 
 func _ready() -> void:
+	hide()
 	close_button.pressed.connect(hide)
 	$Panel.add_theme_stylebox_override("panel", _panel_style())
 

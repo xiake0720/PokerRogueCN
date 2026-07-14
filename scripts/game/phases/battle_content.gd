@@ -7,8 +7,6 @@ const FloatingScoreLabelScene: PackedScene = preload("res://scenes/ui/floating_s
 
 @onready var played_area: Control = %PlayedArea
 @onready var hand_area: CardFanArea = %HandArea
-@onready var chips_value: Label = %ChipsValue
-@onready var mult_value: Label = %MultValue
 @onready var play_button: Button = %PlayButton
 @onready var sort_rank_button: Button = %SortRankButton
 @onready var sort_suit_button: Button = %SortSuitButton
@@ -119,8 +117,6 @@ func _update_selected_preview() -> void:
 		return
 	if selected_cards.is_empty():
 		_hud.set_hand_preview("选择手牌", "0 x 0", "最多选择 5 张牌")
-		chips_value.text = "0"
-		mult_value.text = "0"
 		return
 	var run: RunState = Game.run
 	var cards: Array = _cards_by_ids(run.hand, selected_cards)
@@ -140,8 +136,6 @@ func _update_selected_preview() -> void:
 		"%d x %d" % [chips, mult],
 		"基础预览：%d分" % (chips * mult)
 	)
-	chips_value.text = str(chips)
-	mult_value.text = str(mult)
 
 
 func _cards_by_ids(cards: Array, ids: Array) -> Array:

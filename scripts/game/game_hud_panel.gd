@@ -5,6 +5,7 @@ extends PanelContainer
 @onready var blind_token: TextureRect = %BlindToken
 @onready var desc_label: Label = %DescLabel
 @onready var target_label: Label = %TargetLabel
+@onready var round_value_label: Label = %RoundValueLabel
 @onready var score_box: Control = %ScoreBox
 @onready var score_label: Label = %ScoreLabel
 @onready var hand_box: Control = %HandBox
@@ -29,6 +30,7 @@ var hand_list_expanded: bool = false
 
 func _ready() -> void:
 	hand_list_toggle.pressed.connect(_toggle_hand_list)
+	_reset_numeric_display()
 
 
 func refresh_run(run: RunState, mode: String = "battle") -> void:
@@ -36,8 +38,9 @@ func refresh_run(run: RunState, mode: String = "battle") -> void:
 	title_label.text = _blind_display_name(run)
 	blind_token.texture = ArtResolver.resolve_texture("blind", blind_id)
 	target_label.text = _format_score(run.target_score)
+	round_value_label.text = "%d / 8" % run.ante
 	desc_label.text = _blind_description(run, mode)
-	score_label.text = "%s / %s" % [_format_score(run.current_score), _format_score(run.target_score)]
+	score_label.text = _format_score(run.current_score)
 	match mode:
 		"battle":
 			hands_label.text = str(run.hands_left)
@@ -49,8 +52,8 @@ func refresh_run(run: RunState, mode: String = "battle") -> void:
 			hands_label.text = str(run.base_hands)
 			discards_label.text = str(run.base_discards)
 	money_label.text = "$%s" % _format_score(run.money)
-	ante_label.text = "底注 %d / 8" % run.ante
-	blind_step_label.text = "盲注 %d / 3" % (run.blind_index + 1)
+	ante_label.text = "%d / 8" % run.ante
+	blind_step_label.text = "%d / 3" % (run.blind_index + 1)
 	match mode:
 		"battle":
 			deck_label.text = "牌库 %d / 弃牌堆 %d" % [run.deck.size(), run.discard_pile.size()]
@@ -73,6 +76,23 @@ func refresh_run(run: RunState, mode: String = "battle") -> void:
 			"默认基础牌型"
 		)
 	hand_info.text = _hand_info_text(run)
+	if mode == "stage":
+		_reset_numeric_display()
+
+
+func _reset_numeric_display() -> void:
+	round_value_label.text = "0 / 0"
+	target_label.text = "0"
+	score_label.text = "0"
+	chips_value_label.text = "0"
+	mult_value_label.text = "0"
+	hands_label.text = "0"
+	discards_label.text = "0"
+	money_label.text = "$0"
+	ante_label.text = "0 / 0"
+	blind_step_label.text = "0 / 0"
+	current_hand_label.text = "选择手牌"
+	preview_score_label.text = "等待选择手牌"
 
 
 func set_hand_preview(hand_text: String, equation_text: String, preview_text: String) -> void:
@@ -128,7 +148,7 @@ func _format_score(value: int) -> String:
 func _toggle_hand_list() -> void:
 	hand_list_expanded = hand_list_toggle.button_pressed
 	hand_info_scroll.visible = hand_list_expanded
-	hand_list_toggle.text = "牌型等级  -" if hand_list_expanded else "牌型等级  +"
+	hand_list_toggle.text = "关闭\n信息" if hand_list_expanded else "比赛\n信息"
 
 
 func _hand_info_text(run: RunState) -> String:

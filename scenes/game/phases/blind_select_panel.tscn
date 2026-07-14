@@ -1,9 +1,21 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/phases/blind_select_panel.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_title_banner.png" id="2_header"]
-[ext_resource type="PackedScene" path="res://scenes/game/stage_card_view.tscn" id="3_card"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="4_panel"]
+[ext_resource type="PackedScene" path="res://scenes/game/stage_card_view.tscn" id="2_card"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_surface"]
+bg_color = Color(0.012, 0.09, 0.062, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.64, 0.43, 0.18, 0.42)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.34)
+shadow_size = 10
 
 [node name="BlindSelectPanel" type="Control"]
 layout_mode = 3
@@ -19,53 +31,72 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 72.0
+offset_right = -28.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("4_panel")
+theme_override_styles/panel = SubResource("StyleBoxFlat_surface")
 
 [node name="Margin" type="MarginContainer" parent="Panel"]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 38
+theme_override_constants/margin_bottom = 30
 
 [node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 22
 
-[node name="HeaderArt" type="TextureRect" parent="Panel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 92)
+[node name="HeaderArt" type="VBoxContainer" parent="Panel/Margin/VBox"]
 layout_mode = 2
-texture = ExtResource("2_header")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 2
+theme_override_constants/separation = 4
 
 [node name="HeaderLabel" type="Label" parent="Panel/Margin/VBox/HeaderArt"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 38
-text = "选择你的下一个盲注"
+text = "选择下一个盲注"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StageRow" type="HBoxContainer" parent="Panel/Margin/VBox"]
+[node name="SubtitleLabel" type="Label" parent="Panel/Margin/VBox/HeaderArt"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73, 0.79, 0.69, 1)
+theme_override_font_sizes/font_size = 16
+text = "依次挑战，或跳过当前盲注换取标签奖励"
+horizontal_alignment = 1
+
+[node name="HeaderDivider" type="ColorRect" parent="Panel/Margin/VBox/HeaderArt"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.72, 0.49, 0.2, 0.42)
+mouse_filter = 2
+
+[node name="StageRow" type="GridContainer" parent="Panel/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-theme_override_constants/separation = 40
+theme_override_constants/h_separation = 28
+columns = 3
 
-[node name="SmallBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("3_card")]
+[node name="SmallBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("2_card")]
 unique_name_in_owner = true
 layout_mode = 2
-[node name="BigBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("3_card")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BigBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("2_card")]
 unique_name_in_owner = true
 layout_mode = 2
-[node name="BossBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("3_card")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BossBlindCard" parent="Panel/Margin/VBox/StageRow" instance=ExtResource("2_card")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

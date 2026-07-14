@@ -1,84 +1,112 @@
-[gd_scene load_steps=17 format=3 uid="uid://stage_card_view"]
+[gd_scene load_steps=21 format=3 uid="uid://stage_card_view"]
 
 [ext_resource type="Script" path="res://scripts/game/stage_card_view.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_card_active.png" id="2_active"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_card_next.png" id="3_next"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_card_locked.png" id="4_locked"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/stage_blind_small.png" id="5_small"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/blind_lock_icon.png" id="6_lock"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/battle_chip_blue.png" id="7_chip"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_select_button.png" id="8_select"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_skip_button.png" id="9_skip"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/stage_disabled_button.png" id="10_disabled"]
-[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="11_feedback"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/normal.tres" id="12_select_normal"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/hover.tres" id="13_select_hover"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/pressed.tres" id="14_select_pressed"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/disabled.tres" id="15_select_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/focus.tres" id="16_select_focus"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/normal.tres" id="17_skip_normal"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/hover.tres" id="18_skip_hover"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/pressed.tres" id="19_skip_pressed"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/disabled.tres" id="20_skip_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/focus.tres" id="21_skip_focus"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/stage_blind_small.png" id="2_small"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/blind_lock_icon.png" id="3_lock"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/battle_chip_blue.png" id="4_chip"]
+[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="5_feedback"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/normal.tres" id="6_select_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/hover.tres" id="7_select_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/pressed.tres" id="8_select_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/disabled.tres" id="9_select_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/focus.tres" id="10_select_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/normal.tres" id="11_skip_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/hover.tres" id="12_skip_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/pressed.tres" id="13_skip_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/disabled.tres" id="14_skip_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/focus.tres" id="15_skip_focus"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_root"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tag"]
-bg_color = Color(0.025, 0.12, 0.105, 0.92)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.018, 0.105, 0.077, 0.97)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.37, 0.72, 0.82, 0.86)
+border_color = Color(0.65, 0.47, 0.22, 0.72)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.34)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_active"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.7, 0.22, 0.96)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+bg_color = Color(0.12, 0.23, 0.17, 0.96)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tag"]
+bg_color = Color(0.018, 0.13, 0.11, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.69, 0.76, 0.72)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [node name="StageCardView" type="PanelContainer"]
-custom_minimum_size = Vector2(320, 590)
+custom_minimum_size = Vector2(220, 400)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_root")
 script = ExtResource("1_script")
 
-[node name="ActiveGlow" type="TextureRect" parent="."]
+[node name="CardFrame" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-texture = ExtResource("2_active")
-expand_mode = 1
-stretch_mode = 5
 mouse_filter = 2
-modulate = Color(1, 0.72, 0.22, 0.28)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
-[node name="CardFrame" type="TextureRect" parent="."]
+[node name="ActiveGlow" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_active")
-expand_mode = 1
-stretch_mode = 5
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_active")
 
 [node name="Content" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StateBadge" type="Label" parent="Content"]
+[node name="BadgeBackground" type="PanelContainer" parent="Content"]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.015
-anchor_top = 0.015
-anchor_right = 0.33
-anchor_bottom = 0.13
+anchor_left = 0.055
+anchor_top = 0.045
+anchor_right = 0.32
+anchor_bottom = 0.115
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.62
-theme_override_colors/font_color = Color(1, 0.91, 0.6, 1)
-theme_override_font_sizes/font_size = 18
-text = "可选"
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="StateBadge" type="Label" parent="Content/BadgeBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.53, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "当前"
 horizontal_alignment = 1
 vertical_alignment = 1
 mouse_filter = 2
@@ -86,14 +114,16 @@ mouse_filter = 2
 [node name="TitleLabel" type="Label" parent="Content"]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.13
-anchor_top = 0.065
-anchor_right = 0.87
-anchor_bottom = 0.17
+anchor_left = 0.18
+anchor_top = 0.055
+anchor_right = 0.88
+anchor_bottom = 0.145
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.84, 0.42, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 27
 text = "小盲注"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -102,13 +132,13 @@ text_overrun_behavior = 3
 [node name="BlindToken" type="TextureRect" parent="Content"]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.24
+anchor_left = 0.27
 anchor_top = 0.17
-anchor_right = 0.76
+anchor_right = 0.73
 anchor_bottom = 0.45
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_small")
+texture = ExtResource("2_small")
 expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
@@ -117,13 +147,13 @@ mouse_filter = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchor_left = 0.35
-anchor_top = 0.235
-anchor_right = 0.65
-anchor_bottom = 0.405
+anchor_left = 0.38
+anchor_top = 0.27
+anchor_right = 0.62
+anchor_bottom = 0.41
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_lock")
+texture = ExtResource("3_lock")
 expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
@@ -131,10 +161,10 @@ mouse_filter = 2
 [node name="DescriptionLabel" type="Label" parent="Content"]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.12
+anchor_left = 0.1
 anchor_top = 0.45
-anchor_right = 0.88
-anchor_bottom = 0.535
+anchor_right = 0.9
+anchor_bottom = 0.55
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.79, 0.84, 0.77, 1)
@@ -147,19 +177,19 @@ text_overrun_behavior = 3
 
 [node name="TargetRow" type="HBoxContainer" parent="Content"]
 layout_mode = 1
-anchor_left = 0.15
-anchor_top = 0.545
-anchor_right = 0.85
-anchor_bottom = 0.635
+anchor_left = 0.19
+anchor_top = 0.555
+anchor_right = 0.81
+anchor_bottom = 0.645
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-theme_override_constants/separation = 6
+theme_override_constants/separation = 7
 
 [node name="TargetChip" type="TextureRect" parent="Content/TargetRow"]
-custom_minimum_size = Vector2(42, 42)
+custom_minimum_size = Vector2(38, 38)
 layout_mode = 2
-texture = ExtResource("7_chip")
+texture = ExtResource("4_chip")
 expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
@@ -167,7 +197,9 @@ mouse_filter = 2
 [node name="TargetLabel" type="Label" parent="Content/TargetRow"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.47, 0.28, 1)
+theme_override_colors/font_color = Color(1, 0.55, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 24
 text = "300"
 vertical_alignment = 1
@@ -175,14 +207,14 @@ vertical_alignment = 1
 [node name="RewardLabel" type="Label" parent="Content"]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.12
-anchor_top = 0.635
-anchor_right = 0.88
-anchor_bottom = 0.695
+anchor_left = 0.1
+anchor_top = 0.64
+anchor_right = 0.9
+anchor_bottom = 0.705
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.74, 0.24, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 19
 text = "奖励：$$$"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -190,18 +222,20 @@ vertical_alignment = 1
 [node name="TagRewardPanel" type="PanelContainer" parent="Content"]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.12
-anchor_top = 0.70
-anchor_right = 0.88
-anchor_bottom = 0.80
+anchor_left = 0.1
+anchor_top = 0.715
+anchor_right = 0.9
+anchor_bottom = 0.81
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tag")
 
 [node name="TagRewardLabel" type="Label" parent="Content/TagRewardPanel"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.66, 0.9, 1, 1)
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.68, 0.91, 1, 1)
 theme_override_font_sizes/font_size = 13
 text = "跳过：金币标签"
 horizontal_alignment = 1
@@ -211,10 +245,10 @@ text_overrun_behavior = 3
 
 [node name="ActionRow" type="HBoxContainer" parent="Content"]
 layout_mode = 1
-anchor_left = 0.08
-anchor_top = 0.82
-anchor_right = 0.92
-anchor_bottom = 0.935
+anchor_left = 0.075
+anchor_top = 0.835
+anchor_right = 0.925
+anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -222,34 +256,34 @@ theme_override_constants/separation = 8
 
 [node name="SelectButton" type="Button" parent="Content/ActionRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 58)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = ExtResource("12_select_normal")
-theme_override_styles/hover = ExtResource("13_select_hover")
-theme_override_styles/pressed = ExtResource("14_select_pressed")
-theme_override_styles/disabled = ExtResource("15_select_disabled")
-theme_override_styles/focus = ExtResource("16_select_focus")
+theme_override_styles/normal = ExtResource("6_select_normal")
+theme_override_styles/hover = ExtResource("7_select_hover")
+theme_override_styles/pressed = ExtResource("8_select_pressed")
+theme_override_styles/disabled = ExtResource("9_select_disabled")
+theme_override_styles/focus = ExtResource("10_select_focus")
 text = "挑战"
 text_overrun_behavior = 3
-script = ExtResource("11_feedback")
+script = ExtResource("5_feedback")
 
 [node name="SkipButton" type="Button" parent="Content/ActionRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 58)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.88, 0.68, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.86, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = ExtResource("17_skip_normal")
-theme_override_styles/hover = ExtResource("18_skip_hover")
-theme_override_styles/pressed = ExtResource("19_skip_pressed")
-theme_override_styles/disabled = ExtResource("20_skip_disabled")
-theme_override_styles/focus = ExtResource("21_skip_focus")
+theme_override_styles/normal = ExtResource("11_skip_normal")
+theme_override_styles/hover = ExtResource("12_skip_hover")
+theme_override_styles/pressed = ExtResource("13_skip_pressed")
+theme_override_styles/disabled = ExtResource("14_skip_disabled")
+theme_override_styles/focus = ExtResource("15_skip_focus")
 text = "跳过"
 text_overrun_behavior = 3
-script = ExtResource("11_feedback")
+script = ExtResource("5_feedback")

@@ -4,15 +4,14 @@ extends PanelContainer
 signal select_requested
 signal skip_requested
 
-const ACTIVE_PANEL_TEXTURE: Texture2D = preload("res://assets/ui/runtime/frames/stage_card_active.png")
-const NEXT_PANEL_TEXTURE: Texture2D = preload("res://assets/ui/runtime/frames/stage_card_next.png")
-const LOCKED_PANEL_TEXTURE: Texture2D = preload("res://assets/ui/runtime/frames/stage_card_locked.png")
 const SMALL_BLIND_TEXTURE: Texture2D = preload("res://assets/ui/runtime/tokens/stage_blind_small.png")
 const BIG_BLIND_TEXTURE: Texture2D = preload("res://assets/ui/runtime/tokens/stage_blind_big.png")
 const BOSS_BLIND_TEXTURE: Texture2D = preload("res://assets/ui/runtime/tokens/stage_blind_boss_locked.png")
 
-@onready var active_glow: TextureRect = %ActiveGlow
-@onready var card_frame: TextureRect = %CardFrame
+@onready var active_glow: PanelContainer = %ActiveGlow
+@onready var card_frame: PanelContainer = %CardFrame
+@onready var content: Control = %Content
+@onready var badge_background: PanelContainer = %BadgeBackground
 @onready var state_badge: Label = %StateBadge
 @onready var blind_token: TextureRect = %BlindToken
 @onready var lock_overlay: TextureRect = %LockOverlay
@@ -48,11 +47,12 @@ func setup(
 	target_label.text = _format_score(target_score)
 	reward_label.text = "奖励：%s" % _reward_text(reward)
 	blind_token.texture = _blind_texture(blind_kind)
-	card_frame.texture = LOCKED_PANEL_TEXTURE if locked else (ACTIVE_PANEL_TEXTURE if active else NEXT_PANEL_TEXTURE)
 	active_glow.visible = active
+	card_frame.self_modulate = Color.WHITE if active else (Color(0.82, 0.88, 0.82, 1.0) if not locked else Color(0.48, 0.52, 0.5, 1.0))
+	content.modulate = Color.WHITE if active else (Color(0.9, 0.93, 0.88, 1.0) if not locked else Color(0.58, 0.61, 0.59, 1.0))
 	lock_overlay.visible = locked and blind_kind != "boss"
-	state_badge.text = "可选" if active else ("锁定" if locked else "下一盲注")
-	state_badge.visible = active or locked
+	state_badge.text = "当前" if active else ("未解锁" if locked else "下一盲注")
+	badge_background.self_modulate = Color(0.95, 0.68, 0.24, 1.0) if active else (Color(0.38, 0.57, 0.43, 1.0) if not locked else Color(0.42, 0.44, 0.43, 1.0))
 	select_button.disabled = not active
 	select_button.text = "挑战" if active else ("未解锁" if locked else "下一盲注")
 	var has_tag: bool = not tag_data.is_empty()
@@ -93,9 +93,10 @@ func _format_score(value: int) -> String:
 	return digits + grouped
 
 
-func _play_intro(active: bool) -> void:
+func _play_intro(_active: bool) -> void:
 	scale = Vector2.ONE
+	modulate.a = 0.0
 	var tween: Tween = create_tween()
-	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(1.025, 1.025) if active else Vector2.ONE, 0.16)
+	tween.tween_property(self, "modulate:a", 1.0, 0.14)

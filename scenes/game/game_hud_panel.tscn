@@ -1,419 +1,653 @@
-[gd_scene load_steps=6 format=3 uid="uid://game_hud_panel"]
+[gd_scene format=3 uid="uid://c5dalblj3a6ac"]
 
-[ext_resource type="Script" path="res://scripts/game/game_hud_panel.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_hud_full.png" id="2_hud"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/stage_blind_small.png" id="3_blind"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/tokens/battle_coin_pile.png" id="4_coins"]
-[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="5_feedback"]
+[ext_resource type="Script" uid="uid://dfxckeg7l1rbp" path="res://scripts/game/game_hud_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://2yaehsrawbvv" path="res://assets/ui/runtime/hud/score_hud_frame.png" id="2_hud"]
+[ext_resource type="Texture2D" uid="uid://biakq4i75yqej" path="res://assets/ui/runtime/hud/target_coin.png" id="3_coin"]
+[ext_resource type="Texture2D" uid="uid://dno4tx48ge7u5" path="res://assets/ui/runtime/hud/current_score_chip.png" id="4_chip"]
+[ext_resource type="Script" uid="uid://bvavw1qu22mlw" path="res://scripts/ui/button_feedback.gd" id="5_feedback"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_root"]
 
-[node name="GameHudPanel" type="PanelContainer"]
-custom_minimum_size = Vector2(430, 760)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_button"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_info"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.012, 0.085, 0.06, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76, 0.47, 0.1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="GameHudPanel" type="PanelContainer" unique_id=1234715750]
+custom_minimum_size = Vector2(304, 718)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_root")
 script = ExtResource("1_script")
 
-[node name="HudArt" type="TextureRect" parent="."]
+[node name="HudAspect" type="AspectRatioContainer" parent="." unique_id=1274531289]
 layout_mode = 2
-texture = ExtResource("2_hud")
-expand_mode = 1
-stretch_mode = 6
-mouse_filter = 2
+ratio = 0.423398
 
-[node name="Content" type="Control" parent="."]
+[node name="HudStack" type="Control" parent="HudAspect" unique_id=708020286]
+custom_minimum_size = Vector2(304, 718)
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="Content"]
-unique_name_in_owner = true
+[node name="HudArt" type="TextureRect" parent="HudAspect/HudStack" unique_id=2106544163]
 layout_mode = 1
-anchor_left = 0.14
-anchor_top = 0.045
-anchor_right = 0.86
-anchor_bottom = 0.108
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
-theme_override_font_sizes/font_size = 30
+mouse_filter = 2
+texture = ExtResource("2_hud")
+expand_mode = 1
+
+[node name="Content" type="Control" parent="HudAspect/HudStack" unique_id=2124657974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="HudAspect/HudStack/Content" unique_id=196335349]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_top = 0.074
+anchor_right = 0.82
+anchor_bottom = 0.137
+offset_left = -1.7200012
+offset_top = 6.868
+offset_right = -1.7200012
+offset_bottom = 6.867996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.035, 0.01, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 27
 text = "小盲注"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="BlindToken" type="TextureRect" parent="Content"]
-unique_name_in_owner = true
+[node name="RoundCaption" type="Label" parent="HudAspect/HudStack/Content" unique_id=1360850535]
 layout_mode = 1
-anchor_left = 0.105
-anchor_top = 0.115
-anchor_right = 0.39
-anchor_bottom = 0.255
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.184
+anchor_right = 0.43
+anchor_bottom = 0.236
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_blind")
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "回合"
+vertical_alignment = 1
+
+[node name="RoundValueLabel" type="Label" parent="HudAspect/HudStack/Content" unique_id=1301144377]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.57
+anchor_top = 0.177
+anchor_right = 0.88
+anchor_bottom = 0.242
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "0 / 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HandBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=276474813]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.13
+anchor_top = 0.244
+anchor_right = 0.89
+anchor_bottom = 0.307
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CurrentHandLabel" type="Label" parent="HudAspect/HudStack/Content/HandBox" unique_id=13852627]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.55
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "选择手牌"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="PreviewScoreLabel" type="Label" parent="HudAspect/HudStack/Content/HandBox" unique_id=1663235554]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.89, 0.69, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "等待选择手牌"
+horizontal_alignment = 2
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="TargetPanel" type="Control" parent="HudAspect/HudStack/Content" unique_id=1275495157]
+layout_mode = 1
+anchor_left = 0.09
+anchor_top = 0.333
+anchor_right = 0.91
+anchor_bottom = 0.409
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TargetCaption" type="Label" parent="HudAspect/HudStack/Content/TargetPanel" unique_id=694459748]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.35
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "目标
+分数"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetCoin" type="TextureRect" parent="HudAspect/HudStack/Content/TargetPanel" unique_id=1442303692]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36
+anchor_top = 0.24
+anchor_right = 0.53
+anchor_bottom = 0.78
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_coin")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="TargetPanel" type="Control" parent="Content"]
-layout_mode = 1
-anchor_left = 0.40
-anchor_top = 0.115
-anchor_right = 0.89
-anchor_bottom = 0.25
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TargetCaption" type="Label" parent="Content/TargetPanel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 30.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 17
-text = "目标分数"
-horizontal_alignment = 1
-
-[node name="TargetLabel" type="Label" parent="Content/TargetPanel"]
+[node name="TargetLabel" type="Label" parent="HudAspect/HudStack/Content/TargetPanel" unique_id=1753172050]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_top = 0.25
-anchor_right = 1.0
-anchor_bottom = 0.67
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.76, 0.25, 1)
-theme_override_font_sizes/font_size = 29
-text = "300"
-horizontal_alignment = 1
-vertical_alignment = 1
-text_overrun_behavior = 3
-
-[node name="DescLabel" type="Label" parent="Content/TargetPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchor_top = 0.64
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.83, 0.88, 0.79, 1)
-theme_override_font_sizes/font_size = 14
-text = "基础挑战"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-text_overrun_behavior = 3
-
-[node name="ScoreBox" type="Control" parent="Content"]
-unique_name_in_owner = true
-layout_mode = 1
-anchor_left = 0.095
-anchor_top = 0.268
-anchor_right = 0.90
-anchor_bottom = 0.326
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScoreCaption" type="Label" parent="Content/ScoreBox"]
-layout_mode = 1
-anchor_right = 0.36
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 17
-text = "当前分数"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="Content/ScoreBox"]
-unique_name_in_owner = true
-layout_mode = 1
-anchor_left = 0.31
+anchors_preset = -1
+anchor_left = 0.51
 anchor_right = 0.97
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.93, 0.96, 0.93, 1)
-theme_override_font_sizes/font_size = 29
-text = "0 / 300"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 2
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="HandBox" type="Control" parent="Content"]
+[node name="ScoreBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=565164410]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.095
-anchor_top = 0.337
-anchor_right = 0.90
-anchor_bottom = 0.447
+anchor_left = 0.09
+anchor_top = 0.426
+anchor_right = 0.91
+anchor_bottom = 0.505
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CurrentHandLabel" type="Label" parent="Content/HandBox"]
-unique_name_in_owner = true
+[node name="ScoreCaption" type="Label" parent="HudAspect/HudStack/Content/ScoreBox" unique_id=2057455436]
 layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.83, 0.42, 1)
-theme_override_font_sizes/font_size = 22
-text = "选择手牌"
-horizontal_alignment = 1
-vertical_alignment = 1
-text_overrun_behavior = 3
-
-[node name="PreviewScoreLabel" type="Label" parent="Content/HandBox"]
-unique_name_in_owner = true
-layout_mode = 1
-anchor_top = 0.48
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.35
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.78, 0.86, 0.77, 1)
-theme_override_font_sizes/font_size = 15
-text = "最多选择 5 张牌"
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "当前
+分数"
 horizontal_alignment = 1
 vertical_alignment = 1
-text_overrun_behavior = 3
 
-[node name="EquationBox" type="Control" parent="Content"]
+[node name="CurrentScoreChip" type="TextureRect" parent="HudAspect/HudStack/Content/ScoreBox" unique_id=2070176790]
 layout_mode = 1
-anchor_left = 0.105
-anchor_top = 0.456
-anchor_right = 0.89
-anchor_bottom = 0.535
+anchors_preset = -1
+anchor_left = 0.36
+anchor_top = 0.23
+anchor_right = 0.53
+anchor_bottom = 0.79
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_chip")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="ChipsValueLabel" type="Label" parent="Content/EquationBox"]
+[node name="ScoreLabel" type="Label" parent="HudAspect/HudStack/Content/ScoreBox" unique_id=2069707637]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_right = 0.46
+anchors_preset = -1
+anchor_left = 0.51
+anchor_right = 0.97
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.91, 0.96, 1, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.96, 0.98, 0.96, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 27
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="EquationBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=957630194]
+layout_mode = 1
+anchor_left = 0.085
+anchor_top = 0.526
+anchor_right = 0.915
+anchor_bottom = 0.618
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChipsValueLabel" type="Label" parent="HudAspect/HudStack/Content/EquationBox" unique_id=1981445998]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.43
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.96, 0.99, 1, 1)
+theme_override_colors/font_outline_color = Color(0.03, 0.06, 0.11, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimesLabel" type="Label" parent="Content/EquationBox"]
+[node name="TimesLabel" type="Label" parent="HudAspect/HudStack/Content/EquationBox" unique_id=341444804]
 layout_mode = 1
-anchor_left = 0.44
-anchor_right = 0.57
+anchors_preset = -1
+anchor_left = 0.41
+anchor_right = 0.59
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.42, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1, 0.82, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.03, 0.005, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 27
 text = "×"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MultValueLabel" type="Label" parent="Content/EquationBox"]
+[node name="MultValueLabel" type="Label" parent="HudAspect/HudStack/Content/EquationBox" unique_id=194464729]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.56
+anchors_preset = -1
+anchor_left = 0.57
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.91, 0.74, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.97, 0.89, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.025, 0.015, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoneyRow" type="Control" parent="Content"]
-layout_mode = 1
-anchor_left = 0.105
-anchor_top = 0.55
-anchor_right = 0.89
-anchor_bottom = 0.615
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CoinArt" type="TextureRect" parent="Content/MoneyRow"]
-layout_mode = 1
-anchor_left = 0.08
-anchor_top = 0.03
-anchor_right = 0.29
-anchor_bottom = 0.97
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_coins")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 2
-
-[node name="MoneyLabel" type="Label" parent="Content/MoneyRow"]
+[node name="HandListToggle" type="Button" parent="HudAspect/HudStack/Content" unique_id=608236290]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.22
-anchor_right = 0.95
+anchors_preset = -1
+anchor_left = 0.088
+anchor_top = 0.646
+anchor_right = 0.385
+anchor_bottom = 0.799
+offset_left = -2.751999
+offset_top = -10.828033
+offset_right = -2.751999
+offset_bottom = -10.828003
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.55, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.78, 0.34, 1)
+theme_override_colors/font_hover_color = Color(1, 0.97, 0.78, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_button")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_button")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_button")
+toggle_mode = true
+text = "比赛
+信息"
+script = ExtResource("5_feedback")
+
+[node name="CountsGrid" type="Control" parent="HudAspect/HudStack/Content" unique_id=1302393513]
+layout_mode = 1
+anchor_left = 0.42
+anchor_top = 0.645
+anchor_right = 0.91
+anchor_bottom = 0.743
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HandsTitle" type="Label" parent="HudAspect/HudStack/Content/CountsGrid" unique_id=1683471426]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.46
+anchor_bottom = 0.48
+offset_left = -0.6799927
+offset_top = -5.1099854
+offset_right = -0.6799927
+offset_bottom = -5.1099854
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "出牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscardsTitle" type="Label" parent="HudAspect/HudStack/Content/CountsGrid" unique_id=1006241293]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.54
+anchor_right = 1.0
+anchor_bottom = 0.48
+offset_left = -2.1184082
+offset_top = -3.1099854
+offset_right = -2.1184082
+offset_bottom = -3.1099854
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "弃牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HandsLabel" type="Label" parent="HudAspect/HudStack/Content/CountsGrid" unique_id=121548386]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.38
+anchor_right = 0.46
+anchor_bottom = 1.0
+offset_left = -1.6799927
+offset_top = -8.848297
+offset_right = -1.6799927
+offset_bottom = -8.848297
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.16, 0.69, 1, 1)
+theme_override_colors/font_outline_color = Color(0.015, 0.05, 0.09, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscardsLabel" type="Label" parent="HudAspect/HudStack/Content/CountsGrid" unique_id=883648621]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.54
+anchor_top = 0.38
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.1184082
+offset_top = -9.848297
+offset_right = -2.1184082
+offset_bottom = -9.848297
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.42, 0.23, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.02, 0.01, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyRow" type="Control" parent="HudAspect/HudStack/Content" unique_id=352362127]
+layout_mode = 1
+anchor_left = 0.42
+anchor_top = 0.752
+anchor_right = 0.91
+anchor_bottom = 0.816
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyLabel" type="Label" parent="HudAspect/HudStack/Content/MoneyRow" unique_id=299348188]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.76, 0.25, 1)
-theme_override_font_sizes/font_size = 31
-text = "$4"
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 27
+text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CountsGrid" type="GridContainer" parent="Content"]
-layout_mode = 1
-anchor_left = 0.10
-anchor_top = 0.628
-anchor_right = 0.90
-anchor_bottom = 0.79
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 0
-columns = 2
-
-[node name="HandsTitle" type="Label" parent="Content/CountsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 15
-text = "出牌次数"
-horizontal_alignment = 1
-
-[node name="DiscardsTitle" type="Label" parent="Content/CountsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 15
-text = "弃牌次数"
-horizontal_alignment = 1
-
-[node name="HandsLabel" type="Label" parent="Content/CountsGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.23, 0.64, 1, 1)
-theme_override_font_sizes/font_size = 27
-text = "4"
-horizontal_alignment = 1
-
-[node name="DiscardsLabel" type="Label" parent="Content/CountsGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.28, 0.24, 1)
-theme_override_font_sizes/font_size = 27
-text = "3"
-horizontal_alignment = 1
-
-[node name="AnteLabel" type="Label" parent="Content/CountsGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "底注 1 / 8"
-horizontal_alignment = 1
-
-[node name="BlindStepLabel" type="Label" parent="Content/CountsGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "盲注 1 / 3"
-horizontal_alignment = 1
-
-[node name="DeckLabel" type="Label" parent="Content"]
+[node name="OptionsButton" type="Button" parent="HudAspect/HudStack/Content" unique_id=995195670]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.12
-anchor_top = 0.792
-anchor_right = 0.88
-anchor_bottom = 0.824
+anchors_preset = -1
+anchor_left = 0.088
+anchor_top = 0.822
+anchor_right = 0.385
+anchor_bottom = 0.975
+offset_left = -1.7519989
+offset_top = -21.196045
+offset_right = -1.7519989
+offset_bottom = -21.196045
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.84, 0.88, 0.76, 1)
-theme_override_font_sizes/font_size = 14
-text = "牌库 52 / 弃牌堆 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-text_overrun_behavior = 3
-
-[node name="RunMetaRow" type="HBoxContainer" parent="Content"]
-layout_mode = 1
-anchor_left = 0.11
-anchor_top = 0.824
-anchor_right = 0.89
-anchor_bottom = 0.86
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 6
-
-[node name="TagLabel" type="Label" parent="Content/RunMetaRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.56, 0.87, 0.98, 1)
-theme_override_font_sizes/font_size = 13
-text = "标签：无"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="ConsumablesLabel" type="Label" parent="Content/RunMetaRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.86, 0.68, 1, 1)
-theme_override_font_sizes/font_size = 13
-text = "消耗牌 0/3"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="HandListToggle" type="Button" parent="Content"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 46)
-layout_mode = 1
-anchor_left = 0.13
-anchor_top = 0.79
-anchor_right = 0.87
-anchor_bottom = 0.88
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"SmallGoldButton"
-theme_override_font_sizes/font_size = 17
-toggle_mode = true
-text = "牌型等级  +"
-text_overrun_behavior = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.55, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.78, 0.34, 1)
+theme_override_colors/font_hover_color = Color(1, 0.97, 0.78, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.025, 0.005, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_button")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_button")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_button")
+text = "选项"
 script = ExtResource("5_feedback")
 
-[node name="HandInfoScroll" type="ScrollContainer" parent="Content"]
+[node name="AnteBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=1276488619]
+layout_mode = 1
+anchor_left = 0.42
+anchor_top = 0.83
+anchor_right = 0.645
+anchor_bottom = 0.973
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnteCaption" type="Label" parent="HudAspect/HudStack/Content/AnteBox" unique_id=1376464276]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.46
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "底注"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnteLabel" type="Label" parent="HudAspect/HudStack/Content/AnteBox" unique_id=2088015369]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.88
+offset_left = 1.3200073
+offset_top = -10.7421875
+offset_right = 1.3200073
+offset_bottom = -10.7421875
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 19
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="BlindBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=124620124]
+layout_mode = 1
+anchor_left = 0.685
+anchor_top = 0.83
+anchor_right = 0.91
+anchor_bottom = 0.973
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlindCaption" type="Label" parent="HudAspect/HudStack/Content/BlindBox" unique_id=388229220]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.46
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "回合"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlindStepLabel" type="Label" parent="HudAspect/HudStack/Content/BlindBox" unique_id=1460961313]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.88
+offset_left = 0.7599945
+offset_top = -9.7421875
+offset_right = 0.7599945
+offset_bottom = -9.7421875
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 19
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HandInfoScroll" type="ScrollContainer" parent="HudAspect/HudStack/Content" unique_id=1958500943]
 unique_name_in_owner = true
 visible = false
 z_index = 20
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.08
-anchor_top = 0.32
+anchor_top = 0.17
 anchor_right = 0.92
-anchor_bottom = 0.86
+anchor_bottom = 0.81
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="HandInfo" type="RichTextLabel" parent="Content/HandInfoScroll"]
+[node name="HandInfo" type="RichTextLabel" parent="HudAspect/HudStack/Content/HandInfoScroll" unique_id=832190803]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(245, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.94, 0.88, 0.7, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_info")
 bbcode_enabled = true
 
-[node name="OptionsButton" type="Button" parent="Content"]
+[node name="BlindToken" type="TextureRect" parent="HudAspect/HudStack/Content" unique_id=1303109882]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(170, 46)
-layout_mode = 1
-anchor_left = 0.15
-anchor_top = 0.895
-anchor_right = 0.85
-anchor_bottom = 0.985
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"SmallGoldButton"
-theme_override_font_sizes/font_size = 17
-text = "选项"
-text_overrun_behavior = 3
-script = ExtResource("5_feedback")
+visible = false
+layout_mode = 0
+
+[node name="DescLabel" type="Label" parent="HudAspect/HudStack/Content" unique_id=411888836]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+
+[node name="DeckLabel" type="Label" parent="HudAspect/HudStack/Content" unique_id=1637462229]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+
+[node name="RunMetaRow" type="Control" parent="HudAspect/HudStack/Content" unique_id=1838222877]
+visible = false
+anchors_preset = 0
+
+[node name="TagLabel" type="Label" parent="HudAspect/HudStack/Content/RunMetaRow" unique_id=807078271]
+unique_name_in_owner = true
+layout_mode = 0
+
+[node name="ConsumablesLabel" type="Label" parent="HudAspect/HudStack/Content/RunMetaRow" unique_id=2139418058]
+unique_name_in_owner = true
+layout_mode = 0

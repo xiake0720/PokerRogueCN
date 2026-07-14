@@ -1,11 +1,8 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene format=3 uid="uid://6ttiaoulilqa"]
 
-[ext_resource type="Script" path="res://scripts/game/phases/battle_content.gd" id="1_script"]
-[ext_resource type="Script" path="res://scripts/cards/card_fan_area.gd" id="2_fan"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/battle_card_slot.png" id="3_played"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_score_chip_plate.png" id="4_chips"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_score_mult_plate.png" id="5_mult"]
-[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="6_feedback"]
+[ext_resource type="Script" uid="uid://coaejtkxfx1ja" path="res://scripts/game/phases/battle_content.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bh1ukovtdf6ls" path="res://scripts/cards/card_fan_area.gd" id="2_fan"]
+[ext_resource type="Script" uid="uid://bvavw1qu22mlw" path="res://scripts/ui/button_feedback.gd" id="6_feedback"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/normal.tres" id="7_play_normal"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/hover.tres" id="8_play_hover"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/pressed.tres" id="9_play_pressed"]
@@ -30,9 +27,8 @@
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/focus.tres" id="28_suit_focus"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_sort"]
-allow_unpress = false
 
-[node name="BattleContent" type="Control"]
+[node name="BattleContent" type="Control" unique_id=518844328]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,24 +37,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="PlayedFrame" type="NinePatchRect" parent="."]
+[node name="PlayedFrame" type="NinePatchRect" parent="." unique_id=778460328]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.08
 anchor_top = 0.24
 anchor_right = 0.7
 anchor_bottom = 0.53
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_played")
 patch_margin_left = 54
 patch_margin_top = 42
 patch_margin_right = 54
 patch_margin_bottom = 42
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-mouse_filter = 2
 
-[node name="PlayedArea" type="Control" parent="PlayedFrame"]
+[node name="PlayedArea" type="Control" parent="PlayedFrame" unique_id=1059372026]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -71,67 +66,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScoreDisplay" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchor_left = 0.25
-anchor_top = 0.49
-anchor_right = 0.57
-anchor_bottom = 0.58
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-theme_override_constants/separation = 8
-
-[node name="ChipsPlate" type="TextureRect" parent="ScoreDisplay"]
-custom_minimum_size = Vector2(160, 70)
-layout_mode = 2
-texture = ExtResource("4_chips")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 2
-[node name="ChipsValue" type="Label" parent="ScoreDisplay/ChipsPlate"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.88, 0.95, 1, 1)
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MultiplySymbol" type="Label" parent="ScoreDisplay"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "×"
-vertical_alignment = 1
-
-[node name="MultPlate" type="TextureRect" parent="ScoreDisplay"]
-custom_minimum_size = Vector2(130, 70)
-layout_mode = 2
-texture = ExtResource("5_mult")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 2
-[node name="MultValue" type="Label" parent="ScoreDisplay/MultPlate"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.88, 0.72, 1)
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HandArea" type="Control" parent="."]
+[node name="HandArea" type="Control" parent="." unique_id=646984610]
 unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.02
@@ -145,52 +80,54 @@ card_size = Vector2(132, 188)
 selected_lift = 42.0
 preferred_overlap = 48.0
 
-[node name="ActionRow" type="HBoxContainer" parent="."]
+[node name="ActionRow" type="HBoxContainer" parent="." unique_id=2099295385]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.03
 anchor_top = 0.865
 anchor_right = 0.79
 anchor_bottom = 0.985
+offset_bottom = -42.80005
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 theme_override_constants/separation = 12
+alignment = 1
 
-[node name="PlayButton" type="Button" parent="ActionRow"]
+[node name="PlayButton" type="Button" parent="ActionRow" unique_id=429505262]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 84)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = ExtResource("7_play_normal")
-theme_override_styles/hover = ExtResource("8_play_hover")
 theme_override_styles/pressed = ExtResource("9_play_pressed")
+theme_override_styles/hover = ExtResource("8_play_hover")
 theme_override_styles/disabled = ExtResource("10_play_disabled")
 theme_override_styles/focus = ExtResource("11_play_focus")
 text = "出牌"
 script = ExtResource("6_feedback")
 
-[node name="DiscardButton" type="Button" parent="ActionRow"]
+[node name="DiscardButton" type="Button" parent="ActionRow" unique_id=878241812]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(170, 76)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("12_discard_normal")
-theme_override_styles/hover = ExtResource("13_discard_hover")
 theme_override_styles/pressed = ExtResource("14_discard_pressed")
+theme_override_styles/hover = ExtResource("13_discard_hover")
 theme_override_styles/disabled = ExtResource("15_discard_disabled")
 theme_override_styles/focus = ExtResource("16_discard_focus")
 text = "弃牌"
 script = ExtResource("6_feedback")
 
-[node name="SortRankButton" type="Button" parent="ActionRow"]
+[node name="SortRankButton" type="Button" parent="ActionRow" unique_id=1683901345]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(190, 76)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.12, 0.06, 0.015, 1)
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = ExtResource("17_rank_normal")
-theme_override_styles/hover = ExtResource("18_rank_hover")
 theme_override_styles/pressed = ExtResource("19_rank_selected")
+theme_override_styles/hover = ExtResource("18_rank_hover")
 theme_override_styles/hover_pressed = ExtResource("20_rank_selected_hover")
 theme_override_styles/disabled = ExtResource("21_rank_disabled")
 theme_override_styles/focus = ExtResource("22_rank_focus")
@@ -201,15 +138,15 @@ text = "点数排序"
 text_overrun_behavior = 3
 script = ExtResource("6_feedback")
 
-[node name="SortSuitButton" type="Button" parent="ActionRow"]
+[node name="SortSuitButton" type="Button" parent="ActionRow" unique_id=1741162815]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(190, 76)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.12, 0.06, 0.015, 1)
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = ExtResource("23_suit_normal")
-theme_override_styles/hover = ExtResource("24_suit_hover")
 theme_override_styles/pressed = ExtResource("25_suit_selected")
+theme_override_styles/hover = ExtResource("24_suit_hover")
 theme_override_styles/hover_pressed = ExtResource("26_suit_selected_hover")
 theme_override_styles/disabled = ExtResource("27_suit_disabled")
 theme_override_styles/focus = ExtResource("28_suit_focus")
