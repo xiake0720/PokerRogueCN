@@ -21,6 +21,7 @@ var pending_phase: int = -1
 var is_transitioning: bool = false
 var current_popup: Control = null
 var _detail_popup: CardDetailPopup = null
+var _pending_immediate: bool = false
 
 
 func _ready() -> void:
@@ -28,9 +29,12 @@ func _ready() -> void:
 	battle_content.inspect_requested.connect(_show_item_detail)
 	joker_shelf.inspect_requested.connect(_show_joker_detail)
 	shop_panel.inspect_requested.connect(_show_item_detail)
+	popup_host.transition_started.connect(_on_popup_transition_started)
+	popup_host.transition_finished.connect(_on_popup_transition_finished)
+	popup_host.panel_shown.connect(_on_popup_panel_shown)
+	popup_host.panel_hidden.connect(_on_popup_panel_hidden)
 	_detail_popup = CardDetailPopupScene.instantiate() as CardDetailPopup
 	card_detail_host.add_child(_detail_popup)
-	set_phase(Game.run.phase, true)
 
 
 func refresh() -> void:
@@ -44,36 +48,34 @@ func refresh() -> void:
 func set_phase(phase: int, immediate: bool = false) -> void:
 	if is_transitioning:
 		pending_phase = phase
-	if current_phase == phase and not immediate:
-		refresh()
+		_pending_immediate = immediate
 		return
-	is_transitioning = true
+	if current_phase == phase and not immediate:
+		refresh_permanent_ui()
+		refresh_phase_content()
+		return
 	current_phase = phase
-	pending_phase = -1
 	refresh_permanent_ui()
 	battle_content.set_active(phase == RunState.Phase.ROUND)
 	match phase:
 		RunState.Phase.STAGE_SELECT:
 			blind_select_panel.refresh_run(Game.run)
 			popup_host.replace_panel(blind_select_panel, {"immediate": immediate})
-			current_popup = blind_select_panel
 		RunState.Phase.ROUND:
 			popup_host.hide_current_panel(immediate)
-			current_popup = null
 			battle_content.refresh_run(Game.run)
 		RunState.Phase.SETTLEMENT:
 			settlement_panel.refresh_run(Game.run)
 			popup_host.replace_panel(settlement_panel, {"immediate": immediate})
-			current_popup = settlement_panel
 		RunState.Phase.SHOP:
 			shop_panel.refresh_run(Game.run)
 			popup_host.replace_panel(shop_panel, {"immediate": immediate})
 			shop_panel.play_intro()
-			current_popup = shop_panel
 		_:
 			popup_host.hide_current_panel(true)
-			current_popup = null
-	is_transitioning = false
+	if not popup_host.is_transitioning:
+		_sync_current_popup()
+		_consume_pending_phase()
 
 
 func refresh_permanent_ui() -> void:
@@ -129,7 +131,43 @@ func show_shop() -> void:
 
 func hide_popup() -> void:
 	popup_host.hide_current_panel()
-	current_popup = null
+
+
+func _on_popup_transition_started() -> void:
+	is_transitioning = true
+
+
+func _on_popup_transition_finished() -> void:
+	is_transitioning = false
+	_sync_current_popup()
+	_consume_pending_phase()
+
+
+func _on_popup_panel_shown(panel: Control) -> void:
+	current_popup = panel
+
+
+func _on_popup_panel_hidden(panel: Control) -> void:
+	if current_popup == panel:
+		current_popup = null
+
+
+func _sync_current_popup() -> void:
+	current_popup = popup_host.current_panel
+
+
+func _consume_pending_phase() -> void:
+	if pending_phase < 0:
+		return
+	var next_phase := pending_phase
+	var next_immediate := _pending_immediate
+	pending_phase = -1
+	_pending_immediate = false
+	if next_phase == current_phase and not next_immediate:
+		refresh_permanent_ui()
+		refresh_phase_content()
+		return
+	set_phase(next_phase, next_immediate)
 
 
 func _hud_mode_for_phase(phase: int) -> String:

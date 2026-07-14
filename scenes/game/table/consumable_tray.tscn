@@ -1,55 +1,54 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://cjtcyaqbwovi4"]
 
-[ext_resource type="Script" path="res://scripts/game/table/consumable_tray.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/panels/battle_consumable_tray.png" id="2_tray"]
+[ext_resource type="Script" uid="uid://sf1tk5q4j7tl" path="res://scripts/game/table/consumable_tray.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/ui/shared/consumable_slot_view.tscn" id="3_slot"]
 
-[node name="ConsumableTray" type="TextureRect"]
-layout_mode = 3
+[node name="ConsumableTray" type="Control" unique_id=1553033348]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tray")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 1
 script = ExtResource("1_script")
 
-[node name="ConsumableRow" type="HBoxContainer" parent="."]
+[node name="ConsumableRow" type="HBoxContainer" parent="." unique_id=1601843016]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.08
 anchor_top = 0.06
 anchor_right = 0.96
 anchor_bottom = 0.84
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 theme_override_constants/separation = 6
+alignment = 1
 
 [node name="ConsumableSlot1" parent="ConsumableRow" instance=ExtResource("3_slot")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(82, 112)
 layout_mode = 2
+
 [node name="ConsumableSlot2" parent="ConsumableRow" instance=ExtResource("3_slot")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(82, 112)
 layout_mode = 2
-[node name="ConsumableSlot3" parent="ConsumableRow" instance=ExtResource("3_slot")]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(82, 112)
-layout_mode = 2
-[node name="ConsumableSlot4" parent="ConsumableRow" instance=ExtResource("3_slot")]
+
+[node name="ConsumableSlot3" parent="ConsumableRow" unique_id=1307664996 instance=ExtResource("3_slot")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(82, 112)
 layout_mode = 2
 
-[node name="ConsumableCountLabel" type="Label" parent="."]
+[node name="ConsumableSlot4" parent="ConsumableRow" unique_id=887176118 instance=ExtResource("3_slot")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(82, 112)
+layout_mode = 2
+
+[node name="ConsumableCountLabel" type="Label" parent="." unique_id=802567738]
 unique_name_in_owner = true
 layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.82
 anchor_right = 1.0
 anchor_bottom = 1.0

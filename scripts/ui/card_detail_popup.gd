@@ -3,8 +3,11 @@ extends PopupPanel
 
 @onready var title_label: Label = $Panel/Margin/VBox/TitleLabel
 @onready var type_label: Label = $Panel/Margin/VBox/TypeLabel
-@onready var desc_label: Label = $Panel/Margin/VBox/DescLabel
+@onready var description_scroll: ScrollContainer = $Panel/Margin/VBox/DescriptionScroll
+@onready var desc_label: Label = $Panel/Margin/VBox/DescriptionScroll/DescLabel
 @onready var close_button: Button = $Panel/Margin/VBox/CloseButton
+
+const POPUP_SIZE := Vector2i(460, 420)
 
 func _ready() -> void:
 	close_button.pressed.connect(hide)
@@ -17,7 +20,7 @@ func show_joker(joker: Dictionary) -> void:
 		int(joker.get("cost", 0))
 	]
 	desc_label.text = str(joker.get("description_cn", ""))
-	popup_centered(Vector2(420, 240))
+	_open_centered()
 
 func show_item(item: Dictionary) -> void:
 	title_label.text = str(item.get("name_cn", "商品"))
@@ -26,7 +29,12 @@ func show_item(item: Dictionary) -> void:
 		int(item.get("cost", 0))
 	]
 	desc_label.text = str(item.get("description_cn", ""))
-	popup_centered(Vector2(420, 240))
+	_open_centered()
+
+func _open_centered() -> void:
+	description_scroll.scroll_vertical = 0
+	popup_centered(POPUP_SIZE)
+	description_scroll.set_deferred("scroll_vertical", 0)
 
 func _rarity_text(rarity: String) -> String:
 	match rarity:

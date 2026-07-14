@@ -175,3 +175,34 @@
 - 已完成：Godot MCP 实际运行首页 → 开局设置 → 游戏牌桌，确认最终 ScreenRoot 仅保留一个 GameTableScreen，运行日志无错误。
 - 最终验证：目标文件指定的 editor、game_table_flow、smoke、button_integrity 四条命令全部退出码 0；补充场景、Panel 与分辨率测试全部 PASS；MCP 当前运行无错误；`git diff --check` 通过。
 - 下一步：交付报告。
+
+---
+
+# 场景最终验收与视觉优化
+
+## 阶段 1：基线保护与生产场景目录
+
+- 已完成：同步 `main`，记录并保护任务开始前 3 个已修改场景和 1 个未跟踪 `.import` 文件。
+- 已完成：建立 35 个生产场景的路径、根节点、脚本、用途、运行依赖和构造状态目录。
+
+## 阶段 2：架构与阶段切换收口
+
+- 已完成：Router 单次初始化；GameTable/BottomSheetHost 实现严格的顺序替换、最新请求队列、输入隔离、ModalDim 稳定和退出清理。
+- 已完成：增加快速阶段切换、同阶段刷新以及替换中关闭的自动回归。
+
+## 阶段 3：布局与视觉修复
+
+- 已完成：恢复消耗牌槽 1/2；去除 Joker/Consumable 重复外围框、盲注开发提示和无用途占位节点。
+- 已完成：修复开局设置约束、商店牌堆安全区、1280×720 开始/返回重叠及详情长文本滚动。
+
+## 阶段 4：全场景与全状态验收
+
+- 已完成：35/35 生产场景实际实例化通过。
+- 已完成：生成并检查 117 张非无头 Godot 截图，覆盖 60 个分辨率状态、22 个交互边界状态和 35 个生产组件/场景。
+- 已完成：Godot MCP 实际操作首页、开局、盲注与战斗，日志无运行错误。
+
+## 阶段 5：最终回归
+
+- 已完成：headless editor、资源/场景/玩法/阶段/按钮/Smoke/六分辨率共 18 个测试入口通过。
+- 最终视觉结论：P0=0、P1=0、P2=0。
+- 证据：`docs/final_scene_visual_review.md`、`docs/final_scene_acceptance_report.md`、`artifacts/final_scene_review/test_results.md`。

@@ -1,14 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgjvi43lcl4k6"]
+[gd_scene format=3 uid="uid://cgjvi43lcl4k6"]
 
-[ext_resource type="Script" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/home/ornate_frame.png" id="3_frame"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="4_parts"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="5_back"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/button_focus.tres" id="6_focus"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/deck_select/arrow_left.png" id="7_arrow_left"]
-[ext_resource type="Texture2D" path="res://assets/ui/runtime/buttons/deck_select/arrow_right.png" id="8_arrow_right"]
-[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="9_feedback"]
+[ext_resource type="Script" uid="uid://dbcvvtpr5b3gw" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bvfdsdx2jlip" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
+[ext_resource type="Texture2D" uid="uid://dwq0f1mcr8wcy" path="res://assets/ui/extracted/home/ornate_frame.png" id="3_frame"]
+[ext_resource type="Texture2D" uid="uid://ck3uegivi0xk2" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="4_parts"]
+[ext_resource type="Texture2D" uid="uid://def00mcsr0rnm" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="5_back"]
+[ext_resource type="Texture2D" uid="uid://dn0t80cu2ee10" path="res://assets/ui/runtime/buttons/deck_select/arrow_left.png" id="7_arrow_left"]
+[ext_resource type="Texture2D" uid="uid://do5m8a3m47hyc" path="res://assets/ui/runtime/buttons/deck_select/arrow_right.png" id="8_arrow_right"]
+[ext_resource type="Script" uid="uid://bvavw1qu22mlw" path="res://scripts/ui/button_feedback.gd" id="9_feedback"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/deck_select/tab_left/normal.tres" id="10_tab_left_normal"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/deck_select/tab_left/hover.tres" id="11_tab_left_hover"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/deck_select/tab_left/selected.tres" id="12_tab_left_selected"]
@@ -37,6 +36,8 @@
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/deck_select/back/pressed.tres" id="35_back_pressed"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/deck_select/back/disabled.tres" id="36_back_disabled"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/deck_select/back/focus.tres" id="37_back_focus"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
 
 [sub_resource type="AtlasTexture" id="Atlas_main_panel"]
 atlas = ExtResource("4_parts")
@@ -68,10 +69,7 @@ atlas = ExtResource("4_parts")
 region = Rect2(259, 929, 244, 154)
 filter_clip = true
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
-allow_unpress = false
-
-[node name="DeckSelectScreen" type="Control"]
+[node name="DeckSelectScreen" type="Control" unique_id=1377825525]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,19 +78,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="BackgroundArt" type="TextureRect" parent="."]
+[node name="BackgroundArt" type="TextureRect" parent="." unique_id=1684029150]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_background")
 expand_mode = 1
 stretch_mode = 6
-mouse_filter = 2
 
-[node name="SafeAspect" type="AspectRatioContainer" parent="."]
+[node name="SafeAspect" type="AspectRatioContainer" parent="." unique_id=737218330]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,24 +101,26 @@ ratio = 1.77778
 stretch_mode = 2
 mouse_filter = 1
 
-[node name="Canvas" type="Control" parent="SafeAspect"]
+[node name="Canvas" type="Control" parent="SafeAspect" unique_id=1848130039]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="FrameArt" type="TextureRect" parent="SafeAspect/Canvas"]
+[node name="FrameArt" type="TextureRect" parent="SafeAspect/Canvas" unique_id=1121435834]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_frame")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="Tabs" type="HBoxContainer" parent="SafeAspect/Canvas"]
+[node name="Tabs" type="HBoxContainer" parent="SafeAspect/Canvas" unique_id=1218131067]
+z_index = 2
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.2
 anchor_top = 0.04
 anchor_right = 0.8
@@ -130,14 +130,14 @@ grow_vertical = 2
 theme_override_constants/separation = 22
 alignment = 1
 
-[node name="NewRunButton" type="Button" parent="SafeAspect/Canvas/Tabs"]
+[node name="NewRunButton" type="Button" parent="SafeAspect/Canvas/Tabs" unique_id=247885898]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("10_tab_left_normal")
-theme_override_styles/hover = ExtResource("11_tab_left_hover")
 theme_override_styles/pressed = ExtResource("12_tab_left_selected")
+theme_override_styles/hover = ExtResource("11_tab_left_hover")
 theme_override_styles/hover_pressed = ExtResource("13_tab_left_selected_hover")
 theme_override_styles/disabled = ExtResource("14_tab_left_disabled")
 theme_override_styles/focus = ExtResource("15_tab_left_focus")
@@ -147,31 +147,31 @@ button_group = SubResource("ButtonGroup_tabs")
 text = "新一局"
 script = ExtResource("9_feedback")
 
-[node name="ContinueButton" type="Button" parent="SafeAspect/Canvas/Tabs"]
+[node name="ContinueButton" type="Button" parent="SafeAspect/Canvas/Tabs" unique_id=1888989852]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("16_tab_center_normal")
-theme_override_styles/hover = ExtResource("17_tab_center_hover")
 theme_override_styles/pressed = ExtResource("18_tab_center_selected")
+theme_override_styles/hover = ExtResource("17_tab_center_hover")
 theme_override_styles/hover_pressed = ExtResource("19_tab_center_selected_hover")
 theme_override_styles/disabled = ExtResource("20_tab_center_disabled")
 theme_override_styles/focus = ExtResource("21_tab_center_focus")
+disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_tabs")
 text = "继续"
-disabled = true
 script = ExtResource("9_feedback")
 
-[node name="ChallengeButton" type="Button" parent="SafeAspect/Canvas/Tabs"]
+[node name="ChallengeButton" type="Button" parent="SafeAspect/Canvas/Tabs" unique_id=1829752857]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("22_tab_right_normal")
-theme_override_styles/hover = ExtResource("23_tab_right_hover")
 theme_override_styles/pressed = ExtResource("24_tab_right_selected")
+theme_override_styles/hover = ExtResource("23_tab_right_hover")
 theme_override_styles/hover_pressed = ExtResource("25_tab_right_selected_hover")
 theme_override_styles/disabled = ExtResource("26_tab_right_disabled")
 theme_override_styles/focus = ExtResource("27_tab_right_focus")
@@ -180,25 +180,22 @@ button_group = SubResource("ButtonGroup_tabs")
 text = "挑战"
 script = ExtResource("9_feedback")
 
-[node name="MainPanel" type="NinePatchRect" parent="SafeAspect/Canvas"]
+[node name="MainPanel" type="TextureRect" parent="SafeAspect/Canvas" unique_id=10718007]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.2
+anchors_preset = -1
+anchor_left = 0.18
 anchor_top = 0.15
-anchor_right = 0.8
-anchor_bottom = 0.72
+anchor_right = 0.82
+anchor_bottom = 0.645
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("Atlas_main_panel")
-patch_margin_left = 74
-patch_margin_top = 64
-patch_margin_right = 74
-patch_margin_bottom = 64
-axis_stretch_horizontal = 0
-axis_stretch_vertical = 0
+expand_mode = 1
+stretch_mode = 0
 mouse_filter = 2
 
-[node name="DeckShowcase" type="Control" parent="SafeAspect/Canvas/MainPanel"]
+[node name="DeckShowcase" type="Control" parent="SafeAspect/Canvas/MainPanel" unique_id=1692015106]
 layout_mode = 1
 anchor_left = 0.04
 anchor_top = 0.08
@@ -207,7 +204,7 @@ anchor_bottom = 0.86
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeckStack" type="Control" parent="SafeAspect/Canvas/MainPanel/DeckShowcase"]
+[node name="DeckStack" type="Control" parent="SafeAspect/Canvas/MainPanel/DeckShowcase" unique_id=886551469]
 unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.2
@@ -217,7 +214,7 @@ anchor_bottom = 0.84
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeckBack4" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+[node name="DeckBack4" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack" unique_id=1534676110]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,12 +225,12 @@ offset_right = 15.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_back")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="DeckBack3" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+[node name="DeckBack3" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack" unique_id=999416348]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -244,12 +241,12 @@ offset_right = 10.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_back")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="DeckBack2" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+[node name="DeckBack2" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack" unique_id=1222077461]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,12 +257,12 @@ offset_right = 5.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_back")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="DeckBack" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack"]
+[node name="DeckBack" type="TextureRect" parent="SafeAspect/Canvas/MainPanel/DeckShowcase/DeckStack" unique_id=1947504268]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -273,16 +270,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_back")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="PrevDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase"]
+[node name="PrevDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase" unique_id=1878703996]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(56, 56)
 layout_mode = 1
-anchor_left = 0.0
+anchors_preset = -1
 anchor_top = 0.34
 anchor_right = 0.18
 anchor_bottom = 0.62
@@ -294,9 +291,10 @@ expand_icon = true
 icon_max_width = 42
 script = ExtResource("9_feedback")
 
-[node name="NextDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase"]
+[node name="NextDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase" unique_id=879681637]
 unique_name_in_owner = true
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.82
 anchor_top = 0.34
 anchor_right = 1.0
@@ -309,7 +307,7 @@ expand_icon = true
 icon_max_width = 42
 script = ExtResource("9_feedback")
 
-[node name="DeckInfo" type="Control" parent="SafeAspect/Canvas/MainPanel"]
+[node name="DeckInfo" type="Control" parent="SafeAspect/Canvas/MainPanel" unique_id=891957529]
 layout_mode = 1
 anchor_left = 0.37
 anchor_top = 0.08
@@ -318,7 +316,7 @@ anchor_bottom = 0.88
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StatsPanel" type="NinePatchRect" parent="SafeAspect/Canvas/MainPanel/DeckInfo"]
+[node name="StatsPanel" type="NinePatchRect" parent="SafeAspect/Canvas/MainPanel/DeckInfo" unique_id=1499345441]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -334,7 +332,7 @@ axis_stretch_horizontal = 0
 axis_stretch_vertical = 0
 mouse_filter = 2
 
-[node name="InfoMargin" type="MarginContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo"]
+[node name="InfoMargin" type="MarginContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo" unique_id=1049575458]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -346,11 +344,11 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InfoVBox" type="VBoxContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin"]
+[node name="InfoVBox" type="VBoxContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin" unique_id=1894486904]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="DeckNameLabel" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox"]
+[node name="DeckNameLabel" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox" unique_id=1812173188]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.42, 1)
@@ -358,7 +356,7 @@ theme_override_font_sizes/font_size = 38
 text = "红色牌组"
 horizontal_alignment = 1
 
-[node name="DeckDescLabel" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox"]
+[node name="DeckDescLabel" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox" unique_id=1292551081]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
@@ -368,85 +366,86 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="StatsGrid" type="GridContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox"]
+[node name="StatsGrid" type="GridContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox" unique_id=436890106]
 layout_mode = 2
 size_flags_vertical = 3
-columns = 2
 theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 4
+columns = 2
 
-[node name="HandsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="HandsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=1003140065]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "出牌次数"
 
-[node name="HandsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="HandsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=1099822870]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.68, 1, 1)
 text = "4"
 horizontal_alignment = 2
 
-[node name="DiscardsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="DiscardsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=368566179]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "弃牌次数"
 
-[node name="DiscardsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="DiscardsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=1582883977]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.36, 0.28, 1)
 text = "3"
 horizontal_alignment = 2
 
-[node name="MoneyTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="MoneyTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=1802336293]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "起始资金"
 
-[node name="MoneyValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="MoneyValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=814032975]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.72, 0.18, 1)
 text = "$4"
 horizontal_alignment = 2
 
-[node name="HandSizeTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="HandSizeTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=910000329]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "手牌上限"
 
-[node name="HandSizeValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="HandSizeValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=709125355]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.58, 0.92, 0.48, 1)
 text = "8"
 horizontal_alignment = 2
 
-[node name="JokerSlotsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="JokerSlotsTitle" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=2130747485]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "小丑槽位"
 
-[node name="JokerSlotsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid"]
+[node name="JokerSlotsValue" type="Label" parent="SafeAspect/Canvas/MainPanel/DeckInfo/InfoMargin/InfoVBox/StatsGrid" unique_id=1107827668]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.56, 1, 1)
 text = "5"
 horizontal_alignment = 2
 
-[node name="DifficultyRow" type="HBoxContainer" parent="SafeAspect/Canvas"]
+[node name="DifficultyRow" type="HBoxContainer" parent="SafeAspect/Canvas" unique_id=1662996189]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.26
 anchor_top = 0.66
 anchor_right = 0.74
-anchor_bottom = 0.82
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="PrevStakeButton" type="Button" parent="SafeAspect/Canvas/DifficultyRow"]
+[node name="PrevStakeButton" type="Button" parent="SafeAspect/Canvas/DifficultyRow" unique_id=907935856]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(66, 120)
 layout_mode = 2
@@ -456,7 +455,7 @@ expand_icon = true
 icon_max_width = 42
 script = ExtResource("9_feedback")
 
-[node name="StakeTokenFrame" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow"]
+[node name="StakeTokenFrame" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow" unique_id=481011687]
 custom_minimum_size = Vector2(140, 120)
 layout_mode = 2
 texture = SubResource("Atlas_token_panel")
@@ -466,7 +465,7 @@ patch_margin_right = 24
 patch_margin_bottom = 24
 mouse_filter = 2
 
-[node name="StakeTokenLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/StakeTokenFrame"]
+[node name="StakeTokenLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/StakeTokenFrame" unique_id=450366054]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -480,7 +479,7 @@ text = "白"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DifficultyPanel" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow"]
+[node name="DifficultyPanel" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow" unique_id=2120709149]
 custom_minimum_size = Vector2(560, 120)
 layout_mode = 2
 texture = SubResource("Atlas_stake_panel")
@@ -492,7 +491,7 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 mouse_filter = 2
 
-[node name="StakeVBox" type="VBoxContainer" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel"]
+[node name="StakeVBox" type="VBoxContainer" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel" unique_id=8556154]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -504,7 +503,7 @@ offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StakeLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel/StakeVBox"]
+[node name="StakeLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel/StakeVBox" unique_id=761433060]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.84, 0.48, 1)
@@ -512,7 +511,7 @@ theme_override_font_sizes/font_size = 28
 text = "白注"
 horizontal_alignment = 1
 
-[node name="StakeDescLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel/StakeVBox"]
+[node name="StakeDescLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel/StakeVBox" unique_id=1564681402]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -522,7 +521,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="NextStakeButton" type="Button" parent="SafeAspect/Canvas/DifficultyRow"]
+[node name="NextStakeButton" type="Button" parent="SafeAspect/Canvas/DifficultyRow" unique_id=612994959]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(66, 120)
 layout_mode = 2
@@ -532,69 +531,73 @@ expand_icon = true
 icon_max_width = 42
 script = ExtResource("9_feedback")
 
-[node name="StartButton" type="Button" parent="SafeAspect/Canvas"]
+[node name="StartButton" type="Button" parent="SafeAspect/Canvas" unique_id=189573779]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 84)
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.35
-anchor_top = 0.77
+anchor_top = 0.79
 anchor_right = 0.65
-anchor_bottom = 0.89
+anchor_bottom = 0.875
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.86, 0.44, 1)
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = ExtResource("28_start_normal")
-theme_override_styles/hover = ExtResource("29_start_hover")
 theme_override_styles/pressed = ExtResource("30_start_pressed")
+theme_override_styles/hover = ExtResource("29_start_hover")
 theme_override_styles/disabled = ExtResource("31_start_disabled")
 theme_override_styles/focus = ExtResource("32_start_focus")
 text = "开始游戏"
 text_overrun_behavior = 3
 script = ExtResource("9_feedback")
 
-[node name="BackButton" type="Button" parent="SafeAspect/Canvas"]
+[node name="BackButton" type="Button" parent="SafeAspect/Canvas" unique_id=61760320]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 68)
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.37
-anchor_top = 0.895
+anchor_top = 0.905
 anchor_right = 0.63
-anchor_bottom = 0.99
+anchor_bottom = 0.985
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.38, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = ExtResource("33_back_normal")
-theme_override_styles/hover = ExtResource("34_back_hover")
 theme_override_styles/pressed = ExtResource("35_back_pressed")
+theme_override_styles/hover = ExtResource("34_back_hover")
 theme_override_styles/disabled = ExtResource("36_back_disabled")
 theme_override_styles/focus = ExtResource("37_back_focus")
 text = "返回"
 script = ExtResource("9_feedback")
 
-[node name="BottomDecorLeft" type="TextureRect" parent="SafeAspect/Canvas"]
+[node name="BottomDecorLeft" type="TextureRect" parent="SafeAspect/Canvas" unique_id=215145508]
 layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.79
 anchor_right = 0.18
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("Atlas_decor_left")
 expand_mode = 1
 stretch_mode = 5
-mouse_filter = 2
 
-[node name="BottomDecorRight" type="TextureRect" parent="SafeAspect/Canvas"]
+[node name="BottomDecorRight" type="TextureRect" parent="SafeAspect/Canvas" unique_id=1508798833]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.82
 anchor_top = 0.79
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("Atlas_decor_right")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
-mouse_filter = 2

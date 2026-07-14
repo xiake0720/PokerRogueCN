@@ -39,10 +39,11 @@ func _on_run_changed() -> void:
 	var next_phase: int = Game.run.phase
 	_sync_bgm_for_phase(next_phase)
 	if GAMEPLAY_PHASES.has(next_phase):
-		if current_screen_path != GAME_TABLE_PATH or current_screen == null:
+		var entering_table := current_screen_path != GAME_TABLE_PATH or current_screen == null
+		if entering_table:
 			_load_screen(GAME_TABLE_PATH, true)
 		if current_screen != null and current_screen.has_method("set_phase"):
-			current_screen.set_phase(next_phase, current_phase == -1)
+			current_screen.set_phase(next_phase, entering_table)
 		current_phase = next_phase
 		return
 	var next_path: String = SCREEN_BY_PHASE.get(next_phase, SCREEN_BY_PHASE[RunState.Phase.HOME])
@@ -52,6 +53,8 @@ func _on_run_changed() -> void:
 		return
 	current_phase = next_phase
 	_load_screen(next_path, true)
+	if current_screen != null and current_screen.has_method("refresh"):
+		current_screen.refresh()
 
 func _load_screen(path: String, animate: bool) -> void:
 	if _screen_tween != null and _screen_tween.is_valid():
@@ -69,8 +72,6 @@ func _load_screen(path: String, animate: bool) -> void:
 		(current_screen as Control).set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		if animate:
 			_animate_screen_in(current_screen as Control)
-	if current_screen.has_method("refresh"):
-		current_screen.refresh()
 
 func _animate_screen_in(screen: Control) -> void:
 	screen.modulate.a = 0.0

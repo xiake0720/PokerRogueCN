@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main_panel: NinePatchRect = %MainPanel
+@onready var main_panel: TextureRect = %MainPanel
 @onready var deck_stack: Control = %DeckStack
 @onready var deck_back: TextureRect = %DeckBack
 @onready var deck_name_label: Label = %DeckNameLabel

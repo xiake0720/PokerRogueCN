@@ -1,47 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://card_detail_popup"]
+[gd_scene format=3 uid="uid://cb1hmkcam0r5w"]
 
-[ext_resource type="Script" path="res://scripts/ui/card_detail_popup.gd" id="1_script"]
-[ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="2_feedback"]
+[ext_resource type="Script" uid="uid://80tt6y7dyd3n" path="res://scripts/ui/card_detail_popup.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bvavw1qu22mlw" path="res://scripts/ui/button_feedback.gd" id="2_feedback"]
 
-[node name="CardDetailPopup" type="PopupPanel"]
+[node name="CardDetailPopup" type="PopupPanel" unique_id=184575000]
 transparent_bg = true
 script = ExtResource("1_script")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=1276515893]
 custom_minimum_size = Vector2(420, 240)
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Panel"]
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=857290396]
 layout_mode = 2
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 18
 
-[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin" unique_id=366163120]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="TitleLabel" type="Label" parent="Panel/Margin/VBox"]
+[node name="TitleLabel" type="Label" parent="Panel/Margin/VBox" unique_id=1057494865]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "小丑牌"
 horizontal_alignment = 1
 
-[node name="TypeLabel" type="Label" parent="Panel/Margin/VBox"]
+[node name="TypeLabel" type="Label" parent="Panel/Margin/VBox" unique_id=289730341]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.78, 0.84, 0.9, 1)
 text = "普通"
 horizontal_alignment = 1
 
-[node name="DescLabel" type="Label" parent="Panel/Margin/VBox"]
+[node name="DescriptionScroll" type="ScrollContainer" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DescLabel" type="Label" parent="Panel/Margin/VBox/DescriptionScroll" unique_id=819413077]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "说明"
 autowrap_mode = 3
 
-[node name="CloseButton" type="Button" parent="Panel/Margin/VBox"]
+[node name="CloseButton" type="Button" parent="Panel/Margin/VBox" unique_id=1658132420]
 custom_minimum_size = Vector2(170, 54)
 layout_mode = 2
 theme_type_variation = &"SmallRedButton"

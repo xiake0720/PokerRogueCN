@@ -15,6 +15,8 @@ signal inspect_requested(item: Dictionary)
 @onready var pack_option_slots: Array[ShopOfferCard] = [%PackOptionSlot1, %PackOptionSlot2, %PackOptionSlot3]
 @onready var skip_pack_button: Button = %SkipPackButton
 
+var _intro_tween: Tween = null
+
 
 func _ready() -> void:
 	next_button.pressed.connect(_on_next_pressed)
@@ -45,14 +47,29 @@ func refresh_run(run: RunState) -> void:
 
 
 func play_intro() -> void:
+	if _intro_tween != null and _intro_tween.is_valid():
+		_intro_tween.kill()
 	AudioManager.play_sfx("modal_open")
 	title_panel.modulate.a = 0.0
 	var target_y: float = title_panel.position.y
 	title_panel.position.y = target_y + 24.0
-	var tween: Tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(title_panel, "modulate:a", 1.0, 0.18)
-	tween.parallel().tween_property(title_panel, "position:y", target_y, 0.22)
+	_intro_tween = create_tween()
+	_intro_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_intro_tween.tween_property(title_panel, "modulate:a", 1.0, 0.18)
+	_intro_tween.parallel().tween_property(title_panel, "position:y", target_y, 0.22)
+	_intro_tween.finished.connect(_on_intro_finished.bind(target_y), CONNECT_ONE_SHOT)
+
+
+func _on_intro_finished(target_y: float) -> void:
+	title_panel.position.y = target_y
+	title_panel.modulate.a = 1.0
+	_intro_tween = null
+
+
+func _exit_tree() -> void:
+	if _intro_tween != null and _intro_tween.is_valid():
+		_intro_tween.kill()
+	_intro_tween = null
 
 
 func _refresh_joker_shop(run: RunState) -> void:

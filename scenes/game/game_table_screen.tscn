@@ -56,15 +56,6 @@ expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
 
-[node name="StaticDecorations" type="Control" parent="BackgroundLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="OptionalPhaseTint" type="ColorRect" parent="BackgroundLayer"]
 layout_mode = 1
 anchors_preset = 15
@@ -178,24 +169,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DiscardArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
-layout_mode = 1
-anchor_left = 0.79
-anchor_top = 0.83
-anchor_right = 0.98
-anchor_bottom = 0.96
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="CenterContentArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
-layout_mode = 1
-anchor_right = 0.79
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="PhaseContentLayer" type="Control" parent="SafeAspect/Canvas"]
 z_index = 20
 layout_mode = 1
@@ -217,15 +190,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PopupAnchor" type="Control" parent="SafeAspect/Canvas/PhaseContentLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="ModalLayer" type="Control" parent="SafeAspect/Canvas"]
 z_index = 30
@@ -290,7 +254,7 @@ unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.03
 anchor_top = 0.24
-anchor_right = 0.97
+anchor_right = 0.8
 anchor_bottom = 0.97
 grow_horizontal = 2
 grow_vertical = 2
@@ -313,23 +277,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-[node name="ParticlesHost" type="Control" parent="SafeAspect/Canvas/EffectsLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-[node name="TransitionHost" type="Control" parent="SafeAspect/Canvas/EffectsLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="OverlayLayer" type="Control" parent="SafeAspect/Canvas"]
 z_index = 60
 layout_mode = 1
@@ -339,24 +286,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-[node name="TooltipHost" type="Control" parent="SafeAspect/Canvas/OverlayLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 [node name="CardDetailHost" type="Control" parent="SafeAspect/Canvas/OverlayLayer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-[node name="DebugOverlay" type="Control" parent="SafeAspect/Canvas/OverlayLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

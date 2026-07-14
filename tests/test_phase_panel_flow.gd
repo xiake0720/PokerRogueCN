@@ -14,6 +14,7 @@ func _run() -> void:
 	add_child(table)
 	await get_tree().process_frame
 	await get_tree().process_frame
+	table.set_phase(game.run.phase, true)
 	var panel_ids := {
 		"blind": table.blind_select_panel.get_instance_id(),
 		"settlement": table.settlement_panel.get_instance_id(),
@@ -40,6 +41,36 @@ func _run() -> void:
 	_expect(table.blind_select_panel.get_instance_id() == panel_ids.blind, "blind panel was reinstantiated")
 	_expect(table.settlement_panel.get_instance_id() == panel_ids.settlement, "settlement panel was reinstantiated")
 	_expect(table.shop_panel.get_instance_id() == panel_ids.shop, "shop panel was reinstantiated")
+	var transition_count: Array[int] = [0]
+	table.popup_host.transition_started.connect(func() -> void: transition_count[0] += 1)
+	game.run.phase = RunState.Phase.STAGE_SELECT
+	table.set_phase(RunState.Phase.STAGE_SELECT, true)
+	game.run.phase = RunState.Phase.ROUND
+	table.set_phase(RunState.Phase.ROUND)
+	_expect(table.blind_select_panel.visible, "replace/hide removed the outgoing panel instantly")
+	game.run.phase = RunState.Phase.SETTLEMENT
+	game.run.settlement = {"total": 7, "reward": 4, "score": 110, "target": 100, "claimed": false}
+	table.set_phase(RunState.Phase.SETTLEMENT)
+	game.run.phase = RunState.Phase.SHOP
+	game.run.generate_shop(true)
+	table.set_phase(RunState.Phase.SHOP)
+	_expect(table.pending_phase == RunState.Phase.SHOP, "rapid phase requests did not retain the latest phase")
+	await get_tree().create_timer(0.8).timeout
+	_expect(table.current_phase == RunState.Phase.SHOP, "latest queued phase was not applied")
+	_expect(table.pending_phase == -1, "pending phase was not consumed")
+	_expect(table.current_popup == table.shop_panel, "queued SHOP did not finish on the shop panel")
+	_expect(table.shop_panel.visible, "queued shop panel is hidden")
+	_expect(not table.blind_select_panel.visible, "outgoing blind panel remained visible")
+	_expect(table.blind_select_panel.mouse_filter == Control.MOUSE_FILTER_IGNORE, "hidden blind panel still accepts input")
+	_expect(table.settlement_panel.mouse_filter == Control.MOUSE_FILTER_IGNORE, "hidden settlement panel still accepts input")
+	var transitions_before_refresh := transition_count[0]
+	table.set_phase(RunState.Phase.SHOP)
+	_expect(transition_count[0] == transitions_before_refresh, "same phase reopened the current panel")
+	table.popup_host.replace_panel(table.blind_select_panel)
+	table.popup_host.hide_current_panel()
+	await get_tree().create_timer(0.65).timeout
+	_expect(table.popup_host.current_panel == null, "hide queued during replacement was lost")
+	_expect(not table.modal_dim.visible, "queued hide left ModalDim visible")
 	table.queue_free()
 	await get_tree().process_frame
 	_finish()
