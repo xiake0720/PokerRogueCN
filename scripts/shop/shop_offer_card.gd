@@ -5,25 +5,28 @@ signal buy_requested(index: int)
 signal inspect_requested(item: Dictionary)
 
 @onready var product_art: TextureRect = %ProductArt
-@onready var product_frame: Panel = %ProductFrame
+@onready var product_content: Control = $ProductContent
 @onready var price_label: Label = %PriceLabel
 @onready var name_label: Label = %NameLabel
 @onready var type_label: Label = %TypeLabel
 @onready var buy_button: Button = %BuyButton
 @onready var sold_overlay: ColorRect = %SoldOverlay
-@onready var disabled_overlay: ColorRect = %DisabledOverlay
-@onready var hover_glow: Panel = %HoverGlow
 
 var item_index: int = -1
 var item_data: Dictionary = {}
 var item_kind: String = ""
+var _hover_tween: Tween = null
+var _rest_position: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	buy_button.pressed.connect(func() -> void: buy_requested.emit(item_index))
 	gui_input.connect(_on_gui_input)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	pivot_offset = custom_minimum_size * 0.5
+	resized.connect(_sync_pivot)
+	product_content.resized.connect(_fit_state_overlays)
+	_sync_pivot()
+	_fit_state_overlays.call_deferred()
 
 func setup(item: Dictionary, index: int, kind: String) -> void:
 	item_index = index
@@ -35,24 +38,23 @@ func setup(item: Dictionary, index: int, kind: String) -> void:
 	name_label.text = str(item_data.get("name_cn", "商品"))
 	type_label.text = _type_text(kind)
 	product_art.texture = _resolve_art(kind, str(item_data.get("id", "unknown")))
-	product_frame.modulate = _kind_color(kind)
 	tooltip_text = "%s\n%s" % [name_label.text, str(item_data.get("description_cn", ""))]
 	sold_overlay.visible = false
 	buy_button.visible = true
 	buy_button.text = "购买"
+	_fit_state_overlays.call_deferred()
 
 func set_can_afford(can_afford: bool, disabled_reason: String = "funds") -> void:
 	buy_button.disabled = not can_afford
-	disabled_overlay.visible = not can_afford
 	product_art.modulate = Color.WHITE if can_afford else Color(0.48, 0.48, 0.48, 1)
 	name_label.modulate = Color.WHITE
 	price_label.modulate = Color.WHITE
 	if not can_afford:
 		buy_button.text = "槽位已满" if disabled_reason == "slots" else "金币不足"
+	_fit_state_overlays.call_deferred()
 
 func mark_sold() -> void:
 	sold_overlay.visible = true
-	disabled_overlay.visible = false
 	buy_button.visible = false
 	product_art.modulate = Color(0.55, 0.55, 0.55, 1)
 
@@ -67,7 +69,6 @@ func clear_offer() -> void:
 	type_label.text = ""
 	price_label.text = "—"
 	buy_button.visible = false
-	disabled_overlay.visible = true
 	sold_overlay.visible = false
 
 func _resolve_art(kind: String, id: String) -> Texture2D:
@@ -92,21 +93,32 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_mouse_entered() -> void:
 	if item_data.is_empty():
 		return
-	z_index = 50
-	hover_glow.visible = true
-	hover_glow.modulate = Color(1.25, 1.1, 0.72, 1)
-	var tween: Tween = create_tween()
-	tween.set_trans(Tween.TRANS_BACK)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(1.06, 1.06), 0.12)
+	if _hover_tween != null and _hover_tween.is_valid():
+		_hover_tween.kill()
+	_rest_position = position
+	_hover_tween = create_tween().set_parallel(true)
+	_hover_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_hover_tween.tween_property(self, "position", _rest_position + Vector2(0.0, -8.0), 0.12)
+	_hover_tween.tween_property(self, "scale", Vector2(1.025, 1.025), 0.12)
+	_hover_tween.tween_property(self, "modulate", Color(1.06, 1.06, 1.04, 1.0), 0.12)
 
 func _on_mouse_exited() -> void:
-	z_index = 0
-	hover_glow.visible = false
-	var tween: Tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
+	if _hover_tween != null and _hover_tween.is_valid():
+		_hover_tween.kill()
+	_hover_tween = create_tween().set_parallel(true)
+	_hover_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_hover_tween.tween_property(self, "position", _rest_position, 0.1)
+	_hover_tween.tween_property(self, "scale", Vector2.ONE, 0.1)
+	_hover_tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+	_hover_tween.chain().tween_callback(func() -> void:
+		_hover_tween = null
+	)
+
+func _sync_pivot() -> void:
+	pivot_offset = size * 0.5
+
+func _fit_state_overlays() -> void:
+	sold_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func _type_text(kind: String) -> String:
 	match kind:
@@ -124,14 +136,3 @@ func _type_text(kind: String) -> String:
 			return "幻灵牌"
 		_:
 			return "商品"
-
-func _kind_color(kind: String) -> Color:
-	match kind:
-		"joker":
-			return Color(1.08, 0.62, 0.56, 1)
-		"voucher":
-			return Color(1.05, 0.68, 0.88, 1)
-		"pack":
-			return Color(0.76, 0.66, 1.12, 1)
-		_:
-			return Color(0.72, 0.86, 0.82, 1)

@@ -74,6 +74,51 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxEmpty" id="StyleBox_layout_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_surface_panel"]
+content_margin_left = 18.0
+content_margin_top = 18.0
+content_margin_right = 18.0
+content_margin_bottom = 18.0
+bg_color = Color(0.018, 0.075, 0.055, 0.985)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_card_panel"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.025, 0.095, 0.07, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.58, 0.43, 0.2, 0.55)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_popup_surface"]
+content_margin_left = 28.0
+content_margin_top = 24.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+bg_color = Color(0.012, 0.055, 0.04, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.63, 0.46, 0.21, 0.62)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [resource]
 default_font = ExtResource("1_font")
 default_font_size = 24
@@ -89,6 +134,8 @@ Button/styles/hover = ExtResource("3_neutral_hover")
 Button/styles/hover_pressed = ExtResource("4_neutral_pressed")
 Button/styles/normal = ExtResource("2_neutral_normal")
 Button/styles/pressed = ExtResource("4_neutral_pressed")
+CardPanel/base_type = &"PanelContainer"
+CardPanel/styles/panel = SubResource("StyleBox_card_panel")
 DangerButton/base_type = &"Button"
 DangerButton/font_sizes/font_size = 18
 DangerButton/styles/disabled = ExtResource("31_danger_disabled")
@@ -115,8 +162,14 @@ Label/colors/font_color = Color(0.96, 0.89, 0.69, 1)
 Label/colors/font_outline_color = Color(0.035, 0.055, 0.04, 0.96)
 Label/constants/outline_size = 2
 Label/font_sizes/font_size = 24
-PanelContainer/styles/panel = ExtResource("33_panel")
-PopupPanel/styles/panel = ExtResource("33_panel")
+LayoutPanel/base_type = &"PanelContainer"
+LayoutPanel/styles/panel = SubResource("StyleBox_layout_panel")
+OrnatePanel/base_type = &"PanelContainer"
+OrnatePanel/styles/panel = ExtResource("33_panel")
+PanelContainer/styles/panel = SubResource("StyleBox_layout_panel")
+PopupPanel/styles/panel = SubResource("StyleBox_layout_panel")
+PopupSurface/base_type = &"PanelContainer"
+PopupSurface/styles/panel = SubResource("StyleBox_popup_surface")
 PrimaryGoldButton/base_type = &"Button"
 PrimaryGoldButton/colors/font_color = Color(0.16, 0.055, 0.012, 1)
 PrimaryGoldButton/colors/font_disabled_color = Color(0.25, 0.17, 0.1, 0.92)
@@ -175,6 +228,8 @@ SmallRedButton/styles/focus = ExtResource("32_danger_focus")
 SmallRedButton/styles/hover = ExtResource("29_danger_hover")
 SmallRedButton/styles/normal = ExtResource("28_danger_normal")
 SmallRedButton/styles/pressed = ExtResource("30_danger_pressed")
+SurfacePanel/base_type = &"PanelContainer"
+SurfacePanel/styles/panel = SubResource("StyleBox_surface_panel")
 TabButton/base_type = &"Button"
 TabButton/font_sizes/font_size = 28
 TabButton/styles/disabled = ExtResource("26_tab_disabled")

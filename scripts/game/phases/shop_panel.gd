@@ -3,7 +3,7 @@ extends Control
 
 signal inspect_requested(item: Dictionary)
 
-@onready var title_panel: TextureRect = %TitlePanel
+@onready var title_panel: Control = %TitlePanel
 @onready var next_button: Button = %NextButton
 @onready var reroll_button: Button = %RerollButton
 @onready var joker_offer_slots: Array[ShopOfferCard] = [%JokerOfferSlot1, %JokerOfferSlot2]
