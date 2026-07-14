@@ -98,8 +98,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 ratio = 1.77778
-stretch_mode = 2
-mouse_filter = 1
 
 [node name="Canvas" type="Control" parent="SafeAspect" unique_id=1848130039]
 layout_mode = 2
@@ -188,12 +186,15 @@ anchor_left = 0.18
 anchor_top = 0.15
 anchor_right = 0.82
 anchor_bottom = 0.645
+offset_left = -13.599945
+offset_top = 56.999542
+offset_right = -13.599976
+offset_bottom = 56.99951
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("Atlas_main_panel")
 expand_mode = 1
-stretch_mode = 0
-mouse_filter = 2
 
 [node name="DeckShowcase" type="Control" parent="SafeAspect/Canvas/MainPanel" unique_id=1692015106]
 layout_mode = 1
@@ -288,7 +289,6 @@ grow_vertical = 2
 theme_type_variation = &"IconButton"
 icon = ExtResource("7_arrow_left")
 expand_icon = true
-icon_max_width = 42
 script = ExtResource("9_feedback")
 
 [node name="NextDeckButton" type="Button" parent="SafeAspect/Canvas/MainPanel/DeckShowcase" unique_id=879681637]
@@ -304,7 +304,6 @@ grow_vertical = 2
 theme_type_variation = &"IconButton"
 icon = ExtResource("8_arrow_right")
 expand_icon = true
-icon_max_width = 42
 script = ExtResource("9_feedback")
 
 [node name="DeckInfo" type="Control" parent="SafeAspect/Canvas/MainPanel" unique_id=891957529]
@@ -328,9 +327,6 @@ patch_margin_left = 52
 patch_margin_top = 42
 patch_margin_right = 52
 patch_margin_bottom = 42
-axis_stretch_horizontal = 0
-axis_stretch_vertical = 0
-mouse_filter = 2
 
 [node name="InfoMargin" type="MarginContainer" parent="SafeAspect/Canvas/MainPanel/DeckInfo" unique_id=1049575458]
 layout_mode = 1
@@ -452,7 +448,6 @@ layout_mode = 2
 theme_type_variation = &"IconButton"
 icon = ExtResource("7_arrow_left")
 expand_icon = true
-icon_max_width = 42
 script = ExtResource("9_feedback")
 
 [node name="StakeTokenFrame" type="NinePatchRect" parent="SafeAspect/Canvas/DifficultyRow" unique_id=481011687]
@@ -463,7 +458,6 @@ patch_margin_left = 24
 patch_margin_top = 24
 patch_margin_right = 24
 patch_margin_bottom = 24
-mouse_filter = 2
 
 [node name="StakeTokenLabel" type="Label" parent="SafeAspect/Canvas/DifficultyRow/StakeTokenFrame" unique_id=450366054]
 unique_name_in_owner = true
@@ -489,7 +483,6 @@ patch_margin_right = 54
 patch_margin_bottom = 38
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-mouse_filter = 2
 
 [node name="StakeVBox" type="VBoxContainer" parent="SafeAspect/Canvas/DifficultyRow/DifficultyPanel" unique_id=8556154]
 layout_mode = 1
@@ -528,7 +521,6 @@ layout_mode = 2
 theme_type_variation = &"IconButton"
 icon = ExtResource("8_arrow_right")
 expand_icon = true
-icon_max_width = 42
 script = ExtResource("9_feedback")
 
 [node name="StartButton" type="Button" parent="SafeAspect/Canvas" unique_id=189573779]
