@@ -56,7 +56,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/danger/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/danger/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/danger/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/danger/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -160,7 +160,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/danger/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -231,7 +231,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/icon/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/icon/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/icon/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/icon/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -323,7 +323,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/icon/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -711,7 +711,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/battle/play/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/battle/play/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/battle/play/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/battle/play/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -815,7 +815,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/battle/play/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -886,7 +886,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/battle/discard/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/battle/discard/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/battle/discard/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/battle/discard/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -990,7 +990,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/battle/discard/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -1061,7 +1061,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/battle/sort_rank/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/battle/sort_rank/selected.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/battle/sort_rank/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/battle/sort_rank/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -1165,7 +1165,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/battle/sort_rank/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -1236,7 +1236,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/battle/sort_suit/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/battle/sort_suit/selected.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/battle/sort_suit/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/battle/sort_suit/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -1340,7 +1340,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/battle/sort_suit/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -1411,7 +1411,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/settlement/continue/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/settlement/continue/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/settlement/continue/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/settlement/continue/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -1515,7 +1515,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/settlement/continue/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -1586,7 +1586,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/shop/next/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/shop/next/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/shop/next/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/shop/next/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -1690,7 +1690,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/shop/next/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -1761,7 +1761,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/shop/reroll/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/shop/reroll/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/shop/reroll/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/shop/reroll/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -1865,7 +1865,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/shop/reroll/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -1936,7 +1936,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/icon/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/icon/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/icon/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/icon/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -2028,7 +2028,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/icon/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -2096,7 +2096,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/stage/select/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/stage/select/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/stage/select/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/stage/select/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -2200,7 +2200,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/stage/select/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -2271,7 +2271,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/stage/skip/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/stage/skip/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/stage/skip/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/stage/skip/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -2375,7 +2375,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/stage/skip/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -2446,7 +2446,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/shop/buy/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/shop/buy/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/shop/buy/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/shop/buy/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -2550,7 +2550,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/shop/buy/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -2621,7 +2621,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/danger/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/danger/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/danger/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/danger/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -2725,7 +2725,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/danger/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -2796,7 +2796,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/deck_select/tab_left/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/deck_select/tab_left/selected.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/deck_select/tab_left/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/deck_select/tab_left/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -2900,7 +2900,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_left/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -2967,15 +2967,15 @@
       "parent_type": "HBoxContainer",
       "theme_type_variation": "Button",
       "styles": {
-        "normal": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/normal.tres",
-        "hover": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/hover.tres",
-        "pressed": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/selected.tres",
-        "disabled": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/focus.tres"
+        "normal": "res://assets/ui/theme/styles/buttons/tab/normal.tres",
+        "hover": "res://assets/ui/theme/styles/buttons/tab/hover.tres",
+        "pressed": "res://assets/ui/theme/styles/buttons/tab/selected.tres",
+        "disabled": "res://assets/ui/theme/styles/buttons/tab/disabled.tres",
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/normal.tres",
+          "source": "res://assets/ui/theme/styles/buttons/tab/normal.tres",
           "texture": "res://assets/ui/runtime/buttons/deck_select/tab_center.png",
           "image_size": [
             280,
@@ -3000,7 +3000,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "hover": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/hover.tres",
+          "source": "res://assets/ui/theme/styles/buttons/tab/hover.tres",
           "texture": "res://assets/ui/runtime/buttons/deck_select/tab_center.png",
           "image_size": [
             280,
@@ -3025,7 +3025,7 @@
           "modulate": "Color(1.08, 1.06, 1.02, 1)"
         },
         "pressed": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/selected.tres",
+          "source": "res://assets/ui/theme/styles/buttons/tab/selected.tres",
           "texture": "res://assets/ui/runtime/buttons/deck_select/tab_center.png",
           "image_size": [
             280,
@@ -3050,7 +3050,7 @@
           "modulate": "Color(1.12, 1.08, 0.9, 1)"
         },
         "disabled": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/disabled.tres",
+          "source": "res://assets/ui/theme/styles/buttons/tab/disabled.tres",
           "texture": "res://assets/ui/runtime/buttons/deck_select/tab_center.png",
           "image_size": [
             280,
@@ -3075,7 +3075,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_center/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -3146,7 +3146,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/deck_select/tab_right/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/deck_select/tab_right/selected.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/deck_select/tab_right/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/deck_select/tab_right/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -3250,7 +3250,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/tab_right/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -3321,7 +3321,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/icon/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/icon/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/icon/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/icon/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -3413,7 +3413,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/icon/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -3481,7 +3481,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/icon/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/icon/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/icon/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/icon/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -3573,7 +3573,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/icon/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -3641,7 +3641,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/icon/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/icon/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/icon/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/icon/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -3733,7 +3733,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/icon/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -3801,7 +3801,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/icon/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/icon/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/icon/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/icon/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -3893,7 +3893,7 @@
           "modulate": "Color(1, 1, 1, 1)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/icon/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -3961,7 +3961,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/deck_select/start/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/deck_select/start/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/deck_select/start/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/deck_select/start/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -4065,7 +4065,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/start/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -4136,7 +4136,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/deck_select/back/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/deck_select/back/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/deck_select/back/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/deck_select/back/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -4240,7 +4240,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/deck_select/back/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -4311,7 +4311,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/home/start/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/home/start/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/home/start/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/home/start/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -4415,7 +4415,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/home/start/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -4486,7 +4486,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/home/options/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/home/options/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/home/options/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/home/options/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -4590,7 +4590,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/home/options/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -4661,7 +4661,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/home/quit/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/home/quit/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/home/quit/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/home/quit/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -4765,7 +4765,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/home/quit/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -4836,7 +4836,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/home/language/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/home/language/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/home/language/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/home/language/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -4940,7 +4940,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/home/language/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -5011,7 +5011,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/result/primary/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/result/primary/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/result/primary/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/result/primary/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -5115,7 +5115,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/result/primary/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -5186,7 +5186,7 @@
         "hover": "res://assets/ui/theme/styles/buttons/result/home/hover.tres",
         "pressed": "res://assets/ui/theme/styles/buttons/result/home/pressed.tres",
         "disabled": "res://assets/ui/theme/styles/buttons/result/home/disabled.tres",
-        "focus": "res://assets/ui/theme/styles/buttons/result/home/focus.tres"
+        "focus": "res://assets/ui/theme/styles/buttons/focus.tres"
       },
       "style_details": {
         "normal": {
@@ -5290,7 +5290,7 @@
           "modulate": "Color(0.55, 0.56, 0.58, 0.92)"
         },
         "focus": {
-          "source": "res://assets/ui/theme/styles/buttons/result/home/focus.tres",
+          "source": "res://assets/ui/theme/styles/buttons/focus.tres",
           "texture": "",
           "image_size": null,
           "texture_margin": {
@@ -5453,7 +5453,7 @@
     },
     {
       "id": "common_secondary_red",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,
@@ -5497,7 +5497,7 @@
     },
     {
       "id": "common_secondary_gold",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -5541,7 +5541,7 @@
     },
     {
       "id": "common_small_red",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,
@@ -5585,7 +5585,7 @@
     },
     {
       "id": "common_small_gold",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -6685,7 +6685,7 @@
     },
     {
       "id": "popup_confirm",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -6729,7 +6729,7 @@
     },
     {
       "id": "popup_cancel",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,
@@ -6785,7 +6785,9 @@
     "art_source/ui/extracted/battle/battle_title_bar.png": "ca09c45afebea67cf8cb45f94e93150759af0ecb78283c206caf0ee3092cc2c0",
     "art_source/ui/extracted/battle/battle_tokens.png": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
     "art_source/ui/extracted/battle/button_gold_large.png": "6a30ae7d977f6e19e902fcc2528698b31b9c51702e56d6c650d0489ddb28a61a",
+    "art_source/ui/extracted/battle/button_gold_small.png": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
     "art_source/ui/extracted/battle/button_red_large.png": "8b572329a9c464a7ebdea1d093ca992e58824fb98ced8e91e073ac315681575a",
+    "art_source/ui/extracted/battle/button_red_small.png": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
     "art_source/ui/extracted/battle/button_text_labels.png": "f4d84028e9c8d26a45c8412af0a50b5abc1b3454762117a42ac19e88abab3422",
     "art_source/ui/extracted/battle/suit_icons_small.png": "9bc4eaa33c67979321482cb2232e82d88f1c4b4536d187356d78b4525ad1bb74",
     "art_source/ui/extracted/cards/rank_symbols_dark.png": "740e3e44388f38d77d08082f4312647ef0a470cb8a5a29cfa37106cda02c70e2",
@@ -6814,11 +6816,6 @@
     "art_source/ui/extracted/stage_select/stage_text_group.png": "ff5cbccb914403e57ff944c725d468872a84da68c9b0c88990b08dc4f67e8a0c",
     "art_source/ui/extracted/stage_select/stage_title_banner.png": "3949d1c2be1b0bb03e3e627a8a56b9c85fd75da8254e579db50a853495d9e29a",
     "art_source/ui/extracted/stage_select/stage_title_text.png": "5c3063c45f94272ea6526247e7b72410a211c36b003f69932879ef850925d16f",
-    "art_source/ui/extracted/stage_select/stage_tokens.png": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
-    "res://assets/ui/extracted/battle/button_gold_small.png": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
-    "res://assets/ui/extracted/battle/button_gold_small.png.import": "bd03de91ace3e95017ab8aa4c2bedfd36a51db9f76d69522ee5f4dd784210667",
-    "res://assets/ui/extracted/battle/button_red_small.png": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
-    "res://assets/ui/extracted/battle/button_red_small.png.import": "8441dceb61620d507754fad8740fd3e4214acd139d728f9937960a5ffa64bb63",
-    "res://assets/ui/extracted/README.md": "179ddab998616ae7cffc2090b9a28681450bff262eac08ca572e358fd20397fd"
+    "art_source/ui/extracted/stage_select/stage_tokens.png": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f"
   }
 }

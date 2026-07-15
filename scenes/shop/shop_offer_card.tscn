@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/hover.tres" id="5_buy_hover"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/pressed.tres" id="6_buy_pressed"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/disabled.tres" id="7_buy_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/focus.tres" id="8_buy_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/focus.tres" id="8_buy_focus"]
 [ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="9_feedback"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_price"]

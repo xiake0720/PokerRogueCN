@@ -23,17 +23,14 @@ RUNTIME_UI_TARGETS = {
     "res://assets/ui/extracted/deck_select/deck_select_parts.png": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
     "res://assets/ui/extracted/cards/blank_card_face.png": "res://assets/ui/runtime/cards/blank_card_face.png",
 }
-LEGACY_STYLE_SOURCES = {
-    "res://assets/ui/extracted/battle/button_red_small.png",
-    "res://assets/ui/extracted/battle/button_gold_small.png",
-}
-
-
 def _current_ui_path(value: str) -> str:
+    mistaken_art_source_prefix = "res://assets/art_source/"
+    if value.startswith(mistaken_art_source_prefix):
+        return "art_source/" + value.removeprefix(mistaken_art_source_prefix)
     if value in RUNTIME_UI_TARGETS:
         return RUNTIME_UI_TARGETS[value]
     prefix = "res://assets/ui/extracted/"
-    if value.startswith(prefix) and value not in LEGACY_STYLE_SOURCES:
+    if value.startswith(prefix):
         return "art_source/ui/extracted/" + value.removeprefix(prefix)
     return value
 
@@ -45,6 +42,8 @@ def _portable_path(value: str, *, scene: str, target: bool) -> str:
         suffix = "#" + suffix
     normalized = value.replace("\\", "/")
     if normalized.startswith("res://"):
+        return normalized + suffix
+    if normalized.startswith("art_source/"):
         return normalized + suffix
     marker = "/PokerRogueCN/"
     if marker in normalized:

@@ -49,7 +49,7 @@ Godot：4.6.2 stable
 ## 5. 新增和修改的 `.tres`
 
 - `assets/ui/theme/game_theme.tres` 已集中注册通用 Variation 与完整状态。
-- `assets/ui/theme/styles/buttons/` 下新增 157 个外部 `.tres`，覆盖通用 red/gold/tab/small/icon/danger，以及 home/deck/stage/battle/shop/settlement/result/popup 专属族。
+- 当前 `assets/ui/theme/styles/` 共保留 111 个被 Theme 或正式场景引用的 `.tres`。第二轮整理删除了 56 个无引用文件，将 29 份字节完全相同的 focus 样式合并为 1 份，并让牌组中间页签复用 5 份完全相同的通用 tab 状态。
 - 正式按钮样式不再由脚本运行时构建；场景内可复用的局部 `StyleBoxTexture` 已外部化。
 
 ## 6. 规范化后的按钮图片

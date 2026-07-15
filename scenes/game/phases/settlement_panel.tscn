@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/hover.tres" id="8_hover"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/pressed.tres" id="9_pressed"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/disabled.tres" id="10_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/focus.tres" id="11_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/focus.tres" id="11_focus"]
 [ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="12_feedback"]
 
 [node name="SettlementPanel" type="Control"]

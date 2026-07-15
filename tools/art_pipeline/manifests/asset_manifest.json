@@ -694,7 +694,7 @@
   {
     "kind": "asset",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_30 (2).png",
-    "target": "res://assets/ui/extracted/battle/button_red_small.png",
+    "target": "art_source/ui/extracted/battle/button_red_small.png",
     "scene": "battle",
     "size": [
       771,
@@ -710,7 +710,7 @@
   {
     "kind": "asset",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_30 (3).png",
-    "target": "res://assets/ui/extracted/battle/button_gold_small.png",
+    "target": "art_source/ui/extracted/battle/button_gold_small.png",
     "scene": "battle",
     "size": [
       1031,

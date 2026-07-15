@@ -358,7 +358,7 @@
       ]
     },
     {
-      "path": "assets/ui/extracted/battle/button_red_small.png",
+      "path": "art_source/ui/extracted/battle/button_red_small.png",
       "scene": "battle",
       "slices": [
         {
@@ -386,7 +386,7 @@
       ]
     },
     {
-      "path": "assets/ui/extracted/battle/button_gold_small.png",
+      "path": "art_source/ui/extracted/battle/button_gold_small.png",
       "scene": "battle",
       "slices": [
         {

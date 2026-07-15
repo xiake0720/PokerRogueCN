@@ -92,7 +92,7 @@
     },
     {
       "id": "common_secondary_red",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,
@@ -136,7 +136,7 @@
     },
     {
       "id": "common_secondary_gold",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -180,7 +180,7 @@
     },
     {
       "id": "common_small_red",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,
@@ -224,7 +224,7 @@
     },
     {
       "id": "common_small_gold",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -1324,7 +1324,7 @@
     },
     {
       "id": "popup_confirm",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -1368,7 +1368,7 @@
     },
     {
       "id": "popup_cancel",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,

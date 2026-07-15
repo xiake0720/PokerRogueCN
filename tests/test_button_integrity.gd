@@ -101,7 +101,7 @@ func _check_special_fallbacks(button: Dictionary, label: String) -> void:
 	var disabled := str(styles.get("disabled", ""))
 	if scene.ends_with("battle_content.tscn") and not "/buttons/battle/" in disabled:
 		_fail("%s battle disabled style falls back outside battle family" % label)
-	if scene.ends_with("deck_select_screen.tscn") and name == "ContinueButton" and not "/deck_select/tab_center/" in disabled:
+	if scene.ends_with("deck_select_screen.tscn") and name == "ContinueButton" and not "/buttons/tab/disabled.tres" in disabled:
 		_fail("%s ContinueButton lost its tab disabled appearance" % label)
 	if scene.ends_with("shop_offer_card.tscn") and name == "BuyButton" and not "/buttons/shop/buy/" in disabled:
 		_fail("%s BuyButton lost its compact shop disabled appearance" % label)

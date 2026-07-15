@@ -9,12 +9,12 @@
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/hover.tres" id="7_select_hover"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/pressed.tres" id="8_select_pressed"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/disabled.tres" id="9_select_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/select/focus.tres" id="10_select_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/focus.tres" id="10_select_focus"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/normal.tres" id="11_skip_normal"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/hover.tres" id="12_skip_hover"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/pressed.tres" id="13_skip_pressed"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/disabled.tres" id="14_skip_disabled"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/stage/skip/focus.tres" id="15_skip_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/focus.tres" id="15_skip_focus"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_root"]
 

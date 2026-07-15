@@ -37,10 +37,10 @@ class ButtonAssetSpec:
 SPECS = (
     ButtonAssetSpec("common_primary_red", "art_source/ui/extracted/battle/button_red_large.png", "common/primary_red.png", (420, 110), (58, 24, 58, 24), (280, 84), "Extra-large and primary red buttons", False),
     ButtonAssetSpec("common_primary_gold", "art_source/ui/extracted/battle/button_gold_large.png", "common/primary_gold.png", (420, 110), (58, 24, 58, 24), (280, 84), "Extra-large and primary gold buttons", False),
-    ButtonAssetSpec("common_secondary_red", "assets/ui/extracted/battle/button_red_small.png", "common/secondary_red.png", (300, 88), (42, 19, 42, 19), (170, 58), "Secondary red buttons", False),
-    ButtonAssetSpec("common_secondary_gold", "assets/ui/extracted/battle/button_gold_small.png", "common/secondary_gold.png", (300, 88), (42, 19, 42, 19), (170, 58), "Secondary gold buttons", False),
-    ButtonAssetSpec("common_small_red", "assets/ui/extracted/battle/button_red_small.png", "common/small_red.png", (190, 64), (27, 14, 27, 14), (120, 46), "Compact red and danger buttons", False),
-    ButtonAssetSpec("common_small_gold", "assets/ui/extracted/battle/button_gold_small.png", "common/small_gold.png", (190, 64), (27, 14, 27, 14), (120, 46), "Compact gold buttons", False),
+    ButtonAssetSpec("common_secondary_red", "art_source/ui/extracted/battle/button_red_small.png", "common/secondary_red.png", (300, 88), (42, 19, 42, 19), (170, 58), "Secondary red buttons", False),
+    ButtonAssetSpec("common_secondary_gold", "art_source/ui/extracted/battle/button_gold_small.png", "common/secondary_gold.png", (300, 88), (42, 19, 42, 19), (170, 58), "Secondary gold buttons", False),
+    ButtonAssetSpec("common_small_red", "art_source/ui/extracted/battle/button_red_small.png", "common/small_red.png", (190, 64), (27, 14, 27, 14), (120, 46), "Compact red and danger buttons", False),
+    ButtonAssetSpec("common_small_gold", "art_source/ui/extracted/battle/button_gold_small.png", "common/small_gold.png", (190, 64), (27, 14, 27, 14), (120, 46), "Compact gold buttons", False),
     ButtonAssetSpec("home_start", "art_source/ui/extracted/home/menu_button_start.png", "home/start.png", (620, 136), (84, 26, 84, 26), (360, 96), "Home start button", False),
     ButtonAssetSpec("home_options", "art_source/ui/extracted/home/menu_button_settings.png", "home/options.png", (560, 105), (72, 22, 72, 22), (300, 72), "Home settings button", False),
     ButtonAssetSpec("home_quit", "art_source/ui/extracted/home/menu_button_quit.png", "home/quit.png", (560, 111), (72, 23, 72, 23), (300, 72), "Home quit button", False),
@@ -65,8 +65,8 @@ SPECS = (
     ButtonAssetSpec("settlement_continue", "assets/ui/runtime/buttons/settlement_continue_button.png", "settlement/continue.png", (360, 92), (50, 21, 50, 21), (280, 84), "Settlement continue button"),
     ButtonAssetSpec("result_primary", "assets/ui/runtime/buttons/settlement_continue_button.png", "result/primary.png", (340, 88), (48, 20, 48, 20), (280, 80), "Result primary action"),
     ButtonAssetSpec("result_home", "assets/ui/runtime/buttons/deck_back_button.png", "result/home.png", (280, 76), (40, 17, 40, 17), (220, 68), "Result secondary action"),
-    ButtonAssetSpec("popup_confirm", "assets/ui/extracted/battle/button_gold_small.png", "popup/confirm.png", (220, 64), (31, 14, 31, 14), (160, 54), "Popup confirmation", False),
-    ButtonAssetSpec("popup_cancel", "assets/ui/extracted/battle/button_red_small.png", "popup/cancel.png", (220, 64), (31, 14, 31, 14), (160, 54), "Popup cancel", False),
+    ButtonAssetSpec("popup_confirm", "art_source/ui/extracted/battle/button_gold_small.png", "popup/confirm.png", (220, 64), (31, 14, 31, 14), (160, 54), "Popup confirmation", False),
+    ButtonAssetSpec("popup_cancel", "art_source/ui/extracted/battle/button_red_small.png", "popup/cancel.png", (220, 64), (31, 14, 31, 14), (160, 54), "Popup cancel", False),
 )
 
 

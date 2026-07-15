@@ -13,7 +13,9 @@
     "art_source/ui/extracted/battle/battle_title_bar.png",
     "art_source/ui/extracted/battle/battle_tokens.png",
     "art_source/ui/extracted/battle/button_gold_large.png",
+    "art_source/ui/extracted/battle/button_gold_small.png",
     "art_source/ui/extracted/battle/button_red_large.png",
+    "art_source/ui/extracted/battle/button_red_small.png",
     "art_source/ui/extracted/settlement/settlement_parts.png",
     "art_source/ui/extracted/shop/shop_button_bars.png",
     "art_source/ui/extracted/shop/shop_cards_packs.png",
@@ -25,8 +27,6 @@
     "art_source/ui/extracted/stage_select/stage_card_next.png",
     "art_source/ui/extracted/stage_select/stage_title_banner.png",
     "art_source/ui/extracted/stage_select/stage_tokens.png",
-    "res://assets/ui/extracted/battle/button_gold_small.png",
-    "res://assets/ui/extracted/battle/button_red_small.png",
     "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
     "res://assets/ui/runtime/screens/home/background_table.png",
     "res://tools/generate_card_fallbacks.py"
@@ -129,7 +129,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_button_gold_small_hd.png",
-      "source": "res://assets/ui/extracted/battle/button_gold_small.png",
+      "source": "art_source/ui/extracted/battle/button_gold_small.png",
       "source_sha256": "9d3636f33216aa4911ee365e5754cb55d3b8e0f802ef88dd626a87af314d9363",
       "source_size": [
         1031,
@@ -221,7 +221,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_button_red_small_hd.png",
-      "source": "res://assets/ui/extracted/battle/button_red_small.png",
+      "source": "art_source/ui/extracted/battle/button_red_small.png",
       "source_sha256": "04199919efb5c8e984d718ebc39f89dfd8c03b9d1833e81ab00eb58017935c67",
       "source_size": [
         771,
