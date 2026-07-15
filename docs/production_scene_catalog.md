@@ -1,6 +1,6 @@
 # 生产场景目录
 
-本目录由 2026-07-13 场景最终验收轮建立。扫描范围为 `scenes/**/*.tscn`，排除 `scenes/debug/`、视觉临时承载场景和测试场景。当前共 35 个生产场景；全部由 `tests/all_production_scenes.tscn` 递归发现并做实际入树两帧的实例化验证。
+本目录由 2026-07-13 场景最终验收轮建立，并在第二轮资源整理中按真实路由与静态引用重新核对。当前共 24 个生产场景；权威清单显式维护在 `tests/test_all_production_scenes.gd`，调试、归档和无引用原型不参与生产扫描。全部场景都会实际实例化、入树两帧并释放。
 
 “独立运行”中的“承载”表示该组件可直接实例化，但完整视觉和交互需要真实父场景及测试数据。表内最后两列保留首次扫描时的基线问题与当时处理状态；最终关闭结论见表后，优先于表内“待复核”字样。
 
@@ -25,26 +25,15 @@
 | `scenes/game/stage_card_view.tscn` | PanelContainer | `stage_card_view.gd` | 单张盲注卡 | 承载 | 否 | 可选/跳过/锁定/Boss | 待组件截图 | 待复核 |
 | `scenes/cards/playing_card_view.tscn` | Button | `playing_card_view.gd` | 扑克牌视图 | 承载 | 否 | 默认/选中/Hover/禁用 | 待组件截图 | 待复核 |
 | `scenes/cards/joker_card_view.tscn` | PanelContainer | `joker_card_view.gd` | 小丑牌视图与出售 | 承载 | 间接 | 空槽/卡牌/Hover/出售 | 待组件截图 | 待复核 |
-| `scenes/cards/deck_pile_view.tscn` | PanelContainer | `deck_pile_view.gd` | 单个牌堆显示 | 承载 | 否 | 有牌/空牌堆 | 待组件截图 | 待复核 |
 | `scenes/shop/shop_offer_card.tscn` | PanelContainer | `shop_offer_card.gd` | 商店商品卡 | 承载 | 间接 | 可买/资金不足/售出/禁用 | 待组件截图 | 待复核 |
 | `scenes/ui/card_detail_popup.tscn` | PopupPanel | `card_detail_popup.gd` | 卡牌详情弹窗 | 承载 | 否 | 小丑/塔罗/星球/扑克牌、长短描述 | 任务前已有尺寸和可见性修改 | 保护并实测复核 |
-| `scenes/ui/deck_option_view.tscn` | PanelContainer | `deck_option_view.gd` | 牌组选择项 | 承载 | 否 | 默认/选中/锁定 | 待组件截图 | 待复核 |
 | `scenes/ui/floating_score_label.tscn` | Label | 无 | 浮动计分文本 | 承载 | 否 | 正/负分、动画承载 | 待组件截图 | 待复核 |
 | `scenes/ui/shared/bottom_sheet_host.tscn` | Control | `bottom_sheet_host.gd` | 底部弹层动画宿主 | 承载 | 否 | 显示/隐藏/顺序替换/中断 | 原替换瞬间隐藏 | 已实现顺序动画、信号、确定状态恢复 |
-| `scenes/ui/shared/blind_token_view.tscn` | Control | 无 | 盲注图标组件 | 承载 | 否 | 小/大/Boss | 待组件截图 | 待复核 |
 | `scenes/ui/shared/consumable_slot_view.tscn` | PanelContainer | 无 | 单个消耗牌槽 | 承载 | 否 | 空槽/有牌 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/currency_display.tscn` | PanelContainer | 无 | 货币显示 | 承载 | 否 | 多位金额 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/deck_stack_view.tscn` | Control | 无 | 牌背堆叠组件 | 承载 | 否 | 默认/空堆 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/empty_card_slot.tscn` | PanelContainer | 无 | 通用空卡槽 | 承载 | 否 | 空槽 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/ornate_panel.tscn` | PanelContainer | 无 | 通用装饰面板 | 承载 | 否 | 标准内容承载 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/price_plate.tscn` | PanelContainer | 无 | 价格牌 | 承载 | 否 | 可买/不足 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/reward_row.tscn` | HBoxContainer | 无 | 奖励明细行 | 承载 | 否 | 正常/隐藏 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/section_header.tscn` | NinePatchRect | 无 | 区块标题 | 承载 | 否 | 长短标题 | 待组件截图 | 待复核 |
-| `scenes/ui/shared/textured_button.tscn` | Button | `button_feedback.gd` | 纹理按钮基件 | 承载 | 否 | Normal/Hover/Pressed/Disabled/Focus | 待组件截图 | 待复核 |
 
 ## 最终关闭结论
 
-- 35/35 个生产场景均已通过实际加载、实例化、入树两帧和释放验证。
-- 35/35 个生产场景均已有 1920×1080 原始场景或组件承载截图；10 个关键生产状态另在 6 种分辨率下完成 60 张截图。
+- 24/24 个当前生产场景均已通过实际加载、实例化、入树两帧和释放验证。
+- 历史验收截图仍保留在文档目录；10 个关键生产状态曾在 6 种分辨率下完成 60 张截图。
 - 首页、开局设置、盲注、战斗、结算、商店、补充包、胜利、失败、长文本详情以及 22 个 Hover/Disabled/选中/售出/资金不足等边界状态均已目视复核。
-- 最终未遗留 P0、P1 或 P2 视觉问题。结构型空载组件（例如 `BottomSheetHost`、`BlindTokenView`）的原始截图允许为空或接近为空，其完整效果已在真实父场景状态中复核。
+- 最终未遗留 P0、P1 或 P2 视觉问题。结构型空载组件（例如 `BottomSheetHost`）的原始截图允许为空或接近为空，其完整效果已在真实父场景状态中复核。

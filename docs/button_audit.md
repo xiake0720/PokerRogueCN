@@ -2,9 +2,9 @@
 
 > 由 `tools/button_audit.py` 基于当前 `.tscn`、Theme、`.tres` 和 PNG 资源生成。
 
-- 正式 BaseButton 派生节点：**33**
+- 正式 BaseButton 派生节点：**31**
 - 交互式伪按钮：**2**
-- 覆盖场景：**14**
+- 覆盖场景：**12**
 
 ## 按场景统计
 
@@ -19,11 +19,9 @@
 | `res://scenes/game/stage_card_view.tscn` | 2 |
 | `res://scenes/shop/shop_offer_card.tscn` | 1 |
 | `res://scenes/ui/card_detail_popup.tscn` | 1 |
-| `res://scenes/ui/deck_option_view.tscn` | 1 |
 | `res://scenes/ui/deck_select_screen.tscn` | 9 |
 | `res://scenes/ui/main_menu_screen.tscn` | 4 |
 | `res://scenes/ui/result_screen.tscn` | 2 |
-| `res://scenes/ui/shared/textured_button.tscn` | 1 |
 
 ## 按钮明细
 
@@ -363,28 +361,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`SmallRedButton`
 
-### 17. SelectButton
-
-- 场景路径：`res://scenes/ui/deck_option_view.tscn`
-- 节点完整路径：`DeckOptionView/Row/SelectButton`
-- 显示文字：`选择`
-- 节点类型：`Button`
-- 当前最小尺寸：`[170.0, 58.0]`（custom_minimum_size）
-- 父容器类型：`Unknown`
-- Theme Type Variation：`SecondaryGoldButton`
-- normal / hover / pressed / disabled / focus：`{'normal': 'res://assets/ui/theme/styles/buttons/icon/normal.tres', 'hover': 'res://assets/ui/theme/styles/buttons/icon/hover.tres', 'pressed': 'res://assets/ui/theme/styles/buttons/icon/pressed.tres', 'disabled': 'res://assets/ui/theme/styles/buttons/icon/disabled.tres', 'focus': 'res://assets/ui/theme/styles/buttons/icon/focus.tres'}`
-- 图片资源：``；原始尺寸：`None`
-- Texture Margin：`{'left': 0.0, 'top': 0.0, 'right': 0.0, 'bottom': 0.0}`
-- Content Margin：`{'left': 8.0, 'top': 8.0, 'right': 8.0, 'bottom': 8.0}`
-- Axis Stretch：`{'horizontal': 0, 'vertical': 0}`
-- 样式回退：`False`
-- 图片变形风险：`False`
-- 文字跳动：`False`
-- 状态缺失：`[]`
-- 保留专属美术：`False`
-- 最终按钮类型：`SecondaryGoldButton`
-
-### 18. NewRunButton
+### 17. NewRunButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/Tabs/NewRunButton`
@@ -405,7 +382,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`DeckTabButton`
 
-### 19. ContinueButton
+### 18. ContinueButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/Tabs/ContinueButton`
@@ -426,7 +403,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`DeckTabButton`
 
-### 20. ChallengeButton
+### 19. ChallengeButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/Tabs/ChallengeButton`
@@ -447,7 +424,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`DeckTabButton`
 
-### 21. PrevDeckButton
+### 20. PrevDeckButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/MainPanel/DeckShowcase/PrevDeckButton`
@@ -468,7 +445,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`IconButton`
 
-### 22. NextDeckButton
+### 21. NextDeckButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/MainPanel/DeckShowcase/NextDeckButton`
@@ -489,7 +466,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`IconButton`
 
-### 23. PrevStakeButton
+### 22. PrevStakeButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/DifficultyRow/PrevStakeButton`
@@ -510,7 +487,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`IconButton`
 
-### 24. NextStakeButton
+### 23. NextStakeButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/DifficultyRow/NextStakeButton`
@@ -531,7 +508,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`IconButton`
 
-### 25. StartButton
+### 24. StartButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/StartButton`
@@ -552,7 +529,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`DeckExclusiveButton`
 
-### 26. BackButton
+### 25. BackButton
 
 - 场景路径：`res://scenes/ui/deck_select_screen.tscn`
 - 节点完整路径：`DeckSelectScreen/SafeAspect/Canvas/BackButton`
@@ -573,7 +550,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`DeckExclusiveButton`
 
-### 27. StartButton
+### 26. StartButton
 
 - 场景路径：`res://scenes/ui/main_menu_screen.tscn`
 - 节点完整路径：`MainMenuScreen/MenuColumn/StartButton`
@@ -594,7 +571,7 @@
 - 保留专属美术：`True`
 - 最终按钮类型：`HomeExclusiveButton`
 
-### 28. OptionsButton
+### 27. OptionsButton
 
 - 场景路径：`res://scenes/ui/main_menu_screen.tscn`
 - 节点完整路径：`MainMenuScreen/MenuColumn/OptionsButton`
@@ -615,7 +592,7 @@
 - 保留专属美术：`True`
 - 最终按钮类型：`HomeExclusiveButton`
 
-### 29. QuitButton
+### 28. QuitButton
 
 - 场景路径：`res://scenes/ui/main_menu_screen.tscn`
 - 节点完整路径：`MainMenuScreen/MenuColumn/QuitButton`
@@ -636,7 +613,7 @@
 - 保留专属美术：`True`
 - 最终按钮类型：`HomeExclusiveButton`
 
-### 30. LanguageButton
+### 29. LanguageButton
 
 - 场景路径：`res://scenes/ui/main_menu_screen.tscn`
 - 节点完整路径：`MainMenuScreen/MenuColumn/LanguageButton`
@@ -657,7 +634,7 @@
 - 保留专属美术：`True`
 - 最终按钮类型：`HomeExclusiveButton`
 
-### 31. PrimaryButton
+### 30. PrimaryButton
 
 - 场景路径：`res://scenes/ui/result_screen.tscn`
 - 节点完整路径：`ResultScreen/SafeAspect/Canvas/ButtonRow/PrimaryButton`
@@ -678,7 +655,7 @@
 - 保留专属美术：`False`
 - 最终按钮类型：`ResultVictoryButton`
 
-### 32. HomeButton
+### 31. HomeButton
 
 - 场景路径：`res://scenes/ui/result_screen.tscn`
 - 节点完整路径：`ResultScreen/SafeAspect/Canvas/ButtonRow/HomeButton`
@@ -698,27 +675,6 @@
 - 状态缺失：`[]`
 - 保留专属美术：`False`
 - 最终按钮类型：`ResultHomeButton`
-
-### 33. TexturedButton
-
-- 场景路径：`res://scenes/ui/shared/textured_button.tscn`
-- 节点完整路径：`TexturedButton`
-- 显示文字：`按钮`
-- 节点类型：`Button`
-- 当前最小尺寸：`[240.0, 72.0]`（custom_minimum_size）
-- 父容器类型：`SceneRoot`
-- Theme Type Variation：`PrimaryGoldButton`
-- normal / hover / pressed / disabled / focus：`{'normal': 'res://assets/ui/theme/styles/buttons/gold/normal.tres', 'hover': 'res://assets/ui/theme/styles/buttons/gold/hover.tres', 'pressed': 'res://assets/ui/theme/styles/buttons/gold/pressed.tres', 'disabled': 'res://assets/ui/theme/styles/buttons/gold/disabled.tres', 'focus': 'res://assets/ui/theme/styles/buttons/gold/focus.tres'}`
-- 图片资源：`res://assets/ui/runtime/buttons/common/primary_gold.png`；原始尺寸：`[420, 110]`
-- Texture Margin：`{'left': 58.0, 'top': 24.0, 'right': 58.0, 'bottom': 24.0}`
-- Content Margin：`{'left': 34.0, 'top': 12.0, 'right': 34.0, 'bottom': 12.0}`
-- Axis Stretch：`{'horizontal': 0, 'vertical': 0}`
-- 样式回退：`False`
-- 图片变形风险：`False`
-- 文字跳动：`False`
-- 状态缺失：`[]`
-- 保留专属美术：`False`
-- 最终按钮类型：`PrimaryGoldButton`
 
 ## 交互式伪按钮
 

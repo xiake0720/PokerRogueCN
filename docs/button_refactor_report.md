@@ -12,8 +12,8 @@ Godot：4.6.2 stable
 
 ## 1. 扫描到的按钮总数
 
-- 共识别 135 个 `Button` 节点：33 个正式游戏按钮，102 个按钮画廊预览实例。
-- 另识别 5 个非 `Button` 的伪按钮/可点击区域：`JokerCardView`、`ShopOfferCard` 和 3 个消耗牌槽位。
+- 当前共识别 133 个 `Button` 节点：31 个正式游戏按钮，102 个按钮画廊预览实例。
+- 另识别 2 个非 `Button` 的伪按钮/可点击区域：`JokerCardView` 和 `ShopOfferCard`。
 - 未发现脚本中通过 `Button.new()` 动态创建正式按钮。
 
 ## 2. 按场景分类的正式按钮数量
@@ -22,25 +22,23 @@ Godot：4.6.2 stable
 |---|---:|
 | `scenes/ui/main_menu_screen.tscn` | 4 |
 | `scenes/ui/deck_select_screen.tscn` | 9 |
-| `scenes/ui/deck_option_view.tscn` | 1 |
 | `scenes/game/stage_card_view.tscn` | 2 |
-| `scenes/game/battle_screen.tscn` | 4 |
+| `scenes/game/phases/battle_content.tscn` | 4 |
 | `scenes/game/game_hud_panel.tscn` | 2 |
-| `scenes/game/settlement_screen.tscn` | 1 |
-| `scenes/shop/joker_shop_screen.tscn` | 3 |
+| `scenes/game/phases/settlement_panel.tscn` | 1 |
+| `scenes/game/phases/shop_panel.tscn` | 3 |
 | `scenes/shop/shop_offer_card.tscn` | 1 |
 | `scenes/cards/joker_card_view.tscn` | 1 |
 | `scenes/cards/playing_card_view.tscn` | 1 |
 | `scenes/ui/result_screen.tscn` | 2 |
 | `scenes/ui/card_detail_popup.tscn` | 1 |
-| `scenes/ui/shared/textured_button.tscn` | 1 |
-| **正式按钮合计** | **33** |
+| **正式按钮合计** | **31** |
 
 调试场景 `scenes/debug/button_style_gallery.tscn` 另含 102 个预览按钮。
 
 ## 3. 修改过的按钮场景
 
-已修改上表全部 14 个正式场景，并新增 `scenes/debug/button_style_gallery.tscn`。首页、牌组选择、盲注、HUD、战斗、小丑、结算、商店、结果页、详情弹窗及共享按钮均已显式分类；玩法与场景跳转规则未改。
+当前上表 12 个正式场景均已显式分类；`scenes/debug/button_style_gallery.tscn` 独立保留用于开发验收。首页、牌组选择、盲注、HUD、战斗、小丑、结算、商店、结果页及详情弹窗的玩法与场景跳转规则未改。
 
 ## 4. 新增的 Theme Type Variation
 
