@@ -51,15 +51,6 @@
           "usage": "Challenge tab button backing"
         },
         {
-          "id": "deck_main_panel",
-          "category": "panels",
-          "output": "panels/deck_main_panel.png",
-          "rect": [11, 100, 592, 276],
-          "padding": 4,
-          "min_size": [590, 270],
-          "usage": "Central deck information panel"
-        },
-        {
           "id": "deck_deck_back_frame",
           "category": "frames",
           "output": "frames/deck_deck_back_frame.png",
@@ -176,22 +167,6 @@
           "padding": 4,
           "min_size": [135, 170],
           "usage": "Green deck stack decoration"
-        }
-      ]
-    },
-    {
-      "path": "assets/ui/extracted/stage_select/stage_background.png",
-      "scene": "stage_select",
-      "slices": [
-        {
-          "id": "background_stage_select",
-          "category": "backgrounds",
-          "output": "backgrounds/stage_select.png",
-          "trim_alpha": false,
-          "padding": 0,
-          "allow_opaque_edges": true,
-          "min_size": [1600, 900],
-          "usage": "Blind-selection table background"
         }
       ]
     },
@@ -354,22 +329,6 @@
       ]
     },
     {
-      "path": "assets/ui/extracted/battle/battle_background_frame.png",
-      "scene": "battle",
-      "slices": [
-        {
-          "id": "background_battle_frame",
-          "category": "backgrounds",
-          "output": "backgrounds/battle_frame.png",
-          "trim_alpha": false,
-          "padding": 0,
-          "allow_opaque_edges": true,
-          "min_size": [1600, 900],
-          "usage": "Battle table and ornate full-screen frame"
-        }
-      ]
-    },
-    {
       "path": "assets/ui/extracted/battle/battle_title_bar.png",
       "scene": "battle",
       "slices": [
@@ -437,20 +396,6 @@
           "padding": 4,
           "min_size": [1025, 392],
           "usage": "High-resolution gold secondary button backing"
-        }
-      ]
-    },
-    {
-      "path": "assets/ui/extracted/battle/battle_left_hud.png",
-      "scene": "battle",
-      "slices": [
-        {
-          "id": "battle_hud_full",
-          "category": "panels",
-          "output": "panels/battle_hud_full.png",
-          "padding": 4,
-          "min_size": [885, 1615],
-          "usage": "Shared battle and shop left HUD artwork"
         }
       ]
     },
@@ -780,22 +725,6 @@
       ]
     },
     {
-      "path": "assets/ui/extracted/shop/shop_background.png",
-      "scene": "shop",
-      "slices": [
-        {
-          "id": "background_shop",
-          "category": "backgrounds",
-          "output": "backgrounds/shop.png",
-          "trim_alpha": false,
-          "padding": 0,
-          "allow_opaque_edges": true,
-          "min_size": [1400, 1000],
-          "usage": "Shop table background"
-        }
-      ]
-    },
-    {
       "path": "assets/ui/extracted/shop/shop_frame_panels.png",
       "scene": "shop",
       "slices": [
@@ -807,15 +736,6 @@
           "padding": 4,
           "min_size": [640, 335],
           "usage": "Crowned shop title panel"
-        },
-        {
-          "id": "shop_offers_panel",
-          "category": "panels",
-          "output": "panels/shop_offers_panel.png",
-          "rect": [651, 0, 711, 458],
-          "padding": 4,
-          "min_size": [703, 450],
-          "usage": "Large top offer display panel"
         },
         {
           "id": "shop_voucher_panel",

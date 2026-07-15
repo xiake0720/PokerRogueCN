@@ -3,15 +3,13 @@
   "generator": "res://tools/ui_asset_slicer.py",
   "config": "res://tools/ui_asset_slices.json",
   "output_root": "res://assets/ui/runtime",
-  "asset_count": 108,
-  "source_count": 28,
+  "asset_count": 102,
+  "source_count": 24,
   "sources": [
     "res://assets/ui/extracted/battle/battle_action_buttons.png",
-    "res://assets/ui/extracted/battle/battle_background_frame.png",
     "res://assets/ui/extracted/battle/battle_card_slots.png",
     "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
     "res://assets/ui/extracted/battle/battle_deck_area.png",
-    "res://assets/ui/extracted/battle/battle_left_hud.png",
     "res://assets/ui/extracted/battle/battle_title_bar.png",
     "res://assets/ui/extracted/battle/battle_tokens.png",
     "res://assets/ui/extracted/battle/button_gold_large.png",
@@ -21,12 +19,10 @@
     "res://assets/ui/extracted/deck_select/deck_select_parts.png",
     "res://assets/ui/extracted/home/background_table.png",
     "res://assets/ui/extracted/settlement/settlement_parts.png",
-    "res://assets/ui/extracted/shop/shop_background.png",
     "res://assets/ui/extracted/shop/shop_button_bars.png",
     "res://assets/ui/extracted/shop/shop_cards_packs.png",
     "res://assets/ui/extracted/shop/shop_curtains_coins.png",
     "res://assets/ui/extracted/shop/shop_frame_panels.png",
-    "res://assets/ui/extracted/stage_select/stage_background.png",
     "res://assets/ui/extracted/stage_select/stage_buttons.png",
     "res://assets/ui/extracted/stage_select/stage_card_active.png",
     "res://assets/ui/extracted/stage_select/stage_card_locked.png",
@@ -36,52 +32,6 @@
     "res://tools/generate_card_fallbacks.py"
   ],
   "assets": [
-    {
-      "id": "background_battle_frame",
-      "scene": "battle",
-      "category": "backgrounds",
-      "path": "res://assets/ui/runtime/backgrounds/battle_frame.png",
-      "source": "res://assets/ui/extracted/battle/battle_background_frame.png",
-      "source_sha256": "6b8587be771366a80261fd73b47cbe443783bb0ded4446b2df90360e1efbdb92",
-      "source_size": [
-        1672,
-        941
-      ],
-      "source_has_alpha": true,
-      "source_rect_xywh": [
-        0,
-        0,
-        1672,
-        941
-      ],
-      "trim_alpha": false,
-      "padding": 0,
-      "transform": {
-        "flip_x": false,
-        "flip_y": false
-      },
-      "component_seed": null,
-      "output_size": [
-        1672,
-        941
-      ],
-      "output_alpha_bbox": [
-        0,
-        0,
-        1672,
-        941
-      ],
-      "alpha_range": [
-        0,
-        255
-      ],
-      "edge_alpha_max": 255,
-      "output_sha256": "35c8988e366fef8a60577e804399f365c16d1a1a1b9c4eef2d6263b5feea5851",
-      "generated": false,
-      "usage": "Battle table and ornate full-screen frame",
-      "tags": [],
-      "validation": "passed"
-    },
     {
       "id": "background_home_table",
       "scene": "shared",
@@ -125,98 +75,6 @@
       "output_sha256": "4b483db90f75d9fe181443b886c5b676f1f61b93b5ce45cf12cbf0fa6258a228",
       "generated": false,
       "usage": "Shared 16:9 table background for deck selection, settlement, and result screens",
-      "tags": [],
-      "validation": "passed"
-    },
-    {
-      "id": "background_shop",
-      "scene": "shop",
-      "category": "backgrounds",
-      "path": "res://assets/ui/runtime/backgrounds/shop.png",
-      "source": "res://assets/ui/extracted/shop/shop_background.png",
-      "source_sha256": "e5a2958f6707541cf1c510175b34ff913f33c44717a4625157c518d91ac87629",
-      "source_size": [
-        1448,
-        1086
-      ],
-      "source_has_alpha": true,
-      "source_rect_xywh": [
-        0,
-        0,
-        1448,
-        1086
-      ],
-      "trim_alpha": false,
-      "padding": 0,
-      "transform": {
-        "flip_x": false,
-        "flip_y": false
-      },
-      "component_seed": null,
-      "output_size": [
-        1448,
-        1086
-      ],
-      "output_alpha_bbox": [
-        0,
-        0,
-        1448,
-        1086
-      ],
-      "alpha_range": [
-        0,
-        255
-      ],
-      "edge_alpha_max": 255,
-      "output_sha256": "e5785a901f37f66930a0800a1db849b1cc3dfc4f5f5acc5515fabb78797e43e9",
-      "generated": false,
-      "usage": "Shop table background",
-      "tags": [],
-      "validation": "passed"
-    },
-    {
-      "id": "background_stage_select",
-      "scene": "stage_select",
-      "category": "backgrounds",
-      "path": "res://assets/ui/runtime/backgrounds/stage_select.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_background.png",
-      "source_sha256": "fde757e2c68af7285c38ec518c0bb60fd4372ce5f02c7ab05bf64485c816f13f",
-      "source_size": [
-        1672,
-        941
-      ],
-      "source_has_alpha": true,
-      "source_rect_xywh": [
-        0,
-        0,
-        1672,
-        941
-      ],
-      "trim_alpha": false,
-      "padding": 0,
-      "transform": {
-        "flip_x": false,
-        "flip_y": false
-      },
-      "component_seed": null,
-      "output_size": [
-        1672,
-        941
-      ],
-      "output_alpha_bbox": [
-        0,
-        0,
-        1672,
-        941
-      ],
-      "alpha_range": [
-        0,
-        255
-      ],
-      "edge_alpha_max": 255,
-      "output_sha256": "63bc634471cff77cd7461dea6cd10c1e078c2d4bc2817ad04c44d6ca83456526",
-      "generated": false,
-      "usage": "Blind-selection table background",
       "tags": [],
       "validation": "passed"
     },
@@ -953,52 +811,6 @@
       "output_sha256": "6cefc992b89a78977f3a74d8f979a33dea2afa7b8ea46d4722bf3c5370adfcaf",
       "generated": false,
       "usage": "Compact blue chips panel",
-      "tags": [],
-      "validation": "passed"
-    },
-    {
-      "id": "battle_hud_full",
-      "scene": "battle",
-      "category": "panels",
-      "path": "res://assets/ui/runtime/panels/battle_hud_full.png",
-      "source": "res://assets/ui/extracted/battle/battle_left_hud.png",
-      "source_sha256": "19c87c775da8fd9cf12fbc1f26f9768a8382ddd922077c0f66139c7ede0c6b2f",
-      "source_size": [
-        894,
-        1628
-      ],
-      "source_has_alpha": true,
-      "source_rect_xywh": [
-        0,
-        0,
-        894,
-        1628
-      ],
-      "trim_alpha": true,
-      "padding": 4,
-      "transform": {
-        "flip_x": false,
-        "flip_y": false
-      },
-      "component_seed": null,
-      "output_size": [
-        902,
-        1636
-      ],
-      "output_alpha_bbox": [
-        4,
-        4,
-        898,
-        1632
-      ],
-      "alpha_range": [
-        0,
-        255
-      ],
-      "edge_alpha_max": 0,
-      "output_sha256": "e64fe76bf9ffc2b8762fa6adf08935a271c8feb537194c5a8d8e7731d1f2b82d",
-      "generated": false,
-      "usage": "Shared battle and shop left HUD artwork",
       "tags": [],
       "validation": "passed"
     },
@@ -1965,52 +1777,6 @@
       "output_sha256": "6d66149b95288ae25772489b51b3763f047f2902a88142249bf90a0458aa1894",
       "generated": false,
       "usage": "Bottom-right red velvet corner",
-      "tags": [],
-      "validation": "passed"
-    },
-    {
-      "id": "deck_main_panel",
-      "scene": "deck_select",
-      "category": "panels",
-      "path": "res://assets/ui/runtime/panels/deck_main_panel.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
-      "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
-      "source_size": [
-        1362,
-        1083
-      ],
-      "source_has_alpha": true,
-      "source_rect_xywh": [
-        11,
-        100,
-        592,
-        276
-      ],
-      "trim_alpha": true,
-      "padding": 4,
-      "transform": {
-        "flip_x": false,
-        "flip_y": false
-      },
-      "component_seed": null,
-      "output_size": [
-        599,
-        284
-      ],
-      "output_alpha_bbox": [
-        4,
-        4,
-        595,
-        280
-      ],
-      "alpha_range": [
-        0,
-        255
-      ],
-      "edge_alpha_max": 0,
-      "output_sha256": "47cb9b1b3ecccf13194c4db14bb58b6063d2f61430afd190b8e85920b5b3e65b",
-      "generated": false,
-      "usage": "Central deck information panel",
       "tags": [],
       "validation": "passed"
     },
@@ -3711,52 +3477,6 @@
       "output_sha256": "d4fc1d11825beeb4398078e938dbe1ae5f848f9c4bae6abc318937a92e2f0cc7",
       "generated": false,
       "usage": "Red offer-slot frame",
-      "tags": [],
-      "validation": "passed"
-    },
-    {
-      "id": "shop_offers_panel",
-      "scene": "shop",
-      "category": "panels",
-      "path": "res://assets/ui/runtime/panels/shop_offers_panel.png",
-      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
-      "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
-      "source_size": [
-        1399,
-        1036
-      ],
-      "source_has_alpha": true,
-      "source_rect_xywh": [
-        651,
-        0,
-        711,
-        458
-      ],
-      "trim_alpha": true,
-      "padding": 4,
-      "transform": {
-        "flip_x": false,
-        "flip_y": false
-      },
-      "component_seed": null,
-      "output_size": [
-        718,
-        465
-      ],
-      "output_alpha_bbox": [
-        4,
-        4,
-        714,
-        461
-      ],
-      "alpha_range": [
-        0,
-        255
-      ],
-      "edge_alpha_max": 0,
-      "output_sha256": "742370e4e38b4d2d9b933db25ef44a256072c0a801b80695f1236315442e84af",
-      "generated": false,
-      "usage": "Large top offer display panel",
       "tags": [],
       "validation": "passed"
     },
