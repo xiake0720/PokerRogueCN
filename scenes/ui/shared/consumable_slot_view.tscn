@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panel_ornate.tres" id="1_panel"]
+[sub_resource type="StyleBoxEmpty" id="StyleBox_slot_empty"]
 
 [node name="ConsumableSlotView" type="PanelContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(112, 154)
-theme_override_styles/panel = ExtResource("1_panel")
+theme_override_styles/panel = SubResource("StyleBox_slot_empty")
 
 [node name="Content" type="Control" parent="."]
 layout_mode = 2
@@ -36,21 +36,10 @@ offset_top = -34.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 16
-text = "空槽"
+text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
-
-[node name="EmptySlotOverlay" type="ColorRect" parent="Content"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.01, 0.04, 0.03, 0.42)
 
 [node name="HoverGlow" type="TextureRect" parent="Content"]
 unique_name_in_owner = true

@@ -34,10 +34,15 @@ func _run() -> void:
 	_expect(not table.battle_content.visible, "BattleContent visible during settlement")
 	game.run.phase = RunState.Phase.SHOP
 	game.run.jokers = [DataRegistry.find_by_id("jokers", "joker")]
+	game.run.consumables = [DataRegistry.find_by_id("tarot_cards", "the_fool")]
 	game.run.generate_shop(true)
 	table.set_phase(RunState.Phase.SHOP, true)
 	_expect(table.current_popup == table.shop_panel, "shop panel not selected")
 	_expect(table.joker_shelf.slots[0].sell_button.visible, "shared JokerShelf is not sell-enabled in SHOP")
+	_expect(table.joker_shelf.slots.filter(func(slot: Control) -> bool: return slot.visible).size() == 1, "JokerShelf still shows empty capacity slots")
+	_expect(table.consumable_tray.slots.filter(func(slot: Control) -> bool: return slot.visible).size() == 1, "ConsumableTray still shows empty capacity slots")
+	_expect(table.joker_shelf.get_node("RegionOutline") != null, "JokerShelf region outline missing at runtime")
+	_expect(table.consumable_tray.get_node("RegionOutline") != null, "ConsumableTray region outline missing at runtime")
 	_expect(table.blind_select_panel.get_instance_id() == panel_ids.blind, "blind panel was reinstantiated")
 	_expect(table.settlement_panel.get_instance_id() == panel_ids.settlement, "settlement panel was reinstantiated")
 	_expect(table.shop_panel.get_instance_id() == panel_ids.shop, "shop panel was reinstantiated")

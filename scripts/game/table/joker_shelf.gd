@@ -23,18 +23,15 @@ func refresh_run(run: RunState, allow_sell: bool = false) -> void:
 	_allow_sell = allow_sell
 	count_label.text = "小丑牌\n%d/%d" % [run.jokers.size(), run.joker_slots]
 	_views_by_id.clear()
-	var visible_slot_count: int = mini(slots.size(), maxi(5, run.joker_slots))
+	var visible_joker_count: int = mini(slots.size(), run.jokers.size())
 	for i: int in range(slots.size()):
 		var slot: JokerCardView = slots[i]
-		slot.visible = i < visible_slot_count
+		slot.visible = i < visible_joker_count
 		if not slot.visible:
 			continue
-		if i < run.jokers.size():
-			var joker: Dictionary = run.jokers[i]
-			slot.setup(joker, i, allow_sell)
-			_views_by_id[str(joker.get("id", ""))] = slot
-		else:
-			slot.clear_slot()
+		var joker: Dictionary = run.jokers[i]
+		slot.setup(joker, i, allow_sell)
+		_views_by_id[str(joker.get("id", ""))] = slot
 
 
 func set_sell_enabled(enabled: bool) -> void:
