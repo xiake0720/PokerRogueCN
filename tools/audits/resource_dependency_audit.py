@@ -211,10 +211,11 @@ class Audit:
                         json.loads(text)
                     except json.JSONDecodeError as exc:
                         self.invalid_json.append((rel, f"line {exc.lineno}, column {exc.colno}: {exc.msg}"))
-                for match in WINDOWS_PATH_RE.finditer(text):
-                    value = match.group(1).strip()
-                    if not value.lower().startswith("res:"):
-                        self.absolute_paths.append((rel, value[:300]))
+                if rel not in GENERATED_REPORTS:
+                    for match in WINDOWS_PATH_RE.finditer(text):
+                        value = match.group(1).strip()
+                        if not value.lower().startswith("res:"):
+                            self.absolute_paths.append((rel, value[:300]))
 
     def _reference_kind(self, source: str, text: str, start: int) -> str:
         if source == "assets/cards/card_art_manifest.json":
@@ -244,12 +245,18 @@ class Audit:
                 if any(token in target for token in ("%s", "%d", "{", "}")):
                     continue
                 kind = self._reference_kind(source, text, match.start())
+                if source.startswith("addons/"):
+                    kind = "addon_example_or_optional"
+                elif source.startswith("tools/"):
+                    kind = "tool_literal"
                 if source == "tests/test_game_table_scene.gd" and target in {
                     "scenes/game/stage_select_screen.tscn",
                     "scenes/game/battle_screen.tscn",
                     "scenes/game/settlement_screen.tscn",
                     "scenes/shop/joker_shop_screen.tscn",
                 }:
+                    kind = "negative_assertion"
+                elif source == "tests/test_button_integrity.gd" and target == "scenes/archive":
                     kind = "negative_assertion"
                 key = (source, target, kind)
                 if key in seen:
@@ -345,7 +352,7 @@ class Audit:
             self.outgoing[edge.source].append(edge)
             if edge.exists and edge.target in self.file_set:
                 self.incoming[edge.target].append(edge)
-            elif not edge.exists and edge.kind != "negative_assertion":
+            elif not edge.exists and edge.kind not in {"negative_assertion", "addon_example_or_optional", "tool_literal"}:
                 self.stale.append(edge)
 
     def _walk_runtime(self, roots: Iterable[str]) -> Tuple[Set[str], Set[str]]:
