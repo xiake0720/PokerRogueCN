@@ -49,6 +49,9 @@ GENERATED_REPORTS = {
     "docs/cleanup/orphan_candidates.csv",
     "docs/cleanup/cleanup_plan.md",
     "docs/cleanup/project_structure_proposal.md",
+    "docs/cleanup/resource_reachability_check.md",
+    "docs/cleanup/final_cleanup_report.md",
+    "tools/reports/resource_reachability.json",
 }
 
 PRIMARY_ORDER = [
@@ -417,7 +420,9 @@ class Audit:
             if rel in self.dev_reachable and not record.categories.intersection({"REACHABLE_RUNTIME_STATIC", "REACHABLE_RUNTIME_DYNAMIC", "TEST_ONLY", "TOOL_ONLY"}):
                 record.categories.add("DEV_ONLY")
 
-            if rel.startswith(("assets/reference/", "assets/references/", "assets/ui/reference/", "assets/ui/references/")):
+            if rel.startswith("art_source/"):
+                record.categories.add("SOURCE_ONLY")
+            elif rel.startswith(("assets/reference/", "assets/references/", "assets/ui/reference/", "assets/ui/references/")):
                 record.categories.add("SOURCE_ONLY")
             elif rel.startswith("assets/ui/extracted/") and not record.categories.intersection({"REACHABLE_RUNTIME_STATIC", "REACHABLE_RUNTIME_DYNAMIC"}):
                 record.categories.add("SOURCE_ONLY")
@@ -441,7 +446,7 @@ class Audit:
         path = Path(rel)
         if path.suffix.lower() in SIDECAR_EXTENSIONS:
             return False
-        if rel.startswith(("tests/", "tools/", "addons/", "docs/", "artifacts/", "output/")):
+        if rel.startswith(("tests/", "tools/", "addons/", "docs/", "artifacts/", "output/", "art_source/")):
             return False
         if rel in {"project.godot", ".gitignore", "README.md", "icon.svg"}:
             return False
@@ -795,11 +800,11 @@ class Audit:
             "## 目录用途与体积",
             "",
             "- `scenes/`、`scripts/`、`autoload/`、`data/`：正式代码/数据与测试可达组件混合，必须按图可达性处理。",
-            "- `assets/ui/runtime/`：正式切片、动态卡面与若干历史审计 JSON 混合，目录名不能作为使用证据。",
-            "- `assets/ui/extracted/` 与 reference 类目录：切片来源及可追溯素材；未被正式场景直接引用的部分标为 SOURCE_ONLY。",
+            "- `assets/ui/runtime/`：只保留 Godot 可加载的正式图像、切片输出和运行资源目录；工具报告已移出。",
+            "- `art_source/ui/extracted/` 与 reference 类目录：离线切片来源及可追溯素材，标为 SOURCE_ONLY，并由 `.gdignore` 排除 Godot 导入。",
             "- `tests/`：可执行完整性、流程、分辨率与截图验证入口；其依赖与正式运行依赖分开统计。",
             "- `tools/`：生成器、切片器、按钮审计和本扫描器；生成源与工具报告属于 TOOL_ONLY/SOURCE_ONLY。",
-            "- `docs/`、`artifacts/`、`output/`：文档、验收截图和生成输出；建议从 Godot 导入范围排除，是否保留由证据价值决定。",
+            "- `docs/`、`artifacts/`、`output/`：文档、验收截图和生成输出；docs 已由 `.gdignore` 排除，artifacts/output 保持忽略。",
             "- `addons/`、`scenes/debug/`：编辑器插件与调试画廊，归 DEV_ONLY。",
             "",
             "### 最大目录 Top 20",
@@ -820,103 +825,26 @@ class Audit:
         for record in largest_files:
             lines.append(f"| `{record.path}` | {record.primary} | {human_bytes(record.size)} |")
 
-        focus_assets = [
-            "assets/ui/runtime/backgrounds/stage_select.png",
-            "assets/ui/runtime/backgrounds/battle_frame.png",
-            "assets/ui/runtime/backgrounds/shop.png",
-            "assets/ui/runtime/panels/battle_hud_full.png",
-            "assets/ui/runtime/panels/deck_main_panel.png",
-            "assets/ui/runtime/panels/shop_offers_panel.png",
-            "assets/ui/runtime/buttons/settlement/claim.png",
-        ]
-        shared_scenes = [
-            "scenes/ui/shared/blind_token_view.tscn",
-            "scenes/ui/shared/currency_display.tscn",
-            "scenes/ui/shared/deck_stack_view.tscn",
-            "scenes/ui/shared/empty_card_slot.tscn",
-            "scenes/ui/shared/ornate_panel.tscn",
-            "scenes/ui/shared/price_plate.tscn",
-            "scenes/ui/shared/reward_row.tscn",
-            "scenes/ui/shared/section_header.tscn",
-            "scenes/ui/shared/textured_button.tscn",
-        ]
-        button_manifest_data: Mapping[str, object] = {}
-        try:
-            button_manifest_data = json.loads(self.texts.get("tools/reports/buttons/button_manifest.json", "{}"))
-        except json.JSONDecodeError:
-            pass
-        scene_counts = button_manifest_data.get("scene_counts", {}) if isinstance(button_manifest_data, dict) else {}
-        debug_button_count = int(scene_counts.get("res://scenes/debug/button_style_gallery.tscn", 0)) if isinstance(scene_counts, dict) else 0
         abs_counts = Counter(source for source, _ in self.absolute_paths)
         docs_size = sum(r.size for r in self.records.values() if r.path.startswith("docs/"))
         artifacts_size = sum(r.size for r in self.records.values() if r.path.startswith("artifacts/"))
         output_size = sum(r.size for r in self.records.values() if r.path.startswith("output/"))
+        art_source_size = sum(r.size for r in self.records.values() if r.path.startswith("art_source/"))
+        production_scene_count = len(runtime_scenes)
 
         lines.extend([
             "",
-            "## 重点疑点复核",
+            "## 第二轮整理后复核",
             "",
-            "### A. README 旧场景",
-            "",
-            "README 仍引用 4 个已不存在的旧顶层场景；正式路由已经改用统一游戏桌。`tests/test_game_table_scene.gd` 对这 4 个路径做的是“必须不存在”的负向架构断言，不应误报为坏依赖。",
-            "",
-            "### B. 运行目录中的历史按钮报告",
-            "",
-            f"- `button_manifest.json` 仍含 **{debug_button_count}** 个 `button_style_gallery` 按钮，并引用已删除的 `battle_screen`、`settlement_screen`、`joker_shop_screen`；它由测试读取，但不是正式运行加载入口。",
-            "- `asset_normalization.json` 的 `generator` 指向 `tools/button_asset_normalizer.py`，现已与按钮 manifest 一起隔离到 `tools/reports/buttons/`。",
-            "",
-            "### C. 本机绝对路径清单",
-            "",
-            f"- `tools/art_pipeline/manifests/asset_manifest.json`：发现 **{abs_counts.get('tools/art_pipeline/manifests/asset_manifest.json', 0)}** 个绝对路径文本。",
-            f"- `tools/art_pipeline/manifests/extracted_asset_manifest.json`：发现 **{abs_counts.get('tools/art_pipeline/manifests/extracted_asset_manifest.json', 0)}** 个绝对路径文本。",
-            "- 两者应改成仓库相对来源标识或可移植 `res://`，但本轮只报告、不改写。",
-            "",
-            "### D. 已知旧运行资源候选",
-            "",
-            "| 文件 | 当前主分类 | 有效引用来源 | 结论 |",
-            "|---|---|---|---|",
-        ])
-        for path in focus_assets:
-            record = self.records.get(path)
-            if record:
-                refs = ", ".join(f"`{p}`" for p in record.references) or "无"
-                conclusion = "未被正式流程使用；仅测试/历史清单保活，Batch A 更新断言后可进入 Batch C"
-                lines.append(f"| `{path}` | {record.primary} | {refs} | {conclusion} |")
-            else:
-                lines.append(f"| `{path}` | 文件不存在 | 无 | 无需清理 |")
-
-        lines.extend([
-            "",
-            "### E. deck_pile_view 组件组",
-            "",
-            "`scenes/cards/deck_pile_view.tscn` 不在正式运行、工具或调试根可达集合；`test_all_production_scenes.gd` 通过目录枚举加载它，因此严格分类是 TEST_ONLY。其脚本只被该场景引用，`.gd.uid` 仅为脚本 sidecar。整组可作为条件 Batch D 候选，但不能计入零引用孤立项。",
-            "",
-            "### F. 共享组件池",
-            "",
-            "| 组件 | 当前主分类 | 说明 |",
-            "|---|---|---|",
-        ])
-        for path in shared_scenes:
-            record = self.records.get(path)
-            if not record:
-                lines.append(f"| `{path}` | 文件不存在 | 无 |")
-                continue
-            if record.primary == "ORPHAN_CANDIDATE":
-                note = "未被正式/测试/工具有效实例化；高置信 Batch D 候选"
-            elif record.primary == "TEST_ONLY":
-                note = "仅由测试或历史按钮清单保活；先更新测试证据"
-            else:
-                note = "保留；存在正式或其他有效根依赖"
-            lines.append(f"| `{path}` | {record.primary} | {note} |")
-
-        lines.extend([
-            "",
-            "### H. 文档、截图、输出与调试资源",
-            "",
-            f"- `docs/`：**{human_bytes(docs_size)}**，包含审计文档、Excel 与视觉分层 before/after 证据；保留高价值文档，但通过 `.gdignore` 排除 Godot 导入。",
-            f"- `artifacts/`：**{human_bytes(artifacts_size)}**，为被 `.gitignore` 忽略的本地截图输出；不提交，按需清理或外置。",
-            f"- `output/`：**{human_bytes(output_size)}**，为生成输出；迁至 `tools/reports/` 或保持忽略。",
-            "- `scenes/debug/button_style_gallery.tscn`：DEV_ONLY；保留时应与正式测试清单解耦，并将 `scenes/debug/` 从生产导出与自动生产场景枚举中排除。",
+            f"- 正式可达场景：**{production_scene_count}**；生产测试使用显式清单，`scenes/debug/` 不参与。",
+            "- README 已描述统一游戏桌、阶段面板和常驻桌面组件，不再把旧全屏阶段场景作为入口。",
+            "- 按钮 manifest 与 normalization 报告位于 `tools/reports/buttons/`，不再混入 runtime 资产。",
+            f"- 两份 art pipeline manifest 中的本机绝对路径：**{abs_counts.get('tools/art_pipeline/manifests/asset_manifest.json', 0) + abs_counts.get('tools/art_pipeline/manifests/extracted_asset_manifest.json', 0)}**。",
+            f"- `art_source/`：**{human_bytes(art_source_size)}**，作为离线源图并由 `.gdignore` 排除导入。",
+            f"- `docs/`：**{human_bytes(docs_size)}**，保留文档与验收证据并由根 `.gdignore` 排除导入。",
+            f"- `artifacts/`：**{human_bytes(artifacts_size)}**，为被忽略的本地验收输出。",
+            f"- `output/`：**{human_bytes(output_size)}**，保持忽略；已验收候选图移入 `art_source/generated/`。",
+            "- `scenes/debug/button_style_gallery.tscn` 明确为 DEV_ONLY，并与生产清单分离。",
             "",
         ])
 
@@ -1005,7 +933,7 @@ class Audit:
             "D:\\Godot\\Godot_v4.6.2-stable_win64_console.exe --path . --headless res://tests/smoke_run.tscn",
             "```",
             "",
-            "本报告仅为第一轮只读审计；本轮未删除或移动任何项目文件。",
+            "本报告为第二轮整理后的当前快照；删除与迁移历史及验证结果见 `docs/cleanup/final_cleanup_report.md`。",
             "",
         ])
         return "\n".join(lines)
