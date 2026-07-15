@@ -6,9 +6,9 @@ Godot：4.6.2 stable
 
 审计明细：`docs/button_audit.md`
 
-机器清单：`assets/ui/runtime/buttons/button_manifest.json`
+机器清单：`tools/reports/buttons/button_manifest.json`
 
-素材测量：`assets/ui/runtime/buttons/asset_normalization.json`
+素材测量：`tools/reports/buttons/asset_normalization.json`
 
 ## 1. 扫描到的按钮总数
 

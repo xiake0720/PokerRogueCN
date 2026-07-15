@@ -9,8 +9,8 @@ const EXPECTED_NODES: Dictionary = {
 	],
 	"res://scenes/game/phases/blind_select_panel.tscn": ["SmallBlindCard", "BigBlindCard", "BossBlindCard"],
 	"res://scenes/game/phases/battle_content.tscn": [
-		"PlayedArea", "HandArea",
-		"PlayButton", "DiscardButton", "SortRankButton", "SortSuitButton", "ChipsValue", "MultiplySymbol", "MultValue",
+		"PlayedFrame", "PlayedArea", "HandArea", "ActionRow",
+		"PlayButton", "DiscardButton", "SortRankButton", "SortSuitButton",
 	],
 	"res://scenes/game/phases/shop_panel.tscn": [
 		"JokerOfferSlot1", "JokerOfferSlot2", "VoucherOfferSlot", "PackOfferSlot1", "PackOfferSlot2",

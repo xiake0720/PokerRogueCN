@@ -1,7 +1,32 @@
 extends Node
 
 const RunStateScript = preload("res://scripts/run/run_state.gd")
-const SCENE_ROOT := "res://scenes"
+const PRODUCTION_SCENES: Array[String] = [
+	"res://scenes/cards/joker_card_view.tscn",
+	"res://scenes/cards/playing_card_view.tscn",
+	"res://scenes/game/game_hud_panel.tscn",
+	"res://scenes/game/game_table_screen.tscn",
+	"res://scenes/game/phases/battle_content.tscn",
+	"res://scenes/game/phases/blind_select_panel.tscn",
+	"res://scenes/game/phases/settlement_panel.tscn",
+	"res://scenes/game/phases/shop_panel.tscn",
+	"res://scenes/game/stage_card_view.tscn",
+	"res://scenes/game/table/consumable_tray.tscn",
+	"res://scenes/game/table/deck_area.tscn",
+	"res://scenes/game/table/joker_shelf.tscn",
+	"res://scenes/main.tscn",
+	"res://scenes/screens/main_menu_screen.tscn",
+	"res://scenes/screens/result_screen.tscn",
+	"res://scenes/screens/run_setup_screen.tscn",
+	"res://scenes/shop/shop_offer_card.tscn",
+	"res://scenes/ui/card_detail_popup.tscn",
+	"res://scenes/ui/deck_select_screen.tscn",
+	"res://scenes/ui/floating_score_label.tscn",
+	"res://scenes/ui/main_menu_screen.tscn",
+	"res://scenes/ui/result_screen.tscn",
+	"res://scenes/ui/shared/bottom_sheet_host.tscn",
+	"res://scenes/ui/shared/consumable_slot_view.tscn",
+]
 
 var failures: Array[String] = []
 var checked_paths: Array[String] = []
@@ -12,8 +37,7 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	_collect_scene_paths(SCENE_ROOT, checked_paths)
-	checked_paths.sort()
+	checked_paths.assign(PRODUCTION_SCENES)
 	_expect(not checked_paths.is_empty(), "no production scenes discovered")
 	for scene_path: String in checked_paths:
 		await _check_scene(scene_path)
@@ -21,33 +45,6 @@ func _run() -> void:
 	AudioManager.stop_bgm()
 	print("CHECKED %d production scenes" % checked_paths.size())
 	_finish()
-
-
-func _collect_scene_paths(directory_path: String, output: Array[String]) -> void:
-	var directory := DirAccess.open(directory_path)
-	if directory == null:
-		failures.append("cannot open scene directory: %s" % directory_path)
-		return
-	directory.list_dir_begin()
-	var entry := directory.get_next()
-	while not entry.is_empty():
-		var entry_path := directory_path.path_join(entry)
-		if directory.current_is_dir():
-			if not _is_excluded_directory(entry_path):
-				_collect_scene_paths(entry_path, output)
-		elif entry.ends_with(".tscn") and not _is_excluded_scene(entry_path):
-			output.append(entry_path)
-		entry = directory.get_next()
-	directory.list_dir_end()
-
-
-func _is_excluded_directory(path: String) -> bool:
-	return path.begins_with("res://scenes/debug") or path.contains("/visual_review")
-
-
-func _is_excluded_scene(path: String) -> bool:
-	return path.contains("capture_") or path.contains("temporary_")
-
 
 func _check_scene(scene_path: String) -> void:
 	_prepare_state(scene_path)

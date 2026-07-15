@@ -7,8 +7,10 @@ func _init() -> void:
 
 func _run() -> void:
 	var json_paths: Array[String] = [
-		"res://assets/ASSET_MANIFEST.json",
-		"res://assets/ui/extracted/asset_manifest.json",
+		"res://tools/art_pipeline/manifests/asset_manifest.json",
+		"res://tools/art_pipeline/manifests/extracted_asset_manifest.json",
+		"res://tools/reports/buttons/button_manifest.json",
+		"res://tools/reports/buttons/asset_normalization.json",
 		"res://assets/ui/runtime/ui_asset_catalog.json",
 		"res://assets/cards/card_art_manifest.json",
 		"res://data/cards/jokers.json",
@@ -27,7 +29,10 @@ func _run() -> void:
 	for path in json_paths:
 		_expect(FileAccess.file_exists(path), "missing JSON: %s" % path)
 		if FileAccess.file_exists(path):
-			_expect(JSON.parse_string(FileAccess.get_file_as_string(path)) != null, "invalid JSON: %s" % path)
+			var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+			_expect(parsed != null, "invalid JSON: %s" % path)
+			if parsed != null and path.contains("manifest"):
+				_check_manifest_resource_paths(path, parsed)
 
 	var ranks: Array[String] = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k", "a"]
 	var suits: Array[String] = ["clubs", "diamonds", "hearts", "spades"]
@@ -42,13 +47,12 @@ func _run() -> void:
 
 	var required_textures: Array[String] = [
 		"res://assets/ui/runtime/backgrounds/home_table.png",
-		"res://assets/ui/runtime/backgrounds/stage_select.png",
-		"res://assets/ui/runtime/backgrounds/battle_frame.png",
-		"res://assets/ui/runtime/backgrounds/shop.png",
-		"res://assets/ui/runtime/panels/battle_hud_full.png",
-		"res://assets/ui/runtime/panels/deck_main_panel.png",
+		"res://assets/ui/runtime/backgrounds/game_table_base.png",
+		"res://assets/ui/runtime/frames/battle_hud_title_plate.png",
+		"res://assets/ui/runtime/panels/battle_hud_chips_panel.png",
+		"res://assets/ui/runtime/panels/battle_hud_mult_panel.png",
 		"res://assets/ui/runtime/panels/settlement_detail_panel.png",
-		"res://assets/ui/runtime/panels/shop_offers_panel.png",
+		"res://assets/ui/runtime/panels/shop_title_panel.png",
 		"res://assets/ui/runtime/generated/joker_fallback.png",
 		"res://assets/ui/runtime/generated/voucher_fallback.png",
 		"res://assets/ui/runtime/generated/pack_fallback.png",
@@ -56,6 +60,32 @@ func _run() -> void:
 	for path in required_textures:
 		_expect(ResourceLoader.load(path, "Texture2D") is Texture2D, "texture failed to import: %s" % path)
 	_finish("test_asset_integrity")
+
+func _check_manifest_resource_paths(manifest_path: String, value: Variant) -> void:
+	var paths: Array[String] = []
+	_collect_res_paths(value, paths)
+	var checked: Dictionary = {}
+	for path in paths:
+		if checked.has(path):
+			continue
+		checked[path] = true
+		_expect(FileAccess.file_exists(path) or ResourceLoader.exists(path), "%s references missing resource: %s" % [manifest_path, path])
+		if path.get_extension().to_lower() in ["png", "jpg", "jpeg", "webp", "svg"]:
+			_expect(ResourceLoader.load(path, "Texture2D") is Texture2D, "%s texture is not loadable: %s" % [manifest_path, path])
+
+func _collect_res_paths(value: Variant, output: Array[String]) -> void:
+	if value is String:
+		var text := str(value)
+		if text.begins_with("res://") and not text.contains("#") and not text.get_extension().is_empty():
+			output.append(text)
+		return
+	if value is Dictionary:
+		for child: Variant in (value as Dictionary).values():
+			_collect_res_paths(child, output)
+		return
+	if value is Array:
+		for child: Variant in value:
+			_collect_res_paths(child, output)
 
 func _expect(condition: bool, message: String) -> void:
 	if not condition:

@@ -7,9 +7,7 @@
 | 用途 | Runtime 资源 | 接入方式 |
 | --- | --- | --- |
 | 不透明绿色牌桌底层 | `backgrounds/home_table.png` | 全屏 TextureRect，保持 16:9 cover |
-| 盲注页叠加层 | `backgrounds/stage_select.png` | 位于牌桌底层上方，保持比例 |
-| 战斗页叠加层 | `backgrounds/battle_frame.png` | 位于牌桌底层上方，保持比例 |
-| 商店页叠加层 | `backgrounds/shop.png` | 右侧主区叠加，不横向拉伸到左 HUD |
+| 统一游戏桌底层 | `backgrounds/game_table_base.png` | 盲注、战斗、结算和商店阶段共用 |
 | 统一卡面 fallback | `generated/*.png` | 仅由 `ArtResolver` 返回，不直接硬编码到业务脚本 |
 
 ## Deck select
@@ -17,7 +15,6 @@
 | 固定节点/角色 | Runtime 资源 |
 | --- | --- |
 | New / Continue / Challenge 标签底图 | `buttons/deck_tab_left.png`、`deck_tab_center.png`、`deck_tab_right.png` |
-| 主面板 | `panels/deck_main_panel.png` |
 | 牌背预览框 | `frames/deck_deck_back_frame.png`；实际牌背通过 `ArtResolver.get_deck_back(deck_id)` 覆盖 |
 | 数据统计面板 | `panels/deck_stats_panel.png` |
 | 难度筹码框 / 说明框 | `frames/deck_stake_token_frame.png`、`panels/deck_stake_panel.png` |
@@ -45,7 +42,7 @@
 
 | 固定节点/角色 | Runtime 资源 |
 | --- | --- |
-| 左 HUD 背板 | `panels/battle_hud_full.png` |
+| 左 HUD | `scenes/game/game_hud_panel.tscn` 的静态节点与拆分纹理 |
 | 小丑货架 | `frames/battle_title_bar.png`；已排除 atlas 右侧细条 |
 | HUD 标题、筹码、倍率 | `frames/battle_hud_title_plate.png`、`panels/battle_hud_chips_panel.png`、`battle_hud_mult_panel.png` |
 | 牌型 / 统计格 | `panels/battle_hand_type_panel.png`、`battle_stat_panel.png` |
@@ -77,7 +74,7 @@ Joker 固定槽由场景预置；每张实际小丑纹理由 `ArtResolver.get_jo
 
 | 固定节点/角色 | Runtime 资源 |
 | --- | --- |
-| 商店标题 / 上方 Offer 区 | `panels/shop_title_panel.png`、`shop_offers_panel.png` |
+| 商店标题 / 商品容器 | `panels/shop_title_panel.png` 与 `shop_panel.tscn` 静态槽位 |
 | 优惠券区 / 补充包区 | `panels/shop_voucher_panel.png`、`shop_packs_panel.png` |
 | 下一回合 / 刷新 | `buttons/shop_button_red.png`、`shop_button_green.png` |
 | 区标题 | `frames/shop_section_bar.png` 或 `shop_section_bar_compact.png` |

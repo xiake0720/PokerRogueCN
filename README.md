@@ -35,12 +35,17 @@ Godot 4.6 可导入的中文扑克构筑 Roguelike 项目。
 
 - 主场景：`res://scenes/main.tscn`
 - 屏幕路由：`res://scripts/ui/screen_router.gd`
-- 首页：`res://scenes/ui/main_menu_screen.tscn`
-- 牌组选择：`res://scenes/ui/deck_select_screen.tscn`
-- 关卡选择：`res://scenes/game/stage_select_screen.tscn`
-- 战斗界面：`res://scenes/game/battle_screen.tscn`
-- 结算界面：`res://scenes/game/settlement_screen.tscn`
-- 小丑商店：`res://scenes/shop/joker_shop_screen.tscn`
+- 顶层首页包装：`res://scenes/screens/main_menu_screen.tscn`
+- 顶层开局设置包装：`res://scenes/screens/run_setup_screen.tscn`
+- 顶层结果包装：`res://scenes/screens/result_screen.tscn`
+- 首页内容：`res://scenes/ui/main_menu_screen.tscn`
+- 牌组选择内容：`res://scenes/ui/deck_select_screen.tscn`
+- 统一游戏桌：`res://scenes/game/game_table_screen.tscn`
+- 盲注选择阶段：`res://scenes/game/phases/blind_select_panel.tscn`
+- 战斗阶段：`res://scenes/game/phases/battle_content.tscn`
+- 结算阶段：`res://scenes/game/phases/settlement_panel.tscn`
+- 商店阶段：`res://scenes/game/phases/shop_panel.tscn`
+- 常驻桌面组件：`res://scenes/game/table/`
 - 商店商品卡：`res://scenes/shop/shop_offer_card.tscn`
 - 扑克牌组件：`res://scenes/cards/playing_card_view.tscn`
 - 小丑牌组件：`res://scenes/cards/joker_card_view.tscn`
@@ -55,6 +60,14 @@ Godot 4.6 可导入的中文扑克构筑 Roguelike 项目。
 - 美术解析清单：`res://assets/cards/card_art_manifest.json`
 - UI 切片清单：`res://assets/ui/runtime/ui_asset_catalog.json`
 - 规则审计：`res://docs/balatro_rules_audit.md`
+
+## 场景架构
+
+- `scenes/screens/` 只负责首页、开局设置和结果页三个顶层路由包装。
+- `scenes/game/game_table_screen.tscn` 在一局游戏期间常驻；盲注、战斗、结算和商店不会切换到旧全屏场景。
+- `scenes/game/phases/` 保存统一游戏桌内按阶段显示的内容面板。
+- `scenes/game/table/` 保存跨阶段常驻的 HUD、小丑架、消耗牌托盘和牌堆区域。
+- `scenes/debug/` 仅用于开发检查，不属于生产场景清单。
 
 ## 测试方式
 

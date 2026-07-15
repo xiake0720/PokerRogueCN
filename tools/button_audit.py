@@ -15,7 +15,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 THEME_PATH = ROOT / "assets/ui/theme/game_theme.tres"
-MANIFEST_PATH = ROOT / "assets/ui/runtime/buttons/button_manifest.json"
+MANIFEST_PATH = ROOT / "tools/reports/buttons/button_manifest.json"
 AUDIT_PATH = ROOT / "docs/button_audit.md"
 BUTTON_TYPES = {"Button", "TextureButton", "CheckButton", "OptionButton", "MenuButton", "LinkButton"}
 STATES = ("normal", "hover", "pressed", "disabled", "focus")
@@ -213,13 +213,13 @@ def classify(node: dict[str, Any], scene_path: str) -> str:
         return "ShopBuyButton"
     if scene_path.endswith("main_menu_screen.tscn"):
         return "HomeExclusiveButton"
-    if scene_path.endswith("battle_screen.tscn"):
+    if scene_path.endswith("battle_content.tscn"):
         return "BattleExclusiveButton"
     if scene_path.endswith("stage_card_view.tscn"):
         return "StagePrimaryButton" if name == "SelectButton" else "StageSecondaryButton"
-    if scene_path.endswith("settlement_screen.tscn"):
+    if scene_path.endswith("settlement_panel.tscn"):
         return "SettlementPrimaryButton"
-    if scene_path.endswith("joker_shop_screen.tscn"):
+    if scene_path.endswith("shop_panel.tscn"):
         return "ShopPrimaryButton" if name == "NextButton" else "ShopSecondaryButton"
     if scene_path.endswith("deck_select_screen.tscn"):
         return "DeckTabButton" if name in ("NewRunButton", "ContinueButton", "ChallengeButton") else "DeckExclusiveButton"
@@ -305,7 +305,7 @@ def pseudo_buttons(scene_path: str, scene: dict[str, Any]) -> list[dict[str, Any
             "interaction": "gui_input",
             "final_button_type": "InteractiveCard",
         })
-    if scene_path.endswith("battle_screen.tscn"):
+    if scene_path.endswith("battle_content.tscn"):
         for name in ("ConsumableSlot1", "ConsumableSlot2", "ConsumableSlot3"):
             node = next((item for item in scene["nodes"] if item["name"] == name), None)
             if node:
@@ -326,6 +326,8 @@ def main() -> None:
     pseudo: list[dict[str, Any]] = []
     for scene_file in sorted((ROOT / "scenes").rglob("*.tscn")):
         scene_path = "res://" + scene_file.relative_to(ROOT).as_posix()
+        if scene_path.startswith("res://scenes/debug/") or scene_path.startswith("res://scenes/archive/"):
+            continue
         scene = parse_scene(scene_file)
         for node in scene["nodes"]:
             if node["type"] in BUTTON_TYPES:
@@ -336,7 +338,7 @@ def main() -> None:
         for path in sorted((ROOT / "assets/ui/extracted").rglob("*"))
         if path.is_file()
     }
-    normalization = json.loads((ROOT / "assets/ui/runtime/buttons/asset_normalization.json").read_text(encoding="utf-8"))
+    normalization = json.loads((ROOT / "tools/reports/buttons/asset_normalization.json").read_text(encoding="utf-8"))
     counts = Counter(button["scene"] for button in buttons)
     payload = {
         "schema_version": 1,

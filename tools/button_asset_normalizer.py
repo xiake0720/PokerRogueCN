@@ -18,7 +18,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = ROOT / "assets/ui/runtime/buttons"
-REPORT_PATH = OUTPUT_ROOT / "asset_normalization.json"
+REPORT_PATH = ROOT / "tools/reports/buttons/asset_normalization.json"
 
 
 @dataclass(frozen=True)
@@ -63,7 +63,6 @@ SPECS = (
     ButtonAssetSpec("shop_reroll", "assets/ui/runtime/buttons/shop_button_green.png", "shop/reroll.png", (240, 72), (34, 17, 34, 17), (170, 58), "Shop reroll button"),
     ButtonAssetSpec("shop_buy", "assets/ui/runtime/buttons/shop_button_green.png", "shop/buy.png", (190, 60), (27, 14, 27, 14), (120, 48), "Shop offer buy button"),
     ButtonAssetSpec("settlement_continue", "assets/ui/runtime/buttons/settlement_continue_button.png", "settlement/continue.png", (360, 92), (50, 21, 50, 21), (280, 84), "Settlement continue button"),
-    ButtonAssetSpec("settlement_claim", "assets/ui/runtime/buttons/settlement_claim_button.png", "settlement/claim.png", (360, 92), (50, 21, 50, 21), (280, 84), "Settlement claim button"),
     ButtonAssetSpec("result_primary", "assets/ui/runtime/buttons/settlement_continue_button.png", "result/primary.png", (340, 88), (48, 20, 48, 20), (280, 80), "Result primary action"),
     ButtonAssetSpec("result_home", "assets/ui/runtime/buttons/deck_back_button.png", "result/home.png", (280, 76), (40, 17, 40, 17), (220, 68), "Result secondary action"),
     ButtonAssetSpec("popup_confirm", "assets/ui/extracted/battle/button_gold_small.png", "popup/confirm.png", (220, 64), (31, 14, 31, 14), (160, 54), "Popup confirmation", False),
@@ -121,6 +120,7 @@ def normalize(spec: ButtonAssetSpec) -> dict[str, object]:
 def main() -> None:
     records = [normalize(spec) for spec in SPECS]
     payload = {"schema_version": 1, "generator": "tools/button_asset_normalizer.py", "assets": records}
+    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Normalized {len(records)} button assets -> {OUTPUT_ROOT}")
 

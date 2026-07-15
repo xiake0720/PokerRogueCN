@@ -77,7 +77,9 @@ func _check_buttons(screen: Control, scene_path: String, resolution: Vector2i, b
 		if not button.text.is_empty():
 			var font := button.get_theme_font("font")
 			var font_size := button.get_theme_font_size("font_size")
-			var text_width := font.get_string_size(button.text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+			var text_width := 0.0
+			for line: String in button.text.split("\n"):
+				text_width = maxf(text_width, font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x)
 			if text_width > maxf(button.size.x - 12.0, 1.0):
 				failures.append("%s %s text overflows at %s" % [scene_path, button.name, resolution])
 	for i in range(buttons.size()):

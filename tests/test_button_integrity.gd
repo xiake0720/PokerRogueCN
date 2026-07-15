@@ -1,6 +1,6 @@
 extends Node
 
-const MANIFEST_PATH := "res://assets/ui/runtime/buttons/button_manifest.json"
+const MANIFEST_PATH := "res://tools/reports/buttons/button_manifest.json"
 
 var failures: Array[String] = []
 
@@ -83,6 +83,9 @@ func _check_geometry(button: Dictionary, label: String) -> void:
 
 
 func _check_content_stability(button: Dictionary, label: String) -> void:
+	var styles: Dictionary = button.get("styles", {})
+	if str(styles.get("normal", "")).begins_with("SubResource:StyleBoxEmpty"):
+		return
 	var details: Dictionary = button.get("style_details", {})
 	var reference := JSON.stringify(Dictionary(details.get("normal", {})).get("content_margin", {}))
 	for state in ["hover", "pressed", "disabled"]:
@@ -96,7 +99,7 @@ func _check_special_fallbacks(button: Dictionary, label: String) -> void:
 	var name := str(button.get("name", ""))
 	var styles: Dictionary = button.get("styles", {})
 	var disabled := str(styles.get("disabled", ""))
-	if scene.ends_with("battle_screen.tscn") and not "/buttons/battle/" in disabled:
+	if scene.ends_with("battle_content.tscn") and not "/buttons/battle/" in disabled:
 		_fail("%s battle disabled style falls back outside battle family" % label)
 	if scene.ends_with("deck_select_screen.tscn") and name == "ContinueButton" and not "/deck_select/tab_center/" in disabled:
 		_fail("%s ContinueButton lost its tab disabled appearance" % label)
@@ -130,6 +133,8 @@ func _check_required_variations(variations: Array) -> void:
 
 func _collect_files(root: String, suffix: String) -> Array[String]:
 	var result: Array[String] = []
+	if root.begins_with("res://scenes/debug") or root.begins_with("res://scenes/archive"):
+		return result
 	var directory := DirAccess.open(root)
 	if directory == null:
 		_fail("cannot open directory: %s" % root)

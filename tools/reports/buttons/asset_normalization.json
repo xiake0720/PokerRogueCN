@@ -1235,50 +1235,6 @@
       "usage": "Settlement continue button"
     },
     {
-      "id": "settlement_claim",
-      "source": "res://assets/ui/runtime/buttons/settlement_claim_button.png",
-      "source_sha256": "2dd5848b3003f8b7d094343781c0aafb5a714655cbde1b3d47db699ba4156b49",
-      "source_size": [
-        429,
-        92
-      ],
-      "alpha_bbox": [
-        4,
-        4,
-        425,
-        88
-      ],
-      "crop_bbox": [
-        4,
-        4,
-        425,
-        88
-      ],
-      "cropped_size": [
-        421,
-        84
-      ],
-      "output": "res://assets/ui/runtime/buttons/settlement/claim.png",
-      "output_size": [
-        360,
-        92
-      ],
-      "output_sha256": "f17814c48e68d4e0f71d1dd92a021a703be0bd91b57252800022b38c686ff67d",
-      "texture_margin": {
-        "left": 50,
-        "top": 21,
-        "right": 50,
-        "bottom": 21
-      },
-      "recommended_minimum_size": [
-        280,
-        84
-      ],
-      "axis_stretch": "stretch",
-      "filter": "nearest",
-      "usage": "Settlement claim button"
-    },
-    {
       "id": "result_primary",
       "source": "res://assets/ui/runtime/buttons/settlement_continue_button.png",
       "source_sha256": "12a1f473b20e6e6a15f640d2bd5ac44f0b90442ea98db5344dc7d7780f5cd7d6",

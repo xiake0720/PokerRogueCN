@@ -396,9 +396,11 @@ class Audit:
         # Generator metadata that is not itself loaded by code remains tooling,
         # even when a historical report was placed under assets/ui/runtime.
         metadata_tool_roots = {
-            "assets/ASSET_MANIFEST.json",
             "assets/audio/audio_manifest.json",
-            "assets/ui/runtime/buttons/asset_normalization.json",
+            "tools/art_pipeline/manifests/asset_manifest.json",
+            "tools/art_pipeline/manifests/extracted_asset_manifest.json",
+            "tools/reports/buttons/asset_normalization.json",
+            "tools/reports/buttons/button_manifest.json",
         }
         self.tool_reachable.update(p for p in metadata_tool_roots if p in self.file_set)
 
@@ -756,7 +758,7 @@ class Audit:
             "- `scripts/cards/playing_card_view.gd` 以 rank/suit 拼接 `assets/cards/poker/faces/%s_%s.png`；审计器把目录中 52 张 `.png` 及其 `.import` 配对纳入动态运行资源。",
             "- `assets/ui/runtime/generated/jokers/**` 是 ArtResolver 的受保护动态目录族；即使新专属图片暂未写回清单，也标记为动态保留。",
             "- `autoload/data_registry.gd` 读取 `data/**.json` 作为正式数据入口；AudioManager 的 BGM/SFX `preload` 均属于静态运行依赖。",
-            "- `ui_asset_catalog.json`、`button_manifest.json`、`asset_normalization.json` 是来源/审计元数据；除非正式代码实际加载，否则不会仅因位于 `runtime/` 就升级为正式运行依赖。",
+            "- `ui_asset_catalog.json` 是切片来源元数据；按钮 manifest 与 normalization 报告已位于 `tools/reports/buttons/`，不会升级为正式运行依赖。",
             "",
             "## 文件分类统计（唯一主分类）",
             "",
@@ -840,7 +842,7 @@ class Audit:
         ]
         button_manifest_data: Mapping[str, object] = {}
         try:
-            button_manifest_data = json.loads(self.texts.get("assets/ui/runtime/buttons/button_manifest.json", "{}"))
+            button_manifest_data = json.loads(self.texts.get("tools/reports/buttons/button_manifest.json", "{}"))
         except json.JSONDecodeError:
             pass
         scene_counts = button_manifest_data.get("scene_counts", {}) if isinstance(button_manifest_data, dict) else {}
@@ -861,12 +863,12 @@ class Audit:
             "### B. 运行目录中的历史按钮报告",
             "",
             f"- `button_manifest.json` 仍含 **{debug_button_count}** 个 `button_style_gallery` 按钮，并引用已删除的 `battle_screen`、`settlement_screen`、`joker_shop_screen`；它由测试读取，但不是正式运行加载入口。",
-            "- `asset_normalization.json` 的 `generator` 指向 `tools/button_asset_normalizer.py`，属于 TOOL_ONLY 报告；第二轮应在重新生成测试清单后迁至 `tools/reports/`，而非继续混放在 runtime。",
+            "- `asset_normalization.json` 的 `generator` 指向 `tools/button_asset_normalizer.py`，现已与按钮 manifest 一起隔离到 `tools/reports/buttons/`。",
             "",
             "### C. 本机绝对路径清单",
             "",
-            f"- `assets/ASSET_MANIFEST.json`：发现 **{abs_counts.get('assets/ASSET_MANIFEST.json', 0)}** 个绝对路径文本。",
-            f"- `assets/ui/extracted/asset_manifest.json`：发现 **{abs_counts.get('assets/ui/extracted/asset_manifest.json', 0)}** 个绝对路径文本。",
+            f"- `tools/art_pipeline/manifests/asset_manifest.json`：发现 **{abs_counts.get('tools/art_pipeline/manifests/asset_manifest.json', 0)}** 个绝对路径文本。",
+            f"- `tools/art_pipeline/manifests/extracted_asset_manifest.json`：发现 **{abs_counts.get('tools/art_pipeline/manifests/extracted_asset_manifest.json', 0)}** 个绝对路径文本。",
             "- 两者应改成仓库相对来源标识或可移植 `res://`，但本轮只报告、不改写。",
             "",
             "### D. 已知旧运行资源候选",

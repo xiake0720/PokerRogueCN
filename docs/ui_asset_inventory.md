@@ -5,7 +5,7 @@
 
 ## 结论
 
-- `assets/ASSET_MANIFEST.json` 与 `assets/ui/extracted/asset_manifest.json` 都有 58 条记录；除 target 使用相对/绝对路径外，`kind`、`scene`、`size`、`bbox` 一致，58 个 target 全部存在。
+- `tools/art_pipeline/manifests/asset_manifest.json` 与 `tools/art_pipeline/manifests/extracted_asset_manifest.json` 都有 58 条记录；路径已规范为可移植的仓库相对路径或 `res://`，不再包含作者机器盘符。
 - 58 个 target 由 50 张 extracted RGBA PNG、6 张 reference PNG 和 2 个字体组成。
 - manifest 的 `bbox` 是提取前原始大图坐标；当前 extracted PNG 已按该 bbox 裁过，且 `size` 等于 bbox 宽高。二次切片必须使用当前 PNG 的局部坐标，不能再次套用 manifest bbox。
 - 50 张 extracted PNG 都有 Alpha 通道。提取图的可见像素普遍贴边，因此 runtime 单图统一在 Alpha 裁切后补 4 px 透明安全边；背景叠加层保留原尺寸。

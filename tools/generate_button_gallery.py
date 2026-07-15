@@ -43,7 +43,7 @@ ROWS = (
 
 
 def main() -> None:
-    assets_payload = json.loads((ROOT / "assets/ui/runtime/buttons/asset_normalization.json").read_text(encoding="utf-8"))
+    assets_payload = json.loads((ROOT / "tools/reports/buttons/asset_normalization.json").read_text(encoding="utf-8"))
     assets = {item["id"]: item for item in assets_payload["assets"]}
     style_paths: dict[str, str] = {}
     for row in ROWS:
