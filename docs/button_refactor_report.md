@@ -54,7 +54,7 @@ Godot：4.6.2 stable
 
 ## 6. 规范化后的按钮图片
 
-`tools/button_asset_normalizer.py` 确定性生成 33 张运行时 PNG，分布于 `assets/ui/runtime/buttons/{common,home,deck_select,stage,battle,shop,settlement,result,popup}/`。工具记录 Alpha bbox、裁切、输出尺寸、SHA-256、Texture Margin 和推荐最小尺寸；全部使用 nearest 过滤，中央采用 stretch。`assets/ui/extracted/` 未修改。
+`tools/button_asset_normalizer.py` 确定性生成 32 张运行时 PNG，分布于 `assets/ui/runtime/buttons/{common,home,deck_select,stage,battle,shop,settlement,result,popup}/`。工具记录 Alpha bbox、裁切、输出尺寸、SHA-256、Texture Margin 和推荐最小尺寸；全部使用 nearest 过滤，中央采用 stretch。正式源图位于 `art_source/ui/extracted/`，工具只读取、不原地修改。
 
 ## 7. 原始图片到运行时资源映射
 
@@ -133,7 +133,7 @@ Godot 4.6.2 editor 导入通过；以下测试全部通过：
 
 `test_button_integrity`、`test_art_resolver`、`test_asset_integrity`、`test_blind_flow`、`test_hand_evaluator`、`test_pack_flow`、`test_round_flow`、`test_scene_integrity`、`test_settlement_flow`、`test_shop_flow`、`test_ui_resolutions`、`test_ui_static_structure`、`test_voucher_flow`、`smoke_run`、`capture_button_review`。
 
-`git diff --check` 通过；`assets/ui/extracted/` 无差异。Smoke 退出码为 0，仅有项目原先的退出时 ObjectDB/resource 警告。
+`git diff --check` 通过；生成过程未改写源图像素。Smoke 退出码为 0，仅有项目原先的退出时 ObjectDB/resource 警告。
 
 ## 20. 多分辨率测试结果
 

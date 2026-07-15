@@ -1,8 +1,9 @@
 # Runtime UI assets
 
-This directory contains editor-ready PNGs produced by offline tools. The files
-under `assets/ui/extracted/` are the canonical source sheets and must not be
-modified in place.
+This directory contains editor-ready PNGs produced by offline tools. Canonical
+source sheets live under `art_source/ui/extracted/` and must not be modified in
+place. A small number of approved full-size sheets also live under
+`assets/ui/runtime/screens/` because production scenes use them directly.
 
 - Rebuild text-free art fallbacks: `python tools/generate_card_fallbacks.py`
 - Rebuild all UI slices and the catalog: `python tools/ui_asset_slicer.py`

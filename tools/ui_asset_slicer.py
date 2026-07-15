@@ -2,7 +2,7 @@
 """Deterministically slice transparent UI sprite sheets for Godot.
 
 The tool is intentionally offline: it never touches ``.godot`` and it refuses
-to write into ``assets/ui/extracted``.  Slice definitions live in
+to write into ``art_source/ui``.  Slice definitions live in
 ``tools/ui_asset_slices.json`` so every runtime PNG can be reproduced and
 audited without doing image work at game runtime.
 """
@@ -27,7 +27,7 @@ except ImportError as exc:  # pragma: no cover - actionable CLI failure
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = REPO_ROOT / "tools" / "ui_asset_slices.json"
-EXTRACTED_ROOT = (REPO_ROOT / "assets" / "ui" / "extracted").resolve()
+ART_SOURCE_ROOT = (REPO_ROOT / "art_source" / "ui").resolve()
 GENERATOR_PATH = "res://tools/ui_asset_slicer.py"
 
 
@@ -62,6 +62,13 @@ def _project_path(raw_path: str, *, label: str) -> Path:
 
 def _resource_path(path: Path) -> str:
     relative = path.resolve().relative_to(REPO_ROOT).as_posix()
+    return f"res://{relative}"
+
+
+def _source_reference(path: Path) -> str:
+    relative = path.resolve().relative_to(REPO_ROOT).as_posix()
+    if path.resolve().is_relative_to(ART_SOURCE_ROOT):
+        return relative
     return f"res://{relative}"
 
 
@@ -260,7 +267,7 @@ def _asset_record(
         "scene": str(definition.get("scene", "shared")),
         "category": str(definition.get("category", "misc")),
         "path": _resource_path(output_path),
-        "source": _resource_path(source_path),
+        "source": _source_reference(source_path),
         "source_sha256": source_sha,
         "source_size": list(source_size),
         "source_has_alpha": source_has_alpha,
@@ -349,11 +356,11 @@ def run(config_path: Path, *, validate_only: bool = False, quiet: bool = False) 
 
     output_root = _project_path(str(config.get("output_root", "assets/ui/runtime")), label="output_root")
     try:
-        output_root.relative_to(EXTRACTED_ROOT)
+        output_root.relative_to(ART_SOURCE_ROOT)
     except ValueError:
         pass
     else:
-        raise SliceError("output_root must not be inside assets/ui/extracted")
+        raise SliceError("output_root must not be inside art_source/ui")
     manifest_path = _project_path(
         str(config.get("manifest", "assets/ui/runtime/ui_asset_catalog.json")), label="manifest"
     )

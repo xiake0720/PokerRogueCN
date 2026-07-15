@@ -35,16 +35,16 @@ class ButtonAssetSpec:
 
 
 SPECS = (
-    ButtonAssetSpec("common_primary_red", "assets/ui/extracted/battle/button_red_large.png", "common/primary_red.png", (420, 110), (58, 24, 58, 24), (280, 84), "Extra-large and primary red buttons", False),
-    ButtonAssetSpec("common_primary_gold", "assets/ui/extracted/battle/button_gold_large.png", "common/primary_gold.png", (420, 110), (58, 24, 58, 24), (280, 84), "Extra-large and primary gold buttons", False),
+    ButtonAssetSpec("common_primary_red", "art_source/ui/extracted/battle/button_red_large.png", "common/primary_red.png", (420, 110), (58, 24, 58, 24), (280, 84), "Extra-large and primary red buttons", False),
+    ButtonAssetSpec("common_primary_gold", "art_source/ui/extracted/battle/button_gold_large.png", "common/primary_gold.png", (420, 110), (58, 24, 58, 24), (280, 84), "Extra-large and primary gold buttons", False),
     ButtonAssetSpec("common_secondary_red", "assets/ui/extracted/battle/button_red_small.png", "common/secondary_red.png", (300, 88), (42, 19, 42, 19), (170, 58), "Secondary red buttons", False),
     ButtonAssetSpec("common_secondary_gold", "assets/ui/extracted/battle/button_gold_small.png", "common/secondary_gold.png", (300, 88), (42, 19, 42, 19), (170, 58), "Secondary gold buttons", False),
     ButtonAssetSpec("common_small_red", "assets/ui/extracted/battle/button_red_small.png", "common/small_red.png", (190, 64), (27, 14, 27, 14), (120, 46), "Compact red and danger buttons", False),
     ButtonAssetSpec("common_small_gold", "assets/ui/extracted/battle/button_gold_small.png", "common/small_gold.png", (190, 64), (27, 14, 27, 14), (120, 46), "Compact gold buttons", False),
-    ButtonAssetSpec("home_start", "assets/ui/extracted/home/menu_button_start.png", "home/start.png", (620, 136), (84, 26, 84, 26), (360, 96), "Home start button", False),
-    ButtonAssetSpec("home_options", "assets/ui/extracted/home/menu_button_settings.png", "home/options.png", (560, 105), (72, 22, 72, 22), (300, 72), "Home settings button", False),
-    ButtonAssetSpec("home_quit", "assets/ui/extracted/home/menu_button_quit.png", "home/quit.png", (560, 111), (72, 23, 72, 23), (300, 72), "Home quit button", False),
-    ButtonAssetSpec("home_language", "assets/ui/extracted/home/menu_button_language.png", "home/language.png", (560, 111), (72, 23, 72, 23), (300, 72), "Home language button", False),
+    ButtonAssetSpec("home_start", "art_source/ui/extracted/home/menu_button_start.png", "home/start.png", (620, 136), (84, 26, 84, 26), (360, 96), "Home start button", False),
+    ButtonAssetSpec("home_options", "art_source/ui/extracted/home/menu_button_settings.png", "home/options.png", (560, 105), (72, 22, 72, 22), (300, 72), "Home settings button", False),
+    ButtonAssetSpec("home_quit", "art_source/ui/extracted/home/menu_button_quit.png", "home/quit.png", (560, 111), (72, 23, 72, 23), (300, 72), "Home quit button", False),
+    ButtonAssetSpec("home_language", "art_source/ui/extracted/home/menu_button_language.png", "home/language.png", (560, 111), (72, 23, 72, 23), (300, 72), "Home language button", False),
     ButtonAssetSpec("deck_tab_left", "assets/ui/runtime/buttons/deck_tab_left.png", "deck_select/tab_left.png", (303, 88), (44, 20, 38, 20), (240, 72), "New-run tab"),
     ButtonAssetSpec("deck_tab_center", "assets/ui/runtime/buttons/deck_tab_center.png", "deck_select/tab_center.png", (280, 88), (38, 20, 38, 20), (240, 72), "Continue tab"),
     ButtonAssetSpec("deck_tab_right", "assets/ui/runtime/buttons/deck_tab_right.png", "deck_select/tab_right.png", (292, 88), (38, 20, 44, 20), (240, 72), "Challenge tab"),
@@ -98,9 +98,12 @@ def normalize(spec: ButtonAssetSpec) -> dict[str, object]:
     left, top, right, bottom = spec.texture_margin
     if left + right >= spec.minimum_size[0] or top + bottom >= spec.minimum_size[1]:
         raise ValueError(f"Invalid nine-patch geometry for {spec.asset_id}")
+    source_reference = spec.source.replace("\\", "/")
+    if not source_reference.startswith("art_source/"):
+        source_reference = "res://" + source_reference
     return {
         "id": spec.asset_id,
-        "source": "res://" + spec.source.replace("\\", "/"),
+        "source": source_reference,
         "source_sha256": sha256(source_path),
         "source_size": list(source_size),
         "alpha_bbox": list(alpha_bbox),

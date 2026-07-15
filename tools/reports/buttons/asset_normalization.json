@@ -4,7 +4,7 @@
   "assets": [
     {
       "id": "common_primary_red",
-      "source": "res://assets/ui/extracted/battle/button_red_large.png",
+      "source": "art_source/ui/extracted/battle/button_red_large.png",
       "source_sha256": "8b572329a9c464a7ebdea1d093ca992e58824fb98ced8e91e073ac315681575a",
       "source_size": [
         1544,
@@ -48,7 +48,7 @@
     },
     {
       "id": "common_primary_gold",
-      "source": "res://assets/ui/extracted/battle/button_gold_large.png",
+      "source": "art_source/ui/extracted/battle/button_gold_large.png",
       "source_sha256": "6a30ae7d977f6e19e902fcc2528698b31b9c51702e56d6c650d0489ddb28a61a",
       "source_size": [
         1437,
@@ -268,7 +268,7 @@
     },
     {
       "id": "home_start",
-      "source": "res://assets/ui/extracted/home/menu_button_start.png",
+      "source": "art_source/ui/extracted/home/menu_button_start.png",
       "source_sha256": "6c5a8e10cc3f8074e50e65543c1937dcf48d1925c52eec633afed224bc25e610",
       "source_size": [
         1009,
@@ -312,7 +312,7 @@
     },
     {
       "id": "home_options",
-      "source": "res://assets/ui/extracted/home/menu_button_settings.png",
+      "source": "art_source/ui/extracted/home/menu_button_settings.png",
       "source_sha256": "45eeb76d194df787b31e732c1e842bee49998ec84d1c96682d14a29f14c7d6ad",
       "source_size": [
         846,
@@ -356,7 +356,7 @@
     },
     {
       "id": "home_quit",
-      "source": "res://assets/ui/extracted/home/menu_button_quit.png",
+      "source": "art_source/ui/extracted/home/menu_button_quit.png",
       "source_sha256": "94fe1f63e2bd5969318952ce1c663eab78ca54d5b5a30c6b5a59f07ccf46a322",
       "source_size": [
         846,
@@ -400,7 +400,7 @@
     },
     {
       "id": "home_language",
-      "source": "res://assets/ui/extracted/home/menu_button_language.png",
+      "source": "art_source/ui/extracted/home/menu_button_language.png",
       "source_sha256": "e1309383ecc32a0ef6e70c33490faa2700a3510838b8c89257e325c44e523bf1",
       "source_size": [
         846,

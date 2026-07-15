@@ -6,29 +6,29 @@
   "asset_count": 102,
   "source_count": 24,
   "sources": [
-    "res://assets/ui/extracted/battle/battle_action_buttons.png",
-    "res://assets/ui/extracted/battle/battle_card_slots.png",
-    "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
-    "res://assets/ui/extracted/battle/battle_deck_area.png",
-    "res://assets/ui/extracted/battle/battle_title_bar.png",
-    "res://assets/ui/extracted/battle/battle_tokens.png",
-    "res://assets/ui/extracted/battle/button_gold_large.png",
+    "art_source/ui/extracted/battle/battle_action_buttons.png",
+    "art_source/ui/extracted/battle/battle_card_slots.png",
+    "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
+    "art_source/ui/extracted/battle/battle_deck_area.png",
+    "art_source/ui/extracted/battle/battle_title_bar.png",
+    "art_source/ui/extracted/battle/battle_tokens.png",
+    "art_source/ui/extracted/battle/button_gold_large.png",
+    "art_source/ui/extracted/battle/button_red_large.png",
+    "art_source/ui/extracted/settlement/settlement_parts.png",
+    "art_source/ui/extracted/shop/shop_button_bars.png",
+    "art_source/ui/extracted/shop/shop_cards_packs.png",
+    "art_source/ui/extracted/shop/shop_curtains_coins.png",
+    "art_source/ui/extracted/shop/shop_frame_panels.png",
+    "art_source/ui/extracted/stage_select/stage_buttons.png",
+    "art_source/ui/extracted/stage_select/stage_card_active.png",
+    "art_source/ui/extracted/stage_select/stage_card_locked.png",
+    "art_source/ui/extracted/stage_select/stage_card_next.png",
+    "art_source/ui/extracted/stage_select/stage_title_banner.png",
+    "art_source/ui/extracted/stage_select/stage_tokens.png",
     "res://assets/ui/extracted/battle/button_gold_small.png",
-    "res://assets/ui/extracted/battle/button_red_large.png",
     "res://assets/ui/extracted/battle/button_red_small.png",
-    "res://assets/ui/extracted/deck_select/deck_select_parts.png",
-    "res://assets/ui/extracted/home/background_table.png",
-    "res://assets/ui/extracted/settlement/settlement_parts.png",
-    "res://assets/ui/extracted/shop/shop_button_bars.png",
-    "res://assets/ui/extracted/shop/shop_cards_packs.png",
-    "res://assets/ui/extracted/shop/shop_curtains_coins.png",
-    "res://assets/ui/extracted/shop/shop_frame_panels.png",
-    "res://assets/ui/extracted/stage_select/stage_buttons.png",
-    "res://assets/ui/extracted/stage_select/stage_card_active.png",
-    "res://assets/ui/extracted/stage_select/stage_card_locked.png",
-    "res://assets/ui/extracted/stage_select/stage_card_next.png",
-    "res://assets/ui/extracted/stage_select/stage_title_banner.png",
-    "res://assets/ui/extracted/stage_select/stage_tokens.png",
+    "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
+    "res://assets/ui/runtime/screens/home/background_table.png",
     "res://tools/generate_card_fallbacks.py"
   ],
   "assets": [
@@ -37,7 +37,7 @@
       "scene": "shared",
       "category": "backgrounds",
       "path": "res://assets/ui/runtime/backgrounds/home_table.png",
-      "source": "res://assets/ui/extracted/home/background_table.png",
+      "source": "res://assets/ui/runtime/screens/home/background_table.png",
       "source_sha256": "b900e0baf9f043bc0e4a3c35d22a8c70c9bd810acbe94722502ffb2415a90df1",
       "source_size": [
         1672,
@@ -83,7 +83,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_button_gold_large_hd.png",
-      "source": "res://assets/ui/extracted/battle/button_gold_large.png",
+      "source": "art_source/ui/extracted/battle/button_gold_large.png",
       "source_sha256": "6a30ae7d977f6e19e902fcc2528698b31b9c51702e56d6c650d0489ddb28a61a",
       "source_size": [
         1437,
@@ -175,7 +175,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_button_red_large_hd.png",
-      "source": "res://assets/ui/extracted/battle/button_red_large.png",
+      "source": "art_source/ui/extracted/battle/button_red_large.png",
       "source_sha256": "8b572329a9c464a7ebdea1d093ca992e58824fb98ced8e91e073ac315681575a",
       "source_size": [
         1544,
@@ -267,7 +267,7 @@
       "scene": "battle",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/battle_card_slot.png",
-      "source": "res://assets/ui/extracted/battle/battle_card_slots.png",
+      "source": "art_source/ui/extracted/battle/battle_card_slots.png",
       "source_sha256": "ac11ec18c162b5b7ab11e0c82906f7b37741a9556950606be79913b76dd5fbd9",
       "source_size": [
         626,
@@ -313,7 +313,7 @@
       "scene": "battle",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/battle_chip_blue.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -359,7 +359,7 @@
       "scene": "battle",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/battle_coin_pile.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -405,7 +405,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_consumable_tray.png",
-      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source": "art_source/ui/extracted/battle/battle_deck_area.png",
       "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
       "source_size": [
         619,
@@ -451,7 +451,7 @@
       "scene": "battle",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/battle_crown_icon.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -497,7 +497,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_deck_count_panel.png",
-      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source": "art_source/ui/extracted/battle/battle_deck_area.png",
       "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
       "source_size": [
         619,
@@ -543,7 +543,7 @@
       "scene": "battle",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/battle_deck_stack.png",
-      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source": "art_source/ui/extracted/battle/battle_deck_area.png",
       "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
       "source_size": [
         619,
@@ -589,7 +589,7 @@
       "scene": "battle",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/battle_deck_title_plate.png",
-      "source": "res://assets/ui/extracted/battle/battle_deck_area.png",
+      "source": "art_source/ui/extracted/battle/battle_deck_area.png",
       "source_sha256": "6780c1c114251b14bffce8255e46a8a427945391d1432172dc4ccbce97de62b8",
       "source_size": [
         619,
@@ -635,7 +635,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_discard_button.png",
-      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source": "art_source/ui/extracted/battle/battle_action_buttons.png",
       "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
       "source_size": [
         1212,
@@ -681,7 +681,7 @@
       "scene": "battle",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/battle_gold_token_large.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -727,7 +727,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_hand_type_panel.png",
-      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source": "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
       "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
       "source_size": [
         766,
@@ -773,7 +773,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_hud_chips_panel.png",
-      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source": "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
       "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
       "source_size": [
         766,
@@ -819,7 +819,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_hud_mult_panel.png",
-      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source": "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
       "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
       "source_size": [
         766,
@@ -865,7 +865,7 @@
       "scene": "battle",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/battle_hud_title_plate.png",
-      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source": "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
       "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
       "source_size": [
         766,
@@ -911,7 +911,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_play_button.png",
-      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source": "art_source/ui/extracted/battle/battle_action_buttons.png",
       "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
       "source_size": [
         1212,
@@ -957,7 +957,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_score_chip_plate.png",
-      "source": "res://assets/ui/extracted/battle/battle_card_slots.png",
+      "source": "art_source/ui/extracted/battle/battle_card_slots.png",
       "source_sha256": "ac11ec18c162b5b7ab11e0c82906f7b37741a9556950606be79913b76dd5fbd9",
       "source_size": [
         626,
@@ -1003,7 +1003,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_score_mult_plate.png",
-      "source": "res://assets/ui/extracted/battle/battle_card_slots.png",
+      "source": "art_source/ui/extracted/battle/battle_card_slots.png",
       "source_sha256": "ac11ec18c162b5b7ab11e0c82906f7b37741a9556950606be79913b76dd5fbd9",
       "source_size": [
         626,
@@ -1049,7 +1049,7 @@
       "scene": "battle",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/battle_settings_gear.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -1095,7 +1095,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_sort_rank_button.png",
-      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source": "art_source/ui/extracted/battle/battle_action_buttons.png",
       "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
       "source_size": [
         1212,
@@ -1141,7 +1141,7 @@
       "scene": "battle",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/battle_sort_suit_button.png",
-      "source": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+      "source": "art_source/ui/extracted/battle/battle_action_buttons.png",
       "source_sha256": "e35c5569abb4249f631835dec48fe49930c99673f2992fef9662b894c277640d",
       "source_size": [
         1212,
@@ -1187,7 +1187,7 @@
       "scene": "battle",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/battle_stat_panel.png",
-      "source": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+      "source": "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
       "source_sha256": "b945133d177590cabd7208b800ecfaee4d412c1157a2819b47f5db92004f2ffd",
       "source_size": [
         766,
@@ -1233,7 +1233,7 @@
       "scene": "battle",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/battle_title_bar.png",
-      "source": "res://assets/ui/extracted/battle/battle_title_bar.png",
+      "source": "art_source/ui/extracted/battle/battle_title_bar.png",
       "source_sha256": "ca09c45afebea67cf8cb45f94e93150759af0ecb78283c206caf0ee3092cc2c0",
       "source_size": [
         1577,
@@ -1279,7 +1279,7 @@
       "scene": "battle",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/battle_token_green.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -1325,7 +1325,7 @@
       "scene": "battle",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/battle_token_red.png",
-      "source": "res://assets/ui/extracted/battle/battle_tokens.png",
+      "source": "art_source/ui/extracted/battle/battle_tokens.png",
       "source_sha256": "c2b1bf75616841dea97ecf05f68282e38398ac8a182e7e65c0a292f60004a307",
       "source_size": [
         820,
@@ -1371,7 +1371,7 @@
       "scene": "deck_select",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/deck_arrow_left.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1417,7 +1417,7 @@
       "scene": "deck_select",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/deck_arrow_right.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1463,7 +1463,7 @@
       "scene": "deck_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/deck_back_button.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1509,7 +1509,7 @@
       "scene": "deck_select",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/deck_card_stack_green.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1555,7 +1555,7 @@
       "scene": "deck_select",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/deck_card_stack_red.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1601,7 +1601,7 @@
       "scene": "deck_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/deck_challenge_button.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1647,7 +1647,7 @@
       "scene": "deck_select",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/deck_deck_back_frame.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1693,7 +1693,7 @@
       "scene": "deck_select",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/deck_decor_left.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1739,7 +1739,7 @@
       "scene": "deck_select",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/deck_decor_right.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1785,7 +1785,7 @@
       "scene": "deck_select",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/deck_stake_panel.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1831,7 +1831,7 @@
       "scene": "deck_select",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/deck_stake_token_frame.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1877,7 +1877,7 @@
       "scene": "deck_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/deck_start_button.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1923,7 +1923,7 @@
       "scene": "deck_select",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/deck_stats_panel.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -1969,7 +1969,7 @@
       "scene": "deck_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/deck_tab_center.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -2015,7 +2015,7 @@
       "scene": "deck_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/deck_tab_left.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -2061,7 +2061,7 @@
       "scene": "deck_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/deck_tab_right.png",
-      "source": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+      "source": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
       "source_sha256": "c21eb403e2f9b486e80c5891c2ac15a38ab082293af6d7076a50f58ff94464de",
       "source_size": [
         1362,
@@ -2602,7 +2602,7 @@
       "scene": "settlement",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/settlement_blind_panel.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2648,7 +2648,7 @@
       "scene": "settlement",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/settlement_cashout_panel.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2697,7 +2697,7 @@
       "scene": "settlement",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/settlement_claim_button.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2743,7 +2743,7 @@
       "scene": "settlement",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/settlement_continue_button.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2789,7 +2789,7 @@
       "scene": "settlement",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/settlement_decor_left.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2835,7 +2835,7 @@
       "scene": "settlement",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/settlement_decor_right.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2881,7 +2881,7 @@
       "scene": "settlement",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/settlement_detail_panel.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2927,7 +2927,7 @@
       "scene": "settlement",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/settlement_summary_bar.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -2973,7 +2973,7 @@
       "scene": "settlement",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/settlement_title_banner.png",
-      "source": "res://assets/ui/extracted/settlement/settlement_parts.png",
+      "source": "art_source/ui/extracted/settlement/settlement_parts.png",
       "source_sha256": "817f15362845a45442b94c6b58d8190cb20589a015e7a94eb63a29784c18bbc7",
       "source_size": [
         1336,
@@ -3019,7 +3019,7 @@
       "scene": "shop",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/shop_button_green.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3065,7 +3065,7 @@
       "scene": "shop",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/shop_button_red.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3111,7 +3111,7 @@
       "scene": "shop",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/shop_coins.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3157,7 +3157,7 @@
       "scene": "shop",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/shop_consumable_mercury.png",
-      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source": "art_source/ui/extracted/shop/shop_cards_packs.png",
       "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
       "source_size": [
         1062,
@@ -3203,7 +3203,7 @@
       "scene": "shop",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/shop_curtain_bottom_left.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3252,7 +3252,7 @@
       "scene": "shop",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/shop_curtain_left.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3298,7 +3298,7 @@
       "scene": "shop",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/shop_curtain_right.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3347,7 +3347,7 @@
       "scene": "shop",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/shop_joker_art.png",
-      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source": "art_source/ui/extracted/shop/shop_cards_packs.png",
       "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
       "source_size": [
         1062,
@@ -3393,7 +3393,7 @@
       "scene": "shop",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/shop_offer_slot_green.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3439,7 +3439,7 @@
       "scene": "shop",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/shop_offer_slot_red.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3485,7 +3485,7 @@
       "scene": "shop",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/shop_pack_joker.png",
-      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source": "art_source/ui/extracted/shop/shop_cards_packs.png",
       "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
       "source_size": [
         1062,
@@ -3531,7 +3531,7 @@
       "scene": "shop",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/shop_pack_spectral.png",
-      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source": "art_source/ui/extracted/shop/shop_cards_packs.png",
       "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
       "source_size": [
         1062,
@@ -3577,7 +3577,7 @@
       "scene": "shop",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/shop_packs_panel.png",
-      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source": "art_source/ui/extracted/shop/shop_frame_panels.png",
       "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
       "source_size": [
         1399,
@@ -3623,7 +3623,7 @@
       "scene": "shop",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/shop_price_chip_blue.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3669,7 +3669,7 @@
       "scene": "shop",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/shop_price_chip_red.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3715,7 +3715,7 @@
       "scene": "shop",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/shop_price_coin.png",
-      "source": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+      "source": "art_source/ui/extracted/shop/shop_curtains_coins.png",
       "source_sha256": "b20fb74335e95a5dc5c3a0f4c3f1f48837102cadba3a72f28bdc4d97f6053f79",
       "source_size": [
         1411,
@@ -3761,7 +3761,7 @@
       "scene": "shop",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/shop_price_plate.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3807,7 +3807,7 @@
       "scene": "shop",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/shop_section_bar.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3853,7 +3853,7 @@
       "scene": "shop",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/shop_section_bar_compact.png",
-      "source": "res://assets/ui/extracted/shop/shop_button_bars.png",
+      "source": "art_source/ui/extracted/shop/shop_button_bars.png",
       "source_sha256": "ae48d1e70b29f4b8a1b23e166341271f1117f94cd6ff837bc6f578519a3cca1b",
       "source_size": [
         1311,
@@ -3899,7 +3899,7 @@
       "scene": "shop",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/shop_title_panel.png",
-      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source": "art_source/ui/extracted/shop/shop_frame_panels.png",
       "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
       "source_size": [
         1399,
@@ -3945,7 +3945,7 @@
       "scene": "shop",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/shop_voucher_art.png",
-      "source": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+      "source": "art_source/ui/extracted/shop/shop_cards_packs.png",
       "source_sha256": "c4a06bd812cbb0483196ee51e3756f1785e3aba294a0e312b6baea5c23be6c8b",
       "source_size": [
         1062,
@@ -3991,7 +3991,7 @@
       "scene": "shop",
       "category": "panels",
       "path": "res://assets/ui/runtime/panels/shop_voucher_panel.png",
-      "source": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+      "source": "art_source/ui/extracted/shop/shop_frame_panels.png",
       "source_sha256": "5152efe35078355056fae9e15a7e8d55d05f4ae09d85b6e6190ca293bc4468f7",
       "source_size": [
         1399,
@@ -4037,7 +4037,7 @@
       "scene": "stage_select",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/stage_blind_big.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4083,7 +4083,7 @@
       "scene": "stage_select",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/stage_blind_boss_locked.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4129,7 +4129,7 @@
       "scene": "stage_select",
       "category": "icons",
       "path": "res://assets/ui/runtime/icons/stage_blind_lock_composite.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4220,7 +4220,7 @@
       "scene": "stage_select",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/stage_blind_small.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4266,7 +4266,7 @@
       "scene": "stage_select",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/stage_card_active.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_card_active.png",
+      "source": "art_source/ui/extracted/stage_select/stage_card_active.png",
       "source_sha256": "0de4d52f85d439416c8693efc0d4e371069bc9d6308f47526a72584124c62b11",
       "source_size": [
         752,
@@ -4312,7 +4312,7 @@
       "scene": "stage_select",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/stage_card_locked.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_card_locked.png",
+      "source": "art_source/ui/extracted/stage_select/stage_card_locked.png",
       "source_sha256": "625642c1b963c7600f6a5a48f24e9c9c264720c6131ccb8935a0c1d4dd1a688b",
       "source_size": [
         818,
@@ -4358,7 +4358,7 @@
       "scene": "stage_select",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/stage_card_next.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_card_next.png",
+      "source": "art_source/ui/extracted/stage_select/stage_card_next.png",
       "source_sha256": "d9071cd541b0842df89a0daf75092cf7c198118db74378e9d25915118925c3b4",
       "source_size": [
         600,
@@ -4404,7 +4404,7 @@
       "scene": "stage_select",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/stage_corner_active.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4450,7 +4450,7 @@
       "scene": "stage_select",
       "category": "decorations",
       "path": "res://assets/ui/runtime/decorations/stage_corner_locked.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4496,7 +4496,7 @@
       "scene": "stage_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/stage_disabled_button.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+      "source": "art_source/ui/extracted/stage_select/stage_buttons.png",
       "source_sha256": "c5c28459dac9c40d962b9a05845a08bf67f08b7b4ba19ba1007315cb349b4468",
       "source_size": [
         1538,
@@ -4542,7 +4542,7 @@
       "scene": "stage_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/stage_select_button.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+      "source": "art_source/ui/extracted/stage_select/stage_buttons.png",
       "source_sha256": "c5c28459dac9c40d962b9a05845a08bf67f08b7b4ba19ba1007315cb349b4468",
       "source_size": [
         1538,
@@ -4588,7 +4588,7 @@
       "scene": "stage_select",
       "category": "buttons",
       "path": "res://assets/ui/runtime/buttons/stage_skip_button.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+      "source": "art_source/ui/extracted/stage_select/stage_buttons.png",
       "source_sha256": "c5c28459dac9c40d962b9a05845a08bf67f08b7b4ba19ba1007315cb349b4468",
       "source_size": [
         1538,
@@ -4634,7 +4634,7 @@
       "scene": "stage_select",
       "category": "tokens",
       "path": "res://assets/ui/runtime/tokens/stage_stake_chip.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+      "source": "art_source/ui/extracted/stage_select/stage_tokens.png",
       "source_sha256": "bda63076eb5c527dae29b91153c5b375d61eed98a9cb1ff4b7e484bc701f043f",
       "source_size": [
         1440,
@@ -4680,7 +4680,7 @@
       "scene": "stage_select",
       "category": "frames",
       "path": "res://assets/ui/runtime/frames/stage_title_banner.png",
-      "source": "res://assets/ui/extracted/stage_select/stage_title_banner.png",
+      "source": "art_source/ui/extracted/stage_select/stage_title_banner.png",
       "source_sha256": "3949d1c2be1b0bb03e3e627a8a56b9c85fd75da8254e579db50a853495d9e29a",
       "source_size": [
         1592,

@@ -685,5 +685,5 @@
 
 - 全局基础 Button 已改为中性安全样式，强调色均通过显式 Variation 或外部专属 StyleBox 指定。
 - 正式按钮不在运行时创建 StyleBox；固定样式均位于 Theme 或独立 `.tres`。
-- `assets/ui/extracted/` 仅记录哈希，不被规范化工具写入。
+- `art_source/ui/extracted/` 是离线生成输入，只记录哈希，不被规范化工具写入。
 - 可切换按钮使用 `toggle_mode` 与 pressed/hover_pressed 显示 selected 状态。

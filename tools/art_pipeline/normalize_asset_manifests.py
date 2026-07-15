@@ -15,6 +15,27 @@ MANIFESTS = (
     ROOT / "tools/art_pipeline/manifests/extracted_asset_manifest.json",
 )
 DRIVE_PATH = re.compile(r"^[A-Za-z]:[\\/]")
+RUNTIME_UI_TARGETS = {
+    "res://assets/ui/extracted/home/background_table.png": "res://assets/ui/runtime/screens/home/background_table.png",
+    "res://assets/ui/extracted/home/joker_pile.png": "res://assets/ui/runtime/screens/home/joker_pile.png",
+    "res://assets/ui/extracted/home/title_panel.png": "res://assets/ui/runtime/screens/home/title_panel.png",
+    "res://assets/ui/extracted/home/ornate_frame.png": "res://assets/ui/runtime/screens/home/ornate_frame.png",
+    "res://assets/ui/extracted/deck_select/deck_select_parts.png": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
+    "res://assets/ui/extracted/cards/blank_card_face.png": "res://assets/ui/runtime/cards/blank_card_face.png",
+}
+LEGACY_STYLE_SOURCES = {
+    "res://assets/ui/extracted/battle/button_red_small.png",
+    "res://assets/ui/extracted/battle/button_gold_small.png",
+}
+
+
+def _current_ui_path(value: str) -> str:
+    if value in RUNTIME_UI_TARGETS:
+        return RUNTIME_UI_TARGETS[value]
+    prefix = "res://assets/ui/extracted/"
+    if value.startswith(prefix) and value not in LEGACY_STYLE_SOURCES:
+        return "art_source/ui/extracted/" + value.removeprefix(prefix)
+    return value
 
 
 def _portable_path(value: str, *, scene: str, target: bool) -> str:
@@ -49,9 +70,9 @@ def normalize(path: Path) -> None:
             continue
         scene = str(raw.get("scene", "unsorted"))
         if isinstance(raw.get("source"), str):
-            raw["source"] = _portable_path(raw["source"], scene=scene, target=False)
+            raw["source"] = _current_ui_path(_portable_path(raw["source"], scene=scene, target=False))
         if isinstance(raw.get("target"), str):
-            raw["target"] = _portable_path(raw["target"], scene=scene, target=True)
+            raw["target"] = _current_ui_path(_portable_path(raw["target"], scene=scene, target=True))
     text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     if re.search(r'"[A-Za-z]:[\\/]', text):
         raise ValueError(f"absolute drive path remains in {path}")

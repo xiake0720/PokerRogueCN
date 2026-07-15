@@ -9,7 +9,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_43 (1).png",
-    "target": "res://assets/ui/extracted/home/background_table.png",
+    "target": "res://assets/ui/runtime/screens/home/background_table.png",
     "size": [
       1672,
       941
@@ -25,7 +25,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (2).png",
-    "target": "res://assets/ui/extracted/home/joker_pile.png",
+    "target": "res://assets/ui/runtime/screens/home/joker_pile.png",
     "size": [
       1056,
       694
@@ -41,7 +41,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (3).png",
-    "target": "res://assets/ui/extracted/home/title_panel.png",
+    "target": "res://assets/ui/runtime/screens/home/title_panel.png",
     "size": [
       1540,
       626
@@ -57,7 +57,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (4).png",
-    "target": "res://assets/ui/extracted/home/title_text.png",
+    "target": "art_source/ui/extracted/home/title_text.png",
     "size": [
       673,
       188
@@ -73,7 +73,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (5).png",
-    "target": "res://assets/ui/extracted/home/menu_button_stack.png",
+    "target": "art_source/ui/extracted/home/menu_button_stack.png",
     "size": [
       1009,
       754
@@ -88,8 +88,8 @@
   {
     "kind": "asset_slice",
     "scene": "home",
-    "source": "res://assets/ui/extracted/home/menu_button_stack.png#start",
-    "target": "res://assets/ui/extracted/home/menu_button_start.png",
+    "source": "art_source/ui/extracted/home/menu_button_stack.png#start",
+    "target": "art_source/ui/extracted/home/menu_button_start.png",
     "size": [
       1009,
       222
@@ -104,8 +104,8 @@
   {
     "kind": "asset_slice",
     "scene": "home",
-    "source": "res://assets/ui/extracted/home/menu_button_stack.png#settings",
-    "target": "res://assets/ui/extracted/home/menu_button_settings.png",
+    "source": "art_source/ui/extracted/home/menu_button_stack.png#settings",
+    "target": "art_source/ui/extracted/home/menu_button_settings.png",
     "size": [
       846,
       159
@@ -120,8 +120,8 @@
   {
     "kind": "asset_slice",
     "scene": "home",
-    "source": "res://assets/ui/extracted/home/menu_button_stack.png#quit",
-    "target": "res://assets/ui/extracted/home/menu_button_quit.png",
+    "source": "art_source/ui/extracted/home/menu_button_stack.png#quit",
+    "target": "art_source/ui/extracted/home/menu_button_quit.png",
     "size": [
       846,
       168
@@ -136,8 +136,8 @@
   {
     "kind": "asset_slice",
     "scene": "home",
-    "source": "res://assets/ui/extracted/home/menu_button_stack.png#language",
-    "target": "res://assets/ui/extracted/home/menu_button_language.png",
+    "source": "art_source/ui/extracted/home/menu_button_stack.png#language",
+    "target": "art_source/ui/extracted/home/menu_button_language.png",
     "size": [
       846,
       168
@@ -153,7 +153,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (6).png",
-    "target": "res://assets/ui/extracted/home/menu_text_stack.png",
+    "target": "art_source/ui/extracted/home/menu_text_stack.png",
     "size": [
       317,
       417
@@ -169,7 +169,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (7).png",
-    "target": "res://assets/ui/extracted/home/ornate_frame.png",
+    "target": "res://assets/ui/runtime/screens/home/ornate_frame.png",
     "size": [
       1672,
       941
@@ -185,7 +185,7 @@
     "kind": "asset",
     "scene": "home",
     "source": "external_source/home/ChatGPT Image 2026年7月9日 21_34_44 (8).png",
-    "target": "res://assets/ui/extracted/home/hud_corner_bits.png",
+    "target": "art_source/ui/extracted/home/hud_corner_bits.png",
     "size": [
       1443,
       798
@@ -207,7 +207,7 @@
     "kind": "asset",
     "scene": "deck_select",
     "source": "external_source/deck_select/ChatGPT Image 2026年7月9日 21_37_59.png",
-    "target": "res://assets/ui/extracted/deck_select/deck_select_parts.png",
+    "target": "res://assets/ui/runtime/screens/deck_select/deck_select_parts.png",
     "size": [
       1362,
       1083
@@ -229,7 +229,7 @@
     "kind": "asset",
     "scene": "shop",
     "source": "external_source/shop/ChatGPT Image 2026年7月9日 21_37_47 (1).png",
-    "target": "res://assets/ui/extracted/shop/shop_background.png",
+    "target": "art_source/ui/extracted/shop/shop_background.png",
     "size": [
       1448,
       1086
@@ -245,7 +245,7 @@
     "kind": "asset",
     "scene": "shop",
     "source": "external_source/shop/ChatGPT Image 2026年7月9日 21_37_47 (2).png",
-    "target": "res://assets/ui/extracted/shop/shop_frame_panels.png",
+    "target": "art_source/ui/extracted/shop/shop_frame_panels.png",
     "size": [
       1399,
       1036
@@ -261,7 +261,7 @@
     "kind": "asset",
     "scene": "shop",
     "source": "external_source/shop/ChatGPT Image 2026年7月9日 21_37_47 (3).png",
-    "target": "res://assets/ui/extracted/shop/shop_button_bars.png",
+    "target": "art_source/ui/extracted/shop/shop_button_bars.png",
     "size": [
       1311,
       952
@@ -277,7 +277,7 @@
     "kind": "asset",
     "scene": "shop",
     "source": "external_source/shop/ChatGPT Image 2026年7月9日 21_37_47 (4).png",
-    "target": "res://assets/ui/extracted/shop/shop_text_labels.png",
+    "target": "art_source/ui/extracted/shop/shop_text_labels.png",
     "size": [
       1328,
       904
@@ -293,7 +293,7 @@
     "kind": "asset",
     "scene": "shop",
     "source": "external_source/shop/ChatGPT Image 2026年7月9日 21_37_47 (5).png",
-    "target": "res://assets/ui/extracted/shop/shop_cards_packs.png",
+    "target": "art_source/ui/extracted/shop/shop_cards_packs.png",
     "size": [
       1062,
       962
@@ -309,7 +309,7 @@
     "kind": "asset",
     "scene": "shop",
     "source": "external_source/shop/ChatGPT Image 2026年7月9日 21_37_47 (6).png",
-    "target": "res://assets/ui/extracted/shop/shop_curtains_coins.png",
+    "target": "art_source/ui/extracted/shop/shop_curtains_coins.png",
     "size": [
       1411,
       977
@@ -331,7 +331,7 @@
     "kind": "asset",
     "scene": "settlement",
     "source": "external_source/settlement/ChatGPT Image 2026年7月9日 21_38_08.png",
-    "target": "res://assets/ui/extracted/settlement/settlement_parts.png",
+    "target": "art_source/ui/extracted/settlement/settlement_parts.png",
     "size": [
       1336,
       1101
@@ -353,7 +353,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (1).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_background.png",
+    "target": "art_source/ui/extracted/stage_select/stage_background.png",
     "size": [
       1672,
       941
@@ -369,7 +369,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (2).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_title_banner.png",
+    "target": "art_source/ui/extracted/stage_select/stage_title_banner.png",
     "size": [
       1592,
       319
@@ -385,7 +385,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (3).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_title_text.png",
+    "target": "art_source/ui/extracted/stage_select/stage_title_text.png",
     "size": [
       1570,
       169
@@ -401,7 +401,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (4).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_card_active.png",
+    "target": "art_source/ui/extracted/stage_select/stage_card_active.png",
     "size": [
       752,
       1358
@@ -417,7 +417,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (5).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_card_next.png",
+    "target": "art_source/ui/extracted/stage_select/stage_card_next.png",
     "size": [
       600,
       1382
@@ -433,7 +433,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (6).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_card_locked.png",
+    "target": "art_source/ui/extracted/stage_select/stage_card_locked.png",
     "size": [
       818,
       1327
@@ -449,7 +449,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (7).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_buttons.png",
+    "target": "art_source/ui/extracted/stage_select/stage_buttons.png",
     "size": [
       1538,
       183
@@ -465,7 +465,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (8).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_tokens.png",
+    "target": "art_source/ui/extracted/stage_select/stage_tokens.png",
     "size": [
       1440,
       752
@@ -481,7 +481,7 @@
     "kind": "asset",
     "scene": "stage_select",
     "source": "external_source/stage_select/ChatGPT Image 2026年7月9日 21_37_34 (9).png",
-    "target": "res://assets/ui/extracted/stage_select/stage_text_group.png",
+    "target": "art_source/ui/extracted/stage_select/stage_text_group.png",
     "size": [
       1290,
       865
@@ -503,7 +503,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_51 (2).png",
-    "target": "res://assets/ui/extracted/battle/battle_background_frame.png",
+    "target": "art_source/ui/extracted/battle/battle_background_frame.png",
     "size": [
       1672,
       941
@@ -519,7 +519,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_51 (3).png",
-    "target": "res://assets/ui/extracted/battle/battle_hud_panel_and_buttons.png",
+    "target": "art_source/ui/extracted/battle/battle_hud_panel_and_buttons.png",
     "size": [
       1403,
       885
@@ -535,7 +535,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_51 (4).png",
-    "target": "res://assets/ui/extracted/battle/battle_title_bar.png",
+    "target": "art_source/ui/extracted/battle/battle_title_bar.png",
     "size": [
       1577,
       225
@@ -551,7 +551,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_51 (5).png",
-    "target": "res://assets/ui/extracted/battle/battle_deck_area.png",
+    "target": "art_source/ui/extracted/battle/battle_deck_area.png",
     "size": [
       619,
       796
@@ -567,7 +567,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_51 (6).png",
-    "target": "res://assets/ui/extracted/battle/battle_card_slots.png",
+    "target": "art_source/ui/extracted/battle/battle_card_slots.png",
     "size": [
       626,
       260
@@ -583,7 +583,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_51 (7).png",
-    "target": "res://assets/ui/extracted/battle/battle_action_buttons.png",
+    "target": "art_source/ui/extracted/battle/battle_action_buttons.png",
     "size": [
       1212,
       148
@@ -599,7 +599,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_35_52 (8).png",
-    "target": "res://assets/ui/extracted/battle/battle_text_sprites.png",
+    "target": "art_source/ui/extracted/battle/battle_text_sprites.png",
     "size": [
       1585,
       832
@@ -615,7 +615,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_06 (2).png",
-    "target": "res://assets/ui/extracted/battle/battle_left_hud.png",
+    "target": "art_source/ui/extracted/battle/battle_left_hud.png",
     "size": [
       894,
       1628
@@ -631,7 +631,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_06 (3).png",
-    "target": "res://assets/ui/extracted/battle/battle_tokens.png",
+    "target": "art_source/ui/extracted/battle/battle_tokens.png",
     "size": [
       820,
       1473
@@ -647,7 +647,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_07 (4).png",
-    "target": "res://assets/ui/extracted/battle/battle_score_text.png",
+    "target": "art_source/ui/extracted/battle/battle_score_text.png",
     "size": [
       707,
       1580
@@ -663,7 +663,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_07 (5).png",
-    "target": "res://assets/ui/extracted/battle/battle_compact_hud_parts.png",
+    "target": "art_source/ui/extracted/battle/battle_compact_hud_parts.png",
     "size": [
       766,
       1386
@@ -679,7 +679,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_30 (1).png",
-    "target": "res://assets/ui/extracted/battle/button_red_large.png",
+    "target": "art_source/ui/extracted/battle/button_red_large.png",
     "size": [
       1544,
       518
@@ -727,7 +727,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_30 (4).png",
-    "target": "res://assets/ui/extracted/battle/button_gold_large.png",
+    "target": "art_source/ui/extracted/battle/button_gold_large.png",
     "size": [
       1437,
       492
@@ -743,7 +743,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_30 (5).png",
-    "target": "res://assets/ui/extracted/battle/button_text_labels.png",
+    "target": "art_source/ui/extracted/battle/button_text_labels.png",
     "size": [
       1796,
       114
@@ -759,7 +759,7 @@
     "kind": "asset",
     "scene": "battle",
     "source": "external_source/battle/ChatGPT Image 2026年7月9日 21_36_30 (6).png",
-    "target": "res://assets/ui/extracted/battle/suit_icons_small.png",
+    "target": "art_source/ui/extracted/battle/suit_icons_small.png",
     "size": [
       468,
       181
@@ -775,7 +775,7 @@
     "kind": "asset",
     "scene": "cards",
     "source": "external_source/cards/ChatGPT Image 2026年7月9日 21_34_58.png",
-    "target": "res://assets/ui/extracted/cards/suit_symbols.png",
+    "target": "art_source/ui/extracted/cards/suit_symbols.png",
     "size": [
       967,
       931
@@ -791,7 +791,7 @@
     "kind": "asset",
     "scene": "cards",
     "source": "external_source/cards/ChatGPT Image 2026年7月9日 21_35_12.png",
-    "target": "res://assets/ui/extracted/cards/blank_card_face.png",
+    "target": "res://assets/ui/runtime/cards/blank_card_face.png",
     "size": [
       941,
       1453
@@ -807,7 +807,7 @@
     "kind": "asset",
     "scene": "cards",
     "source": "external_source/cards/ChatGPT Image 2026年7月9日 21_35_26.png",
-    "target": "res://assets/ui/extracted/cards/rank_symbols_dark.png",
+    "target": "art_source/ui/extracted/cards/rank_symbols_dark.png",
     "size": [
       1071,
       943
@@ -823,7 +823,7 @@
     "kind": "asset",
     "scene": "cards",
     "source": "external_source/cards/ChatGPT Image 2026年7月9日 21_36_36.png",
-    "target": "res://assets/ui/extracted/cards/rank_symbols_red.png",
+    "target": "art_source/ui/extracted/cards/rank_symbols_red.png",
     "size": [
       1137,
       996

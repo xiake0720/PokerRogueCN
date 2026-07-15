@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cgjvi43lcl4k6"]
 
 [ext_resource type="Script" uid="uid://dbcvvtpr5b3gw" path="res://scripts/ui/deck_select_screen.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://bvfdsdx2jlip" path="res://assets/ui/extracted/home/background_table.png" id="2_background"]
-[ext_resource type="Texture2D" uid="uid://dwq0f1mcr8wcy" path="res://assets/ui/extracted/home/ornate_frame.png" id="3_frame"]
-[ext_resource type="Texture2D" uid="uid://ck3uegivi0xk2" path="res://assets/ui/extracted/deck_select/deck_select_parts.png" id="4_parts"]
+[ext_resource type="Texture2D" uid="uid://bvfdsdx2jlip" path="res://assets/ui/runtime/screens/home/background_table.png" id="2_background"]
+[ext_resource type="Texture2D" uid="uid://dwq0f1mcr8wcy" path="res://assets/ui/runtime/screens/home/ornate_frame.png" id="3_frame"]
+[ext_resource type="Texture2D" uid="uid://ck3uegivi0xk2" path="res://assets/ui/runtime/screens/deck_select/deck_select_parts.png" id="4_parts"]
 [ext_resource type="Texture2D" uid="uid://def00mcsr0rnm" path="res://assets/ui/runtime/generated/deck_red_fallback.png" id="5_back"]
 [ext_resource type="Texture2D" uid="uid://dn0t80cu2ee10" path="res://assets/ui/runtime/buttons/deck_select/arrow_left.png" id="7_arrow_left"]
 [ext_resource type="Texture2D" uid="uid://do5m8a3m47hyc" path="res://assets/ui/runtime/buttons/deck_select/arrow_right.png" id="8_arrow_right"]

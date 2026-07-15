@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://joker_card_view"]
 
 [ext_resource type="Script" path="res://scripts/cards/joker_card_view.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/extracted/cards/blank_card_face.png" id="2_card"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/cards/blank_card_face.png" id="2_card"]
 [ext_resource type="Script" path="res://scripts/ui/button_feedback.gd" id="3_feedback"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_rarity"]

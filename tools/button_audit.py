@@ -29,6 +29,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def project_reference(path: Path) -> str:
+    relative = path.relative_to(ROOT).as_posix()
+    return relative if relative.startswith("art_source/") else "res://" + relative
+
+
 def parse_value(value: str) -> Any:
     value = value.strip()
     if value.startswith('"') and value.endswith('"'):
@@ -333,9 +338,10 @@ def main() -> None:
             if node["type"] in BUTTON_TYPES:
                 buttons.append(audit_button(node, scene, scene_path, theme))
         pseudo.extend(pseudo_buttons(scene_path, scene))
-    extracted_hashes = {
-        "res://" + path.relative_to(ROOT).as_posix(): sha256(path)
-        for path in sorted((ROOT / "assets/ui/extracted").rglob("*"))
+    source_hashes = {
+        project_reference(path): sha256(path)
+        for source_root in (ROOT / "art_source/ui/extracted", ROOT / "assets/ui/extracted")
+        for path in sorted(source_root.rglob("*"))
         if path.is_file()
     }
     normalization = json.loads((ROOT / "tools/reports/buttons/asset_normalization.json").read_text(encoding="utf-8"))
@@ -350,7 +356,7 @@ def main() -> None:
         "buttons": buttons,
         "pseudo_buttons": pseudo,
         "normalized_assets": normalization["assets"],
-        "extracted_source_hashes": extracted_hashes,
+        "extracted_source_hashes": source_hashes,
     }
     MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -403,7 +409,7 @@ def main() -> None:
         "",
         "- 全局基础 Button 已改为中性安全样式，强调色均通过显式 Variation 或外部专属 StyleBox 指定。",
         "- 正式按钮不在运行时创建 StyleBox；固定样式均位于 Theme 或独立 `.tres`。",
-        "- `assets/ui/extracted/` 仅记录哈希，不被规范化工具写入。",
+        "- `art_source/ui/extracted/` 是离线生成输入，只记录哈希，不被规范化工具写入。",
         "- 可切换按钮使用 `toggle_mode` 与 pressed/hover_pressed 显示 selected 状态。",
         "",
     ])
