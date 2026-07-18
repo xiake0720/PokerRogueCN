@@ -17,38 +17,46 @@ signal card_selection_changed(card_id: String, selected: bool, view: PlayingCard
 var selected_ids: Array = []
 var card_views: Array[PlayingCardView] = []
 var _known_card_ids: Array[String] = []
+var _views_by_id: Dictionary = {}
 var _layout_tweens: Dictionary = {}
 
 func _ready() -> void:
 	resized.connect(_layout_cards)
 
 func display_cards(cards: Array, new_selected_ids: Array) -> void:
-	var previous_ids: Array[String] = []
-	for known_id in _known_card_ids:
-		previous_ids.append(known_id)
 	selected_ids = new_selected_ids.duplicate()
-	for child in get_children():
-		remove_child(child)
-		child.queue_free()
-	card_views.clear()
-	_known_card_ids.clear()
-	_layout_tweens.clear()
+	var previous_ids: Array[String] = _known_card_ids.duplicate()
 	var new_card_ids: Array[String] = []
+	var next_views: Array[PlayingCardView] = []
+	var next_ids: Array[String] = []
+	var wanted_ids: Dictionary = {}
 	for raw_card in cards:
 		var card: Dictionary = raw_card
 		var card_id: String = str(card.get("instance_id", ""))
-		var view: PlayingCardView = PlayingCardViewScene.instantiate() as PlayingCardView
-		add_child(view)
+		wanted_ids[card_id] = true
+		var view := _views_by_id.get(card_id) as PlayingCardView
+		if view == null or not is_instance_valid(view):
+			view = PlayingCardViewScene.instantiate() as PlayingCardView
+			add_child(view)
+			view.card_selection_changed.connect(_on_view_selection_changed.bind(view))
+			_views_by_id[card_id] = view
+			if not previous_ids.has(card_id):
+				new_card_ids.append(card_id)
 		var display_size := _effective_card_size()
 		view.custom_minimum_size = display_size
 		view.size = display_size
 		view.setup(card)
 		view.set_selected_without_signal(selected_ids.has(card_id))
-		view.card_selection_changed.connect(_on_view_selection_changed.bind(view))
-		card_views.append(view)
-		_known_card_ids.append(card_id)
-		if not previous_ids.has(card_id):
-			new_card_ids.append(card_id)
+		next_views.append(view)
+		next_ids.append(card_id)
+	for known_id: String in _known_card_ids:
+		if not wanted_ids.has(known_id):
+			_remove_view(known_id)
+	card_views = next_views
+	_known_card_ids = next_ids
+	for i: int in range(card_views.size()):
+		move_child(card_views[i], i)
+	_update_selection_limit()
 	call_deferred("_layout_after_container_ready", new_card_ids)
 
 func update_selection(new_selected_ids: Array) -> void:
@@ -56,6 +64,7 @@ func update_selection(new_selected_ids: Array) -> void:
 	for view in card_views:
 		var card_id: String = str(view.card_data.get("instance_id", ""))
 		view.set_selected_without_signal(selected_ids.has(card_id))
+	_update_selection_limit()
 	_layout_cards()
 
 func detach_card_views(card_ids: Array) -> Array[PlayingCardView]:
@@ -67,8 +76,15 @@ func detach_card_views(card_ids: Array) -> Array[PlayingCardView]:
 			detached.append(view)
 			card_views.remove_at(i)
 			_known_card_ids.erase(card_id)
+			_views_by_id.erase(card_id)
+			if _layout_tweens.has(view):
+				var tween := _layout_tweens[view] as Tween
+				if tween != null and tween.is_valid():
+					tween.kill()
+				_layout_tweens.erase(view)
 			selected_ids.erase(card_id)
 	detached.reverse()
+	_update_selection_limit()
 	_layout_cards()
 	return detached
 
@@ -108,7 +124,7 @@ func _layout_cards(animated: bool = true) -> void:
 			base_y + arc_offset - (selected_lift * layout_scale if is_selected else 0.0)
 		)
 		var target_rotation := deg_to_rad(max_rotation_degrees * normalized_index)
-		view.z_index = i
+		view.set_base_z_index(i)
 		view.size = display_size
 		view.custom_minimum_size = display_size
 		view.pivot_offset = display_size * Vector2(0.5, 0.92)
@@ -146,3 +162,21 @@ func _animate_cards_in(new_card_ids: Array[String]) -> void:
 		tween.tween_interval(float(new_card_ids.find(card_id)) * 0.045)
 		tween.tween_property(view, "position", target, 0.20)
 		tween.parallel().tween_property(view, "modulate:a", 1.0, 0.16)
+
+func _update_selection_limit() -> void:
+	var at_limit := selected_ids.size() >= max_selected
+	for view: PlayingCardView in card_views:
+		var card_id := str(view.card_data.get("instance_id", ""))
+		view.set_selection_limited(at_limit and not selected_ids.has(card_id))
+
+func _remove_view(card_id: String) -> void:
+	var view := _views_by_id.get(card_id) as PlayingCardView
+	_views_by_id.erase(card_id)
+	if view == null or not is_instance_valid(view):
+		return
+	if _layout_tweens.has(view):
+		var tween := _layout_tweens[view] as Tween
+		if tween != null and tween.is_valid():
+			tween.kill()
+		_layout_tweens.erase(view)
+	view.queue_free()

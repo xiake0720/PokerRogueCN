@@ -10,7 +10,8 @@ signal inspect_requested(item: Dictionary)
 @onready var name_label: Label = %NameLabel
 @onready var type_label: Label = %TypeLabel
 @onready var buy_button: Button = %BuyButton
-@onready var sold_overlay: ColorRect = %SoldOverlay
+@onready var sold_overlay: Control = %SoldOverlay
+@onready var sold_stamp: PanelContainer = %SoldStamp
 
 var item_index: int = -1
 var item_data: Dictionary = {}
@@ -38,17 +39,20 @@ func setup(item: Dictionary, index: int, kind: String) -> void:
 	name_label.text = str(item_data.get("name_cn", "商品"))
 	type_label.text = _type_text(kind)
 	product_art.texture = _resolve_art(kind, str(item_data.get("id", "unknown")))
-	tooltip_text = "%s\n%s" % [name_label.text, str(item_data.get("description_cn", ""))]
+	tooltip_text = "%s  ·  $%d" % [name_label.text, cost]
 	sold_overlay.visible = false
 	buy_button.visible = true
+	product_art.modulate = Color.WHITE
+	name_label.modulate = Color.WHITE
+	price_label.modulate = Color.WHITE
 	buy_button.text = "购买"
 	_fit_state_overlays.call_deferred()
 
 func set_can_afford(can_afford: bool, disabled_reason: String = "funds") -> void:
 	buy_button.disabled = not can_afford
-	product_art.modulate = Color.WHITE if can_afford else Color(0.48, 0.48, 0.48, 1)
+	product_art.modulate = Color.WHITE
 	name_label.modulate = Color.WHITE
-	price_label.modulate = Color.WHITE
+	price_label.modulate = Color.WHITE if can_afford or disabled_reason == "slots" else Color(1.0, 0.42, 0.24, 1.0)
 	if not can_afford:
 		buy_button.text = "槽位已满" if disabled_reason == "slots" else "金币不足"
 	_fit_state_overlays.call_deferred()
@@ -56,7 +60,9 @@ func set_can_afford(can_afford: bool, disabled_reason: String = "funds") -> void
 func mark_sold() -> void:
 	sold_overlay.visible = true
 	buy_button.visible = false
-	product_art.modulate = Color(0.55, 0.55, 0.55, 1)
+	product_art.modulate = Color(0.62, 0.59, 0.52, 1)
+	name_label.modulate = Color(0.72, 0.68, 0.58, 1)
+	price_label.modulate = Color(0.72, 0.56, 0.34, 1)
 
 func set_action_text(action_text: String) -> void:
 	buy_button.text = action_text
@@ -70,6 +76,9 @@ func clear_offer() -> void:
 	price_label.text = "—"
 	buy_button.visible = false
 	sold_overlay.visible = false
+	product_art.modulate = Color.WHITE
+	name_label.modulate = Color.WHITE
+	price_label.modulate = Color.WHITE
 
 func _resolve_art(kind: String, id: String) -> Texture2D:
 	match kind:
@@ -119,6 +128,7 @@ func _sync_pivot() -> void:
 
 func _fit_state_overlays() -> void:
 	sold_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	sold_stamp.pivot_offset = sold_stamp.size * 0.5
 
 func _type_text(kind: String) -> String:
 	match kind:

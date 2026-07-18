@@ -82,6 +82,7 @@ vertical_alignment = 1
 text_overrun_behavior = 3
 
 [node name="RoundCaption" type="Label" parent="HudAspect/HudStack/Content" unique_id=1360850535]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15
@@ -160,6 +161,7 @@ vertical_alignment = 1
 text_overrun_behavior = 3
 
 [node name="TargetPanel" type="Control" parent="HudAspect/HudStack/Content" unique_id=1275495157]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.09
 anchor_top = 0.333
@@ -169,6 +171,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TargetCaption" type="Label" parent="HudAspect/HudStack/Content/TargetPanel" unique_id=694459748]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -186,6 +189,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TargetCoin" type="TextureRect" parent="HudAspect/HudStack/Content/TargetPanel" unique_id=1442303692]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.36
@@ -228,6 +232,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScoreCaption" type="Label" parent="HudAspect/HudStack/Content/ScoreBox" unique_id=2057455436]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -245,6 +250,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CurrentScoreChip" type="TextureRect" parent="HudAspect/HudStack/Content/ScoreBox" unique_id=2070176790]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.36
@@ -277,6 +283,7 @@ vertical_alignment = 1
 text_overrun_behavior = 3
 
 [node name="EquationBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=957630194]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.085
 anchor_top = 0.526
@@ -302,6 +309,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimesLabel" type="Label" parent="HudAspect/HudStack/Content/EquationBox" unique_id=341444804]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.41
@@ -365,6 +373,7 @@ text = "比赛
 script = ExtResource("5_feedback")
 
 [node name="CountsGrid" type="Control" parent="HudAspect/HudStack/Content" unique_id=1302393513]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.42
 anchor_top = 0.645
@@ -374,6 +383,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HandsTitle" type="Label" parent="HudAspect/HudStack/Content/CountsGrid" unique_id=1683471426]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.46
@@ -393,6 +403,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DiscardsTitle" type="Label" parent="HudAspect/HudStack/Content/CountsGrid" unique_id=1006241293]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.54
@@ -509,6 +520,7 @@ text = "选项"
 script = ExtResource("5_feedback")
 
 [node name="AnteBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=1276488619]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.42
 anchor_top = 0.83
@@ -518,6 +530,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnteCaption" type="Label" parent="HudAspect/HudStack/Content/AnteBox" unique_id=1376464276]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -555,6 +568,7 @@ vertical_alignment = 1
 text_overrun_behavior = 3
 
 [node name="BlindBox" type="Control" parent="HudAspect/HudStack/Content" unique_id=124620124]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.685
 anchor_top = 0.83
@@ -564,6 +578,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BlindCaption" type="Label" parent="HudAspect/HudStack/Content/BlindBox" unique_id=388229220]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0

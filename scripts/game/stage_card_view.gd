@@ -24,6 +24,9 @@ const BOSS_BLIND_TEXTURE: Texture2D = preload("res://assets/ui/runtime/tokens/st
 @onready var tag_reward_panel: PanelContainer = %TagRewardPanel
 @onready var tag_reward_label: Label = %TagRewardLabel
 
+var _last_visual_state: String = ""
+var _intro_tween: Tween = null
+
 
 func _ready() -> void:
 	select_button.pressed.connect(func() -> void: select_requested.emit())
@@ -65,7 +68,10 @@ func setup(
 	skip_button.visible = active and skippable and has_tag
 	skip_button.disabled = not active
 	tooltip_text = "%s\n%s" % [title, description]
-	_play_intro(active)
+	var visual_state := "active" if active else ("locked" if locked else "next")
+	if visual_state != _last_visual_state:
+		_last_visual_state = visual_state
+		_play_intro()
 
 
 func _reward_text(reward: int) -> String:
@@ -94,10 +100,19 @@ func _format_score(value: int) -> String:
 	return digits + grouped
 
 
-func _play_intro(_active: bool) -> void:
-	scale = Vector2.ONE
+func _play_intro() -> void:
+	if _intro_tween != null and _intro_tween.is_valid():
+		_intro_tween.kill()
+	scale = Vector2(0.985, 0.985)
 	modulate.a = 0.0
-	var tween: Tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "modulate:a", 1.0, 0.14)
+	_intro_tween = create_tween().set_parallel(true)
+	_intro_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_intro_tween.tween_property(self, "modulate:a", 1.0, 0.16)
+	_intro_tween.tween_property(self, "scale", Vector2.ONE, 0.2)
+	_intro_tween.finished.connect(func() -> void: _intro_tween = null, CONNECT_ONE_SHOT)
+
+
+func _exit_tree() -> void:
+	if _intro_tween != null and _intro_tween.is_valid():
+		_intro_tween.kill()
+	_intro_tween = null

@@ -34,9 +34,12 @@ func _ready() -> void:
 	for slot: ShopOfferCard in pack_option_slots:
 		slot.inspect_requested.connect(_show_offer_detail)
 		slot.buy_requested.connect(_on_pack_option_requested)
+	resized.connect(_apply_responsive_offer_sizes)
+	_apply_responsive_offer_sizes.call_deferred()
 
 
 func refresh_run(run: RunState) -> void:
+	_apply_responsive_offer_sizes()
 	reroll_button.text = "刷新商店\n$%d" % run.reroll_cost
 	reroll_button.disabled = run.money < run.reroll_cost or run.is_pack_open()
 	next_button.disabled = run.is_pack_open()
@@ -168,3 +171,15 @@ func _on_skip_pack_pressed() -> void:
 
 func _show_offer_detail(item: Dictionary) -> void:
 	inspect_requested.emit(item)
+
+
+func _apply_responsive_offer_sizes() -> void:
+	var scale := clampf(get_viewport_rect().size.x / 1920.0, 0.72, 1.12)
+	if get_viewport_rect().size.y <= 720.0:
+		scale = minf(scale, 0.52)
+	for slot: ShopOfferCard in joker_offer_slots:
+		slot.custom_minimum_size = Vector2(210, 315) * scale
+	for slot: ShopOfferCard in voucher_offer_slots:
+		slot.custom_minimum_size = Vector2(190, 300) * scale
+	for slot: ShopOfferCard in pack_offer_slots:
+		slot.custom_minimum_size = Vector2(180, 285) * scale

@@ -1,12 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://playing_card_view"]
 
 [ext_resource type="Script" path="res://scripts/cards/playing_card_view.gd" id="1_script"]
-[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/focus.tres" id="2_focus"]
 
 [node name="PlayingCardView" type="Button"]
 custom_minimum_size = Vector2(144, 204)
 toggle_mode = true
-theme_override_styles/focus = ExtResource("2_focus")
 text = ""
 flat = true
 script = ExtResource("1_script")
@@ -21,3 +19,12 @@ grow_vertical = 2
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="StateOverlay" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

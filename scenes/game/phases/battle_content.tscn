@@ -79,7 +79,7 @@ alignment = 1
 
 [node name="PlayButton" type="Button" parent="ActionRow" unique_id=429505262]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 84)
+custom_minimum_size = Vector2(238, 86)
 layout_mode = 2
 theme_type_variation = &"BattlePlayButton"
 text = "出牌"
@@ -87,15 +87,22 @@ script = ExtResource("6_feedback")
 
 [node name="DiscardButton" type="Button" parent="ActionRow" unique_id=878241812]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(185, 82)
+custom_minimum_size = Vector2(172, 70)
 layout_mode = 2
+size_flags_vertical = 4
 theme_type_variation = &"BattleDiscardButton"
 text = "弃牌"
 script = ExtResource("6_feedback")
 
-[node name="SortRankButton" type="Button" parent="ActionRow" unique_id=1683901345]
+[node name="SortToggle" type="HBoxContainer" parent="ActionRow"]
+custom_minimum_size = Vector2(348, 58)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="SortRankButton" type="Button" parent="ActionRow/SortToggle" unique_id=1683901345]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 82)
+custom_minimum_size = Vector2(174, 58)
 layout_mode = 2
 theme_type_variation = &"BattleSortRankButton"
 toggle_mode = true
@@ -105,9 +112,9 @@ text = "点数排序"
 text_overrun_behavior = 3
 script = ExtResource("6_feedback")
 
-[node name="SortSuitButton" type="Button" parent="ActionRow" unique_id=1741162815]
+[node name="SortSuitButton" type="Button" parent="ActionRow/SortToggle" unique_id=1741162815]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 82)
+custom_minimum_size = Vector2(174, 58)
 layout_mode = 2
 theme_type_variation = &"BattleSortSuitButton"
 toggle_mode = true

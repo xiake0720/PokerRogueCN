@@ -37,7 +37,8 @@ func _run() -> void:
 			var packed: PackedScene = load(scene_path) as PackedScene
 			if packed == null:
 				failures.append("cannot load %s" % scene_path)
-				viewport.free()
+				viewport.queue_free()
+				await process_frame
 				continue
 			var screen: Control = packed.instantiate() as Control
 			viewport.add_child(screen)
@@ -56,12 +57,24 @@ func _run() -> void:
 			_check_buttons(screen, scene_path, resolution, bounds)
 			if scene_path.ends_with("game_table_screen.tscn"):
 				await _check_game_table_phases(screen, scene_path, resolution, bounds)
-			viewport.free()
+			screen.queue_free()
+			await process_frame
+			viewport.queue_free()
+			await process_frame
+			packed = null
+			screen = null
 			await process_frame
 		print("CHECKED UI resolution %dx%d" % [resolution.x, resolution.y])
 	root.get_node("AudioManager").stop_all_sfx()
+	root.get_node("AudioManager").stop_bgm()
+	# Let queued deletes, tweens, and cached audio streams release before the
+	# SceneTree exits.  One frame is not sufficient in non-verbose headless runs.
+	await create_timer(0.1).timeout
 	await process_frame
-	_finish()
+	await process_frame
+	await process_frame
+	await process_frame
+	call_deferred("_finish")
 
 func _check_buttons(screen: Control, scene_path: String, resolution: Vector2i, bounds: Rect2) -> void:
 	var buttons: Array[Button] = []
