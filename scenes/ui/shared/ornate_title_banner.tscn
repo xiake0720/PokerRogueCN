@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/ornate_title_banner.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/runtime/frames/stage_title_banner.png" id="2_banner"]
+
+[node name="OrnateTitleBanner" type="NinePatchRect"]
+custom_minimum_size = Vector2(760, 126)
+texture = ExtResource("2_banner")
+patch_margin_left = 120
+patch_margin_top = 46
+patch_margin_right = 120
+patch_margin_bottom = 42
+axis_stretch_horizontal = 0
+axis_stretch_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.14
+anchor_right = 0.9
+anchor_bottom = 0.78
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.025, 0.008, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="SubtitleLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.18
+anchor_top = 0.68
+anchor_right = 0.82
+anchor_bottom = 0.94
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.82, 0.56, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.02, 0.005, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3

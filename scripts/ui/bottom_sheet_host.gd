@@ -11,6 +11,8 @@ signal panel_hidden(panel: Control)
 @export_range(0.22, 0.32, 0.01) var show_duration: float = 0.28
 @export_range(0.18, 0.26, 0.01) var hide_duration: float = 0.22
 
+var dim_blocks_input: bool = true
+
 var current_panel: Control = null
 var pending_panel: Control = null
 var is_transitioning: bool = false
@@ -206,7 +208,7 @@ func _set_dim_visible(should_show: bool) -> void:
 		return
 	modal_dim.visible = should_show
 	modal_dim.color.a = dim_alpha
-	modal_dim.mouse_filter = Control.MOUSE_FILTER_STOP if should_show else Control.MOUSE_FILTER_IGNORE
+	modal_dim.mouse_filter = Control.MOUSE_FILTER_STOP if should_show and dim_blocks_input else Control.MOUSE_FILTER_IGNORE
 
 
 func _begin_transition() -> void:

@@ -47,8 +47,9 @@ func setup(
 	target_label.text = _format_score(target_score)
 	reward_label.text = "奖励：%s" % _reward_text(reward)
 	blind_token.texture = _blind_texture(blind_kind)
+	card_frame.theme_type_variation = &"StageCardActive" if active else (&"StageCardLocked" if locked else &"StageCardNext")
 	active_glow.visible = active
-	card_frame.self_modulate = Color.WHITE if active else (Color(0.82, 0.88, 0.82, 1.0) if not locked else Color(0.48, 0.52, 0.5, 1.0))
+	card_frame.self_modulate = Color.WHITE
 	content.modulate = Color.WHITE if active else (Color(0.9, 0.93, 0.88, 1.0) if not locked else Color(0.58, 0.61, 0.59, 1.0))
 	lock_overlay.visible = locked and blind_kind != "boss"
 	state_badge.text = "当前" if active else ("未解锁" if locked else "下一盲注")

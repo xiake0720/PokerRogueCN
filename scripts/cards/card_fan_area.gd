@@ -11,6 +11,8 @@ signal card_selection_changed(card_id: String, selected: bool, view: PlayingCard
 @export var side_padding: float = 24.0
 @export var bottom_padding: float = 12.0
 @export var preferred_overlap: float = 54.0
+@export var fan_arc: float = 18.0
+@export var max_rotation_degrees: float = 5.0
 
 var selected_ids: Array = []
 var card_views: Array[PlayingCardView] = []
@@ -37,8 +39,9 @@ func display_cards(cards: Array, new_selected_ids: Array) -> void:
 		var card_id: String = str(card.get("instance_id", ""))
 		var view: PlayingCardView = PlayingCardViewScene.instantiate() as PlayingCardView
 		add_child(view)
-		view.custom_minimum_size = card_size
-		view.size = card_size
+		var display_size := _effective_card_size()
+		view.custom_minimum_size = display_size
+		view.size = display_size
 		view.setup(card)
 		view.set_selected_without_signal(selected_ids.has(card_id))
 		view.card_selection_changed.connect(_on_view_selection_changed.bind(view))
@@ -81,24 +84,34 @@ func _layout_cards(animated: bool = true) -> void:
 	if card_views.is_empty():
 		return
 	var count: int = card_views.size()
+	var display_size := _effective_card_size()
+	var layout_scale := display_size.x / maxf(1.0, card_size.x)
 	var measured_width: float = size.x
-	if measured_width < card_size.x:
+	if measured_width < display_size.x:
 		measured_width = get_viewport_rect().size.x * 0.72
-	var available_width: float = max(card_size.x, measured_width - side_padding * 2.0)
-	var step: float = card_size.x - preferred_overlap
+	var scaled_side_padding := side_padding * layout_scale
+	var available_width: float = max(display_size.x, measured_width - scaled_side_padding * 2.0)
+	var step: float = display_size.x - preferred_overlap * layout_scale
 	if count > 1:
-		step = min(step, max(58.0, (available_width - card_size.x) / float(count - 1)))
-	var total_width: float = card_size.x + step * float(count - 1)
-	var start_x: float = side_padding + max(0.0, (available_width - total_width) * 0.5)
-	var base_y: float = max(0.0, size.y - card_size.y - bottom_padding)
+		step = min(step, max(42.0 * layout_scale, (available_width - display_size.x) / float(count - 1)))
+	var total_width: float = display_size.x + step * float(count - 1)
+	var start_x: float = scaled_side_padding + max(0.0, (available_width - total_width) * 0.5)
+	var base_y: float = max(0.0, size.y - display_size.y - bottom_padding * layout_scale)
 	for i in range(count):
 		var view: PlayingCardView = card_views[i]
 		var card_id: String = str(view.card_data.get("instance_id", ""))
 		var is_selected: bool = selected_ids.has(card_id)
-		var target: Vector2 = Vector2(start_x + step * float(i), base_y - (selected_lift if is_selected else 0.0))
+		var normalized_index := 0.0 if count <= 1 else (float(i) / float(count - 1)) * 2.0 - 1.0
+		var arc_offset := fan_arc * layout_scale * normalized_index * normalized_index
+		var target: Vector2 = Vector2(
+			start_x + step * float(i),
+			base_y + arc_offset - (selected_lift * layout_scale if is_selected else 0.0)
+		)
+		var target_rotation := deg_to_rad(max_rotation_degrees * normalized_index)
 		view.z_index = i
-		view.size = card_size
-		view.custom_minimum_size = card_size
+		view.size = display_size
+		view.custom_minimum_size = display_size
+		view.pivot_offset = display_size * Vector2(0.5, 0.92)
 		if _layout_tweens.has(view) and _layout_tweens[view] != null and _layout_tweens[view].is_valid():
 			_layout_tweens[view].kill()
 		if animated and view.is_inside_tree():
@@ -106,9 +119,16 @@ func _layout_cards(animated: bool = true) -> void:
 			tween.set_trans(Tween.TRANS_BACK)
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(view, "position", target, 0.16)
+			tween.parallel().tween_property(view, "rotation", target_rotation, 0.16)
 			_layout_tweens[view] = tween
 		else:
 			view.position = target
+			view.rotation = target_rotation
+
+
+func _effective_card_size() -> Vector2:
+	var viewport_scale := clampf(get_viewport_rect().size.x / 1920.0, 0.72, 1.12)
+	return card_size * viewport_scale
 
 func _animate_cards_in(new_card_ids: Array[String]) -> void:
 	for i in range(card_views.size()):

@@ -79,10 +79,32 @@ func set_phase(phase: int, immediate: bool = false) -> void:
 
 
 func refresh_permanent_ui() -> void:
+	_apply_phase_visibility()
 	refresh_hud()
 	refresh_jokers()
 	refresh_consumables()
 	refresh_deck()
+
+
+func _apply_phase_visibility() -> void:
+	var is_battle := current_phase == RunState.Phase.ROUND
+	var is_shop := current_phase == RunState.Phase.SHOP
+	var is_stage_select := current_phase == RunState.Phase.STAGE_SELECT
+	joker_shelf.visible = is_battle or is_shop
+	consumable_tray.visible = is_battle
+	deck_area.visible = is_battle or is_stage_select
+	popup_host.dim_blocks_input = not is_shop
+	popup_host.dim_alpha = 0.08 if is_shop else 0.14
+	var joker_area := joker_shelf.get_parent() as Control
+	if joker_area != null:
+		joker_area.anchor_left = 0.39 if is_shop else 0.01
+		joker_area.anchor_top = 0.015
+		joker_area.anchor_right = 0.995 if is_shop else 0.72
+		joker_area.anchor_bottom = 0.285 if is_shop else 0.245
+		joker_area.offset_left = 0.0
+		joker_area.offset_top = 0.0
+		joker_area.offset_right = 0.0
+		joker_area.offset_bottom = 0.0
 
 
 func refresh_hud() -> void:

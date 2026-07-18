@@ -96,7 +96,7 @@ grow_vertical = 2
 layout_mode = 1
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.225
+anchor_right = 0.23
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -112,7 +112,7 @@ grow_vertical = 2
 
 [node name="TableArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout"]
 layout_mode = 1
-anchor_left = 0.235
+anchor_left = 0.24
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -122,8 +122,8 @@ grow_vertical = 2
 layout_mode = 1
 anchor_left = 0.01
 anchor_top = 0.01
-anchor_right = 0.7
-anchor_bottom = 0.225
+anchor_right = 0.72
+anchor_bottom = 0.245
 grow_horizontal = 2
 grow_vertical = 2
 [node name="JokerShelf" parent="SafeAspect/Canvas/PermanentLayout/TableArea/JokerArea" instance=ExtResource("5_jokers")]
@@ -137,10 +137,10 @@ grow_vertical = 2
 
 [node name="ConsumableArea" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
 layout_mode = 1
-anchor_left = 0.71
-anchor_top = 0.04
+anchor_left = 0.715
+anchor_top = 0.015
 anchor_right = 0.995
-anchor_bottom = 0.29
+anchor_bottom = 0.265
 grow_horizontal = 2
 grow_vertical = 2
 [node name="ConsumableTray" parent="SafeAspect/Canvas/PermanentLayout/TableArea/ConsumableArea" instance=ExtResource("6_consumables")]
@@ -154,10 +154,10 @@ grow_vertical = 2
 
 [node name="DeckAreaAnchor" type="Control" parent="SafeAspect/Canvas/PermanentLayout/TableArea"]
 layout_mode = 1
-anchor_left = 0.825
-anchor_top = 0.3
+anchor_left = 0.83
+anchor_top = 0.29
 anchor_right = 0.99
-anchor_bottom = 0.83
+anchor_bottom = 0.84
 grow_horizontal = 2
 grow_vertical = 2
 [node name="DeckArea" parent="SafeAspect/Canvas/PermanentLayout/TableArea/DeckAreaAnchor" instance=ExtResource("7_deck")]
@@ -172,7 +172,7 @@ grow_vertical = 2
 [node name="PhaseContentLayer" type="Control" parent="SafeAspect/Canvas"]
 z_index = 20
 layout_mode = 1
-anchor_left = 0.235
+anchor_left = 0.24
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 22.0
@@ -205,8 +205,8 @@ mouse_filter = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchor_left = 0.235
-anchor_top = 0.22
+anchor_left = 0.24
+anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -218,7 +218,7 @@ mouse_filter = 2
 unique_name_in_owner = true
 z_index = 10
 layout_mode = 1
-anchor_left = 0.235
+anchor_left = 0.24
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 22.0
@@ -233,29 +233,29 @@ modal_dim_path = NodePath("../ModalDim")
 unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.01
-anchor_top = 0.29
-anchor_right = 0.815
-anchor_bottom = 0.94
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettlementPanel" parent="SafeAspect/Canvas/ModalLayer/BottomSheetHost" instance=ExtResource("11_settlement")]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.02
-anchor_top = 0.26
-anchor_right = 0.815
-anchor_bottom = 0.94
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ShopPanel" parent="SafeAspect/Canvas/ModalLayer/BottomSheetHost" instance=ExtResource("12_shop")]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.03
-anchor_top = 0.24
-anchor_right = 0.8
-anchor_bottom = 0.97
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
 grow_horizontal = 2
 grow_vertical = 2
 

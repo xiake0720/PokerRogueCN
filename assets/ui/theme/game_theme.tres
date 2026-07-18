@@ -36,6 +36,37 @@
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/pressed.tres" id="41_result_home_pressed"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/result/home/disabled.tres" id="42_result_home_disabled"]
 [ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/focus.tres" id="43_result_home_focus"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panels/stage_surface.tres" id="44_stage_surface"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panels/section_frame.tres" id="45_section_frame"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/normal.tres" id="46_battle_play_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/hover.tres" id="47_battle_play_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/pressed.tres" id="48_battle_play_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/play/disabled.tres" id="49_battle_play_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/normal.tres" id="50_battle_discard_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/hover.tres" id="51_battle_discard_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/pressed.tres" id="52_battle_discard_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/discard/disabled.tres" id="53_battle_discard_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/normal.tres" id="54_battle_rank_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/hover.tres" id="55_battle_rank_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/selected.tres" id="56_battle_rank_selected"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/selected_hover.tres" id="57_battle_rank_selected_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_rank/disabled.tres" id="58_battle_rank_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/normal.tres" id="59_battle_suit_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/hover.tres" id="60_battle_suit_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/selected.tres" id="61_battle_suit_selected"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/selected_hover.tres" id="62_battle_suit_selected_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/battle/sort_suit/disabled.tres" id="63_battle_suit_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panels/stage_card_active.tres" id="64_stage_card_active"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panels/stage_card_next.tres" id="65_stage_card_next"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/panels/stage_card_locked.tres" id="66_stage_card_locked"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/normal.tres" id="67_shop_buy_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/hover.tres" id="68_shop_buy_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/pressed.tres" id="69_shop_buy_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/shop/buy/disabled.tres" id="70_shop_buy_disabled"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/normal.tres" id="71_settlement_normal"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/hover.tres" id="72_settlement_hover"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/pressed.tres" id="73_settlement_pressed"]
+[ext_resource type="StyleBox" path="res://assets/ui/theme/styles/buttons/settlement/continue/disabled.tres" id="74_settlement_disabled"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_card_panel"]
 content_margin_left = 6.0
@@ -127,6 +158,40 @@ Button/styles/hover = ExtResource("3_neutral_hover")
 Button/styles/hover_pressed = ExtResource("4_neutral_pressed")
 Button/styles/normal = ExtResource("2_neutral_normal")
 Button/styles/pressed = ExtResource("4_neutral_pressed")
+BattleDiscardButton/base_type = &"Button"
+BattleDiscardButton/font_sizes/font_size = 26
+BattleDiscardButton/styles/disabled = ExtResource("53_battle_discard_disabled")
+BattleDiscardButton/styles/focus = ExtResource("43_result_home_focus")
+BattleDiscardButton/styles/hover = ExtResource("51_battle_discard_hover")
+BattleDiscardButton/styles/normal = ExtResource("50_battle_discard_normal")
+BattleDiscardButton/styles/pressed = ExtResource("52_battle_discard_pressed")
+BattlePlayButton/base_type = &"Button"
+BattlePlayButton/font_sizes/font_size = 30
+BattlePlayButton/styles/disabled = ExtResource("49_battle_play_disabled")
+BattlePlayButton/styles/focus = ExtResource("43_result_home_focus")
+BattlePlayButton/styles/hover = ExtResource("47_battle_play_hover")
+BattlePlayButton/styles/normal = ExtResource("46_battle_play_normal")
+BattlePlayButton/styles/pressed = ExtResource("48_battle_play_pressed")
+BattleSortRankButton/base_type = &"Button"
+BattleSortRankButton/colors/font_color = Color(0.12, 0.06, 0.015, 1)
+BattleSortRankButton/colors/font_hover_color = Color(0.06, 0.025, 0.008, 1)
+BattleSortRankButton/font_sizes/font_size = 22
+BattleSortRankButton/styles/disabled = ExtResource("58_battle_rank_disabled")
+BattleSortRankButton/styles/focus = ExtResource("43_result_home_focus")
+BattleSortRankButton/styles/hover = ExtResource("55_battle_rank_hover")
+BattleSortRankButton/styles/hover_pressed = ExtResource("57_battle_rank_selected_hover")
+BattleSortRankButton/styles/normal = ExtResource("54_battle_rank_normal")
+BattleSortRankButton/styles/pressed = ExtResource("56_battle_rank_selected")
+BattleSortSuitButton/base_type = &"Button"
+BattleSortSuitButton/colors/font_color = Color(0.12, 0.06, 0.015, 1)
+BattleSortSuitButton/colors/font_hover_color = Color(0.06, 0.025, 0.008, 1)
+BattleSortSuitButton/font_sizes/font_size = 22
+BattleSortSuitButton/styles/disabled = ExtResource("63_battle_suit_disabled")
+BattleSortSuitButton/styles/focus = ExtResource("43_result_home_focus")
+BattleSortSuitButton/styles/hover = ExtResource("60_battle_suit_hover")
+BattleSortSuitButton/styles/hover_pressed = ExtResource("62_battle_suit_selected_hover")
+BattleSortSuitButton/styles/normal = ExtResource("59_battle_suit_normal")
+BattleSortSuitButton/styles/pressed = ExtResource("61_battle_suit_selected")
 CardPanel/base_type = &"PanelContainer"
 CardPanel/styles/panel = SubResource("StyleBox_card_panel")
 DangerButton/base_type = &"Button"
@@ -221,6 +286,30 @@ SmallRedButton/styles/focus = ExtResource("43_result_home_focus")
 SmallRedButton/styles/hover = ExtResource("29_danger_hover")
 SmallRedButton/styles/normal = ExtResource("28_danger_normal")
 SmallRedButton/styles/pressed = ExtResource("30_danger_pressed")
+StageSurface/base_type = &"PanelContainer"
+StageSurface/styles/panel = ExtResource("44_stage_surface")
+StageCardActive/base_type = &"PanelContainer"
+StageCardActive/styles/panel = ExtResource("64_stage_card_active")
+StageCardLocked/base_type = &"PanelContainer"
+StageCardLocked/styles/panel = ExtResource("66_stage_card_locked")
+StageCardNext/base_type = &"PanelContainer"
+StageCardNext/styles/panel = ExtResource("65_stage_card_next")
+SectionFrame/base_type = &"PanelContainer"
+SectionFrame/styles/panel = ExtResource("45_section_frame")
+SettlementContinueButton/base_type = &"Button"
+SettlementContinueButton/font_sizes/font_size = 30
+SettlementContinueButton/styles/disabled = ExtResource("74_settlement_disabled")
+SettlementContinueButton/styles/focus = ExtResource("43_result_home_focus")
+SettlementContinueButton/styles/hover = ExtResource("72_settlement_hover")
+SettlementContinueButton/styles/normal = ExtResource("71_settlement_normal")
+SettlementContinueButton/styles/pressed = ExtResource("73_settlement_pressed")
+ShopBuyButton/base_type = &"Button"
+ShopBuyButton/font_sizes/font_size = 15
+ShopBuyButton/styles/disabled = ExtResource("70_shop_buy_disabled")
+ShopBuyButton/styles/focus = ExtResource("43_result_home_focus")
+ShopBuyButton/styles/hover = ExtResource("68_shop_buy_hover")
+ShopBuyButton/styles/normal = ExtResource("67_shop_buy_normal")
+ShopBuyButton/styles/pressed = ExtResource("69_shop_buy_pressed")
 SurfacePanel/base_type = &"PanelContainer"
 SurfacePanel/styles/panel = SubResource("StyleBox_surface_panel")
 TabButton/base_type = &"Button"

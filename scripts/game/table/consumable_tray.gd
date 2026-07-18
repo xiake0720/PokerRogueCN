@@ -19,9 +19,11 @@ func _ready() -> void:
 func refresh_run(run: RunState, interactive: bool = false) -> void:
 	_interactive = interactive
 	count_label.text = "%d/%d" % [run.consumables.size(), run.consumable_slots]
+	var slot_size := Vector2(100, 145) * clampf(get_viewport_rect().size.x / 1920.0, 0.72, 1.08)
 	var visible_item_count: int = mini(slots.size(), run.consumables.size())
 	for i: int in range(slots.size()):
 		var slot: PanelContainer = slots[i]
+		slot.custom_minimum_size = slot_size
 		slot.visible = i < visible_item_count
 		if not slot.visible:
 			continue

@@ -22,10 +22,12 @@ func _ready() -> void:
 func refresh_run(run: RunState, allow_sell: bool = false) -> void:
 	_allow_sell = allow_sell
 	count_label.text = "小丑牌\n%d/%d" % [run.jokers.size(), run.joker_slots]
+	var slot_size := Vector2(130, 178) * clampf(get_viewport_rect().size.x / 1920.0, 0.72, 1.08)
 	_views_by_id.clear()
 	var visible_joker_count: int = mini(slots.size(), run.jokers.size())
 	for i: int in range(slots.size()):
 		var slot: JokerCardView = slots[i]
+		slot.custom_minimum_size = slot_size
 		slot.visible = i < visible_joker_count
 		if not slot.visible:
 			continue

@@ -35,9 +35,9 @@ func _ready() -> void:
 
 func refresh_run(run: RunState, mode: String = "battle") -> void:
 	var blind_id: String = str(run.current_blind.get("id", "small_blind"))
-	title_label.text = _blind_display_name(run)
+	title_label.text = _hud_title(run, mode)
 	blind_token.texture = ArtResolver.resolve_texture("blind", blind_id)
-	target_label.text = _format_score(run.target_score)
+	target_label.text = _format_score(run.target_preview_for_stage(run.blind_index)) if mode == "stage" else _format_score(run.target_score)
 	round_value_label.text = "%d / 8" % run.ante
 	desc_label.text = _blind_description(run, mode)
 	score_label.text = _format_score(run.current_score)
@@ -77,7 +77,19 @@ func refresh_run(run: RunState, mode: String = "battle") -> void:
 		)
 	hand_info.text = _hand_info_text(run)
 	if mode == "stage":
-		_reset_numeric_display()
+		set_hand_preview("选择盲注", "0 x 0", "等待选择盲注")
+
+
+func _hud_title(run: RunState, mode: String) -> String:
+	match mode:
+		"stage":
+			return "当前盲注"
+		"shop":
+			return "当前状态"
+		"settlement":
+			return "当前下注"
+		_:
+			return _blind_display_name(run)
 
 
 func _reset_numeric_display() -> void:
